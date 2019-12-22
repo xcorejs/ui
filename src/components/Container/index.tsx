@@ -1,12 +1,11 @@
 import React, { FC } from 'react';
-import Flex, { FlexProps } from '../Flex';
-import useTheme from '../../useTheme';
+import Flex, { FlexProps } from 'components/Flex';
+import useTheme from 'useTheme';
 
 const Container: FC<FlexProps> = ({ children, ...props }) => {
-  const theme = useTheme();
-  const containerProps = theme.container;
+  const {container} = useTheme();
 
-  return (<Flex {...containerProps} {...props}>{children}</Flex>);
+  return (<Flex {...container} {...props}>{children}</Flex>);
 };
 
 Container.defaultProps = {

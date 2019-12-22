@@ -1,7 +1,7 @@
 import Box from 'components/Box';
 import Container from 'components/Container';
 import React, { FC } from 'react';
-import { XCoreTheme, container } from 'theme';
+import { XcoreTheme, container } from 'theme';
 import { ThemeProvider } from 'styled-components';
 
 export default { title: 'Container' };
@@ -19,7 +19,7 @@ export const BasicUsage: FC = () => (
   </Container>
 );
 
-const theme: XCoreTheme = {
+const theme: XcoreTheme = {
   name: 'Container theme',
   ...container({
     width: '70%'

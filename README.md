@@ -1,6 +1,7 @@
-# xcore-ui
+Xcore UI
+=======
 
-Easy to use powerful design system.
+Flexible, themeable React component library for applications with advanced UI design requirements which is suitable for creating tailored design systems.
 
 ## Commands
 

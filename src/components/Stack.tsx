@@ -1,7 +1,6 @@
+import Flex, { FlexProps } from 'components/Flex';
 import React, { Children, cloneElement, FC, isValidElement, ReactNode } from 'react';
 import system from 'styled-system';
-
-import Flex, { FlexProps } from './Flex';
 
 export interface StackProps extends FlexProps {
   direction?: system.ResponsiveValue<'column' | 'row'>;

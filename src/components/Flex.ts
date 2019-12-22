@@ -1,6 +1,6 @@
+import Box, { BoxProps } from 'components/Box';
 import styled from 'styled-components';
 import * as system from 'styled-system';
-import Box, { BoxProps } from './Box';
 
 export type FlexProps =
   & system.FlexboxProps

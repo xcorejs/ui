@@ -1648,14 +1648,6 @@
     "@svgr/plugin-svgo" "^4.3.1"
     loader-utils "^1.2.3"
 
-"@theme-ui/color@^0.2.49":
-  version "0.2.49"
-  resolved "https://registry.yarnpkg.com/@theme-ui/color/-/color-0.2.49.tgz#599276ca0dcf94c00c4f35a7b38b6833b3b35bfe"
-  integrity sha512-vUs1SnIzhDjYDyXzidtE62gKELylSw79fSYeNM//DQrNngupTZFWlyAga+MdcS9UYjWJ9Z/ueR0mfy6qlWdlpQ==
-  dependencies:
-    "@styled-system/css" "^5.0.23"
-    polished "^3.4.1"
-
 "@types/eslint-visitor-keys@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@types/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#1ee30d79544ca84d68d4b3cdb0af4f205663dd2d"
@@ -6553,7 +6545,7 @@ pnp-webpack-plugin@1.4.3:
   dependencies:
     ts-pnp "^1.1.2"
 
-polished@^3.3.1, polished@^3.4.1:
+polished@^3.3.1:
   version "3.4.2"
   resolved "https://registry.yarnpkg.com/polished/-/polished-3.4.2.tgz#b4780dad81d64df55615fbfc77acb52fd17d88cd"
   integrity sha512-9Rch6iMZckABr6EFCLPZsxodeBpXMo9H4fRlfR/9VjMEyy5xpo1/WgXlJGgSjPyVhEZNycbW7UmYMNyWS5MI0g==
@@ -7091,7 +7083,7 @@ react-textarea-autosize@^7.1.0:
     "@babel/runtime" "^7.1.2"
     prop-types "^15.6.0"
 
-"react@>= 16.3.0", react@^16.8.3:
+react@^16.8.3:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.12.0.tgz#0c0a9c6a142429e3614834d5a778e18aa78a0b83"
   integrity sha512-fglqy3k5E+81pA8s+7K0/T3DBCF0ZDOher1elBFzF7O6arXJgzyu/FW+COxFvAWXJoJN9KIZbT2LXlukwphYTA==

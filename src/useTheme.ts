@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 
-import { XCoreTheme, defaultTheme } from './theme';
+import { defaultTheme, XcoreTheme } from './theme';
 
 const useTheme = () => {
-  const theme = useContext<XCoreTheme>(ThemeContext);
+  const theme = useContext<XcoreTheme>(ThemeContext);
 
   return theme || defaultTheme;
 };

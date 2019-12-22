@@ -2,12 +2,12 @@ import Box from 'components/Box';
 import Container from 'components/Container';
 import React, { FC } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { container, XCoreTheme } from 'theme';
+import { container, XcoreTheme } from 'theme';
 import useTheme from '../src/useTheme';
 
 export default { title: 'Theme' };
 
-const theme: XCoreTheme = {
+const theme: XcoreTheme = {
   name: 'Container theme',
   ...container({
     width: '70%',

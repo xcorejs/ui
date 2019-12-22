@@ -11,10 +11,11 @@
   },
   "dependencies": {
     "@styled-system/css": "^5.0.23",
-    "@theme-ui/color": "^0.2.49",
-    "react": ">= 16.3.0",
     "styled-components": "^4.4.1",
     "styled-system": "^5.1.2"
+  },
+  "peerDependencies": {
+    "react": ">= 16.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
