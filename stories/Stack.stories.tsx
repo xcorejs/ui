@@ -1,10 +1,10 @@
 import Box from 'components/Box';
 import Stack from 'components/Stack';
-import React from 'react';
+import React, { FC } from 'react';
 
 export default { title: 'Stack' };
 
-export const BasicUsage: React.FC = () => {
+export const BasicUsage: FC = () => {
   return (
     <Box>
       <Stack direction='column' spacing='10px'>

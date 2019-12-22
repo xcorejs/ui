@@ -1,9 +1,9 @@
 import Box from 'components/Box';
-import React from 'react';
+import React, { FC } from 'react';
 
 export default { title: 'Box' };
 
-export const BasicUsage: React.FC = () => {
+export const BasicUsage: FC = () => {
   return (
     <Box>
       <Box background='red' color='white' p='10px' my='15px'>

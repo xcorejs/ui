@@ -1,10 +1,10 @@
 import Box from 'components/Box';
 import Flex from 'components/Flex';
-import React from 'react';
+import React, { FC } from 'react';
 
 export default { title: 'Flex' };
 
-export const BasicUsage: React.FC = () => {
+export const BasicUsage: FC = () => {
   return (
     <Box>
       <Flex>
