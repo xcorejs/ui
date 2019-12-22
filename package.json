@@ -1,0 +1,32 @@
+{
+  "name": "xcore-ui",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "https://github.com/xcorejs/ui",
+  "license": "MIT",
+  "scripts": {
+    "storybook": "start-storybook -p 3000",
+    "build": "yarn lint && tsc -p tsconfig.build.json",
+    "lint": "eslint \"src/**/*.{ts,tsx}\" --quiet"
+  },
+  "dependencies": {
+    "@styled-system/css": "^5.0.23",
+    "styled-components": "^4.4.1",
+    "styled-system": "^5.1.2"
+  },
+  "peerDependencies": {
+    "react": ">= 16.8.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@storybook/react": "^5.2.8",
+    "@types/styled-components": "^4.4.0",
+    "@types/styled-system": "^5.1.4",
+    "@typescript-eslint/eslint-plugin": "^2.6.1",
+    "@typescript-eslint/parser": "^2.6.1",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.7.2",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.2"
+  }
+}
