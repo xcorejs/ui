@@ -5,35 +5,13 @@
     "node": true
   },
   "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:react/recommended"
-  ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": 2018,
-    "sourceType": "module"
-  },
-  "plugins": [
-    "@typescript-eslint",
-    "react",
-    "react-hooks"
+    "alfonz"
   ],
   "rules": {
-    "indent": ["error", 2],
-    "max-len": ["error",  { "code": 100, "tabWidth": 2 }],
-    "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "single"],
-    "jsx-quotes": ["error", "prefer-single"],
-    "semi": ["error", "always"],
-    "no-unused-vars": "off",
-    "object-curly-spacing": ["warn", "always"],
-    "react/prop-types": ["off"],
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "space-infix-ops": "warn",
+    "react-hooks/rules-of-hooks": "off",
+    "max-statements-per-line": ["error", { "max": 1 }],
+    "jsx-quotes": ["error", "prefer-double"]
   },
   "settings": {
     "react": {
