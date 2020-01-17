@@ -8,10 +8,10 @@ export const BasicUsage: FC = () => {
   return (
     <Box>
       <Flex>
-        <Box background='red' color='white' p='10px' my='15px' width='50%'>
+        <Box background="red" color="white" p="10px" my="15px" width="50%">
           Box 1
         </Box>
-        <Box background='blue' color='white' p='10px' my='15px' width='50%'>
+        <Box background="blue" color="white" p="10px" my="15px" width="50%">
           Box 2
         </Box>
       </Flex>
