@@ -1,4 +1,4 @@
-import Box from 'components/Box';
+import { Box } from 'index';
 import React, { FC } from 'react';
 
 export default { title: 'Box' };

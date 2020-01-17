@@ -1,9 +1,7 @@
-import Box from 'components/Box';
-import Container from 'components/Container';
+import { Box, Container, container, useTheme, XcoreTheme } from 'index';
 import React, { FC } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { container, XcoreTheme } from 'theme';
-import useTheme from 'useTheme';
+
 
 export default { title: 'Theme' };
 
