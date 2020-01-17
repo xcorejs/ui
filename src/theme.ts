@@ -11,7 +11,7 @@ export const defaultTheme: XcoreTheme = {
   name: 'Xcore'
 };
 
-interface BreakpointsTheme<T extends string> {
+export interface BreakpointsTheme<T extends string> {
   breakpoints: Record<number | T, string>;
 }
 

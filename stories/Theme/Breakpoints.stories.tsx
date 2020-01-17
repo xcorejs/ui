@@ -1,8 +1,6 @@
-import Box from 'components/Box';
-import Container from 'components/Container';
+import { Box, Container, XcoreTheme, breakpoints, container } from 'index';
 import React, { FC } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { container, XcoreTheme, breakpoints } from 'theme';
 import useTheme from 'useTheme';
 
 export default { title: 'Theme - Breakpoint' };

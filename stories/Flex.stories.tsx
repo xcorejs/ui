@@ -1,5 +1,4 @@
-import Box from 'components/Box';
-import Flex from 'components/Flex';
+import { Box, Flex } from 'index';
 import React, { FC } from 'react';
 
 export default { title: 'Flex' };

@@ -1,5 +1,4 @@
-import Box from 'components/Box';
-import Stack from 'components/Stack';
+import { Box, Stack } from 'index';
 import React, { FC } from 'react';
 
 export default { title: 'Stack' };

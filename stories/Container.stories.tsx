@@ -1,8 +1,7 @@
-import Box from 'components/Box';
-import Container from 'components/Container';
+import { Box, Container, container, XcoreTheme } from 'index';
 import React, { FC } from 'react';
-import { XcoreTheme, container } from 'theme';
 import { ThemeProvider } from 'styled-components';
+
 
 export default { title: 'Container' };
 
