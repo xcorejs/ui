@@ -3,7 +3,7 @@ import Container from 'components/Container';
 import React, { FC } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { container, XcoreTheme } from 'theme';
-import useTheme from '../src/useTheme';
+import useTheme from 'useTheme';
 
 export default { title: 'Theme' };
 
@@ -18,11 +18,11 @@ const theme: XcoreTheme = {
 export const WithContainer: FC = () => (
   <ThemeProvider theme={theme}>
     <Container>
-      <Box width='100%'>
-        <Box background='red' color='white' p='10px' my='15px'>
+      <Box width="100%">
+        <Box background="red" color="white" p="10px" my="15px">
           Box 1
         </Box>
-        <Box background='blue' color='white' p='10px' my='15px'>
+        <Box background="blue" color="white" p="10px" my="15px">
           Box 2
         </Box>
       </Box>
