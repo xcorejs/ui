@@ -5,3 +5,27 @@ install:
 - yarn
 script:
 - yarn ci
+deploy:
+- provider: npm
+  email: "YOUR_EMAIL_ADDRESS"
+  api_key: "YOUR_AUTH_TOKEN"
+
+language: node_js
+node_js:
+  - stable
+cache: yarn
+install:
+  - yarn
+jobs:
+  include:
+    - stage: Build and test
+      script:
+        - yarn ci
+    - stage: Release package
+      if: branch = master
+      script: yarn build
+      deploy:
+        provider: npm
+        email: '$NPM_EMAIL'
+        api_key: '$NPM_TOKEN'
+        skip_cleanup: true
