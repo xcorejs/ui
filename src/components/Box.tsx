@@ -11,6 +11,7 @@ const PseudoSelectors = {
   before: '&:before',
   after: '&:after',
   selection: '& *::selection',
+  // eslint-disable-next-line max-len
   disabled: '&:disabled, &:disabled:focus, &:disabled:hover, &[aria-disabled=true], &[aria-disabled=true]:focus, &[aria-disabled=true]:hover',
   groupHover: '[role=group]:hover &',
   groupHoverIcon: '[role=group]:hover & svg path',
