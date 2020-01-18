@@ -1,4 +1,4 @@
-import { FlexProps } from 'components/Flex';
+import { FlexProps } from '../Flex';
 
 export interface ContainerTheme {
   container: FlexProps;

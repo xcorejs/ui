@@ -1,13 +1,14 @@
-import Box, { BoxProps } from 'components/Box';
 import styled from 'styled-components';
 import * as system from 'styled-system';
+
+import Box, { BoxProps } from './Box';
 
 export type FlexProps =
   & system.FlexboxProps
   & BoxProps
 ;
 
-export const Flex = styled(Box)<FlexProps>`
+const Flex = styled(Box)<FlexProps>`
   ${system.flexbox}
 `;
 
