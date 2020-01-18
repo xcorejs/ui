@@ -1,4 +1,4 @@
-import { ContainerTheme } from 'components/Container/theme';
+import { ContainerTheme } from './components/Container/theme';
 
 interface XcoreThemeBase {
   name: string;
