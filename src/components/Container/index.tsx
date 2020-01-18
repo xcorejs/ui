@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import useTheme from 'useTheme';
+import useTheme from '../../useTheme';
 
 import Flex, { FlexProps } from '../Flex';
 

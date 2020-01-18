@@ -34,4 +34,4 @@ export const breakpoints = <T extends string>(
   };
 };
 
-export { container } from 'components/Container/theme';
+export { container } from './components/Container/theme';
