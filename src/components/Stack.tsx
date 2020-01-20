@@ -1,12 +1,9 @@
 import React, { Children, cloneElement, FC, isValidElement, ReactNode } from 'react';
 import system from 'styled-system';
 
-import Flex, { FlexProps } from './Flex';
 import useTheme from '../useTheme';
 import convert from '../utils/convert';
-import { BoxProps } from './Box';
-
-// col, col, row, row, row
+import Flex, { FlexProps } from './Flex';
 
 
 export interface StackProps extends FlexProps {
@@ -39,8 +36,6 @@ const Stack: FC<StackProps> = ({
       mb: [...acc.mb, val === 'column' ? s[i] : 0],
       mr: [...acc.mr, val === 'row' ? s[i] : 0]
     }), { mb: [], mr: [] } as { mb: (string | number | null)[]; mr: (string | number | null)[] });
-
-  console.log(toArray(direction), getStyle(toArray(direction), toArray(spacing)));
 
   return (
     <Flex
