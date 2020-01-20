@@ -25,12 +25,16 @@
     "storybook": "start-storybook -p 3000",
     "build": "tsc -p tsconfig.build.json",
     "lint": "eslint \"{src,stories}/**/*.{ts,tsx}\"",
-    "ci": "yarn build && yarn lint"
+    "ci": "yarn build && yarn lint",
+    "test": "jest"
   },
   "dependencies": {
     "@styled-system/css": "^5.0.23",
+    "@types/jest": "^24.9.0",
+    "jest": "^24.9.0",
     "styled-components": "^4.4.1",
-    "styled-system": "^5.1.2"
+    "styled-system": "^5.1.2",
+    "ts-jest": "^24.3.0"
   },
   "peerDependencies": {
     "react": ">= 16.8.0"
