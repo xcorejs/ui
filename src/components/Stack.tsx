@@ -1,7 +1,10 @@
 import React, { Children, cloneElement, FC, isValidElement, ReactNode } from 'react';
 import system from 'styled-system';
 
+import useTheme from '../useTheme';
+import convert from '../utils/convert';
 import Flex, { FlexProps } from './Flex';
+
 
 export interface StackProps extends FlexProps {
   direction?: system.ResponsiveValue<'column' | 'row'>;
@@ -21,46 +24,18 @@ const Stack: FC<StackProps> = ({
   children,
   ...props
 }) => {
+  const { breakpoints } = useTheme();
+  const { toArray } = convert(breakpoints!);
   const isLast = (i: number) => children.length === i + 1;
 
-  const responsiveToObj = <T extends string | number>(
-    a: system.ResponsiveValue<T>
-  ): Record<string, T | null> =>
-      typeof a === 'object'
-        ? a instanceof Array
-          ? {
-            xs: a[0],
-            sm: a[1],
-            md: a[2],
-            lg: a[3],
-            xl: a[4]
-          }
-          : a
-        : {
-          xs: a,
-          sm: a,
-          md: a,
-          lg: a,
-          xl: a
-        };
-
   const getStyle = (
-    direction: Record<string, 'column' | 'row' | null>,
-    s: Record<string, number | string | null>
+    direction: ('column' | 'row' | null)[],
+    s: (number | string | null)[]
   ) =>
-    Object.keys(direction).reduce(
-      (acc, k) => ({
-        ...acc,
-        [direction[k] === 'row' ? 'mr' : 'mb']: {
-          ...acc[direction[k] === 'row' ? 'mr' : 'mb'],
-          [k]: s[k]
-        }
-      }),
-      {
-        mb: {},
-        mr: {}
-      }
-    );
+    direction.reduce((acc, val, i) => ({
+      mb: [...acc.mb, val === 'column' ? s[i] : 0],
+      mr: [...acc.mr, val === 'row' ? s[i] : 0]
+    }), { mb: [], mr: [] } as { mb: (string | number | null)[]; mr: (string | number | null)[] });
 
   return (
     <Flex
@@ -72,7 +47,7 @@ const Stack: FC<StackProps> = ({
     >
       {Children.map(children, (child, index) =>
         isValidElement(child) && !isLast(index)
-          ? cloneElement(child, getStyle(responsiveToObj(direction), responsiveToObj(spacing)))
+          ? cloneElement(child, getStyle(toArray(direction), toArray(spacing)))
           : child
       )}
     </Flex>

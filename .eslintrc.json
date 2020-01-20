@@ -11,7 +11,10 @@
     "space-infix-ops": "warn",
     "react-hooks/rules-of-hooks": "off",
     "max-statements-per-line": ["error", { "max": 1 }],
-    "jsx-quotes": ["error", "prefer-double"]
+    "jsx-quotes": ["error", "prefer-double"],
+    "operator-linebreak": ["warn", "before"],
+    "multiline-ternary": ["warn", "always-multiline"],
+    "react/no-unescaped-entities": ["off"]
   },
   "settings": {
     "react": {

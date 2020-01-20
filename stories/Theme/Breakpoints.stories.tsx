@@ -1,4 +1,4 @@
-import { Box, Container, XcoreTheme, breakpoints, container, useTheme } from 'index';
+import { Box, Container, XcoreTheme, breakpoints, container, useTheme, ActiveBreakpoint } from 'index';
 import React, { FC } from 'react';
 import { ThemeProvider } from 'styled-components';
 
@@ -16,18 +16,18 @@ const theme: XcoreTheme = {
 export const Aliases: FC = () => (
   <ThemeProvider theme={theme}>
     <Container>
-      <Box width="100%">
-        <Box color="white" p="10px" my="15px">
-          <GetAliases />
-          <ThemeToJSON />
-        </Box>
+      <Box width="100%" color="white" p="10px" my="15px">
+        <ActiveBreakpoint />
+        <GetAliases />
+        <ThemeToJSON />
       </Box>
     </Container>
   </ThemeProvider>
 );
 
 const GetAliases: FC = () => {
-  const { breakpoints } = useTheme();
+  const { breakpoints: br } = useTheme();
+  const breakpoints = br!;
 
   return (
     <pre>
