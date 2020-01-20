@@ -30,11 +30,8 @@
   },
   "dependencies": {
     "@styled-system/css": "^5.0.23",
-    "@types/jest": "^24.9.0",
-    "jest": "^24.9.0",
     "styled-components": "^4.4.1",
-    "styled-system": "^5.1.2",
-    "ts-jest": "^24.3.0"
+    "styled-system": "^5.1.2"
   },
   "peerDependencies": {
     "react": ">= 16.8.0"
@@ -55,7 +52,10 @@
     "eslint-plugin-react": "7.x",
     "eslint-plugin-react-hooks": "2.x",
     "ts-loader": "^6.2.1",
-    "typescript": "^3.7.2"
+    "typescript": "^3.7.2",
+    "@types/jest": "^24.9.0",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.3.0"
   },
   "keywords": [
     "react",
