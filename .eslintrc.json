@@ -10,11 +10,13 @@
   "rules": {
     "space-infix-ops": "warn",
     "react-hooks/rules-of-hooks": "off",
+    "react-hooks/exhaustive-deps": "off",
     "max-statements-per-line": ["error", { "max": 1 }],
     "jsx-quotes": ["error", "prefer-double"],
     "operator-linebreak": ["warn", "before"],
     "multiline-ternary": ["warn", "always-multiline"],
-    "react/no-unescaped-entities": ["off"]
+    "react/no-unescaped-entities": ["off"],
+    "indent": ["warn", 2, { "ignoredNodes": ["TemplateLiteral *"] }]
   },
   "settings": {
     "react": {

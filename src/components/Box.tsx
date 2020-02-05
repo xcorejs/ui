@@ -1,8 +1,11 @@
 import css from '@styled-system/css';
+import * as CSS from 'csstype';
 import styled, { CSSProperties } from 'styled-components';
 import * as system from 'styled-system';
 
 import { IconProps } from './Icon';
+
+export type TLen = string | 0 | number;
 
 const PseudoSelectors = {
   hover: '&:hover',
@@ -24,7 +27,6 @@ const PseudoSelectors = {
 
 export type BoxProps =
   {
-    color?: string;
     _hover?: BoxProps;
     _active?: BoxProps;
     _focus?: BoxProps;
@@ -48,18 +50,19 @@ export type BoxProps =
     _first?: BoxProps;
     _firstOfType?: BoxProps;
     _last?: BoxProps;
-    cursor?: system.ResponsiveValue<CSSProperties['cursor']>;
-    animation?: system.ResponsiveValue<CSSProperties['animation']>;
-    transition?: system.ResponsiveValue<CSSProperties['transition']>;
-    outline?: system.ResponsiveValue<CSSProperties['outline']>;
-    outlineOffset?: system.ResponsiveValue<CSSProperties['outlineOffset']>;
-    content?: system.ResponsiveValue<CSSProperties['content']>;
-    fontSize?: system.ResponsiveValue<CSSProperties['fontSize']>;
-    transform?: system.ResponsiveValue<CSSProperties['transform']>;
-    filter?: system.ResponsiveValue<CSSProperties['filter']>;
-    flex?: system.ResponsiveValue<CSSProperties['flex']>;
+    color?: string;
+    cursor?: system.ResponsiveValue<CSS.CursorProperty>;
+    animation?: system.ResponsiveValue<CSS.AnimationProperty>;
+    transition?: system.ResponsiveValue<CSS.TransitionProperty>;
+    outline?: system.ResponsiveValue<CSS.OutlineProperty<TLen>>;
+    outlineOffset?: system.ResponsiveValue<CSS.OutlineOffsetProperty<TLen>>;
+    content?: system.ResponsiveValue<CSS.ContentProperty>;
+    transform?: system.ResponsiveValue<CSS.TransformProperty>;
+    filter?: system.ResponsiveValue<CSS.FilterProperty>;
     style?: CSSProperties;
   }
+  & system.FontSizeProps
+  & system.FlexProps
   & system.BorderProps
   & system.BoxShadowProps
   & Omit<system.ColorProps, 'color'>

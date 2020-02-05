@@ -30,6 +30,9 @@
   },
   "dependencies": {
     "@styled-system/css": "^5.0.23",
+    "@types/lodash": "^4.14.149",
+    "csstype": "^2.6.8",
+    "lodash": "^4.17.15",
     "styled-components": "^4.4.1",
     "styled-system": "^5.1.2"
   },
@@ -39,6 +42,7 @@
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@storybook/react": "^5.2.8",
+    "@types/jest": "^24.9.0",
     "@types/styled-components": "^4.4.0",
     "@types/styled-system": "^5.1.4",
     "@typescript-eslint/eslint-plugin": "2.x",
@@ -51,11 +55,10 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "7.x",
     "eslint-plugin-react-hooks": "2.x",
-    "ts-loader": "^6.2.1",
-    "typescript": "^3.7.2",
-    "@types/jest": "^24.9.0",
     "jest": "^24.9.0",
-    "ts-jest": "^24.3.0"
+    "ts-jest": "^24.3.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.2"
   },
   "keywords": [
     "react",

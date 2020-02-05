@@ -1,17 +1,25 @@
-import { Box, Container, XcoreTheme, breakpoints, container, useTheme, ActiveBreakpoint } from 'index';
+import {
+  ActiveBreakpoint,
+  Box,
+  breakpoints,
+  Container,
+  container,
+  createTheme,
+  useTheme
+} from 'index';
 import React, { FC } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 export default { title: 'Theme - Breakpoint' };
 
-const theme: XcoreTheme = {
+const theme = createTheme({
   name: 'Container theme',
   ...breakpoints(['30em', '48em', '64em', '78em', '85em']),
   ...container({
     width: ['100%', '100%', '30rem', '40rem', '50rem', '70rem'],
     background: 'grey'
   })
-};
+});
 
 export const Aliases: FC = () => (
   <ThemeProvider theme={theme}>
@@ -26,8 +34,7 @@ export const Aliases: FC = () => (
 );
 
 const GetAliases: FC = () => {
-  const { breakpoints: br } = useTheme();
-  const breakpoints = br!;
+  const { breakpoints } = useTheme();
 
   return (
     <pre>

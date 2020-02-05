@@ -4,4 +4,6 @@ export interface ContainerTheme {
   container: FlexProps;
 }
 
-export const container = (container: FlexProps): ContainerTheme => ({ container });
+const emptyContainer: FlexProps = {};
+
+export const container = (container: FlexProps = emptyContainer): ContainerTheme => ({ container });
