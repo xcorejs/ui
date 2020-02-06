@@ -22,29 +22,23 @@ export interface TextTheme {
 
 const emptyText: TextValue = {
   default: {
-    as: 'span'
   },
   type: {
+    span: {
+    },
     em: {
-      as: 'em'
     },
     strong: {
-      as: 'strong'
     },
     underline: {
-      as: 'u'
     },
     abbr: {
-      as: 'abbr'
     },
     strikethrough: {
-      as: 's'
     },
     sub: {
-      as: 'sub'
     },
     sup: {
-      as: 'sup'
     }
   }
 };
