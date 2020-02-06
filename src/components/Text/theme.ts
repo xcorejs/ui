@@ -7,6 +7,7 @@ interface TextValue {
 }
 
 export type TextType =
+ | 'span'
  | 'em'
  | 'strong'
  | 'underline'

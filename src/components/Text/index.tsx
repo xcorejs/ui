@@ -15,7 +15,7 @@ export type TextProps =
     WebkitLineClamp?: system.ResponsiveValue<CSSProperties['WebkitLineClamp']>;
     WebkitBoxOrient?: CSSProperties['WebkitBoxOrient'];
     title?: string;
-    as?: 'span' | 'em' | 'strong' | 'u' | 'abbr' | 's' | 'sup' | 'sub';
+    as?: TextType;
   }
   & Omit<system.ColorProps, 'color'>
   & system.TypographyProps
@@ -42,15 +42,27 @@ interface ExtendedTextProps extends TextProps {
   type?: TextType;
 }
 
-const Text: FC<ExtendedTextProps> = ({ t, type: _type, ...props }) => {
-  const { text } = useTheme();
-  const type = _type || t;
+const Text: FC<ExtendedTextProps> = ({ t: _t, type: _type, ...props }) => {
+  const { text: { default: _default, type } } = useTheme();
+  const t = type[_type! || _t!];
+
+  const as = {
+    span: 'span',
+    em: 'em',
+    strong: 'strong',
+    underline: 'u',
+    abbr: 'abbr',
+    strikethrough: 's',
+    sub: 'sub',
+    sup: 'sup'
+  }[_type! || _t!] as any;
 
   return (
     <TextStyle
-      {...text}
-      {...(type ? text.type[type] : {})}
+      {..._default}
+      {...t}
       {...props}
+      as={as}
     />
   );
 };
