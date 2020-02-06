@@ -43,8 +43,8 @@ interface ExtendedTextProps extends TextProps {
 }
 
 const Text: FC<ExtendedTextProps> = ({ t: _t, type: _type, ...props }) => {
-  const { text: { default: _default, type } } = useTheme();
-  const t = type[_type! || _t!];
+  const { text: { default: _default, types } } = useTheme();
+  const type = _type! || _t!;
 
   const as = {
     span: 'span',
@@ -55,12 +55,12 @@ const Text: FC<ExtendedTextProps> = ({ t: _t, type: _type, ...props }) => {
     strikethrough: 's',
     sub: 'sub',
     sup: 'sup'
-  }[_type! || _t!] as any;
+  }[type] as any;
 
   return (
     <TextStyle
       {..._default}
-      {...t}
+      {...types[type]}
       {...props}
       as={as}
     />

@@ -1,23 +1,27 @@
-import { Theme } from 'styled-system';
-
+import { button, ButtonTheme } from './components/Button/theme';
 import { container, ContainerTheme } from './components/Container/theme';
 import { text, TextTheme } from './components/Text/theme';
+import { global, GlobalTheme } from './components/XCoreGlobal/theme';
 
-interface XcoreThemeBase extends Theme {
+interface XcoreThemeBase {
   name: string;
 }
 
 export type XcoreTheme =
-  & XcoreThemeBase
-  & ContainerTheme
   & BreakpointsTheme
-  & TextTheme;
+  & XcoreThemeBase
+  & GlobalTheme
+  & ContainerTheme
+  & TextTheme
+  & ButtonTheme;
 
 export const createTheme = (theme: Partial<XcoreTheme>): XcoreTheme => ({
   name: 'Xcore',
   ...breakpoints(),
+  ...global(),
   ...container(),
   ...text(),
+  ...button(),
   ...theme
 });
 
@@ -27,19 +31,17 @@ export interface BreakpointsTheme {
   breakpoints: Breakpoints;
 }
 
-
 export const breakpoints = (
-  breakpoints: string[] = [],
+  _breakpoints: string[] = [],
   aliases: string[] = ['xs', 'sm', 'md', 'lg', 'xl']
 ): BreakpointsTheme => {
   const br = aliases.reduce((acc, val, i) => {
     // @ts-ignore
-    acc[val] = breakpoints[i];
+    acc[val] = _breakpoints[i];
     return acc;
-  }, [ ...breakpoints ]);
-  //@ts-ignore
+  }, [..._breakpoints]);
+  // @ts-ignore
   br.aliases = aliases;
-
 
   return {
     // @ts-ignore
@@ -48,3 +50,6 @@ export const breakpoints = (
 };
 
 export { container } from './components/Container/theme';
+export { text } from './components/Text/theme';
+export { button } from './components/Button/theme';
+export { global } from './components/XCoreGlobal/theme';

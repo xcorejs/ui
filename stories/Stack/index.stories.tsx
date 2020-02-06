@@ -45,4 +45,3 @@ export const Responsive: FC = () => (
     </Box>
   </ThemeProvider>
 );
-

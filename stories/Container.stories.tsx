@@ -2,7 +2,6 @@ import { Box, Container, container, createTheme } from 'index';
 import React, { FC } from 'react';
 import { ThemeProvider } from 'styled-components';
 
-
 export default { title: 'Container' };
 
 export const BasicUsage: FC = () => (

@@ -5,7 +5,6 @@ import useTheme from '../useTheme';
 import convert from '../utils/convert';
 import Flex, { FlexProps } from './Flex';
 
-
 export interface StackProps extends FlexProps {
   direction?: system.ResponsiveValue<'column' | 'row'>;
   spacing?: system.ResponsiveValue<number | string>;

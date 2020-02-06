@@ -3,7 +3,7 @@ import { defaultsDeep } from 'lodash';
 
 interface TextValue {
   default: TextProps;
-  type: Record<TextType, TextProps>;
+  types: Record<TextType, TextProps>;
 }
 
 export type TextType =
@@ -22,32 +22,28 @@ export interface TextTheme {
 
 const emptyText: TextValue = {
   default: {
+    fontFamily: 'rubik',
+    fontSize: '1.5rem',
+    lineHeight: '2rem',
+    transition: 'color 300ms'
   },
-  type: {
-    span: {
-    },
-    em: {
-    },
-    strong: {
-    },
-    underline: {
-    },
-    abbr: {
-    },
-    strikethrough: {
-    },
-    sub: {
-    },
-    sup: {
-    }
+  types: {
+    span: {},
+    em: {},
+    strong: {},
+    underline: {},
+    abbr: {},
+    strikethrough: {},
+    sub: {},
+    sup: {}
   }
 };
 
 export const text = (
-  text: {
+  t: {
     default?: TextProps;
     type?: Partial<Record<TextType, TextProps>>;
   } = emptyText
 ): TextTheme => ({
-  text: defaultsDeep(text, emptyText)
+  text: defaultsDeep(t, emptyText)
 });
