@@ -1,4 +1,4 @@
-import { Box, Stack, XcoreTheme, breakpoints, container, ActiveBreakpoint } from 'index';
+import { ActiveBreakpoint, Box, breakpoints, container, createTheme, Stack } from 'index';
 import React, { FC } from 'react';
 import { ThemeProvider } from 'styled-components';
 
@@ -20,14 +20,14 @@ export const BasicUsage: FC = () => {
   );
 };
 
-const theme: XcoreTheme = {
+const theme = createTheme({
   name: 'Container theme',
   ...breakpoints(['30em', '48em', '64em', '78em', '85em']),
   ...container({
     width: ['100%', '100%', '30rem', '40rem', '50rem', '70rem'],
     background: 'grey'
   })
-};
+});
 
 export const Responsive: FC = () => (
   <ThemeProvider theme={theme}>
