@@ -34,8 +34,9 @@ const Stack: FC<StackProps> = ({
   ) =>
     direction.reduce((acc, val, i) => ({
       mb: [...acc.mb, val === 'column' ? s[i] : 0],
-      mr: [...acc.mr, val === 'row' ? s[i] : 0]
-    }), { mb: [], mr: [] } as { mb: (string | number | null)[]; mr: (string | number | null)[] });
+      mr: [...acc.mr, val === 'row' ? s[i] : 0],
+      maxWidth: [...acc.maxWidth, val === 'column' ? '100%': 'none']
+    }), { mb: [], mr: [], maxWidth: [] } as { mb: (string | number | null)[]; mr: (string | number | null)[]; maxWidth: (string | number | null)[] });
 
   return (
     <Flex
