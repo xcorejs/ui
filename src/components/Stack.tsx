@@ -28,10 +28,10 @@ const Stack: FC<StackProps> = ({
   const isLast = (i: number) => children.length === i + 1;
 
   const getStyle = (
-    direction: ('column' | 'row' | null)[],
+    dir: ('column' | 'row' | null)[],
     s: (number | string | null)[]
   ) =>
-    direction.reduce((acc, val, i) => ({
+    dir.reduce((acc, val, i) => ({
       mb: [...acc.mb, val === 'column' ? s[i] : 0],
       mr: [...acc.mr, val === 'row' ? s[i] : 0]
     }), { mb: [], mr: [] } as { mb: (string | number | null)[]; mr: (string | number | null)[] });

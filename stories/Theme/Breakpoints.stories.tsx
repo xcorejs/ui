@@ -34,6 +34,7 @@ export const Aliases: FC = () => (
 );
 
 const GetAliases: FC = () => {
+  // eslint-disable-next-line no-shadow
   const { breakpoints } = useTheme();
 
   return (
