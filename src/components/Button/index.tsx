@@ -71,7 +71,6 @@ const Button: FC<ButtonPropsWithAs> = (
     ...props
   }
 ) => {
-  console.log('aaaaa');
   const size = _size || _s;
   const type = _type || _t;
   const { button: { default: _default, sizes, types } } = useTheme();

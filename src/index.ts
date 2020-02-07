@@ -5,7 +5,7 @@ export { default as Container } from './components/Container';
 export { default as ActiveBreakpoint } from './components/ActiveBreakpoint';
 export { default as Text, TextProps } from './components/Text';
 export { default as Button, ButtonProps } from './components/Button';
-export { default as XcoreGlobal } from './components/XCoreGlobal';
+export { default as XcoreGlobal } from './components/XcoreGlobal';
 
 export {
   XcoreTheme,
