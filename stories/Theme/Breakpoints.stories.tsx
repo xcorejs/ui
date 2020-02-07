@@ -34,6 +34,7 @@ export const Aliases: FC = () => (
 );
 
 const GetAliases: FC = () => {
+  // eslint-disable-next-line no-shadow
   const { breakpoints } = useTheme();
 
   return (
@@ -48,7 +49,7 @@ const GetAliases: FC = () => {
 };
 
 const ThemeToJSON: FC = () => {
-  const theme = useTheme();
+  const t = useTheme();
 
-  return <pre>{JSON.stringify(theme, null, 2)}</pre>;
+  return <pre>{JSON.stringify(t, null, 2)}</pre>;
 };

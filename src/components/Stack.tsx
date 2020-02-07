@@ -5,7 +5,6 @@ import useTheme from '../useTheme';
 import convert from '../utils/convert';
 import Flex, { FlexProps } from './Flex';
 
-
 export interface StackProps extends FlexProps {
   direction?: system.ResponsiveValue<'column' | 'row'>;
   spacing?: system.ResponsiveValue<number | string>;
@@ -29,10 +28,10 @@ const Stack: FC<StackProps> = ({
   const isLast = (i: number) => children.length === i + 1;
 
   const getStyle = (
-    direction: ('column' | 'row' | null)[],
+    dir: ('column' | 'row' | null)[],
     s: (number | string | null)[]
   ) =>
-    direction.reduce((acc, val, i) => ({
+    dir.reduce((acc, val, i) => ({
       mb: [...acc.mb, val === 'column' ? s[i] : 0],
       mr: [...acc.mr, val === 'row' ? s[i] : 0],
       maxWidth: [...acc.maxWidth, val === 'column' ? '100%': 'none']

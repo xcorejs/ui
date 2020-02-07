@@ -91,7 +91,8 @@ export const Box = styled.div<BoxProps>`
   ${system.flex}
   ${system.zIndex}
   ${(
-    { _hover,
+    {
+      _hover,
       _active,
       _focus,
       _before,

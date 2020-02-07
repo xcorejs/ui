@@ -10,7 +10,6 @@ export type IconProps = {
   fillHover?: string;
 } & FlexProps
 
-
 const Svg = styled(Flex)<IconProps>`
   flex-shrink: 0;
   backface-visibility: hidden;
@@ -25,8 +24,8 @@ const Svg = styled(Flex)<IconProps>`
       ${system({
     fill: {
       property: 'fill',
-      scale: 'colors',
-    },
+      scale: 'colors'
+    }
   })}
 
     }
@@ -42,8 +41,8 @@ const Svg = styled(Flex)<IconProps>`
         ${system({
     fillHover: {
       property: 'fill',
-      scale: 'colors',
-    },
+      scale: 'colors'
+    }
   })}
       }
     }

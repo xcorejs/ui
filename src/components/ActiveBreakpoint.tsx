@@ -14,7 +14,7 @@ const ActiveBreakpoint: FC<BoxProps> = props => {
       [0]: "_" (0 - {breakpoints![0]})
       </Box>
       {breakpoints!.aliases.map((a, i) => (
-        <Box key={a} display={[...style.slice(0, i + 1 ), 'block', ...style.slice(i + 2)]}>
+        <Box key={a} display={[...style.slice(0, i + 1), 'block', ...style.slice(i + 2)]}>
           [{i + 1}]: "{a}" ({breakpoints![i]} - {i === breakpoints!.length - 1 ? '∞' : breakpoints![i + 1]})
         </Box>
       ))}
