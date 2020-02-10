@@ -7,10 +7,13 @@ export default { title: 'Global' };
 const theme = createTheme({
   ...global({
     _html: {
-      background: 'green'
+      background: 'navy'
     },
     _selection: {
-      bg: 'red'
+      bg: 'crimson'
+    },
+    _all: {
+      color: 'white'
     }
   })
 });

@@ -1,15 +1,16 @@
 import React, { FC } from 'react';
-import Box, { BoxProps } from './Box';
 import useTheme from '../useTheme';
 import convert from '../utils/convert';
+import Text, { TextProps } from './Text';
+import Box from './Box';
 
-const ActiveBreakpoint: FC<BoxProps> = props => {
+const ActiveBreakpoint: FC<TextProps> = props => {
   const { breakpoints } = useTheme();
   const { toArray } = convert(breakpoints!);
   const style = toArray('none');
 
   return (
-    <Box {...props}>
+    <Text {...props}>
       <Box display={['block', ...style.slice(1, style.length - 1)]}>
       [0]: "_" (0 - {breakpoints![0]})
       </Box>
@@ -18,7 +19,7 @@ const ActiveBreakpoint: FC<BoxProps> = props => {
           [{i + 1}]: "{a}" ({breakpoints![i]} - {i === breakpoints!.length - 1 ? '∞' : breakpoints![i + 1]})
         </Box>
       ))}
-    </Box>
+    </Text>
   );
 };
 

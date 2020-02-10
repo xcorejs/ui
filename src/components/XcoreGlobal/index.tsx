@@ -59,8 +59,19 @@ const globalStyle = ({
   ...p
 }: GlobalProps
 ) => css`
+  ${system.border(p)}
+  ${system.boxShadow(p)}
+  ${system.color(p)}
+  ${system.layout(p)}
+  ${system.position(p)}
+  ${system.space(p)}
   ${system.background(p)}
-  ${system.textShadow(p)}
+  ${system.fontSize(p)}
+  ${system.fontWeight(p)}
+  ${system.gridColumn(p)}
+  ${system.gridRow(p)}
+  ${system.flex(p)}
+  ${system.zIndex(p)}
   ${animation && `animation: ${animation};`}
   ${transition && `transition: ${transition};`}
   ${transform && `transform: ${transform};`}
@@ -79,19 +90,8 @@ const selectionStyle = ({
   textEmphasisColor,
   ...p
 }: SelectionProps) => css`
-  ${system.border(p)}
-  ${system.boxShadow(p)}
-  ${system.color(p)}
-  ${system.layout(p)}
-  ${system.position(p)}
-  ${system.space(p)}
+  ${system.textShadow(p)}
   ${system.background(p)}
-  ${system.fontSize(p)}
-  ${system.fontWeight(p)}
-  ${system.gridColumn(p)}
-  ${system.gridRow(p)}
-  ${system.flex(p)}
-  ${system.zIndex(p)}
   ${color && `color: ${color}`}
   ${cursor && `cursor: ${cursor}`}
   ${caretColor && `caret-color: ${caretColor}`}

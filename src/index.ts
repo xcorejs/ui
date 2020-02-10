@@ -7,6 +7,7 @@ export { default as ActiveBreakpoint } from './components/ActiveBreakpoint';
 export { default as Text, TextProps } from './components/Text';
 export { default as Button, ButtonProps } from './components/Button';
 export { default as XcoreGlobal } from './components/XcoreGlobal';
+export { default as Typography } from './components/Typography';
 
 export {
   XcoreTheme,
@@ -17,7 +18,8 @@ export {
   Breakpoints,
   text,
   button,
-  global
+  global,
+  typography
 } from './theme';
 
 export { default as useTheme } from './useTheme';

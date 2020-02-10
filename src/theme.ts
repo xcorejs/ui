@@ -2,6 +2,7 @@ import { button, ButtonTheme } from './components/Button/theme';
 import { container, ContainerTheme } from './components/Container/theme';
 import { text, TextTheme } from './components/Text/theme';
 import { global, GlobalTheme } from './components/XcoreGlobal/theme';
+import { typography, TypographyTheme } from './components/Typography/theme';
 
 interface XcoreThemeBase {
   name: string;
@@ -13,7 +14,8 @@ export type XcoreTheme =
   & GlobalTheme
   & ContainerTheme
   & TextTheme
-  & ButtonTheme;
+  & ButtonTheme
+  & TypographyTheme;
 
 export const createTheme = (theme: Partial<XcoreTheme>): XcoreTheme => ({
   name: 'Xcore',
@@ -22,6 +24,7 @@ export const createTheme = (theme: Partial<XcoreTheme>): XcoreTheme => ({
   ...container(),
   ...text(),
   ...button(),
+  ...typography(),
   ...theme
 });
 
@@ -53,3 +56,4 @@ export { container } from './components/Container/theme';
 export { text } from './components/Text/theme';
 export { button } from './components/Button/theme';
 export { global } from './components/XcoreGlobal/theme';
+export { typography } from './components/Typography/theme';

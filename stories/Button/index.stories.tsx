@@ -7,7 +7,7 @@ export default { title: 'Box' };
 const theme = createTheme({
   ...button({
     default: {
-      bg: 'red',
+      bg: 'crimson',
       color: 'white',
       p: '1rem',
       fontSize: '1rem'
@@ -21,7 +21,7 @@ const theme = createTheme({
       outline: {
         background: 'transparent',
         color: 'red',
-        border: '1px solid red'
+        border: '1px solid crimson'
       }
     }
   })

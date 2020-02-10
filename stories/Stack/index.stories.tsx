@@ -1,4 +1,4 @@
-import { ActiveBreakpoint, Box, breakpoints, container, createTheme, Stack } from 'index';
+import { ActiveBreakpoint, Box, breakpoints, container, createTheme, Stack, Text } from 'index';
 import React, { FC } from 'react';
 import { ThemeProvider } from 'styled-components';
 
@@ -32,16 +32,22 @@ const theme = createTheme({
 export const Responsive: FC = () => (
   <ThemeProvider theme={theme}>
     <Box>
-      <ActiveBreakpoint bg={['green', 'lime', 'yellow', 'red', 'blue']} />
+      <ActiveBreakpoint
+        bg={['green', 'lime', 'crimson', 'red', 'blue', 'navy']}
+        mb="1rem"
+        fontSize="1rem"
+        p=".5rem"
+        color="white"
+      />
       <Stack direction={{ _: 'column', md: 'row' }} spacing="10px">
-        <Box background="red" color="white" p="10px" width="50%">
+        <Box background="crimson" color="white" p="10px" minWidth="50%">
           Box 1
         </Box>
-        <Box background="blue" color="white" p="10px" width="50%">
+        <Box background="navy" color="white" p="10px" minWidth="50%">
           Box 2
         </Box>
       </Stack>
-      <Box>Lorem ipsum dolor sit amet</Box>
+      <Text>Lorem ipsum dolor sit amet</Text>
     </Box>
   </ThemeProvider>
 );
