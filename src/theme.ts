@@ -32,7 +32,7 @@ export interface BreakpointsTheme {
 }
 
 export const breakpoints = (
-  _breakpoints: string[] = [],
+  _breakpoints: string[] = ['30em', '48em', '64em', '78em', '85em'],
   aliases: string[] = ['xs', 'sm', 'md', 'lg', 'xl']
 ): BreakpointsTheme => {
   const br = aliases.reduce((acc, val, i) => {
