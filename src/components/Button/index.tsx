@@ -42,7 +42,7 @@ ButtonStyle.defaultProps = {
   transition: 'background 300ms, color 300ms, border 300ms, box-shadow 300ms'
 };
 
-interface ExtendedButtonProps extends ButtonProps {
+export interface ButtonPropsWithIcons extends ButtonProps {
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
   loading?: boolean;
@@ -53,11 +53,11 @@ interface ExtendedButtonProps extends ButtonProps {
   t?: ButtonType;
 }
 
-type ButtonPropsWithAs =
-  & ExtendedButtonProps
+export type ExtendedButtonProps =
+  & ButtonPropsWithIcons
   & ({ as?: 'button' | 'div' } | ({ as: 'a' } & AnchorHTMLAttributes<unknown>));
 
-const Button: FC<ButtonPropsWithAs> = (
+const Button: FC<ExtendedButtonProps> = (
   {
     leftIcon,
     rightIcon,
