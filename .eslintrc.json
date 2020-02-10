@@ -29,6 +29,9 @@
       "no-unused-vars": "off",
       "semi": ["warn", "always", { "omitLastInOneLineBlock": true }],
       "react/no-unescaped-entities": "off",
-      "no-shadow": "error"
+      "no-shadow": "error",
+      "max-len": ["error", { "code": 120, "tabWidth": 2, "ignoreTemplateLiterals": true, "ignoreComments": true }],
+      "react/jsx-first-prop-new-line": ["error", "multiline"],
+      "no-undef": "off"
     }
 }

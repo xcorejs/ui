@@ -1,21 +1,21 @@
 import React, { FC } from 'react';
 import styled, { CSSProperties } from 'styled-components';
 import * as system from 'styled-system';
+import * as CSS from 'csstype';
 
 import useTheme from '../../useTheme';
 import Box, { BoxProps } from '../Box';
-import { TextType } from './theme';
+import { TextType, TextAs } from './theme';
 
 export type TextProps =
   {
-    textTransform?: system.ResponsiveValue<CSSProperties['textTransform']>;
-    transition?: system.ResponsiveValue<CSSProperties['transition']>;
+    textTransform?: system.ResponsiveValue<CSS.TextTransformProperty>;
+    transition?: system.ResponsiveValue<CSS.TransitionProperty>;
     color?: string;
-    userSelect?: CSSProperties['userSelect'];
-    WebkitLineClamp?: system.ResponsiveValue<CSSProperties['WebkitLineClamp']>;
+    userSelect?: CSS.UserSelectProperty;
+    WebkitLineClamp?: system.ResponsiveValue<CSS.WebkitLineClampProperty>;
     WebkitBoxOrient?: CSSProperties['WebkitBoxOrient'];
     title?: string;
-    as?: TextType;
   }
   & Omit<system.ColorProps, 'color'>
   & system.TypographyProps
@@ -40,13 +40,14 @@ export const TextStyle = styled(Box)<TextProps>`
 interface ExtendedTextProps extends TextProps {
   t?: TextType;
   type?: TextType;
+  as?: TextAs;
 }
 
-const Text: FC<ExtendedTextProps> = ({ t: _t, type: _type, ...props }) => {
+const Text: FC<ExtendedTextProps> = ({ t: _t, type: _type, as: _as, ...props }) => {
   const { text: { default: _default, types } } = useTheme();
   const type = _type! || _t!;
 
-  const as = {
+  const as = _as || {
     span: 'span',
     em: 'em',
     strong: 'strong',
@@ -55,7 +56,7 @@ const Text: FC<ExtendedTextProps> = ({ t: _t, type: _type, ...props }) => {
     strikethrough: 's',
     sub: 'sub',
     sup: 'sup'
-  }[type] as any;
+  }[type] as TextAs;
 
   return (
     <TextStyle

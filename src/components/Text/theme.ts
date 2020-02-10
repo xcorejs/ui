@@ -16,6 +16,17 @@ export type TextType =
  | 'sub'
  | 'sup';
 
+export type TextAs =
+  | 'span'
+  | 'em'
+  | 'strong'
+  | 'u'
+  | 'abbr'
+  | 's'
+  | 'sub'
+  | 'sup'
+  | 'time';
+
 export interface TextTheme {
   text: TextValue;
 }
