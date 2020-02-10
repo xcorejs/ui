@@ -76,8 +76,8 @@ const Button: FC<ExtendedButtonProps> = (
   const { button: { default: _default, sizes, types } } = useTheme();
 
   const { _spinner: _themeSpinner, _leftIcon: _themeLeftIcon, _rightIcon: _themeRightIcon, ...themeButton } = _default;
-  const { _spinner: _sizeSpinner, _leftIcon: _sizeLeftIcon, _rightIcon: _sizeRightIcon, ...sizeButton } = sizes[size] || {};
-  const { _spinner: _typeSpinner, _leftIcon: _typeLeftIcon, _rightIcon: _typeRightIcon, ...typeButton } = types[type] || {};
+  const { _spinner: _sizeSpinner, _leftIcon: _sizeLeftIcon, _rightIcon: _sizeRightIcon, ...sizeButton } = sizes[size];
+  const { _spinner: _typeSpinner, _leftIcon: _typeLeftIcon, _rightIcon: _typeRightIcon, ...typeButton } = types[type];
   const { _spinner, _leftIcon, _rightIcon, ...button } = props;
 
   return (
