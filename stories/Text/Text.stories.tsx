@@ -47,7 +47,7 @@ export const WithTheme: FC = () => {
         <Text>
           <Box>
             <Text t="strong">
-            Number 15: {' '}
+              Number 15: {' '}
               <Text t="em">Burger king foot lettuce. </Text>
             </Text>
           The last thing you'd want in your Burger King burger is someone's foot fungus. But as it turns out, that might
