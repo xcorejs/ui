@@ -66,7 +66,7 @@ export type BoxProps =
   & system.BorderProps
   & system.BoxShadowProps
   & Omit<system.ColorProps, 'color'>
-  & system.LayoutProps
+  & Omit<system.LayoutProps, 'size'>
   & system.PositionProps
   & system.SpaceProps
   & system.BackgroundProps
