@@ -1,5 +1,5 @@
 
-import { Box, Text } from 'index';
+import { Box, Text } from '../../src';
 import React, { FC } from 'react';
 import { createTheme, text } from '../../src/theme';
 import { ThemeProvider } from 'styled-components';

@@ -1,4 +1,4 @@
-import { ActiveBreakpoint, Box, breakpoints, container, createTheme, Stack, Text } from 'index';
+import { ActiveBreakpoint, Box, breakpoints, container, createTheme, Stack, Text } from '../../src';
 import React, { FC } from 'react';
 import { ThemeProvider } from 'styled-components';
 

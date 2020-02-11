@@ -27,9 +27,10 @@
   ],
   "scripts": {
     "storybook": "start-storybook -p 3000",
+    "storybook-ci": "start-storybook --ci --smoke-test",
     "build": "tsc -p tsconfig.build.json",
     "lint": "eslint \"{src,stories}/**/*.{ts,tsx}\"",
-    "ci": "yarn build && yarn lint && yarn test",
+    "ci": "yarn build && yarn lint && yarn test && yarn storybook-ci",
     "test": "jest"
   },
   "dependencies": {

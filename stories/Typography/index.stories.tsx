@@ -1,4 +1,4 @@
-import { Box, Typography, createTheme } from 'index';
+import { Box, Typography, createTheme } from '../../src';
 import React, { FC } from 'react';
 import { ThemeProvider } from 'styled-components';
 

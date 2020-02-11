@@ -1,4 +1,4 @@
-import { Button, button, createTheme, Stack, Box } from 'index';
+import { Button, button, createTheme, Stack, Box } from '../../src';
 import React, { FC } from 'react';
 import { ThemeProvider } from 'styled-components';
 

@@ -1,4 +1,4 @@
-import { createTheme, global, XcoreGlobal } from 'index';
+import { createTheme, global, XcoreGlobal } from '../../src';
 import React, { FC } from 'react';
 import { ThemeProvider } from 'styled-components';
 
