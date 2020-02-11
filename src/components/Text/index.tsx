@@ -37,7 +37,7 @@ export const TextStyle = styled(Box)<TextProps>`
   ${({ userSelect }) => userSelect && `user-select: ${userSelect};`}
 `;
 
-interface ExtendedTextProps extends TextProps {
+export interface ExtendedTextProps extends TextProps {
   t?: TextType;
   type?: TextType;
   as?: TextAs;

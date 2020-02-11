@@ -49,7 +49,9 @@ const Svg = styled(Flex)<IconProps>`
   }
 `;
 
-const Icon: FC<IconProps> = ({ svg, ...props }) => {
+export type ExtendedIconProps = IconProps;
+
+const Icon: FC<ExtendedIconProps> = ({ svg, ...props }) => {
   return (
     <Svg display="inline-block" verticalAlign="middle" maxHeight="100%" {...props}>
       {svg}

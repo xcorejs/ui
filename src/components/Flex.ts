@@ -8,6 +8,8 @@ export type FlexProps =
   & BoxProps
 ;
 
+export type ExtendedFlexProps = FlexProps;
+
 const Flex = styled(Box)<FlexProps>`
   ${system.flexbox}
 `;

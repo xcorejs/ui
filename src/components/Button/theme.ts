@@ -4,6 +4,7 @@ import { darken } from 'polished';
 
 export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg'
 export type ButtonType = 'solid' | 'clear' | 'outline' | 'link';
+export type ButtonAs = 'button' | 'div' | 'a';
 
 interface ButtonValue {
   default: ButtonProps;
@@ -21,7 +22,7 @@ export const button = (
     sizes?: Partial<Record<ButtonSize, ButtonProps>>;
     types?: Partial<Record<ButtonType, ButtonProps>>;
   } = emptyButton
-): ButtonTheme => ({ button: defaultsDeep(emptyButton, b) });
+): ButtonTheme => ({ button: defaultsDeep(b, emptyButton) });
 
 const emptyButton: ButtonValue = {
   default: {
