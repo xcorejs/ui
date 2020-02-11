@@ -4,7 +4,7 @@ import { TextProps, TextStyle } from '../Text/index';
 import { TypographyAs, TypographyType } from './theme';
 import useTheme from '../../useTheme';
 
-type TypographyProps =
+export type TypographyProps =
   {
 
   }
@@ -14,12 +14,12 @@ const TypographyStyle = styled(TextStyle)<TypographyProps>``;
 
 TypographyStyle.displayName = 'Typography';
 
-type ExtendedTypography =
+export type ExtendedTypographyProps =
   ({ type: TypographyType; t?: undefined } | { t: TypographyType; type?: undefined })
   & { as?: TypographyAs }
   & TypographyProps;
 
-const Typography: FC<ExtendedTypography> = ({
+const Typography: FC<ExtendedTypographyProps> = ({
   type: _type,
   t: _t,
   as: _as,

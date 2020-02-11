@@ -14,6 +14,8 @@ export interface StackProps extends FlexProps {
   children: ReactNode[];
 }
 
+export type ExtendedStackProps = StackProps;
+
 const Stack: FC<StackProps> = ({
   align,
   justify,

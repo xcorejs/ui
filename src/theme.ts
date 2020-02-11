@@ -1,8 +1,8 @@
 import { button, ButtonTheme } from './components/Button/theme';
 import { container, ContainerTheme } from './components/Container/theme';
 import { text, TextTheme } from './components/Text/theme';
-import { global, GlobalTheme } from './components/XcoreGlobal/theme';
 import { typography, TypographyTheme } from './components/Typography/theme';
+import { global, GlobalTheme } from './components/XcoreGlobal/theme';
 
 interface XcoreThemeBase {
   name: string;
@@ -53,7 +53,7 @@ export const breakpoints = (
 };
 
 export { container } from './components/Container/theme';
-export { text } from './components/Text/theme';
-export { button } from './components/Button/theme';
+export { text, TextAs, TextType } from './components/Text/theme';
+export { button, ButtonSize, ButtonType, ButtonAs } from './components/Button/theme';
 export { global } from './components/XcoreGlobal/theme';
-export { typography } from './components/Typography/theme';
+export { typography, TypographyType, TypographyAs } from './components/Typography/theme';
