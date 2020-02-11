@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import { TextProps, TextStyle } from '../Text/index';
-import { useTheme } from 'index';
 import { TypographyAs, TypographyType } from './theme';
+import useTheme from '../../useTheme';
 
 type TypographyProps =
   {

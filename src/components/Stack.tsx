@@ -56,12 +56,10 @@ const Stack: FC<StackProps> = ({
       flexWrap={wrap}
       {...props}
     >
-      {Children.map(children, (child, index) => {
-        console.log(getStyle(toArray(direction), toArray(spacing)), toArray(direction), toArray(spacing));
-        return isValidElement(child) && !isLast(index)
-          ? cloneElement(child, getStyle(toArray(direction, false), toArray(spacing, false)))
-          : child;
-      })}
+      {Children.map(children, (child, index) => isValidElement(child) && !isLast(index)
+        ? cloneElement(child, getStyle(toArray(direction, false), toArray(spacing, false)))
+        : child
+      )}
     </Flex>
   );
 };

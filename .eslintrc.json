@@ -32,6 +32,7 @@
       "no-shadow": "error",
       "max-len": ["error", { "code": 120, "tabWidth": 2, "ignoreTemplateLiterals": true, "ignoreComments": true }],
       "react/jsx-first-prop-new-line": ["error", "multiline"],
-      "no-undef": "off"
+      "no-undef": "off",
+      "no-console": "warn"
     }
 }

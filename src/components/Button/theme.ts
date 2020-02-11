@@ -21,7 +21,7 @@ export const button = (
     sizes?: Partial<Record<ButtonSize, ButtonProps>>;
     types?: Partial<Record<ButtonType, ButtonProps>>;
   } = emptyButton
-): ButtonTheme => ({ button: defaultsDeep(emptyButton, b) });
+): ButtonTheme => ({ button: defaultsDeep(b, emptyButton) });
 
 const emptyButton: ButtonValue = {
   default: {
