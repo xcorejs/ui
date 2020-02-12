@@ -5,7 +5,8 @@ Xcore UI
 
 Flexible, themeable React component library for applications with advanced UI design requirements which is suitable for creating tailored design systems.
 
-## Commands
-
-- `yarn build` - build the project
-- `yarn storybook` - start storybook server
+* 🌪 Unlimited customization and theming
+* 📱 Fully responsive props and breakpoint aliases support
+* 🔌️ Superpowered by [Styled system](https://styled-system.com/) and its paradigm
+* 💅️ Based on [styled components](https://styled-components.com)
+* ⚡️ Inspired by [Chakra UI](https://chakra-ui.com) + [Theme UI](https://theme-ui.com/)
