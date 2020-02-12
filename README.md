@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/xcorejs/ui/develop/logo/logo-primary.svg?sanitize=true" alt="Xcore UI"/>
+
 Xcore UI
 =======
 
