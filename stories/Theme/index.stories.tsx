@@ -7,8 +7,13 @@ export default { title: 'Theme' };
 const theme = createTheme({
   name: 'Container theme',
   ...container({
-    width: '70%',
-    background: 'grey'
+    types: {
+      normal: {
+        width: '70%',
+        bg: 'grey'
+      },
+      fluid: {}
+    }
   })
 });
 

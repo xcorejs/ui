@@ -1,11 +1,37 @@
+import { ContainerProps } from './index';
 import { FlexProps } from '../Flex';
+import { defaultsDeep } from 'lodash';
 
-export interface ContainerTheme {
-  container: FlexProps;
+interface ContainerValue {
+  types: {
+    normal: FlexProps
+    fluid: FlexProps
+  }
+  & ContainerProps
 }
 
-const emptyContainer: FlexProps = {
-  width: ['100%', '76.8rem', '102.4rem', '120rem', '132rem']
+export interface ContainerTheme {
+  container: ContainerValue;
+}
+
+const emptyContainer: ContainerValue = {
+  types: {
+    normal: {
+      width: ['100%', '76.8rem', '102.4rem', '120rem', '132rem'],
+      px: 3
+    },
+    fluid: {
+      width: '100%',
+      px: 3
+    }
+  }
 };
 
-export const container = (c: FlexProps = emptyContainer): ContainerTheme => ({ container: c });
+export const container = (
+  c: {
+    types: {
+      normal: FlexProps
+      fluid: FlexProps
+    }
+  } = emptyContainer
+): ContainerTheme => ({ container: defaultsDeep(c, emptyContainer) });
