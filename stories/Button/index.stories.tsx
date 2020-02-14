@@ -35,7 +35,7 @@ export const BasicUsage: FC = () => {
           <Button>Button</Button>
         </Box>
         <Box>
-          <Button bg="blue">Button</Button>
+          <Button bg="navy">Button</Button>
         </Box>
         <Box>
           <Button t="outline">Button</Button>

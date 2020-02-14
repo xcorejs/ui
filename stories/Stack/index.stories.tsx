@@ -24,8 +24,12 @@ const theme = createTheme({
   name: 'Container theme',
   ...breakpoints(['30em', '48em', '64em', '78em', '85em']),
   ...container({
-    width: ['100%', '100%', '30rem', '40rem', '50rem', '70rem'],
-    background: 'grey'
+    types: {
+      normal: {
+        width: ['100%', '100%', '30rem', '40rem', '50rem', '70rem'],
+        background: 'grey'
+      }
+    }
   })
 });
 
