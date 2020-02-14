@@ -36,6 +36,7 @@
   "dependencies": {
     "@styled-system/css": "^5.0.23",
     "lodash": "^4.17.15",
+    "lorem-ipsum": "^2.0.3",
     "polished": "^3.4.4",
     "styled-system": "^5.1.2"
   },
@@ -68,6 +69,7 @@
     "styled-components": "^4.4.1",
     "ts-jest": "^24.3.0",
     "ts-loader": "^6.2.1",
+    "ts-node": "^8.6.2",
     "typescript": "^3.7.2"
   },
   "keywords": [

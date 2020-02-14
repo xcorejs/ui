@@ -33,6 +33,6 @@ const emptyGlobal: GlobalValue = {
   },
   _selection: {
     color: '#fff',
-    bg: '#0171b6'
+    backgroundColor: '#0171b6'
   }
 };

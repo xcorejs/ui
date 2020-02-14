@@ -47,7 +47,7 @@ const Text: FC<ExtendedTextProps> = ({ t: _t, type: _type, as: _as, ...props }) 
   const { text: { default: _default, types } } = useTheme();
   const type = _type! || _t!;
 
-  const as = _as || {
+  const as = (_as || {
     span: 'span',
     em: 'em',
     strong: 'strong',
@@ -56,7 +56,7 @@ const Text: FC<ExtendedTextProps> = ({ t: _t, type: _type, as: _as, ...props }) 
     strikethrough: 's',
     sub: 'sub',
     sup: 'sup'
-  }[type] as TextAs;
+  }[type] || 'span') as TextAs;
 
   return (
     <TextStyle
