@@ -9,8 +9,6 @@ const ActiveBreakpoint: FC<TextProps> = props => {
   const { toArray } = convert(breakpoints);
   const style = toArray('none');
 
-  console.log(breakpoints);
-
   return (
     <Text {...props}>
       <Box display={['block', ...style.slice(1, style.length - 1)]}>
