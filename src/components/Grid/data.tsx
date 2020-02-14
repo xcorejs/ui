@@ -4,7 +4,7 @@ export const templateQueries = (columns: string[], rows: string[], gap: boolean)
   ${rows.map((r, y) =>
     css`
       ${columns.map((c, x) => css`
-        & > *:nth-child(${(y * columns.length + x) + 1}) {
+        & > *:nth-child(${y * columns.length + x + 1}) {
           -ms-grid-column: ${gap ? 2 * x + 1 : x + 1};
           -ms-grid-row: ${gap ? 2 * y + 1 : y + 1};
         }

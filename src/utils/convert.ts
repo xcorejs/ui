@@ -11,7 +11,7 @@ const convert = (breakpoints: Breakpoints) => {
     ['_', ...breakpoints!.aliases]
       .reduce((acc, val, i) => [
         ...acc,
-        obj[val] ? obj[val] : (optimal || i === 0) ? null : acc[i - 1]
+        obj[val] ? obj[val] : optimal || i === 0 ? null : acc[i - 1]
       ], [] as (T | null)[]);
 
   const toArray = <T extends string | number | boolean>(
@@ -41,7 +41,7 @@ const convert = (breakpoints: Breakpoints) => {
 export const getArrayValue = <T>(val: (T | null)[], i: number) => val[i]
   ? val[i]
   : val.reduceRight(
-    (acc, v, ii) => (!acc && ii <= i && v) ? v : acc,
+    (acc, v, ii) => !acc && ii <= i && v ? v : acc,
     null as T | null
   ) as T;
 

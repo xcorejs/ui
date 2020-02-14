@@ -24,7 +24,7 @@ const parse = ([result, current]: ParseState, gap?: string | null, last?: boolea
     ...repeatRegex.test(current)
       ? repeat(current, gap)
       : [current],
-    ...(!last && gap ? [gap] : [])
+    ...!last && gap ? [gap] : []
   ],
   '',
   0
@@ -38,7 +38,7 @@ const repeat = (r: string, gap?: string | null) => {
 };
 
 export const getTemplate = (n: number, val: string, gap?: string | null) =>
-  [...Array(gap ? n * 2 - 1 : n)].map((v, i) => i % 2 === 1 ? (gap || val) : val);
+  [...Array(gap ? n * 2 - 1 : n)].map((v, i) => i % 2 === 1 ? gap || val : val);
 
 export const parseTwin = <T extends string | null>(val: T): [string | T, string | T] => {
   if (!val) {
