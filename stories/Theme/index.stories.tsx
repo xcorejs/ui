@@ -11,8 +11,7 @@ const theme = createTheme({
       normal: {
         width: '70%',
         bg: 'grey'
-      },
-      fluid: {}
+      }
     }
   })
 });

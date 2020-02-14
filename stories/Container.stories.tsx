@@ -1,33 +1,33 @@
 import { Box, Container, container, createTheme } from '../src';
-import React, { FC, Fragment } from 'react';
+import React, { FC } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 export default { title: 'Container' };
 
-export const BasicUsage: FC = () => (
-  <Fragment>
-    <Container>
-      <Box width="100%">
-        <Box background="crimson" color="white" p="10px" my="10px">
+export const Normal: FC = () => (
+  <Container>
+    <Box width="100%">
+      <Box background="crimson" color="white" p="10px" my="10px">
           Box 1
-        </Box>
-        <Box background="navy" color="white" p="10px" my="10px">
-          Box 2
-        </Box>
       </Box>
-    </Container>
+      <Box background="navy" color="white" p="10px" my="10px">
+          Box 2
+      </Box>
+    </Box>
+  </Container>
+);
 
-    <Container type="fluid">
-      <Box width="100%">
-        <Box background="crimson" color="white" p="10px" my="10px">
+export const Fluid: FC = () => (
+  <Container type="fluid">
+    <Box width="100%">
+      <Box background="crimson" color="white" p="10px" my="10px">
           fluid
-        </Box>
-        <Box background="navy" color="white" p="10px" my="10px">
-          Box 2
-        </Box>
       </Box>
-    </Container>
-  </Fragment>
+      <Box background="navy" color="white" p="10px" my="10px">
+          Box 2
+      </Box>
+    </Box>
+  </Container>
 );
 
 const theme = createTheme({
@@ -39,7 +39,7 @@ const theme = createTheme({
         background: 'grey'
       },
       fluid: {
-        background: 'red'
+        background: 'crimson'
       }
     }
   })
@@ -47,6 +47,6 @@ const theme = createTheme({
 
 export const WithTheme: FC = () => (
   <ThemeProvider theme={theme}>
-    <BasicUsage />
+    <Normal />
   </ThemeProvider>
 );

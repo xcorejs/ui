@@ -6,8 +6,7 @@ interface ContainerValue {
   types: {
     normal: FlexProps
     fluid: FlexProps
-  }
-  & ContainerProps
+  } & ContainerProps;
 }
 
 export interface ContainerTheme {
@@ -29,9 +28,9 @@ const emptyContainer: ContainerValue = {
 
 export const container = (
   c: {
-    types: {
-      normal: FlexProps
-      fluid: FlexProps
+    types?: {
+      normal?: FlexProps
+      fluid?: FlexProps
     }
   } = emptyContainer
 ): ContainerTheme => ({ container: defaultsDeep(c, emptyContainer) });

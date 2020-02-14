@@ -28,8 +28,7 @@ const theme = createTheme({
       normal: {
         width: ['100%', '100%', '30rem', '40rem', '50rem', '70rem'],
         background: 'grey'
-      },
-      fluid: {}
+      }
     }
   })
 });
