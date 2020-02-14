@@ -1,4 +1,4 @@
-import convert from '../../src/utils/convert';
+import convert, { getArrayValue } from '../../src/utils/convert';
 import { breakpoints } from '../../src/theme';
 
 const {
@@ -58,4 +58,13 @@ test('narrow array', () => {
   expect(narrow(['3rem', '3rem', '3rem', '4rem', '4rem', '5rem'])).toEqual(['3rem', null, null, '4rem', null, '5rem']);
 
   expect(narrow([null, '3rem', '3rem', '4rem', '4rem', '5rem'])).toEqual([null, '3rem', null, '4rem', null, '5rem']);
+});
+
+test('get array value', () => {
+  expect(getArrayValue(['3rem', null, null, '4rem', null, '5rem'], 0)).toEqual('3rem');
+  expect(getArrayValue(['3rem', null, null, '4rem', null, '5rem'], 1)).toEqual('3rem');
+  expect(getArrayValue(['3rem', null, null, '4rem', null, '5rem'], 2)).toEqual('3rem');
+  expect(getArrayValue(['3rem', null, null, '4rem', null, '5rem'], 3)).toEqual('4rem');
+  expect(getArrayValue(['3rem', null, null, '4rem', null, '5rem'], 4)).toEqual('4rem');
+  expect(getArrayValue(['3rem', null, null, '4rem', null, '5rem'], 5)).toEqual('5rem');
 });

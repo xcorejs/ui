@@ -2,7 +2,7 @@ import { Button, button, createTheme, Stack, Box } from '../../src';
 import React, { FC } from 'react';
 import { ThemeProvider } from 'styled-components';
 
-export default { title: 'Box' };
+export default { title: 'Button' };
 
 const theme = createTheme({
   ...button({

@@ -2,6 +2,7 @@ import css from '@styled-system/css';
 import * as CSS from 'csstype';
 import styled, { CSSProperties } from 'styled-components';
 import * as system from 'styled-system';
+import { ResponsiveValue } from 'styled-system';
 
 import { IconProps } from './Icon';
 
@@ -51,14 +52,20 @@ export type BoxProps =
     _firstOfType?: BoxProps;
     _last?: BoxProps;
     color?: string;
-    cursor?: system.ResponsiveValue<CSS.CursorProperty>;
-    animation?: system.ResponsiveValue<CSS.AnimationProperty>;
-    transition?: system.ResponsiveValue<CSS.TransitionProperty>;
-    outline?: system.ResponsiveValue<CSS.OutlineProperty<TLen>>;
-    outlineOffset?: system.ResponsiveValue<CSS.OutlineOffsetProperty<TLen>>;
-    content?: system.ResponsiveValue<CSS.ContentProperty>;
-    transform?: system.ResponsiveValue<CSS.TransformProperty>;
-    filter?: system.ResponsiveValue<CSS.FilterProperty>;
+    cursor?: ResponsiveValue<CSS.CursorProperty>;
+    animation?: ResponsiveValue<CSS.AnimationProperty>;
+    transition?: ResponsiveValue<CSS.TransitionProperty>;
+    outline?: ResponsiveValue<CSS.OutlineProperty<TLen>>;
+    outlineOffset?: ResponsiveValue<CSS.OutlineOffsetProperty<TLen>>;
+    content?: ResponsiveValue<CSS.ContentProperty>;
+    transform?: ResponsiveValue<CSS.TransformProperty>;
+    filter?: ResponsiveValue<CSS.FilterProperty>;
+    placeSelf?: ResponsiveValue<CSS.PlaceSelfProperty>;
+
+    // Aliases
+    column?: ResponsiveValue<CSS.GridColumnProperty>;
+    row?: ResponsiveValue<CSS.GridRowProperty>;
+
     style?: CSSProperties;
   }
   & system.FontSizeProps
@@ -74,6 +81,8 @@ export type BoxProps =
   & system.GridColumnProps
   & system.GridRowProps
   & system.ZIndexProps
+  & system.JustifySelfProps
+  & system.AlignSelfProps
 ;
 
 export const Box = styled.div<BoxProps>`
@@ -90,6 +99,8 @@ export const Box = styled.div<BoxProps>`
   ${system.gridRow}
   ${system.flex}
   ${system.zIndex}
+  ${system.alignSelf}
+  ${system.justifySelf}
   ${(
     {
       _hover,
@@ -122,11 +133,25 @@ export const Box = styled.div<BoxProps>`
     [PseudoSelectors.firstOfType]: _firstOfType,
     [PseudoSelectors.last]: _last
   })}
-  ${({ animation }) => animation && `animation: ${animation};`}
-  ${({ transition }) => transition && `transition: ${transition};`}
-  ${({ transform }) => transform && `transform: ${transform};`}
-  ${({ cursor }) => cursor && `cursor: ${cursor};`}
-  ${({ filter }) => filter && `filter: ${filter};`}
+
+  ${system.system({
+    animation: true,
+    transition: true,
+    transform: true,
+    cursor: true,
+    filter: true,
+    alignSelf: true,
+    justifySelf: true,
+    placeSelf: true,
+    column: {
+      property: 'gridColumn'
+    },
+    row: {
+      property: 'gridRow'
+    }
+  })}
 `;
+
+const jeff = '';
 
 export default Box;

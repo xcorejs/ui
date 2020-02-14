@@ -17,7 +17,6 @@ export type SelectionProps =
     textEmphasisColor?: system.ResponsiveValue<CSS.TextEmphasisColorProperty>;
   }
   & system.BackgroundColorProps
-  & system.BackgroundProps
   & system.TextShadowProps;
 
 export type GlobalProps = {
@@ -72,33 +71,58 @@ const globalStyle = ({
   ${system.gridRow(p)}
   ${system.flex(p)}
   ${system.zIndex(p)}
-  ${animation && `animation: ${animation};`}
-  ${transition && `transition: ${transition};`}
-  ${transform && `transform: ${transform};`}
-  ${cursor && `cursor: ${cursor};`}
-  ${filter && `filter: ${filter};`}
+
   ${webkitFontSmoothing && `webkit-font-smoothing: ${webkitFontSmoothing}`}
+  ${system.system({
+    animation: {
+      property: 'animation'
+    },
+    transition: {
+      property: 'transition'
+    },
+    transform: {
+      property: 'transform'
+    },
+    cursor: {
+      property: 'cursor'
+    },
+    filter: {
+      property: 'filter'
+    },
+    boxSizing: {
+      property: 'boxSizing'
+    }
+  })}
 `;
 
-const selectionStyle = ({
-  color,
-  cursor,
-  caretColor,
-  outline,
-  outlineOffset,
-  textDecoration,
-  textEmphasisColor,
-  ...p
-}: SelectionProps) => css`
+const selectionStyle = (p: SelectionProps) => css`
   ${system.textShadow(p)}
-  ${system.background(p)}
-  ${color && `color: ${color}`}
-  ${cursor && `cursor: ${cursor}`}
-  ${caretColor && `caret-color: ${caretColor}`}
-  ${outline && `outline: ${outline}`}
-  ${outlineOffset && `outline-offset: ${outlineOffset}`}
-  ${textDecoration && `text-decoration: ${textDecoration}`}
-  ${textEmphasisColor && `text-emphasis-color: ${textEmphasisColor}`}
+  ${system.system({
+    color: {
+      property: 'color'
+    },
+    backgroundColor: {
+      property: 'backgroundColor'
+    },
+    cursor: {
+      property: 'cursor'
+    },
+    caretColor: {
+      property: 'caretColor'
+    },
+    outline: {
+      property: 'outline'
+    },
+    outlineOffset: {
+      property: 'outlineOffset'
+    },
+    textDecoration: {
+      property: 'textDecoration'
+    },
+    textEmphasisColor: {
+      property: 'textEmphasisColor'
+    }
+  })(p)}
 `;
 
 const GlobalStyle = createGlobalStyle<GlobalValue>`

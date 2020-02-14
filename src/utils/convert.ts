@@ -1,10 +1,6 @@
 import { Breakpoints } from '../theme';
 import { ResponsiveValue } from 'styled-system';
 
-// Conversion proccess
-// { xs: "col", md: "row"} -> { xs: "col", sm: "col", md: "row", lg: "row", xl: "row" } -> [col, col, row, row, row]
-// { xs: 1, sm: 2, md:  3, lg: 4, xl: 5 } -> [1, 2, 3, 4, 5]
-
 const convert = (breakpoints: Breakpoints) => {
   const valueToArray = <T>(val: T, optimal: boolean = true) => [
     val,
@@ -19,14 +15,16 @@ const convert = (breakpoints: Breakpoints) => {
       ], [] as (T | null)[]);
 
   const toArray = <T extends string | number | boolean>(
-    val: ResponsiveValue<T>,
+    val: ResponsiveValue<T> | undefined,
     optimal: boolean = true
   ): (T | null)[] =>
-      typeof val === 'object'
-        ? val instanceof Array
-          ? val
-          : objToArray<T>(val as Record<string, T>, optimal)
-        : valueToArray(val, optimal);
+      val === undefined
+        ? []
+        : typeof val === 'object'
+          ? val instanceof Array
+            ? val
+            : objToArray<T>(val as Record<string, T>, optimal)
+          : valueToArray(val, optimal);
 
   const narrow = <T extends string | number | boolean>(val: (T | null)[]) => val.reduce((acc, x, i) => [
     ...acc,
@@ -39,5 +37,12 @@ const convert = (breakpoints: Breakpoints) => {
 
   return { valueToArray, objToArray, toArray, narrow };
 };
+
+export const getArrayValue = <T>(val: (T | null)[], i: number) => val[i]
+  ? val[i]
+  : val.reduceRight(
+    (acc, v, ii) => (!acc && ii <= i && v) ? v : acc,
+    null as T | null
+  ) as T;
 
 export default convert;

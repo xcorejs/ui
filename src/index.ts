@@ -8,6 +8,10 @@ export { default as Text, TextProps, ExtendedTextProps } from './components/Text
 export { default as Button, ButtonProps, ExtendedButtonProps } from './components/Button';
 export { default as XcoreGlobal } from './components/XcoreGlobal';
 export { default as Typography, TypographyProps, ExtendedTypographyProps } from './components/Typography';
+export { default as Grid, GridProps, ExtendedGridProps } from './components/Grid';
+export { default as Cell, CellProps, ExtendedCellProps } from './components/Grid/Cell';
+export { default as SimpleGrid, SimpleGridProps } from './components/SimpleGrid';
+export { default as LoremIpsum, LoremIpsumProps } from './components/LoremIpsum';
 
 export {
   XcoreTheme,

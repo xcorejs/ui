@@ -22,11 +22,11 @@ const Svg = styled(Flex)<IconProps>`
     path {
       transition: fill 300ms;
       ${system({
-    fill: {
-      property: 'fill',
-      scale: 'colors'
-    }
-  })}
+        fill: {
+          property: 'fill',
+          scale: 'colors'
+        }
+      })}
 
     }
   }

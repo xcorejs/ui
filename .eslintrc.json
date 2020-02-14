@@ -33,6 +33,8 @@
       "max-len": ["error", { "code": 120, "tabWidth": 2, "ignoreTemplateLiterals": true, "ignoreComments": true }],
       "react/jsx-first-prop-new-line": ["error", "multiline"],
       "no-undef": "off",
-      "no-console": "warn"
+      "no-console": "warn",
+      "no-extra-parens": "off",
+      "@typescript-eslint/no-extra-parens": ["warn", "all", { "ignoreJSX": "multi-line" }]
     }
 }
