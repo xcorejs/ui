@@ -20,7 +20,7 @@ const Container: FC<ContainerProps> = (
   }
 ) => {
   const { container: { types } } = useTheme();
-  const type = _type || _t || 'normal';
+  const type = _type ?? _t ?? 'normal';
 
   return <ContainerStyle {...types[type]} {...props}>{children}</ContainerStyle>;
 };

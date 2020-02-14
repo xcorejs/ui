@@ -26,12 +26,12 @@ const Typography: FC<ExtendedTypographyProps> = ({
   ...props
 }) => {
   const { typography: { default: _default, types } } = useTheme();
-  const type = _type! || _t!;
+  const type = _type ?? _t;
 
-  const as: TypographyAs = _as || (type === 'lead' ? 'p' : type);
+  const as: TypographyAs = _as ?? (type === 'lead' ? 'p' : type!);
 
   return (
-    <TypographyStyle {..._default} {...types[type]} {...props} as={as} />
+    <TypographyStyle {..._default} {...types[type!]} {...props} as={as} />
   );
 };
 

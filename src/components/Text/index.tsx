@@ -33,9 +33,10 @@ export const TextStyle = styled(Box)<TextProps>`
   ${system.color}
   ${system.space}
   ${system.textShadow}
-  ${({ transition }) => transition && `transition: ${transition};`}
-  ${({ userSelect }) => userSelect && `user-select: ${userSelect};`}
 `;
+
+// ${({ transition }) => transition && `transition: ${transition};`}
+// ${({ userSelect }) => userSelect && `user-select: ${userSelect};`}
 
 export interface ExtendedTextProps extends TextProps {
   t?: TextType;
@@ -45,9 +46,9 @@ export interface ExtendedTextProps extends TextProps {
 
 const Text: FC<ExtendedTextProps> = ({ t: _t, type: _type, as: _as, ...props }) => {
   const { text: { default: _default, types } } = useTheme();
-  const type = _type! || _t!;
+  const type = _type ?? _t!;
 
-  const as = (_as || {
+  const as = (_as ?? {
     span: 'span',
     em: 'em',
     strong: 'strong',
@@ -56,7 +57,7 @@ const Text: FC<ExtendedTextProps> = ({ t: _t, type: _type, as: _as, ...props }) 
     strikethrough: 's',
     sub: 'sub',
     sup: 'sup'
-  }[type] || 'span') as TextAs;
+  }[type]) as TextAs;
 
   return (
     <TextStyle

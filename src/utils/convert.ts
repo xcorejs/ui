@@ -4,11 +4,11 @@ import { ResponsiveValue } from 'styled-system';
 const convert = (breakpoints: Breakpoints) => {
   const valueToArray = <T>(val: T, optimal: boolean = true) => [
     val,
-    ...Array<null>(breakpoints!.length)
+    ...Array<null>(breakpoints.length)
   ].fill(optimal ? null : val, 1);
 
   const objToArray = <T>(obj: Record<string, T>, optimal: boolean = true): (T | null)[] =>
-    ['_', ...breakpoints!.aliases]
+    ['_', ...breakpoints.aliases]
       .reduce((acc, val, i) => [
         ...acc,
         obj[val] ? obj[val] : optimal || i === 0 ? null : acc[i - 1]
@@ -18,13 +18,13 @@ const convert = (breakpoints: Breakpoints) => {
     val: ResponsiveValue<T> | undefined,
     optimal: boolean = true
   ): (T | null)[] =>
-      val === undefined
-        ? []
-        : typeof val === 'object'
-          ? val instanceof Array
-            ? val
-            : objToArray<T>(val as Record<string, T>, optimal)
-          : valueToArray(val, optimal);
+    val === undefined
+      ? []
+      : typeof val === 'object'
+        ? val instanceof Array
+          ? val
+          : objToArray<T>(val as Record<string, T>, optimal)
+        : valueToArray(val, optimal);
 
   const narrow = <T extends string | number | boolean>(val: (T | null)[]) => val.reduce((acc, x, i) => [
     ...acc,

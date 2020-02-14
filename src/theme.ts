@@ -28,7 +28,7 @@ export const createTheme = (theme: Partial<XcoreTheme>): XcoreTheme => ({
   ...theme
 });
 
-export type Breakpoints = string[] & Record<string, string> & { aliases: string[] }
+export type Breakpoints = string[] & Record<string, string> & { aliases: string[] };
 
 export interface BreakpointsTheme {
   breakpoints: Breakpoints;

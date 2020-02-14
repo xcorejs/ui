@@ -72,7 +72,6 @@ const globalStyle = ({
   ${system.flex(p)}
   ${system.zIndex(p)}
 
-  ${webkitFontSmoothing && `webkit-font-smoothing: ${webkitFontSmoothing}`}
   ${system.system({
     animation: {
       property: 'animation'

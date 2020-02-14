@@ -25,9 +25,9 @@ const SimpleGrid: FC<SimpleGridProps> = ({ columns, unit: _unit, children, gap: 
 
   return (
     <Grid
-      columns={cols.map((c, i) => c === null ? c : `repeat(${c}, ${getArrayValue(unit, i) || '1fr'})`)}
+      columns={cols.map((c, i) => c === null ? c : `repeat(${c}, ${getArrayValue(unit, i) ?? '1fr'})`)}
       rows={breakpoints.map((_, i) => gapRow[i] || cols[i] || unit[i]
-        ? `repeat(${Children.count(children) / getArrayValue(cols, i)!}, ${getArrayValue(unit, i) || '1fr'})`
+        ? `repeat(${Math.ceil(Children.count(children) / getArrayValue(cols, i)!)}, ${getArrayValue(unit, i) ?? '1fr'})`
         : null
       )}
       gap={_gap}
