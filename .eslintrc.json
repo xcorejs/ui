@@ -18,7 +18,8 @@
             "jsx": true
         },
         "ecmaVersion": 2018,
-        "sourceType": "module"
+        "sourceType": "module",
+        "project": "tsconfig.json"
     },
     "plugins": [
         "react",
@@ -27,7 +28,6 @@
     "rules": {
       "react/prop-types": "off",
       "no-unused-vars": "off",
-      "semi": ["warn", "always", { "omitLastInOneLineBlock": true }],
       "react/no-unescaped-entities": "off",
       "no-shadow": "error",
       "max-len": ["error", { "code": 120, "tabWidth": 2, "ignoreTemplateLiterals": true, "ignoreComments": true }],
@@ -35,6 +35,51 @@
       "no-undef": "off",
       "no-console": "warn",
       "no-extra-parens": "off",
-      "@typescript-eslint/no-extra-parens": ["warn", "all", { "ignoreJSX": "multi-line" }]
+      "@typescript-eslint/no-extra-parens": ["warn", "all", { "ignoreJSX": "multi-line" }],
+      "semi": "off",
+      "@typescript-eslint/semi": ["warn", "always", { "omitLastInOneLineBlock": true }],
+      "@typescript-eslint/member-delimiter-style": "warn",
+      "react/jsx-fragments": "error",
+      "@typescript-eslint/await-thenable": "error",
+      "brace-style": "off",
+      "@typescript-eslint/brace-style": ["error"],
+      "camelcase": "off",
+      "@typescript-eslint/camelcase": ["warn"],
+      "comma-spacing": "off",
+      "@typescript-eslint/comma-spacing": ["warn"],
+      "func-call-spacing": "off",
+      "@typescript-eslint/func-call-spacing": ["warn"],
+      "indent": "off",
+      "@typescript-eslint/indent": ["warn", 2, {
+        "SwitchCase": 1,
+        "VariableDeclarator": 1,
+        "outerIIFEBody": 1,
+        "MemberExpression": 1,
+        "FunctionDeclaration": { "parameters": 1, "body": 1 },
+        "FunctionExpression": { "parameters": 1, "body": 1 },
+        "CallExpression": { "arguments": 1 },
+        "ArrayExpression": 1,
+        "ObjectExpression": 1,
+        "ImportDeclaration": 1,
+        "flatTernaryExpressions": false,
+        "ignoreComments": false,
+        "ignoredNodes": ["TemplateLiteral *"]
+      }],
+      "@typescript-eslint/no-extra-non-null-assertion": "warn",
+      "no-extra-semi": "off",
+      "@typescript-eslint/no-extra-semi": ["warn"],
+      "@typescript-eslint/no-implied-eval": "error",
+      "@typescript-eslint/no-misused-promises": "error",
+      "@typescript-eslint/no-throw-literal": "error",
+      "@typescript-eslint/no-unnecessary-boolean-literal-compare": "warn",
+      "@typescript-eslint/no-unnecessary-condition": ["warn", { "ignoreRhs": true }],
+      "@typescript-eslint/no-unnecessary-type-arguments": "warn",
+      "@typescript-eslint/no-unnecessary-type-assertion": "warn",
+      "@typescript-eslint/prefer-nullish-coalescing": "warn",
+      "@typescript-eslint/prefer-optional-chain": "warn",
+      "quotes": "off",
+      "@typescript-eslint/quotes": ["warn", "single", { "avoidEscape": true, "allowTemplateLiterals": false }],
+      "@typescript-eslint/restrict-template-expressions": ["error", { "allowNumber": true, "allowBoolean": true }],
+      "@typescript-eslint/type-annotation-spacing": "warn"
     }
 }

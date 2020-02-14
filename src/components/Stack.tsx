@@ -26,7 +26,7 @@ const Stack: FC<StackProps> = ({
   ...props
 }) => {
   const { breakpoints } = useTheme();
-  const { toArray, narrow } = convert(breakpoints!);
+  const { toArray, narrow } = convert(breakpoints);
   const isLast = (i: number) => children.length === i + 1;
 
   const getStyle = (

@@ -5,11 +5,11 @@ import Text, { TextProps } from './Text';
 
 export type LoremIpsumProps = {
   count?: number;
-  units?: 'paragraphs' | 'words' | 'sentences'
+  units?: 'paragraphs' | 'words' | 'sentences';
 } & TextProps;
 
 const LoremIpsum: FC<LoremIpsumProps> = ({ count, units, ...props }) => {
-  const text = useMemo(() => loremIpsum({ count, units: units || 'paragraphs' }), []);
+  const text = useMemo(() => loremIpsum({ count, units: units ?? 'paragraphs' }), []);
 
   return (
     <Text {...props}>{text}</Text>

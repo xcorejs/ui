@@ -9,6 +9,7 @@ import { mediaQueries } from '../../utils/mediaQuery';
 import Box, { BoxProps } from '../Box';
 import { parseGridCell } from './data';
 import convert, { getArrayValue } from '../../utils/convert';
+import { parseTwin } from '../../utils/gridTemplate';
 
 export type CellProps = BoxProps;
 
@@ -46,20 +47,22 @@ const CellStyle = styled(Box)<CellStyleProps>`
     const [msCol, msColSpan] = parseGridCell(c);
     const [msRow, msRowSpan] = parseGridCell(r);
 
-    const getIndex = (n: string) => gap ? 2 * parseInt(n) - 1 : n;
+    const [gc, gr] = parseTwin(getArrayValue(gap, i));
+
+    const getIndex = (n: string, g: string | null) => g ? 2 * parseInt(n) - 1 : n;
 
     return [
       (column[i] || gap[i]) && c && css`
         grid-column: ${c};
 
-        -ms-grid-column: ${getIndex(msCol)} !important;
-        ${msColSpan && css` -ms-grid-column-span: ${getIndex(msColSpan)} !important; `}
+        -ms-grid-column: ${getIndex(msCol, gc)} !important;
+        ${msColSpan && css` -ms-grid-column-span: ${getIndex(msColSpan, gc)} !important; `}
       `,
       (row[i] || gap[i]) && r && css`
         grid-row: ${r};
 
-        -ms-grid-row: ${getIndex(msRow)} !important;
-        ${msRowSpan && css` -ms-grid-row-span: ${getIndex(msRowSpan)} !important; `}
+        -ms-grid-row: ${getIndex(msRow, gr)} !important;
+        ${msRowSpan && css` -ms-grid-row-span: ${getIndex(msRowSpan, gr)} !important; `}
       `
     ];
   })}

@@ -24,7 +24,7 @@ export type GridPositionProps = {
   justifyContent?: ResponsiveValue<CSS.JustifyContentProperty>;
   alignItems?: ResponsiveValue<CSS.AlignItemsProperty>;
   alignContent?: ResponsiveValue<CSS.AlignContentProperty>;
-}
+};
 
 type GridStyleProps = {
   columns: (string | null)[];
@@ -69,15 +69,13 @@ const GridStyle = styled(Box)<GridStyleProps>`
 
       ${(rows[i] || gapArray[i]) && css` -ms-grid-rows: ${parseTemplate(rowVal, gapVal ? gapVal[1] : null).join(' ')}`}
 
-      ${(columns[i] || rows[i] || gapArray[i]) &&
-        templateQueries(parseTemplate(colVal), parseTemplate(rowVal), !!gapVal)
-      }
+      ${templateQueries(parseTemplate(colVal), parseTemplate(rowVal), !!gapVal)}
     `;
   })}
 `;
 
 // eslint-disable-next-line @typescript-eslint/no-extra-parens
-export const GridContext = createContext<{ gap:(string | null)[]; }>({ gap: [] });
+export const GridContext = createContext<{ gap: (string | null)[] }>({ gap: [] });
 
 export type ExtendedGridProps = GridProps;
 
