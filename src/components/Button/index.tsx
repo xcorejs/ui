@@ -83,15 +83,15 @@ const Button: FC<ExtendedButtonProps> = (
   return (
     <ButtonStyle as={as ?? 'button'} alignItems="center" {...themeButton} {...sizeButton} {...typeButton} {...button}>
       {leftIcon && !loading &&
-        <Icon mr="1rem" svg={leftIcon} {..._leftIcon} />
-      }
+        <Icon mr="1rem" svg={leftIcon} {..._leftIcon} />}
+
       {loading &&
-        <Spinner mr={children ? '1rem' : 0} {..._spinner} />
-      }
+        <Spinner mr={children ? '1rem' : 0} {..._spinner} />}
+
       {children}
+
       {rightIcon && !loading &&
-        <Icon ml="1rem" svg={rightIcon} {..._rightIcon} />
-      }
+        <Icon ml="1rem" svg={rightIcon} {..._rightIcon} />}
     </ButtonStyle>
   );
 };

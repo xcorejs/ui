@@ -7,7 +7,7 @@ export default { title: 'Stack' };
 export const BasicUsage: FC = () => {
   return (
     <Box>
-      <Stack direction="column" spacing="10px">
+      <Stack direction="column" gap="10px">
         <Box background="red" color="white" p="10px" width="50%">
           Box 1
         </Box>
@@ -43,7 +43,7 @@ export const Responsive: FC = () => (
         p=".5rem"
         color="white"
       />
-      <Stack direction={{ _: 'column', md: 'row' }} spacing="10px">
+      <Stack direction={{ _: 'column', md: 'row' }} gap="10px">
         <Box background="crimson" color="white" p="10px" minWidth="50%">
           Box 1
         </Box>
