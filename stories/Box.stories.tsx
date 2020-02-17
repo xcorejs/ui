@@ -9,7 +9,15 @@ export const BasicUsage: FC = () => {
       <Box background="crimson" color="white" p="10px" my="15px">
         Box 1
       </Box>
-      <Box background="navy" color="white" p="10px" my="15px">
+      <Box
+        background="navy"
+        color="white"
+        p="10px"
+        my="15px"
+        _hover={{
+          background: { _: 'crimson', md: 'green' }
+        }}
+      >
         Box 2
       </Box>
     </Box>

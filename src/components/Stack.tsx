@@ -7,7 +7,8 @@ import Flex, { FlexProps } from './Flex';
 
 export interface StackProps extends FlexProps {
   direction?: system.ResponsiveValue<'column' | 'row'>;
-  spacing?: system.ResponsiveValue<number | string>;
+  dir?: system.ResponsiveValue<'column' | 'row'>;
+  gap?: system.ResponsiveValue<number | string>;
   align?: FlexProps['alignItems'];
   justify?: FlexProps['justifyContent'];
   wrap?: FlexProps['flexWrap'];
@@ -17,17 +18,20 @@ export interface StackProps extends FlexProps {
 export type ExtendedStackProps = StackProps;
 
 const Stack: FC<StackProps> = ({
+  direction: _direction,
+  dir: _dir,
   align,
   justify,
   wrap,
-  direction = 'row',
-  spacing = '0',
+  gap,
   children,
   ...props
 }) => {
   const { breakpoints } = useTheme();
   const { toArray, narrow } = convert(breakpoints);
   const isLast = (i: number) => children.length === i + 1;
+
+  const direction = _direction ?? _dir;
 
   const getStyle = (
     dir: ('column' | 'row' | null)[],
@@ -59,7 +63,7 @@ const Stack: FC<StackProps> = ({
       {...props}
     >
       {Children.map(children, (child, index) => isValidElement(child) && !isLast(index)
-        ? cloneElement(child, getStyle(toArray(direction, false), toArray(spacing, false)))
+        ? cloneElement(child, getStyle(toArray(direction, false), toArray(gap, false)))
         : child
       )}
     </Flex>

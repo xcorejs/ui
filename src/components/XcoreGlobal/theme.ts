@@ -1,6 +1,7 @@
 import { defaultsDeep } from 'lodash';
 
-import { GlobalProps, SelectionProps } from '.';
+import { GlobalProps } from '.';
+import { SelectionProps } from '../Box';
 
 export type GlobalValue = {
   _html: GlobalProps;

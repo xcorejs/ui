@@ -1,6 +1,5 @@
-import css from '@styled-system/css';
 import * as CSS from 'csstype';
-import styled, { CSSProperties } from 'styled-components';
+import styled, { CSSProperties, css } from 'styled-components';
 import * as system from 'styled-system';
 import { ResponsiveValue } from 'styled-system';
 
@@ -8,7 +7,7 @@ import { IconProps } from './Icon';
 
 export type TLen = string | 0 | number;
 
-const PseudoSelectors = {
+const pseudoSelectors: Record<string, string> = {
   hover: '&:hover',
   active: '&:active',
   focus: '&:focus',
@@ -37,16 +36,7 @@ export type BoxProps =
     _groupHover?: BoxProps;
     _groupHoverIcon?: IconProps;
     _placeholder?: BoxProps;
-    _selection?: {
-      color?: string;
-      backgroundColor?: string;
-      background?: string;
-      cursor?: CSSProperties['cursor'];
-      caretColor?: CSSProperties['caretColor'];
-      outline?: CSSProperties['outline'];
-      textDecoration?: CSSProperties['textDecoration'];
-      textShadow?: CSSProperties['textShadow'];
-    };
+    _selection?: SelectionProps;
     _focusWithin?: BoxProps;
     _first?: BoxProps;
     _firstOfType?: BoxProps;
@@ -65,8 +55,6 @@ export type BoxProps =
     // Aliases
     column?: ResponsiveValue<CSS.GridColumnProperty>;
     row?: ResponsiveValue<CSS.GridRowProperty>;
-
-    style?: CSSProperties;
   }
   & system.FontSizeProps
   & system.FlexProps
@@ -85,54 +73,45 @@ export type BoxProps =
   & system.AlignSelfProps
 ;
 
+export type SelectionProps =
+  {
+    color?: system.ResponsiveValue<string>;
+    cursor?: system.ResponsiveValue<CSS.CursorProperty>;
+    caretColor?: system.ResponsiveValue<CSS.CaretColorProperty>;
+    outline?: system.ResponsiveValue<CSS.OutlineProperty<TLen>>;
+    outlineOffset?: system.ResponsiveValue<CSS.OutlineOffsetProperty<TLen>>;
+    textDecoration?: system.ResponsiveValue<CSS.TextDecorationProperty<TLen>>;
+    textEmphasisColor?: system.ResponsiveValue<CSS.TextEmphasisColorProperty>;
+  }
+  & system.BackgroundColorProps
+  & system.TextShadowProps;
+
 export const Box = styled.div<BoxProps>`
-  ${system.border}
-  ${system.boxShadow}
-  ${system.color}
-  ${system.layout}
-  ${system.position}
-  ${system.space}
-  ${system.background}
-  ${system.fontSize}
-  ${system.fontWeight}
-  ${system.gridColumn}
-  ${system.gridRow}
-  ${system.flex}
-  ${system.zIndex}
-  ${system.alignSelf}
-  ${system.justifySelf}
-  ${(
-    {
-      _hover,
-      _active,
-      _focus,
-      _before,
-      _after,
-      _disabled,
-      _groupHover,
-      _groupHoverIcon,
-      _selection,
-      _placeholder,
-      _focusWithin,
-      _first,
-      _firstOfType,
-      _last
-    }) => css({
-    [PseudoSelectors.hover]: _hover,
-    [PseudoSelectors.active]: _active,
-    [PseudoSelectors.focus]: _focus,
-    [PseudoSelectors.before]: _before,
-    [PseudoSelectors.after]: _after,
-    [PseudoSelectors.disabled]: _disabled,
-    [PseudoSelectors.groupHover]: _groupHover,
-    [PseudoSelectors.groupHoverIcon]: _groupHoverIcon,
-    [PseudoSelectors.selection]: _selection,
-    [PseudoSelectors.placeholder]: _placeholder,
-    [PseudoSelectors.focusWithin]: _focusWithin,
-    [PseudoSelectors.first]: _first,
-    [PseudoSelectors.firstOfType]: _firstOfType,
-    [PseudoSelectors.last]: _last
-  })}
+  ${p => boxStyle(p)}
+
+  ${p => Object.keys(pseudoSelectors).map(k => (p as any)['_' + k] && css`
+      ${pseudoSelectors[k]} {
+        ${boxStyle((p as Record<string, BoxProps>)['_' + k])}
+      }
+    `)}
+`;
+
+export const boxStyle = (p: BoxProps) => css`
+  ${system.border(p)}
+  ${system.boxShadow(p)}
+  ${system.color(p)}
+  ${system.layout(p)}
+  ${system.position(p)}
+  ${system.space(p)}
+  ${system.background(p)}
+  ${system.fontSize(p)}
+  ${system.fontWeight(p)}
+  ${system.gridColumn(p)}
+  ${system.gridRow(p)}
+  ${system.flex(p)}
+  ${system.zIndex(p)}
+  ${system.alignSelf(p)}
+  ${system.justifySelf(p)}
 
   ${system.system({
     animation: true,
@@ -149,9 +128,7 @@ export const Box = styled.div<BoxProps>`
     row: {
       property: 'gridRow'
     }
-  })}
+  })(p)}
 `;
-
-const jeff = '';
 
 export default Box;

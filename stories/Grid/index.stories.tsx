@@ -18,7 +18,7 @@ export const Basic: FC = () => (
         </ul>
       </Box>
       <Box column="1 / span 2" row="3" alignSelf="center">
-          @AlfonzAlfonz
+        @AlfonzAlfonz
         <br />
         <small><a href="/">Logout</a></small>
       </Box>
@@ -43,7 +43,7 @@ export const Basic: FC = () => (
 
       {/* Footer */}
       <Box column="4 / span 1" row="3" placeSelf="center">
-            footer &copy; 2020
+        footer &copy; 2020
       </Box>
     </Grid>
   </Text>
@@ -66,7 +66,7 @@ export const IE11: FC = () => (
         </ul>
       </Cell>
       <Cell column="1 / span 2" row="3" alignSelf="center">
-          @AlfonzAlfonz
+        @AlfonzAlfonz
         <br />
         <small><a href="/">Logout</a></small>
       </Cell>
@@ -93,7 +93,7 @@ export const IE11: FC = () => (
 
       {/* Footer */}
       <Cell column="4 / span 1" row="3" placeSelf="center">
-            footer &copy; 2020
+        footer &copy; 2020
       </Cell>
     </Grid>
   </Text>

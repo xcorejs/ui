@@ -8,10 +8,10 @@ export const Normal: FC = () => (
   <Container>
     <Box width="100%">
       <Box background="crimson" color="white" p="10px" my="10px">
-          Box 1
+        Box 1
       </Box>
       <Box background="navy" color="white" p="10px" my="10px">
-          Box 2
+        Box 2
       </Box>
     </Box>
   </Container>
@@ -21,10 +21,10 @@ export const Fluid: FC = () => (
   <Container type="fluid">
     <Box width="100%">
       <Box background="crimson" color="white" p="10px" my="10px">
-          fluid
+        fluid
       </Box>
       <Box background="navy" color="white" p="10px" my="10px">
-          Box 2
+        Box 2
       </Box>
     </Box>
   </Container>

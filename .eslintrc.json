@@ -39,7 +39,7 @@
       "semi": "off",
       "@typescript-eslint/semi": ["warn", "always", { "omitLastInOneLineBlock": true }],
       "@typescript-eslint/member-delimiter-style": "warn",
-      "react/jsx-fragments": "error",
+      "react/jsx-fragments": "warn",
       "@typescript-eslint/await-thenable": "error",
       "brace-style": "off",
       "@typescript-eslint/brace-style": ["error"],
@@ -80,6 +80,30 @@
       "quotes": "off",
       "@typescript-eslint/quotes": ["warn", "single", { "avoidEscape": true, "allowTemplateLiterals": false }],
       "@typescript-eslint/restrict-template-expressions": ["error", { "allowNumber": true, "allowBoolean": true }],
-      "@typescript-eslint/type-annotation-spacing": "warn"
+      "@typescript-eslint/type-annotation-spacing": "warn",
+      "react/jsx-max-props-per-line": ["error", { "maximum": 1, "when": "multiline" }],
+      "react/jsx-tag-spacing": ["warn"],
+      "react/jsx-closing-bracket-location": ["warn", "tag-aligned"],
+      "react/jsx-wrap-multilines": ["warn", {
+        "declaration": "parens-new-line",
+        "assignment": "parens-new-line",
+        "return": "parens-new-line",
+        "arrow": "parens-new-line",
+        "condition": "parens-new-line",
+        "logical": "parens-new-line",
+        "prop": "ignore"
+      }],
+      "react/jsx-boolean-value": ["warn", "never"],
+      "react/jsx-closing-tag-location": "warn",
+      "react/jsx-curly-brace-presence": ["warn", { "props": "never", "children": "never" }],
+      "react/jsx-curly-newline": ["warn", { "multiline": "forbid", "singleline": "forbid" }],
+      "react/jsx-curly-spacing": ["warn", "never"],
+      "react/jsx-equals-spacing": "warn",
+      "react/jsx-indent-props": ["warn", 2],
+      "react/jsx-indent": ["warn", 2],
+      "react/jsx-props-no-multi-spaces": "warn",
+      "react/no-danger-with-children": "error",
+      "react/no-deprecated": "error",
+      "react/no-direct-mutation-state": "error"
     }
 }
