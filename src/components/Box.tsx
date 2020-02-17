@@ -1,5 +1,5 @@
 import * as CSS from 'csstype';
-import styled, { CSSProperties, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import * as system from 'styled-system';
 import { ResponsiveValue } from 'styled-system';
 

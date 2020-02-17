@@ -30,7 +30,7 @@ const theme = createTheme({
 export const BasicUsage: FC = () => {
   return (
     <ThemeProvider theme={theme}>
-      <Stack spacing="10px" direction="column">
+      <Stack gap="10px" direction="column">
         <Box>
           <Button>Button</Button>
         </Box>
