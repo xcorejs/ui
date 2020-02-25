@@ -1,18 +1,19 @@
-import React, { FC, ComponentType } from 'react';
+import React, { FC } from 'react';
 import styled, { css } from 'styled-components';
 import { system } from 'styled-system';
 
-import { FlexProps, flexBase } from './Flex';
+import renderComponent, { Renderable } from '../utils/renderComponent';
+import { flexBase, FlexProps } from './Flex';
 
 export type IconProps = {
-  svg?: ComponentType;
+  svg?: Renderable;
   fill?: string;
   fillHover?: string;
 } & FlexProps;
 
 export type ExtendedIconProps = IconProps;
 
-const Icon: FC<ExtendedIconProps> = ({ svg: Svg, children, ...props }) => {
+const Icon: FC<ExtendedIconProps> = ({ svg, children, ...props }) => {
   return (
     <IconStyle
       display="inline-block"
@@ -20,7 +21,7 @@ const Icon: FC<ExtendedIconProps> = ({ svg: Svg, children, ...props }) => {
       maxHeight="100%"
       {...props}
     >
-      {Svg && <Svg />}
+      {renderComponent(svg)}
       {children}
     </IconStyle>
   );

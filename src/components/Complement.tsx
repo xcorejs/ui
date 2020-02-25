@@ -1,20 +1,21 @@
-import React, { FC, ComponentType, createElement } from 'react';
+import React, { FC } from 'react';
 import Icon, { IconProps } from './Icon';
+import renderComponent, { Renderable } from '../utils/renderComponent';
 
 export type SideComplementProps = {
   _icon?: IconProps;
-  icon?: ComponentType;
-  element?: ComponentType;
+  icon?: Renderable;
+  element?: Renderable;
 };
 
 export type ComplementProps = {
   _leftIcon?: IconProps;
-  leftIcon?: ComponentType;
-  leftElement?: ComponentType;
+  leftIcon?: Renderable;
+  leftElement?: Renderable;
 
   _rightIcon?: IconProps;
-  rightIcon?: ComponentType;
-  rightElement?: ComponentType;
+  rightIcon?: Renderable;
+  rightElement?: Renderable;
 };
 
 export const sideComp = <T extends SideComplementProps>({
@@ -50,13 +51,13 @@ export const comp = <T extends ComplementProps>({
 
 interface ComplementSideProps {
   _icon?: IconProps;
-  icon?: ComponentType;
-  element?: ComponentType;
+  icon?: Renderable;
+  element?: Renderable;
 }
 
 const Complement: FC<ComplementSideProps> = ({ _icon, icon, element }) => (
   <>
-    {element && createElement(element)}
+    {renderComponent(element)}
     {icon && <Icon mr="1rem" svg={icon} {..._icon} />}
   </>
 );
