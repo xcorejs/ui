@@ -1,99 +1,79 @@
-import React, { AnchorHTMLAttributes, FC, ReactNode } from 'react';
+import React, { AnchorHTMLAttributes, FC } from 'react';
 import styled from 'styled-components';
 import * as system from 'styled-system';
 import * as CSS from 'csstype';
 
 import useTheme from '../../useTheme';
-import Flex, { FlexProps } from '../Flex';
-import Icon, { IconProps } from '../Icon';
+import { FlexProps, flexBase } from '../Flex';
 import { ButtonSize, ButtonType } from './theme';
 import Spinner, { SpinnerProps } from '../Spinner';
+import Complement, { comp, ComplementProps } from '../Complement';
+import { TextProps, textBase } from '../Text/index';
+import { typeVariant, sizeVariant } from '../../utils/variant';
+import { defaults } from '../../utils/defaults';
 
 export type ButtonProps =
   {
     _spinner?: SpinnerProps;
-    _leftIcon?: IconProps;
-    _rightIcon?: IconProps;
     textTransform?: system.ResponsiveValue<CSS.TextTransformProperty>;
   }
+  & ComplementProps
   & FlexProps
-  & system.TypographyProps;
-
-const ButtonStyle = styled(Flex)<system.TypographyProps>`
-  cursor: pointer;
-  text-decoration: none;
-
-  &:disabled {
-    cursor: not-allowed;
-  }
-  ${system.system({
-    textTransform: true
-  })}
-
-  ${system.typography}
-  ${system.borderRadius}
-  ${system.lineHeight}
-`;
-
-ButtonStyle.defaultProps = {
-  display: 'inline-flex',
-  bg: 'transparent',
-  border: '0.1rem solid transparent',
-  transition: 'background 300ms, color 300ms, border 300ms, box-shadow 300ms'
-};
-
-export interface ButtonPropsWithIcons extends ButtonProps {
-  leftIcon?: ReactNode;
-  rightIcon?: ReactNode;
-  loading?: boolean;
-
-  size?: ButtonSize;
-  s?: ButtonSize;
-  type?: ButtonType;
-  t?: ButtonType;
-}
+  & TextProps;
 
 export type ExtendedButtonProps =
-  & ButtonPropsWithIcons
+  & ButtonProps
+  & {
+    loading?: boolean;
+    disabled?: boolean;
+
+    size?: ButtonSize;
+    s?: ButtonSize;
+    type?: ButtonType;
+    t?: ButtonType;
+  }
   & ({ as?: 'button' | 'div' } | ({ as: 'a' } & AnchorHTMLAttributes<unknown>));
 
 const Button: FC<ExtendedButtonProps> = (
   {
-    leftIcon,
-    rightIcon,
     loading,
-    size: _size,
-    s: _s,
-    type: _type,
-    t: _t,
-    as,
+    as = 'button',
     children,
-    ...props
+    ...p
   }
 ) => {
-  const size = _size ?? _s ?? 'md';
-  const type = _type ?? _t ?? 'solid';
-  const { button: { default: _default, sizes, types } } = useTheme();
+  const { button } = useTheme();
 
-  const { _spinner: _themeSpinner, _leftIcon: _themeLeftIcon, _rightIcon: _themeRightIcon, ...themeButton } = _default;
-  const { _spinner: _sizeSpinner, _leftIcon: _sizeLeftIcon, _rightIcon: _sizeRightIcon, ...sizeButton } = sizes[size];
-  const { _spinner: _typeSpinner, _leftIcon: _typeLeftIcon, _rightIcon: _typeRightIcon, ...typeButton } = types[type];
-  const { _spinner, _leftIcon, _rightIcon, ...button } = props;
+  const [left, right, { _spinner, ...props }] = comp(
+    defaults(
+      p,
+      typeVariant(button, 'solid', p),
+      sizeVariant(button, 'md', p),
+      button.default
+    )
+  );
 
   return (
-    <ButtonStyle as={as ?? 'button'} alignItems="center" {...themeButton} {...sizeButton} {...typeButton} {...button}>
-      {leftIcon && !loading &&
-        <Icon mr="1rem" svg={leftIcon} {..._leftIcon} />}
+    <ButtonStyle role="group" as={as} {...props}>
+      <Complement {...left} />
 
-      {loading &&
-        <Spinner mr={children ? '1rem' : 0} {..._spinner} />}
+      {loading && (
+        <Spinner
+          mr={children ? '1rem' : 0}
+          {..._spinner}
+        />
+      )}
 
       {children}
 
-      {rightIcon && !loading &&
-        <Icon ml="1rem" svg={rightIcon} {..._rightIcon} />}
+      <Complement {...right} />
     </ButtonStyle>
   );
 };
 
 export default Button;
+
+const ButtonStyle = styled.div<ButtonProps>`
+  ${p => flexBase(p)}
+  ${p => textBase(p)}
+`;

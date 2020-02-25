@@ -1,16 +1,36 @@
-import React, { FC, ReactNode } from 'react';
-import styled from 'styled-components';
+import React, { FC, ComponentType } from 'react';
+import styled, { css } from 'styled-components';
 import { system } from 'styled-system';
 
-import Flex, { FlexProps } from './Flex';
+import { FlexProps, flexBase } from './Flex';
 
 export type IconProps = {
-  svg?: ReactNode;
+  svg?: ComponentType;
   fill?: string;
   fillHover?: string;
 } & FlexProps;
 
-const Svg = styled(Flex)<IconProps>`
+export type ExtendedIconProps = IconProps;
+
+const Icon: FC<ExtendedIconProps> = ({ svg: Svg, children, ...props }) => {
+  return (
+    <IconStyle
+      display="inline-block"
+      verticalAlign="middle"
+      maxHeight="100%"
+      {...props}
+    >
+      {Svg && <Svg />}
+      {children}
+    </IconStyle>
+  );
+};
+
+export default Icon;
+
+export const iconBase = (p: IconProps) => css`
+  ${flexBase(p)}
+
   flex-shrink: 0;
   backface-visibility: hidden;
 
@@ -49,14 +69,6 @@ const Svg = styled(Flex)<IconProps>`
   }
 `;
 
-export type ExtendedIconProps = IconProps;
-
-const Icon: FC<ExtendedIconProps> = ({ svg, ...props }) => {
-  return (
-    <Svg display="inline-block" verticalAlign="middle" maxHeight="100%" {...props}>
-      {svg}
-    </Svg>
-  );
-};
-
-export default Icon;
+const IconStyle = styled.span<IconProps>`
+  ${p => iconBase(p)}
+`;

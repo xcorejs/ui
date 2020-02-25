@@ -1,17 +1,38 @@
 import { FC, useContext } from 'react';
 import * as React from 'react';
-import styled, { css } from 'styled-components';
 
 import { GridContext } from '.';
-import { Breakpoints } from '../../theme';
 import useTheme from '../../useTheme';
-import { mediaQueries } from '../../utils/mediaQuery';
-import Box, { BoxProps } from '../Box';
-import { parseGridCell } from './data';
 import convert, { getArrayValue } from '../../utils/convert';
+import { BoxProps, boxBase } from '../Box';
+import { Breakpoints } from '../../theme';
+import styled, { css } from 'styled-components';
+import { mediaQueries } from '../../utils/mediaQuery';
+import { parseGridCell } from './data';
 import { parseTwin } from '../../utils/gridTemplate';
 
 export type CellProps = BoxProps;
+
+export type ExtendedCellProps = CellProps;
+
+const Cell: FC<CellProps> = ({ column, row, ...props }) => {
+  const { breakpoints } = useTheme();
+  const { gap } = useContext(GridContext);
+  const { toArray } = convert(breakpoints);
+  return (
+    <CellStyle
+      column={toArray(column)}
+      row={toArray(row)}
+      gap={toArray(gap)}
+      breakpoints={breakpoints}
+      {...props}
+    />
+  );
+};
+
+Cell.displayName = 'Cell';
+
+export default Cell;
 
 type CellStyleProps = {
   column: (string | null | number)[];
@@ -20,7 +41,9 @@ type CellStyleProps = {
   breakpoints: Breakpoints;
 } & BoxProps;
 
-const CellStyle = styled(Box)<CellStyleProps>`
+const CellStyle = styled.div<CellStyleProps>`
+  ${p => boxBase(p)}
+
   ${p => p.alignSelf && css`
     -ms-flex-item-align: ${p.alignSelf};
     -ms-grid-row-align: ${p.alignSelf};
@@ -68,24 +91,3 @@ const CellStyle = styled(Box)<CellStyleProps>`
   })}
 
 `;
-
-export type ExtendedCellProps = CellProps;
-
-const Cell: FC<CellProps> = ({ column, row, ...props }) => {
-  const { breakpoints } = useTheme();
-  const { gap } = useContext(GridContext);
-  const { toArray } = convert(breakpoints);
-  return (
-    <CellStyle
-      column={toArray(column)}
-      row={toArray(row)}
-      gap={toArray(gap)}
-      breakpoints={breakpoints}
-      {...props}
-    />
-  );
-};
-
-Cell.displayName = 'Cell';
-
-export default Cell;

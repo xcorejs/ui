@@ -15,6 +15,8 @@ export type SimpleGridProps = {
   gap?: ResponsiveValue<CSS.GapProperty<string>>;
 } & GridPositionProps & BoxProps;
 
+export type ExtendedSimpleGridProps = SimpleGridProps;
+
 const SimpleGrid: FC<SimpleGridProps> = ({ columns, unit: _unit, children, gap: _gap, ...props }) => {
   const { breakpoints } = useTheme();
   const { toArray } = convert(breakpoints);

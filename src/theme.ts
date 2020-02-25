@@ -1,5 +1,9 @@
 import { button, ButtonTheme } from './components/Button/theme';
+import { card, CardTheme } from './components/Card/theme';
 import { container, ContainerTheme } from './components/Container/theme';
+import { link, LinkTheme } from './components/Link/theme';
+import { list, ListTheme } from './components/List/theme';
+import { tag, TagTheme } from './components/Tag/theme';
 import { text, TextTheme } from './components/Text/theme';
 import { typography, TypographyTheme } from './components/Typography/theme';
 import { global, GlobalTheme } from './components/XcoreGlobal/theme';
@@ -15,9 +19,14 @@ export type XcoreTheme =
   & ContainerTheme
   & TextTheme
   & ButtonTheme
-  & TypographyTheme;
+  & TypographyTheme
+  & LinkTheme
+  & TagTheme
+  & CardTheme
+  & ListTheme;
 
 export const createTheme = (theme: Partial<XcoreTheme>): XcoreTheme => ({
+  ['__xcoreTheme' as any]: true,
   name: 'Xcore',
   ...breakpoints(),
   ...global(),
@@ -25,6 +34,10 @@ export const createTheme = (theme: Partial<XcoreTheme>): XcoreTheme => ({
   ...text(),
   ...button(),
   ...typography(),
+  ...link(),
+  ...tag(),
+  ...card(),
+  ...list(),
   ...theme
 });
 

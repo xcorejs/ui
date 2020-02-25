@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
+
 import useTheme from '../useTheme';
 import convert from '../utils/convert';
-import Text, { TextProps } from './Text';
 import Box from './Box';
+import Text, { TextProps } from './Text';
 
 const ActiveBreakpoint: FC<TextProps> = props => {
   const { breakpoints } = useTheme();

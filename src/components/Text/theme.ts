@@ -1,5 +1,5 @@
 import { TextProps } from '.';
-import { defaultsDeep } from 'lodash';
+import { defaultsTheme } from '../../utils/defaults';
 
 interface TextValue {
   default: TextProps;
@@ -56,5 +56,5 @@ export const text = (
     type?: Partial<Record<TextType, TextProps>>;
   } = emptyText
 ): TextTheme => ({
-  text: defaultsDeep(t, emptyText)
+  text: defaultsTheme<'types', TextProps>(t, emptyText)
 });

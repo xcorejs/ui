@@ -1,6 +1,5 @@
-import { defaultsDeep } from 'lodash';
-
 import { GlobalProps } from '.';
+import { defaults } from '../../utils/defaults';
 import { SelectionProps } from '../Box';
 
 export type GlobalValue = {
@@ -15,7 +14,7 @@ export interface GlobalTheme {
 }
 
 export const global = (g: Partial<GlobalValue> = emptyGlobal): GlobalTheme => ({
-  global: defaultsDeep(g, emptyGlobal)
+  global: defaults<GlobalValue>(g, emptyGlobal)
 });
 
 const emptyGlobal: GlobalValue = {

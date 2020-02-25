@@ -1,21 +1,26 @@
-import React, { FC } from 'react';
-import styled, { CSSProperties } from 'styled-components';
-import * as system from 'styled-system';
 import * as CSS from 'csstype';
+import React, { FC } from 'react';
+import styled, { css, CSSProperties } from 'styled-components';
+import * as system from 'styled-system';
 
-import useTheme from '../../useTheme';
-import Box, { BoxProps } from '../Box';
-import { TextType, TextAs } from './theme';
+import { useTheme } from '../..';
+import { defaults } from '../../utils/defaults';
+import { variant } from '../../utils/variant';
+import { boxBase, BoxProps, TLen } from '../Box';
+import { TextAs, TextType } from './theme';
 
 export type TextProps =
   {
-    textTransform?: system.ResponsiveValue<CSS.TextTransformProperty>;
-    transition?: system.ResponsiveValue<CSS.TransitionProperty>;
     color?: string;
-    userSelect?: CSS.UserSelectProperty;
+    whiteSpace?: system.ResponsiveValue<CSS.WhiteSpaceProperty>;
+
+    textDecoration?: system.ResponsiveValue<CSS.TextDecorationProperty<TLen>>;
+    textOverflow?: system.ResponsiveValue<CSS.TextOverflowProperty>;
+    textTransform?: system.ResponsiveValue<CSS.TextTransformProperty>;
+
+    transition?: system.ResponsiveValue<CSS.TransitionProperty>;
     WebkitLineClamp?: system.ResponsiveValue<CSS.WebkitLineClampProperty>;
-    WebkitBoxOrient?: CSSProperties['WebkitBoxOrient'];
-    title?: string;
+    WebkitBoxOrient?: system.ResponsiveValue<CSSProperties['WebkitBoxOrient']>;
   }
   & Omit<system.ColorProps, 'color'>
   & system.TypographyProps
@@ -23,30 +28,14 @@ export type TextProps =
   & system.TextShadowProps
   & BoxProps;
 
-export const TextStyle = styled(Box)<TextProps>`
-  ${system.system({
-    textTransform: true,
-    WebkitLineClamp: true,
-    WebkitBoxOrient: true
-  })}
-  ${system.typography}
-  ${system.color}
-  ${system.space}
-  ${system.textShadow}
-`;
-
-// ${({ transition }) => transition && `transition: ${transition};`}
-// ${({ userSelect }) => userSelect && `user-select: ${userSelect};`}
-
 export interface ExtendedTextProps extends TextProps {
   t?: TextType;
   type?: TextType;
   as?: TextAs;
 }
 
-const Text: FC<ExtendedTextProps> = ({ t: _t, type: _type, as: _as, ...props }) => {
-  const { text: { default: _default, types } } = useTheme();
-  const type = _type ?? _t!;
+const Text: FC<ExtendedTextProps> = ({ as: _as, ...p }) => {
+  const { text } = useTheme();
 
   const as = (_as ?? {
     span: 'span',
@@ -57,16 +46,39 @@ const Text: FC<ExtendedTextProps> = ({ t: _t, type: _type, as: _as, ...props }) 
     strikethrough: 's',
     sub: 'sub',
     sup: 'sup'
-  }[type]) as TextAs;
+  }[p.type ?? p.t ?? 'span']) as TextAs;
+
+  const props = defaults(
+    p,
+    variant(text.types, 'span', p.t, p.type),
+    text.default
+  );
 
   return (
-    <TextStyle
-      {..._default}
-      {...types[type]}
-      {...props}
-      as={as}
-    />
+    <TextStyle {...props} as={as} />
   );
 };
+
+const TextStyle = styled.span<TextProps>`
+  ${p => textBase(p)}
+`;
+
+export const textBase = (p: TextProps) => css`
+  ${boxBase(p)}
+
+  ${system.system({
+    textTransform: true,
+    WebkitLineClamp: true,
+    WebkitBoxOrient: true,
+    transition: true,
+    textOverflow: true,
+    whiteSpace: true,
+    textDecoration: true
+  })(p)}
+  ${system.typography(p)}
+  ${system.color(p)}
+  ${system.space(p)}
+  ${system.textShadow(p)}
+`;
 
 export default Text;

@@ -1,5 +1,5 @@
-import { defaultsDeep } from 'lodash';
-import { TextProps } from '../Text/index';
+import { defaultsTheme } from '../../utils/defaults';
+import { TextProps } from '../Text';
 
 interface TypographyValue {
   default: TextProps;
@@ -17,11 +17,11 @@ export interface TypographyTheme {
 const emptyTypography: TypographyValue = {
   default: {
     fontFamily: 'rubik',
-    m: 0
+    margin: 0
   },
   types: {
     p: {
-      fontSize: '1.5rem',
+      fontSize: '1.6rem',
       lineHeight: '2rem'
     },
     h1: {
@@ -53,4 +53,7 @@ const emptyTypography: TypographyValue = {
   }
 };
 
-export const typography = (t: any = emptyTypography) => ({ typography: defaultsDeep(t, emptyTypography) });
+export const typography = (t: {
+  default?: TextProps;
+  types?: Partial<Record<TypographyType, TextProps>>;
+} = emptyTypography) => ({ typography: defaultsTheme<'types', TextProps>(t, emptyTypography) });

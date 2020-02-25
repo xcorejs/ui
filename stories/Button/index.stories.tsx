@@ -20,7 +20,7 @@ const theme = createTheme({
     types: {
       outline: {
         background: 'transparent',
-        color: 'red',
+        color: 'grey',
         border: '1px solid crimson'
       }
     }
@@ -48,6 +48,9 @@ export const BasicUsage: FC = () => {
         </Box>
         <Box>
           <Button as="a" href="example.com">Link</Button>
+        </Box>
+        <Box>
+          <Button disabled>Disabled</Button>
         </Box>
       </Stack>
     </ThemeProvider>

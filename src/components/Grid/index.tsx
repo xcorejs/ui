@@ -1,16 +1,15 @@
-import React, { createContext, FC, Children } from 'react';
-import styled, { css } from 'styled-components';
-import { ResponsiveValue } from 'styled-system';
+import React, { createContext, FC } from 'react';
 import * as system from 'styled-system';
+import { ResponsiveValue } from 'styled-system';
 import CSS from 'csstype';
 
-import { Breakpoints } from '../../theme';
 import useTheme from '../../useTheme';
 import convert, { getArrayValue } from '../../utils/convert';
-import { parseTemplate, parseTwin } from '../../utils/gridTemplate';
+import { parseTwin, parseTemplate } from '../../utils/gridTemplate';
+import { BoxProps, boxBase } from '../Box';
+import { Breakpoints } from '../../theme';
+import styled, { css } from 'styled-components';
 import { mediaQueries } from '../../utils/mediaQuery';
-import Box, { BoxProps } from '../Box';
-import { templateQueries } from './data';
 
 export type GridProps = {
   columns: ResponsiveValue<CSS.GridTemplateColumnsProperty<string>>;
@@ -26,6 +25,36 @@ export type GridPositionProps = {
   alignContent?: ResponsiveValue<CSS.AlignContentProperty>;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-extra-parens
+export const GridContext = createContext<{ gap: (string | null)[] }>({ gap: [] });
+
+export type ExtendedGridProps = GridProps;
+
+const Grid: FC<ExtendedGridProps> = ({ columns, rows, gap: _gap, ...props }) => {
+  const { breakpoints } = useTheme();
+  const { toArray } = convert(breakpoints);
+  const gapArray = toArray(_gap);
+  const gap = gapArray
+    .map(g => parseTwin(g))
+    .map(([c, r], i) => [c, r] as [string | null, string | null]);
+
+  return (
+    <GridContext.Provider value={{ gap: toArray(_gap) }}>
+      <GridStyle
+        columns={toArray(columns)}
+        rows={toArray(rows)}
+        gapArray={gapArray}
+        gap={gap}
+        breakpoints={breakpoints}
+        {...props}
+      />
+    </GridContext.Provider>
+  );
+};
+Grid.displayName = 'Grid';
+
+export default Grid;
+
 type GridStyleProps = {
   columns: (string | null)[];
   rows: (string | null)[];
@@ -34,7 +63,8 @@ type GridStyleProps = {
   breakpoints: Breakpoints;
 } & GridPositionProps & BoxProps;
 
-const GridStyle = styled(Box)<GridStyleProps>`
+const GridStyle = styled.div<GridStyleProps>`
+  ${p => boxBase(p)}
   display: grid;
   display: -ms-grid;
 
@@ -74,33 +104,15 @@ const GridStyle = styled(Box)<GridStyleProps>`
   })}
 `;
 
-// eslint-disable-next-line @typescript-eslint/no-extra-parens
-export const GridContext = createContext<{ gap: (string | null)[] }>({ gap: [] });
-
-export type ExtendedGridProps = GridProps;
-
-const Grid: FC<ExtendedGridProps> = ({ columns, rows, gap: _gap, ...props }) => {
-  const { breakpoints } = useTheme();
-  const { toArray } = convert(breakpoints);
-  const gapArray = toArray(_gap);
-  const gap = gapArray
-    .map(g => parseTwin(g))
-    .map(([c, r], i) => [c, r] as [string | null, string | null]);
-
-  return (
-    <GridContext.Provider value={{ gap: toArray(_gap) }}>
-      <GridStyle
-        columns={toArray(columns)}
-        rows={toArray(rows)}
-        gapArray={gapArray}
-        gap={gap}
-        breakpoints={breakpoints}
-        {...props}
-      />
-    </GridContext.Provider>
-  );
-};
-
-Grid.displayName = 'Grid';
-
-export default Grid;
+const templateQueries = (columns: string[], rows: string[], gap: boolean) => css`
+  ${rows.map((_, y) =>
+    css`
+      ${columns.map((c, x) => css`
+        & > *:nth-child(${y * columns.length + x + 1}) {
+          -ms-grid-column: ${gap ? 2 * x + 1 : x + 1};
+          -ms-grid-row: ${gap ? 2 * y + 1 : y + 1};
+        }
+      `)}
+    `
+  )}
+`;

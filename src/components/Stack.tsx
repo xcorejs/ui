@@ -9,10 +9,11 @@ export interface StackProps extends FlexProps {
   direction?: system.ResponsiveValue<'column' | 'row'>;
   dir?: system.ResponsiveValue<'column' | 'row'>;
   gap?: system.ResponsiveValue<number | string>;
+  children: ReactNode[];
+
   align?: FlexProps['alignItems'];
   justify?: FlexProps['justifyContent'];
   wrap?: FlexProps['flexWrap'];
-  children: ReactNode[];
 }
 
 export type ExtendedStackProps = StackProps;
@@ -31,7 +32,7 @@ const Stack: FC<StackProps> = ({
   const { toArray, narrow } = convert(breakpoints);
   const isLast = (i: number) => children.length === i + 1;
 
-  const direction = _direction ?? _dir;
+  const direction = _direction ?? _dir ?? 'row';
 
   const getStyle = (
     dir: ('column' | 'row' | null)[],
@@ -54,6 +55,7 @@ const Stack: FC<StackProps> = ({
       maxWidth: narrow(maxWidth)
     };
   };
+
   return (
     <Flex
       alignItems={align}

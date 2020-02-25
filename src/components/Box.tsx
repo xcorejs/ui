@@ -1,28 +1,42 @@
 import * as CSS from 'csstype';
-import styled, { css } from 'styled-components';
+import styled, { css, FlattenInterpolation, ThemeProps } from 'styled-components';
 import * as system from 'styled-system';
 import { ResponsiveValue } from 'styled-system';
 
-import { IconProps } from './Icon';
+import { IconProps, iconBase } from './Icon';
+import { DOMAttributes } from 'react';
+import { XcoreTheme } from '../theme';
 
 export type TLen = string | 0 | number;
 
-const pseudoSelectors: Record<string, string> = {
-  hover: '&:hover',
-  active: '&:active',
-  focus: '&:focus',
-  before: '&:before',
-  after: '&:after',
-  selection: '& *::selection',
+type PseudoSelector =
+  | '_hover'
+  | '_active'
+  | '_focus'
+  | '_before'
+  | '_after'
+  | '_disabled'
+  | '_groupHover'
+  | '_placeholder'
+  | '_focusWithin'
+  | '_first'
+  | '_firstOfType'
+  | '_last';
+
+const pseudoSelectors: Record<PseudoSelector, string> = {
+  _hover: '&:hover',
+  _active: '&:active',
+  _focus: '&:focus',
+  _before: '&:before',
+  _after: '&:after',
   // eslint-disable-next-line max-len
-  disabled: '&:disabled, &:disabled:focus, &:disabled:hover, &[aria-disabled=true], &[aria-disabled=true]:focus, &[aria-disabled=true]:hover',
-  groupHover: '[role=group]:hover &',
-  groupHoverIcon: '[role=group]:hover & svg path',
-  placeholder: '::placeholder',
-  focusWithin: ':focus-within',
-  first: '&:first-child',
-  firstOfType: '&:first-of-type',
-  last: '&:last-child'
+  _disabled: '&:disabled, &:disabled:focus, &:disabled:hover, &[aria-disabled=true], &[aria-disabled=true]:focus, &[aria-disabled=true]:hover',
+  _groupHover: '[role=group]:hover &',
+  _placeholder: '::placeholder',
+  _focusWithin: ':focus-within',
+  _first: '&:first-child',
+  _firstOfType: '&:first-of-type',
+  _last: '&:last-child'
 };
 
 export type BoxProps =
@@ -41,6 +55,7 @@ export type BoxProps =
     _first?: BoxProps;
     _firstOfType?: BoxProps;
     _last?: BoxProps;
+
     color?: string;
     cursor?: ResponsiveValue<CSS.CursorProperty>;
     animation?: ResponsiveValue<CSS.AnimationProperty>;
@@ -51,13 +66,14 @@ export type BoxProps =
     transform?: ResponsiveValue<CSS.TransformProperty>;
     filter?: ResponsiveValue<CSS.FilterProperty>;
     placeSelf?: ResponsiveValue<CSS.PlaceSelfProperty>;
+    userSelect?: system.ResponsiveValue<CSS.CursorProperty>;
 
     // Aliases
     column?: ResponsiveValue<CSS.GridColumnProperty>;
     row?: ResponsiveValue<CSS.GridRowProperty>;
   }
   & system.FontSizeProps
-  & system.FlexProps
+  & system.FlexboxProps
   & system.BorderProps
   & system.BoxShadowProps
   & Omit<system.ColorProps, 'color'>
@@ -71,7 +87,7 @@ export type BoxProps =
   & system.ZIndexProps
   & system.JustifySelfProps
   & system.AlignSelfProps
-;
+  & Omit<DOMAttributes<HTMLElement>, 'children' | 'dangerouslySetInnerHTML'>;
 
 export type SelectionProps =
   {
@@ -86,17 +102,11 @@ export type SelectionProps =
   & system.BackgroundColorProps
   & system.TextShadowProps;
 
-export const Box = styled.div<BoxProps>`
-  ${p => boxStyle(p)}
-
-  ${p => Object.keys(pseudoSelectors).map(k => (p as any)['_' + k] && css`
-      ${pseudoSelectors[k]} {
-        ${boxStyle((p as Record<string, BoxProps>)['_' + k])}
-      }
-    `)}
+const Box = styled.div<BoxProps>`
+  ${p => boxBase(p)}
 `;
 
-export const boxStyle = (p: BoxProps) => css`
+export const boxBase = (p: BoxProps): FlattenInterpolation<ThemeProps<XcoreTheme>> => css`
   ${system.border(p)}
   ${system.boxShadow(p)}
   ${system.color(p)}
@@ -108,7 +118,7 @@ export const boxStyle = (p: BoxProps) => css`
   ${system.fontWeight(p)}
   ${system.gridColumn(p)}
   ${system.gridRow(p)}
-  ${system.flex(p)}
+  ${system.flexbox(p)}
   ${system.zIndex(p)}
   ${system.alignSelf(p)}
   ${system.justifySelf(p)}
@@ -127,7 +137,40 @@ export const boxStyle = (p: BoxProps) => css`
     },
     row: {
       property: 'gridRow'
-    }
+    },
+    userSelect: true
+  })(p)}
+
+  ${p._selection && css`
+      & *::selection {
+        ${selectionBase(p._selection)}
+      }
+  `}
+
+  ${p._groupHoverIcon && css`
+      [role=group]:hover & svg path {
+        ${iconBase(p._groupHoverIcon)}
+      }
+  `}
+
+  ${Object.keys(pseudoSelectors).map(k => p[k] && css`
+      ${pseudoSelectors[k]} {
+        ${boxBase(p[k]!)}
+      }
+  `)}
+`;
+
+export const selectionBase = (p: SelectionProps) => css`
+  ${system.system({
+    color: true,
+    backgroundColor: true,
+    cursor: true,
+    caretColor: true,
+    outline: true,
+    outlineOffset: true,
+    textDecoration: true,
+    textEmphasisColor: true,
+    textShadow: true
   })(p)}
 `;
 

@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import * as system from 'styled-system';
 
-import Box, { BoxProps } from './Box';
+import { BoxProps, boxBase } from './Box';
 
 export type FlexProps =
   & system.FlexboxProps
@@ -10,13 +10,15 @@ export type FlexProps =
 
 export type ExtendedFlexProps = FlexProps;
 
-const Flex = styled(Box)<FlexProps>`
-  ${system.flexbox}
+const Flex = styled.div<FlexProps>`
+  ${p => flexBase(p)}
 `;
 
-Flex.defaultProps = {
-  display: 'flex'
-};
+export const flexBase = (p: FlexProps) => css`
+  ${boxBase(p)}
+  ${system.display({ display: p.display ?? 'flex' })}
+  ${system.flexbox(p)}
+`;
 
 Flex.displayName = 'Flex';
 
