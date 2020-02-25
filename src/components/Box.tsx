@@ -67,6 +67,7 @@ export type BoxProps =
     filter?: ResponsiveValue<CSS.FilterProperty>;
     placeSelf?: ResponsiveValue<CSS.PlaceSelfProperty>;
     userSelect?: system.ResponsiveValue<CSS.CursorProperty>;
+    pointerEvents?: system.ResponsiveValue<CSS.PointerEventsProperty>;
 
     // Aliases
     column?: ResponsiveValue<CSS.GridColumnProperty>;
@@ -138,7 +139,8 @@ export const boxBase = (p: BoxProps): FlattenInterpolation<ThemeProps<XcoreTheme
     row: {
       property: 'gridRow'
     },
-    userSelect: true
+    userSelect: true,
+    pointerEvents: true
   })(p)}
 
   ${p._selection && css`
