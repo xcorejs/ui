@@ -1,16 +1,9 @@
-import * as CSS from 'csstype';
 import React, { FC } from 'react';
-import { createGlobalStyle, css } from 'styled-components';
-import * as system from 'styled-system';
+import { createGlobalStyle } from 'styled-components';
 
 import useTheme from '../../useTheme';
-import { boxBase, BoxProps, selectionBase } from '../Box';
 import { GlobalValue } from './theme';
-
-export type GlobalProps = {
-  webkitFontSmoothing?: system.ResponsiveValue<string>;
-  boxSizing?: system.ResponsiveValue<CSS.BoxSizingProperty>;
-} & BoxProps;
+import { globalBase, selectionBase } from '../../bases';
 
 const XcoreGlobal: FC = () => {
   const { global } = useTheme();
@@ -41,18 +34,4 @@ const GlobalStyle = createGlobalStyle<GlobalValue>`
   ::selection {
     ${p => selectionBase(p._selection)}
   }
-`;
-
-const globalBase = ({
-  webkitFontSmoothing,
-  ...p
-}: GlobalProps
-) => css`
-  ${boxBase(p)}
-
-  ${system.system({
-    boxSizing: {
-      property: 'boxSizing'
-    }
-  })}
 `;

@@ -6,17 +6,21 @@ import CSS from 'csstype';
 import useTheme from '../../useTheme';
 import convert, { getArrayValue } from '../../utils/convert';
 import { parseTwin, parseTemplate } from '../../utils/gridTemplate';
-import { BoxProps, boxBase } from '../Box';
 import { Breakpoints } from '../../theme';
 import styled, { css } from 'styled-components';
 import { mediaQueries } from '../../utils/mediaQuery';
+import { BoxBaseProps, boxBase } from '../../bases';
+import { compose } from '../../utils/baseStyle';
 
-export type GridProps = {
-  columns: ResponsiveValue<CSS.GridTemplateColumnsProperty<string>>;
-  rows: ResponsiveValue<CSS.GridTemplateRowsProperty<string>>;
+export type GridProps =
+  {
+    columns: ResponsiveValue<CSS.GridTemplateColumnsProperty<string>>;
+    rows: ResponsiveValue<CSS.GridTemplateRowsProperty<string>>;
 
-  gap?: ResponsiveValue<CSS.GapProperty<string>>;
-} & GridPositionProps & BoxProps;
+    gap?: ResponsiveValue<CSS.GapProperty<string>>;
+  }
+  & GridPositionProps
+  & BoxBaseProps;
 
 export type GridPositionProps = {
   justifyItems?: ResponsiveValue<CSS.JustifyItemsProperty>;
@@ -61,10 +65,10 @@ type GridStyleProps = {
   gap: [string | null, string | null][];
   gapArray: (string | null)[];
   breakpoints: Breakpoints;
-} & GridPositionProps & BoxProps;
+} & GridPositionProps & BoxBaseProps;
 
 const GridStyle = styled.div<GridStyleProps>`
-  ${p => boxBase(p)}
+  ${compose(boxBase)}
   display: grid;
   display: -ms-grid;
 

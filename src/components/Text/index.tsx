@@ -1,32 +1,14 @@
-import * as CSS from 'csstype';
 import React, { FC } from 'react';
-import styled, { css, CSSProperties } from 'styled-components';
-import * as system from 'styled-system';
+import styled from 'styled-components';
 
 import { useTheme } from '../..';
+import { textBase, TextBaseProps } from '../../bases';
 import { defaults } from '../../utils/defaults';
 import { variant } from '../../utils/variant';
-import { boxBase, BoxProps, TLen } from '../Box';
 import { TextAs, TextType } from './theme';
+import { compose } from '../../utils/baseStyle';
 
-export type TextProps =
-  {
-    color?: string;
-    whiteSpace?: system.ResponsiveValue<CSS.WhiteSpaceProperty>;
-
-    textDecoration?: system.ResponsiveValue<CSS.TextDecorationProperty<TLen>>;
-    textOverflow?: system.ResponsiveValue<CSS.TextOverflowProperty>;
-    textTransform?: system.ResponsiveValue<CSS.TextTransformProperty>;
-
-    transition?: system.ResponsiveValue<CSS.TransitionProperty>;
-    WebkitLineClamp?: system.ResponsiveValue<CSS.WebkitLineClampProperty>;
-    WebkitBoxOrient?: system.ResponsiveValue<CSSProperties['WebkitBoxOrient']>;
-  }
-  & Omit<system.ColorProps, 'color'>
-  & system.TypographyProps
-  & system.SpaceProps
-  & system.TextShadowProps
-  & BoxProps;
+export type TextProps = TextBaseProps;
 
 export interface ExtendedTextProps extends TextProps {
   t?: TextType;
@@ -59,26 +41,8 @@ const Text: FC<ExtendedTextProps> = ({ as: _as, ...p }) => {
   );
 };
 
-const TextStyle = styled.span<TextProps>`
-  ${p => textBase(p)}
-`;
-
-export const textBase = (p: TextProps) => css`
-  ${boxBase(p)}
-
-  ${system.system({
-    textTransform: true,
-    WebkitLineClamp: true,
-    WebkitBoxOrient: true,
-    transition: true,
-    textOverflow: true,
-    whiteSpace: true,
-    textDecoration: true
-  })(p)}
-  ${system.typography(p)}
-  ${system.color(p)}
-  ${system.space(p)}
-  ${system.textShadow(p)}
+const TextStyle = styled.span`
+  ${compose(textBase)}
 `;
 
 export default Text;

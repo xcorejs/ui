@@ -4,13 +4,13 @@ import * as system from 'styled-system';
 import * as CSS from 'csstype';
 
 import useTheme from '../../useTheme';
-import { FlexProps, flexBase } from '../Flex';
 import { ButtonSize, ButtonType } from './theme';
 import Spinner, { SpinnerProps } from '../Spinner';
 import Complement, { comp, ComplementProps } from '../Complement';
-import { TextProps, textBase } from '../Text/index';
 import { typeVariant, sizeVariant } from '../../utils/variant';
 import { defaults } from '../../utils/defaults';
+import { compose } from '../../utils/baseStyle';
+import { FlexBaseProps, TextBaseProps, textBase, flexBase } from '../../bases';
 
 export type ButtonProps =
   {
@@ -18,8 +18,8 @@ export type ButtonProps =
     textTransform?: system.ResponsiveValue<CSS.TextTransformProperty>;
   }
   & ComplementProps
-  & FlexProps
-  & TextProps;
+  & FlexBaseProps
+  & TextBaseProps;
 
 export type ExtendedButtonProps =
   & ButtonProps
@@ -74,6 +74,5 @@ const Button: FC<ExtendedButtonProps> = (
 export default Button;
 
 const ButtonStyle = styled.div<ButtonProps>`
-  ${p => flexBase(p)}
-  ${p => textBase(p)}
+  ${compose(textBase, flexBase)}
 `;

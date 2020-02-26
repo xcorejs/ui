@@ -1,15 +1,13 @@
-import React, { FC } from 'react';
-import styled, { css } from 'styled-components';
-import { system } from 'styled-system';
+import React, { FC, ReactNode } from 'react';
+import styled from 'styled-components';
 
-import renderComponent, { Renderable } from '../utils/renderComponent';
-import { flexBase, FlexProps } from './Flex';
+import { iconBase, IconBaseProps } from '../bases';
+import renderComponent from '../utils/renderComponent';
+import { compose } from '../utils/baseStyle';
 
-export type IconProps = {
-  svg?: Renderable;
-  fill?: string;
-  fillHover?: string;
-} & FlexProps;
+export type IconProps = IconBaseProps & {
+  svg?: ReactNode;
+};
 
 export type ExtendedIconProps = IconProps;
 
@@ -29,47 +27,6 @@ const Icon: FC<ExtendedIconProps> = ({ svg, children, ...props }) => {
 
 export default Icon;
 
-export const iconBase = (p: IconProps) => css`
-  ${flexBase(p)}
-
-  flex-shrink: 0;
-  backface-visibility: hidden;
-
-  svg {
-    display: block;
-    max-width: 100%;
-    max-height: 100%;
-
-    path {
-      transition: fill 300ms;
-      ${system({
-        fill: {
-          property: 'fill',
-          scale: 'colors'
-        }
-      })}
-
-    }
-  }
-
-  &:not(:root) {
-    overflow: hidden;
-  }
-
-  &:hover {
-    svg {
-      path {
-        ${system({
-          fillHover: {
-            property: 'fill',
-            scale: 'colors'
-          }
-        })}
-      }
-    }
-  }
-`;
-
 const IconStyle = styled.span<IconProps>`
-  ${p => iconBase(p)}
+  ${compose(iconBase)}
 `;

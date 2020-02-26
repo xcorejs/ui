@@ -1,18 +1,18 @@
 import { FC, useContext } from 'react';
 import * as React from 'react';
+import styled, { css } from 'styled-components';
 
 import { GridContext } from '.';
-import useTheme from '../../useTheme';
-import convert, { getArrayValue } from '../../utils/convert';
-import { BoxProps, boxBase } from '../Box';
+import { boxBase, BoxBaseProps } from '../../bases';
 import { Breakpoints } from '../../theme';
-import styled, { css } from 'styled-components';
+import useTheme from '../../useTheme';
+import { compose } from '../../utils/baseStyle';
+import convert, { getArrayValue } from '../../utils/convert';
+import { parseTwin } from '../../utils/gridTemplate';
 import { mediaQueries } from '../../utils/mediaQuery';
 import { parseGridCell } from './data';
-import { parseTwin } from '../../utils/gridTemplate';
 
-export type CellProps = BoxProps;
-
+export type CellProps = BoxBaseProps;
 export type ExtendedCellProps = CellProps;
 
 const Cell: FC<CellProps> = ({ column, row, ...props }) => {
@@ -39,10 +39,10 @@ type CellStyleProps = {
   row: (string | null | number)[];
   gap: (string | null)[];
   breakpoints: Breakpoints;
-} & BoxProps;
+} & BoxBaseProps;
 
 const CellStyle = styled.div<CellStyleProps>`
-  ${p => boxBase(p)}
+  ${compose(boxBase)}
 
   ${p => p.alignSelf && css`
     -ms-flex-item-align: ${p.alignSelf};

@@ -1,12 +1,11 @@
-import { GlobalProps } from '.';
 import { defaults } from '../../utils/defaults';
-import { SelectionProps } from '../Box';
+import { GlobalBaseProps, SelectionBaseProps } from '../../bases';
 
 export type GlobalValue = {
-  _html: GlobalProps;
-  _body: GlobalProps;
-  _all: GlobalProps;
-  _selection: SelectionProps;
+  _html: GlobalBaseProps;
+  _body: GlobalBaseProps;
+  _all: GlobalBaseProps;
+  _selection: SelectionBaseProps;
 };
 
 export interface GlobalTheme {

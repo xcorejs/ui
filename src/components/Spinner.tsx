@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-import { boxBase, BoxProps } from './Box';
+import { compose } from '../utils/baseStyle';
+import { boxBase, BoxBaseProps } from '../bases';
 
 export type SpinnerProps = {
   speed?: string;
-} & BoxProps;
+} & BoxBaseProps;
 
 const Spinner: FC<SpinnerProps> = props => {
   return (
@@ -37,6 +38,7 @@ const spin = keyframes`
 `;
 
 const SpinnerStyle = styled.div<SpinnerProps>`
-  ${p => boxBase(p)}
+  ${compose(boxBase)}
+
   animation: ${spin} ${({ speed }) => speed} linear infinite;
 `;

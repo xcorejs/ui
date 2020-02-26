@@ -1,14 +1,15 @@
 import React, { AnchorHTMLAttributes, FC } from 'react';
 import styled from 'styled-components';
 
+import { textBase, TextBaseProps } from '../../bases';
 import useTheme from '../../useTheme';
 import { defaults } from '../../utils/defaults';
 import { variant } from '../../utils/variant';
-import { textBase, TextProps } from '../Text';
 import { LinkAs, LinkType } from './theme';
+import { compose } from '../../utils/baseStyle';
 
 export type LinkProps =
-  & TextProps
+  & TextBaseProps
   & AnchorHTMLAttributes<HTMLAnchorElement | HTMLSpanElement>;
 
 export type ExtendedLinkProps = {
@@ -32,7 +33,7 @@ const Link: FC<ExtendedLinkProps> = p => {
 };
 
 const LinkStyle = styled.a`
-  ${p => textBase(p)}
+  ${compose(textBase)}
 
   cursor: pointer;
   & * {

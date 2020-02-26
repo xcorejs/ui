@@ -2,12 +2,12 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 
 import Complement, { SideComplementProps, sideComp } from '../Complement';
-import { FlexProps, flexBase } from '../Flex';
-import { TextProps, textBase } from '../Text';
+import { FlexBaseProps, TextBaseProps, flexBase, textBase } from '../../bases';
+import { compose } from '../../utils/baseStyle';
 
 export type ListItemProps =
-  & FlexProps
-  & TextProps
+  & FlexBaseProps
+  & TextBaseProps
   & SideComplementProps;
 
 const ListItem: FC<ListItemProps> = p => {
@@ -23,9 +23,8 @@ const ListItem: FC<ListItemProps> = p => {
   );
 };
 
-const ListItemStyle = styled.li<FlexProps>`
-  ${p => flexBase(p)}
-  ${p => textBase(p)}
+const ListItemStyle = styled.li<FlexBaseProps & TextBaseProps>`
+  ${compose(flexBase, textBase)}
 `;
 
 export default ListItem;

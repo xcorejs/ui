@@ -7,8 +7,9 @@ import useTheme from '../../useTheme';
 import { defaults } from '../../utils/defaults';
 import { typeVariant } from '../../utils/variant';
 import { TLen } from '../Box';
-import { textBase, TextProps } from '../Text';
 import { ListType } from './theme';
+import { textBase, TextBaseProps } from '../../bases';
+import { compose } from '../../utils/baseStyle';
 
 export type ListProps =
   {
@@ -31,7 +32,7 @@ export type ListProps =
       lineHeight?: system.ResponsiveValue<CSS.LineHeightProperty<TLen>>;
     };
   }
-  & TextProps;
+  & TextBaseProps;
 
 export type ExtendedListProps = {
   type?: ListType;
@@ -56,7 +57,7 @@ List.displayName = 'List';
 export default List;
 
 const ListStyle = styled.ul<ListProps>`
-  ${p => textBase(p)}
+  ${compose(textBase)}
 
   list-style-type: none;
 

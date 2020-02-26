@@ -1,20 +1,19 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import * as system from 'styled-system';
-import * as CSS from 'csstype';
 
 import useTheme from '../../useTheme';
 import { defaults } from '../../utils/defaults';
 import { typeVariant } from '../../utils/variant';
 import Complement, { comp, ComplementProps } from '../Complement';
-import { flexBase, FlexProps } from '../Flex';
-import { TextProps, textBase } from '../Text';
 import { TagType } from './theme';
+import { compose } from '../../utils/baseStyle';
+import { FlexBaseProps, TextBaseProps, textBase } from '../../bases';
+import { flexBase } from '../../bases/index';
 
 export type TagProps =
   & ComplementProps
-  & FlexProps
-  & TextProps;
+  & FlexBaseProps
+  & TextBaseProps;
 
 export type ExtendedTagProps = {
   type?: TagType;
@@ -49,6 +48,5 @@ const Tag: FC<ExtendedTagProps> = ({ children, ...p }) => {
 export default Tag;
 
 const TagStyle = styled.div<TagProps>`
-  ${p => flexBase(p)}
-  ${p => textBase(p)}
+  ${compose(flexBase, textBase)}
 `;
