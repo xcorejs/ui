@@ -1,33 +1,23 @@
 import React, { FC } from 'react';
-import useTheme from '../../useTheme';
-import Flex, { FlexProps } from '../Flex';
 import styled from 'styled-components';
-import { ContainerType } from './theme';
 
-export type ContainerProps = {
+import useTheme from '../../useTheme';
+import { typeVariant } from '../../utils/variant';
+import Flex, { FlexProps } from '../Flex';
+import { ContainerType } from './theme';
+import { defaults } from '../../utils/defaults';
+
+export type ExtendedContainerProps = {
   type?: ContainerType;
   t?: ContainerType;
 } & FlexProps;
 
-const ContainerStyle = styled(Flex)<ContainerProps>``;
+const Container: FC<ExtendedContainerProps> = p => {
+  const { container } = useTheme();
 
-const Container: FC<ContainerProps> = (
-  {
-    type: _type,
-    t: _t,
-    children,
-    ...props
-  }
-) => {
-  const { container: { types } } = useTheme();
-  const type = _type ?? _t ?? 'normal';
+  const props = defaults(p, typeVariant(container, 'normal', p), container.default);
 
-  return <ContainerStyle {...types[type]} {...props}>{children}</ContainerStyle>;
-};
-
-Container.defaultProps = {
-  ml: 'auto',
-  mr: 'auto'
+  return <Flex {...props} />;
 };
 
 export default Container;

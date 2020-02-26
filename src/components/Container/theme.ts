@@ -1,12 +1,10 @@
-import { ContainerProps } from './index';
+import { defaultsTheme } from '../../utils/defaults';
 import { FlexProps } from '../Flex';
-import { defaultsDeep } from 'lodash';
 
-type ContainerValue =
-  {
-    types: Record<ContainerType, FlexProps>;
-  }
-  & ContainerProps;
+type ContainerValue = {
+  default: FlexProps;
+  types: Record<ContainerType, FlexProps>;
+};
 
 export type ContainerType = 'normal' | 'fluid';
 
@@ -15,6 +13,10 @@ export interface ContainerTheme {
 }
 
 const emptyContainer: ContainerValue = {
+  default: {
+    ml: 'auto',
+    mr: 'auto'
+  },
   types: {
     normal: {
       width: ['100%', '76.8rem', '102.4rem', '120rem', '132rem'],
@@ -28,5 +30,8 @@ const emptyContainer: ContainerValue = {
 };
 
 export const container = (
-  c: { types?: Partial<Record<ContainerType, FlexProps>> } = emptyContainer
-): ContainerTheme => ({ container: defaultsDeep(c, emptyContainer) });
+  c: {
+    default?: FlexProps;
+    types?: Partial<Record<ContainerType, FlexProps>>;
+  } = emptyContainer
+): ContainerTheme => ({ container: defaultsTheme<'types', FlexProps>(c, emptyContainer) });

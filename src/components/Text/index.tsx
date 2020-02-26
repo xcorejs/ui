@@ -1,42 +1,14 @@
 import React, { FC } from 'react';
-import styled, { CSSProperties } from 'styled-components';
-import * as system from 'styled-system';
-import * as CSS from 'csstype';
+import styled from 'styled-components';
 
-import useTheme from '../../useTheme';
-import Box, { BoxProps } from '../Box';
-import { TextType, TextAs } from './theme';
+import { useTheme } from '../..';
+import { textBase, TextBaseProps } from '../../bases';
+import { defaults } from '../../utils/defaults';
+import { variant } from '../../utils/variant';
+import { TextAs, TextType } from './theme';
+import { compose } from '../../utils/baseStyle';
 
-export type TextProps =
-  {
-    textTransform?: system.ResponsiveValue<CSS.TextTransformProperty>;
-    transition?: system.ResponsiveValue<CSS.TransitionProperty>;
-    color?: string;
-    userSelect?: CSS.UserSelectProperty;
-    WebkitLineClamp?: system.ResponsiveValue<CSS.WebkitLineClampProperty>;
-    WebkitBoxOrient?: CSSProperties['WebkitBoxOrient'];
-    title?: string;
-  }
-  & Omit<system.ColorProps, 'color'>
-  & system.TypographyProps
-  & system.SpaceProps
-  & system.TextShadowProps
-  & BoxProps;
-
-export const TextStyle = styled(Box)<TextProps>`
-  ${system.system({
-    textTransform: true,
-    WebkitLineClamp: true,
-    WebkitBoxOrient: true
-  })}
-  ${system.typography}
-  ${system.color}
-  ${system.space}
-  ${system.textShadow}
-`;
-
-// ${({ transition }) => transition && `transition: ${transition};`}
-// ${({ userSelect }) => userSelect && `user-select: ${userSelect};`}
+export type TextProps = TextBaseProps;
 
 export interface ExtendedTextProps extends TextProps {
   t?: TextType;
@@ -44,9 +16,8 @@ export interface ExtendedTextProps extends TextProps {
   as?: TextAs;
 }
 
-const Text: FC<ExtendedTextProps> = ({ t: _t, type: _type, as: _as, ...props }) => {
-  const { text: { default: _default, types } } = useTheme();
-  const type = _type ?? _t!;
+const Text: FC<ExtendedTextProps> = ({ as: _as, ...p }) => {
+  const { text } = useTheme();
 
   const as = (_as ?? {
     span: 'span',
@@ -57,16 +28,21 @@ const Text: FC<ExtendedTextProps> = ({ t: _t, type: _type, as: _as, ...props }) 
     strikethrough: 's',
     sub: 'sub',
     sup: 'sup'
-  }[type]) as TextAs;
+  }[p.type ?? p.t ?? 'span']) as TextAs;
+
+  const props = defaults(
+    p,
+    variant(text.types, 'span', p.t, p.type),
+    text.default
+  );
 
   return (
-    <TextStyle
-      {..._default}
-      {...types[type]}
-      {...props}
-      as={as}
-    />
+    <TextStyle {...props} as={as} />
   );
 };
+
+const TextStyle = styled.span`
+  ${compose(textBase)}
+`;
 
 export default Text;

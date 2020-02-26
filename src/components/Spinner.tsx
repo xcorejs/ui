@@ -1,24 +1,12 @@
-import { FC } from 'react';
-import * as React from 'react';
+import React, { FC } from 'react';
 import styled, { keyframes } from 'styled-components';
-import Box, { BoxProps } from './Box';
 
-const spin = keyframes`
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-`;
+import { compose } from '../utils/baseStyle';
+import { boxBase, BoxBaseProps } from '../bases';
 
 export type SpinnerProps = {
   speed?: string;
-} & BoxProps;
-
-const SpinnerStyle = styled(Box)<SpinnerProps>`
-  animation: ${spin} ${({ speed }) => speed} linear infinite;
-`;
+} & BoxBaseProps;
 
 const Spinner: FC<SpinnerProps> = props => {
   return (
@@ -39,3 +27,18 @@ const Spinner: FC<SpinnerProps> = props => {
 };
 
 export default Spinner;
+
+const spin = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`;
+
+const SpinnerStyle = styled.div<SpinnerProps>`
+  ${compose(boxBase)}
+
+  animation: ${spin} ${({ speed }) => speed} linear infinite;
+`;

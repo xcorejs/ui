@@ -4,7 +4,7 @@ import { ThemeContext } from 'styled-components';
 import { XcoreTheme, createTheme } from './theme';
 
 const useTheme = (): XcoreTheme => {
-  const theme = useContext<XcoreTheme | undefined>(ThemeContext);
+  const theme = useContext(ThemeContext) as XcoreTheme | undefined;
 
   return theme ?? createTheme({});
 };

@@ -1,6 +1,6 @@
 import { Button, button, createTheme, Stack, Box } from '../../src';
 import React, { FC } from 'react';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider, StyleSheetManager } from 'styled-components';
 
 export default { title: 'Button' };
 
@@ -10,7 +10,10 @@ const theme = createTheme({
       bg: 'crimson',
       color: 'white',
       p: '1rem',
-      fontSize: '1rem'
+      fontSize: '1rem',
+      _leftIcon: {
+        fill: '#fff'
+      }
     },
     sizes: {
       lg: {
@@ -20,7 +23,7 @@ const theme = createTheme({
     types: {
       outline: {
         background: 'transparent',
-        color: 'red',
+        color: 'grey',
         border: '1px solid crimson'
       }
     }
@@ -30,7 +33,7 @@ const theme = createTheme({
 export const BasicUsage: FC = () => {
   return (
     <ThemeProvider theme={theme}>
-      <Stack gap="10px" direction="column">
+      <Stack gap="10px">
         <Box>
           <Button>Button</Button>
         </Box>
@@ -48,6 +51,9 @@ export const BasicUsage: FC = () => {
         </Box>
         <Box>
           <Button as="a" href="example.com">Link</Button>
+        </Box>
+        <Box>
+          <Button disabled>Disabled</Button>
         </Box>
       </Stack>
     </ThemeProvider>

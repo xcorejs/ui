@@ -9,7 +9,9 @@ export type LoremIpsumProps = {
 } & TextProps;
 
 const LoremIpsum: FC<LoremIpsumProps> = ({ count, units, ...props }) => {
-  const text = useMemo(() => loremIpsum({ count, units: units ?? 'paragraphs' }), []);
+  const text = useMemo(() =>
+    loremIpsum({ count, units: units ?? 'paragraphs' }),
+  [count, units]);
 
   return (
     <Text {...props}>{text}</Text>

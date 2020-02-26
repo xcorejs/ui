@@ -72,7 +72,7 @@
       "@typescript-eslint/no-misused-promises": "error",
       "@typescript-eslint/no-throw-literal": "error",
       "@typescript-eslint/no-unnecessary-boolean-literal-compare": "warn",
-      "@typescript-eslint/no-unnecessary-condition": ["warn", { "ignoreRhs": true }],
+      "@typescript-eslint/no-unnecessary-condition": ["off", { "ignoreRhs": true }],
       "@typescript-eslint/no-unnecessary-type-arguments": "warn",
       "@typescript-eslint/no-unnecessary-type-assertion": "warn",
       "@typescript-eslint/prefer-nullish-coalescing": "warn",
@@ -104,6 +104,7 @@
       "react/jsx-props-no-multi-spaces": "warn",
       "react/no-danger-with-children": "error",
       "react/no-deprecated": "error",
-      "react/no-direct-mutation-state": "error"
+      "react/no-direct-mutation-state": "error",
+      "react/display-name": "off"
     }
 }

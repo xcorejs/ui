@@ -1,5 +1,6 @@
-import { Box, useTheme } from '../src';
 import React, { FC } from 'react';
+
+import { Box } from '../src';
 
 export default { title: 'Box' };
 

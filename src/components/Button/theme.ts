@@ -1,6 +1,7 @@
-import { ButtonProps } from './index';
-import { defaultsDeep } from 'lodash';
 import { darken } from 'polished';
+
+import { ButtonProps } from '.';
+import { defaultsTheme } from '../../utils/defaults';
 
 export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg';
 export type ButtonType = 'solid' | 'clear' | 'outline' | 'link';
@@ -22,7 +23,7 @@ export const button = (
     sizes?: Partial<Record<ButtonSize, ButtonProps>>;
     types?: Partial<Record<ButtonType, ButtonProps>>;
   } = emptyButton
-): ButtonTheme => ({ button: defaultsDeep(b, emptyButton) });
+): ButtonTheme => ({ button: defaultsTheme<'types' | 'sizes', ButtonProps>(b, emptyButton) });
 
 const emptyButton: ButtonValue = {
   default: {
@@ -30,7 +31,18 @@ const emptyButton: ButtonValue = {
     fontFamily: 'rubik',
     fontSize: '1.4rem',
     lineHeight: '2.4rem',
-    borderRadius: '0.3rem'
+    borderRadius: '0.3rem',
+
+    display: 'inline-flex',
+    bg: 'transparent',
+    border: '0.1rem solid transparent',
+    transition: 'background 300ms, color 300ms, border 300ms, box-shadow 300ms',
+    cursor: 'pointer',
+    textDecoration: 'none',
+    alignItems: 'center',
+    _disabled: {
+      cursor: 'not-allowed'
+    }
   },
   sizes: {
     xs: {
