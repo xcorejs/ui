@@ -128,10 +128,9 @@ export const boxBase = (p: BoxBaseProps): FlattenInterpolation<ThemeProps<XcoreT
   ${system.fontWeight(p)}
   ${system.gridColumn(p)}
   ${system.gridRow(p)}
-  ${system.flexbox(p)}
   ${system.zIndex(p)}
-  ${system.alignSelf(p)}
-  ${system.justifySelf(p)}
+  ${system.flexbox(p)}
+
   ${system.typography(p)}
 
   ${system.system({
@@ -140,8 +139,6 @@ export const boxBase = (p: BoxBaseProps): FlattenInterpolation<ThemeProps<XcoreT
     transform: true,
     cursor: true,
     filter: true,
-    alignSelf: true,
-    justifySelf: true,
     placeSelf: true,
     column: {
       property: 'gridColumn'

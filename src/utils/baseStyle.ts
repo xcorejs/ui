@@ -18,7 +18,6 @@ export const base = <T>(inherits: BaseStyle<T>[], b: (props: T) => Style): BaseS
 
 export const compose = <T>(...bases: BaseStyle<T>[]) => {
   const flattenBases = Array.from(new Set(flatten(bases)));
-  console.trace(bases, flattenBases);
   return (p: T) => css`
     ${flattenBases.map(b => b(p))}
   `;

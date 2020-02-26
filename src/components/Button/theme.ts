@@ -39,7 +39,7 @@ const emptyButton: ButtonValue = {
     transition: 'background 300ms, color 300ms, border 300ms, box-shadow 300ms',
     cursor: 'pointer',
     textDecoration: 'none',
-    alignItems: 'items',
+    alignItems: 'center',
     _disabled: {
       cursor: 'not-allowed'
     }
