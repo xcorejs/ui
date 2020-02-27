@@ -4,6 +4,7 @@ import system from 'styled-system';
 import useTheme from '../useTheme';
 import convert from '../utils/convert';
 import Flex, { FlexProps } from './Flex';
+import Box from './Box';
 
 export interface StackProps extends FlexProps {
   direction?: system.ResponsiveValue<'column' | 'row'>;
@@ -64,10 +65,12 @@ const Stack: FC<StackProps> = ({
       flexWrap={wrap}
       {...props}
     >
-      {Children.map(children, (child, index) => isValidElement(child) && !isLast(index)
-        ? cloneElement(child, getStyle(toArray(direction, false), toArray(gap, false)))
-        : child
-      )}
+      {Children.map(children, (child, index) => (
+        <Box {...getStyle(toArray(direction, false), toArray(gap, false))}>
+          {child}
+        </Box>
+      ))}
+
     </Flex>
   );
 };

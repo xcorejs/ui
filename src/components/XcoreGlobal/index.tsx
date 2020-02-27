@@ -1,12 +1,14 @@
 import React, { FC } from 'react';
 import { createGlobalStyle } from 'styled-components';
 
-import useTheme from '../../useTheme';
-import { GlobalValue } from './theme';
 import { globalBase, selectionBase } from '../../bases';
+import useTheme from '../../useTheme';
+import { compose } from '../../utils/baseStyle';
+import { GlobalValue } from './theme';
 
 const XcoreGlobal: FC = () => {
   const { global } = useTheme();
+  console.log(global);
   return (
     <GlobalStyle {...global} />
   );
@@ -14,17 +16,19 @@ const XcoreGlobal: FC = () => {
 
 export default XcoreGlobal;
 
+const base = compose(globalBase);
+
 const GlobalStyle = createGlobalStyle<GlobalValue>`
   html {
-    ${p => globalBase(p._html)}
+    ${p => base(p._html)}
   }
 
   body {
-    ${p => globalBase(p._body)}
+    ${p => base(p._body)}
   }
 
   *, *:before, *:after {
-    ${p => globalBase(p._all)}
+    ${p => base(p._all)}
   }
 
   ::-moz-selection {

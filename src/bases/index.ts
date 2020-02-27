@@ -148,7 +148,8 @@ export const boxBase = (p: BoxBaseProps): FlattenInterpolation<ThemeProps<XcoreT
     },
     userSelect: true,
     pointerEvents: true,
-    outline: true
+    outline: true,
+    outlineOffset: true
   })(p)}
 
   ${p._selection && css`
