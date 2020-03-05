@@ -16,7 +16,7 @@ export const BasicUsage: FC = () => {
         </Box>
       </Stack>
       <Box>Lorem ipsum dolor sit amet</Box>
-      <Stack direction="column" gap="10px">
+      <Stack direction="column" gap="10px" wrapItems>
         <Heading3>Title 1</Heading3>
         <Heading3>Title 2</Heading3>
         <Heading3>Title 3</Heading3>
