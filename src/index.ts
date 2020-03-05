@@ -42,6 +42,8 @@ export { default as Tag, TagProps } from './components/Tag';
 export { default as Card, CardProps } from './components/Card';
 export { default as List, ListProps } from './components/List';
 export { default as ListItem, ListItemProps } from './components/List/ListItem';
+export { default as InsetBox, InsetBoxProps } from './components/AbsoluteBox/InsetBox';
+export { default as OutsetBox, OutsetBoxProps } from './components/AbsoluteBox/OutsetBox';
 
 export { XcoreTheme, createTheme } from './theme';
 
