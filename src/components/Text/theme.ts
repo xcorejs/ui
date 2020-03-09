@@ -31,6 +31,15 @@ export interface TextTheme {
   text: TextValue;
 }
 
+export const text = (
+  t: {
+    default?: TextProps;
+    types?: Partial<Record<TextType, TextProps>>;
+  } = emptyText
+): TextTheme => ({
+  text: defaultsTheme<'types', TextProps>(t, emptyText)
+});
+
 const emptyText: TextValue = {
   default: {
     fontFamily: 'rubik',
@@ -49,12 +58,3 @@ const emptyText: TextValue = {
     sup: {}
   }
 };
-
-export const text = (
-  t: {
-    default?: TextProps;
-    type?: Partial<Record<TextType, TextProps>>;
-  } = emptyText
-): TextTheme => ({
-  text: defaultsTheme<'types', TextProps>(t, emptyText)
-});

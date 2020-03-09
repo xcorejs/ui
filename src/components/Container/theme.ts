@@ -12,6 +12,13 @@ export interface ContainerTheme {
   container: ContainerValue;
 }
 
+export const container = (
+  c: {
+    default?: FlexProps;
+    types?: Partial<Record<ContainerType, FlexProps>>;
+  } = emptyContainer
+): ContainerTheme => ({ container: defaultsTheme<'types', FlexProps>(c, emptyContainer) });
+
 const emptyContainer: ContainerValue = {
   default: {
     ml: 'auto',
@@ -28,10 +35,3 @@ const emptyContainer: ContainerValue = {
     }
   }
 };
-
-export const container = (
-  c: {
-    default?: FlexProps;
-    types?: Partial<Record<ContainerType, FlexProps>>;
-  } = emptyContainer
-): ContainerTheme => ({ container: defaultsTheme<'types', FlexProps>(c, emptyContainer) });
