@@ -27,8 +27,8 @@ export type BoxBaseProps =
     _hover?: BoxBaseProps;
     _active?: BoxBaseProps;
     _focus?: BoxBaseProps;
-    _before?: BoxBaseProps;
-    _after?: BoxBaseProps;
+    _before?: PseudoBoxBaseProps;
+    _after?: PseudoBoxBaseProps;
     _disabled?: BoxBaseProps;
     _groupHover?: BoxBaseProps;
     _groupHoverIcon?: IconBaseProps;
@@ -45,7 +45,6 @@ export type BoxBaseProps =
     transition?: ResponsiveValue<CSS.TransitionProperty>;
     outline?: ResponsiveValue<CSS.OutlineProperty<TLen>>;
     outlineOffset?: ResponsiveValue<CSS.OutlineOffsetProperty<TLen>>;
-    content?: ResponsiveValue<CSS.ContentProperty>;
     transform?: ResponsiveValue<CSS.TransformProperty>;
     filter?: ResponsiveValue<CSS.FilterProperty>;
     placeSelf?: ResponsiveValue<CSS.PlaceSelfProperty>;
@@ -71,6 +70,10 @@ export type BoxBaseProps =
   & system.JustifySelfProps
   & system.AlignSelfProps
   & Omit<DOMAttributes<HTMLElement>, 'children' | 'dangerouslySetInnerHTML'>;
+
+export type PseudoBoxBaseProps = {
+  content?: ResponsiveValue<CSS.ContentProperty>;
+} & BoxBaseProps;
 
 export type GlobalBaseProps = {
   webkitFontSmoothing?: system.ResponsiveValue<string>;
@@ -166,10 +169,16 @@ export const boxBase = (p: BoxBaseProps): FlattenInterpolation<ThemeProps<XcoreT
 
   ${Object.keys(pseudoSelectors).map(k => p[k] && css`
       ${pseudoSelectors[k]} {
-        ${boxBase(p[k]!)}
+        ${pseudoBoxBase(p[k]!)}
       }
   `)}
 `;
+
+export const pseudoBoxBase = base([boxBase], (p: PseudoBoxBaseProps) => css`
+  ${system.system({
+    content: true
+  })(p)}
+`);
 
 export const globalBase = base([boxBase], ({ webkitFontSmoothing, ...p }: GlobalBaseProps) => css`
   ${system.system({
@@ -250,8 +259,8 @@ const pseudoSelectors: Record<PseudoSelector, string> = {
   _hover: '&:hover',
   _active: '&:active',
   _focus: '&:focus',
-  _before: '&:before',
-  _after: '&:after',
+  _before: '&::before',
+  _after: '&::after',
   // eslint-disable-next-line max-len
   _disabled: '&:disabled, &:disabled:focus, &:disabled:hover, &[aria-disabled=true], &[aria-disabled=true]:focus, &[aria-disabled=true]:hover',
   _groupHover: '[role=group]:hover &',
