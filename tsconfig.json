@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "jsx": "react",
-    "module": "esnext",
+    "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "./_build_internal",
     "lib": ["dom", "dom.iterable", "esnext"],
