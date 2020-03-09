@@ -5,7 +5,7 @@ import { ResponsiveValue } from 'styled-system';
 import * as system from 'styled-system';
 
 import { XcoreTheme } from '../theme';
-import { base } from '../utils/baseStyle';
+import { base, compose } from '../utils/baseStyle';
 
 type TLen = string | 0 | number;
 
@@ -163,13 +163,13 @@ export const boxBase = (p: BoxBaseProps): FlattenInterpolation<ThemeProps<XcoreT
 
   ${p._groupHoverIcon && css`
       [role=group]:hover & {
-        ${iconBase(p._groupHoverIcon)}
+        ${iconBaseComposed(p._groupHoverIcon)}
       }
   `}
 
   ${Object.keys(pseudoSelectors).map(k => p[k] && css`
       ${pseudoSelectors[k]} {
-        ${pseudoBoxBase(p[k]!)}
+        ${pseudoBoxBaseComposed(p[k]!)}
       }
   `)}
 `;
@@ -179,6 +179,8 @@ export const pseudoBoxBase = base([boxBase], (p: PseudoBoxBaseProps) => css`
     content: true
   })(p)}
 `);
+
+const pseudoBoxBaseComposed = compose(pseudoBoxBase);
 
 export const globalBase = base([boxBase], ({ webkitFontSmoothing, ...p }: GlobalBaseProps) => css`
   ${system.system({
@@ -228,6 +230,8 @@ export const iconBase = base([flexBase], (p: IconBaseProps) => css`
     }
   }
 `);
+
+const iconBaseComposed = compose(iconBase);
 
 export const textBase = base([boxBase], (p: TextBaseProps) => css`
   ${system.system({
