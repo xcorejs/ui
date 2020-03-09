@@ -8,7 +8,6 @@ import { GlobalValue } from './theme';
 
 const XcoreGlobal: FC = () => {
   const { global } = useTheme();
-  console.log(global);
   return (
     <GlobalStyle {...global} />
   );
