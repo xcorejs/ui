@@ -1,6 +1,6 @@
 {
   "name": "@xcorejs/ui",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Flexible, themeable React component library for applications with advanced UI design requirements which is suitable for creating tailored design systems.",
   "main": "_build_internal/index.js",
   "types": "_build_internal/index.d.ts",
