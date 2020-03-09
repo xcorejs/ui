@@ -14,6 +14,11 @@ export interface TypographyTheme {
   typography: TypographyValue;
 }
 
+export const typography = (t: {
+  default?: TextProps;
+  types?: Partial<Record<TypographyType, TextProps>>;
+} = emptyTypography) => ({ typography: defaultsTheme<'types', TextProps>(t, emptyTypography) });
+
 const emptyTypography: TypographyValue = {
   default: {
     fontFamily: 'rubik',
@@ -52,8 +57,3 @@ const emptyTypography: TypographyValue = {
     lead: {}
   }
 };
-
-export const typography = (t: {
-  default?: TextProps;
-  types?: Partial<Record<TypographyType, TextProps>>;
-} = emptyTypography) => ({ typography: defaultsTheme<'types', TextProps>(t, emptyTypography) });

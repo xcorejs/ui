@@ -1,4 +1,4 @@
-import { ActiveBreakpoint, Box, breakpoints, container, createTheme, Stack, Text } from '../../src';
+import { ActiveBreakpoint, Box, breakpoints, container, createTheme, Stack, Text, Heading3 } from '../../src';
 import React, { FC } from 'react';
 import { ThemeProvider } from 'styled-components';
 
@@ -16,6 +16,11 @@ export const BasicUsage: FC = () => {
         </Box>
       </Stack>
       <Box>Lorem ipsum dolor sit amet</Box>
+      <Stack direction="column" gap="10px" wrapItems>
+        <Heading3>Title 1</Heading3>
+        <Heading3>Title 2</Heading3>
+        <Heading3>Title 3</Heading3>
+      </Stack>
     </Box>
   );
 };

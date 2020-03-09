@@ -21,6 +21,22 @@ export const BasicUsage: FC = () => {
       >
         Box 2
       </Box>
+      <Box
+        background="navy"
+        color="white"
+        p="10px"
+        my="15px"
+        _before={{
+          content: '"before"',
+          background: 'green'
+        }}
+        _after={{
+          content: '"after"',
+          background: 'green'
+        }}
+      >
+        Box 3
+      </Box>
     </Box>
   );
 };

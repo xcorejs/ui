@@ -1,7 +1,7 @@
 import { button, ButtonTheme } from './components/Button/theme';
 import { card, CardTheme } from './components/Card/theme';
 import { container, ContainerTheme } from './components/Container/theme';
-import { link, LinkTheme } from './components/Link/theme';
+import { link, LinkTheme, LinkType } from './components/Link/theme';
 import { list, ListTheme } from './components/List/theme';
 import { tag, TagTheme } from './components/Tag/theme';
 import { text, TextTheme } from './components/Text/theme';
@@ -70,3 +70,7 @@ export { text, TextAs, TextType } from './components/Text/theme';
 export { button, ButtonSize, ButtonType, ButtonAs } from './components/Button/theme';
 export { global } from './components/XcoreGlobal/theme';
 export { typography, TypographyType, TypographyAs } from './components/Typography/theme';
+export { link, LinkType, LinkAs } from './components/Link/theme';
+export { list, ListType } from './components/List/theme';
+export { tag, TagType } from './components/Tag/theme';
+export { card, CardType } from './components/Card/theme';
