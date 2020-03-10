@@ -8,7 +8,7 @@ export const BasicUsage: FC = () => {
   return (
     <ThemeProvider theme={createTheme({})}>
       <Box>
-        <Typography type="h1">Heading 1</Typography>
+        <Typography type="h1" mb="4rem">Heading 1</Typography>
         <Typography type="h2">Heading 2</Typography>
         <Typography type="h3">Heading 3</Typography>
         <Typography type="h4">Heading 4</Typography>
