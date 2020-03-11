@@ -42,10 +42,11 @@ export const text = (
 
 const emptyText: TextValue = {
   default: {
-    fontFamily: 'rubik',
+    fontFamily: 'text',
     fontSize: '1.5rem',
     lineHeight: '2rem',
-    transition: 'color 300ms'
+    transition: 'color 300ms',
+    color: 'text'
   },
   types: {
     span: {},

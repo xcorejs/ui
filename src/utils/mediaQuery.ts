@@ -1,6 +1,5 @@
 import { css } from 'styled-components';
-
-import { Breakpoints } from '../theme';
+import { Breakpoints } from '../scales/breakpoints';
 
 export const mediaQueries = (breakpoints: Breakpoints, predicate: (i: number, br: string) => any) => breakpoints
   .map((br, i) =>

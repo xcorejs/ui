@@ -14,7 +14,7 @@ export const defaults = <TValue extends {}>(
   target: Partial<TValue>,
   ...source: (Partial<TValue> | undefined)[]
 ): TValue =>
-  source.reduce<Partial<TValue>>((acc, val) => defaultsPair(acc, val), target) as TValue;
+  reverseObjectKeys(source.reduce<Partial<TValue>>((acc, val) => defaultsPair(acc, val), target) as TValue);
 
 export const defaultsTheme = <
   TKey extends string,
@@ -79,4 +79,10 @@ const defaultsVariantPair = <
         : source[k]
     }),
     target as TTarget & TSource
+  );
+
+const reverseObjectKeys = <T>(obj: T): T =>
+  Object.keys(obj).reverse().reduce(
+    (acc, k) => ({ ...acc, [k]: obj[k] }),
+    {} as T
   );

@@ -19,22 +19,22 @@ const base = compose(globalBase);
 
 const GlobalStyle = createGlobalStyle<GlobalValue>`
   html {
-    ${p => base(p._html)}
+    ${p => base({ ...p._html, theme: p.theme })}
   }
 
   body {
-    ${p => base(p._body)}
+    ${p => base({ ...p._body, theme: p.theme })}
   }
 
   *, *:before, *:after {
-    ${p => base(p._all)}
+    ${p => base({ ...p._all, theme: p.theme })}
   }
 
   ::-moz-selection {
-    ${p => selectionBase(p._selection)}
+    ${p => selectionBase({ ...p._selection, theme: p.theme })}
   }
 
   ::selection {
-    ${p => selectionBase(p._selection)}
+    ${p => selectionBase({ ...p._selection, theme: p.theme })}
   }
 `;

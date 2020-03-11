@@ -43,24 +43,36 @@ export { default as Card, CardProps } from './components/Card';
 export { default as List, ListProps } from './components/List';
 export { default as ListItem, ListItemProps } from './components/List/ListItem';
 
+export { XcoreTheme, createTheme } from './theme';
+
+export { container } from './components/Container/theme';
+export { text, TextAs, TextType } from './components/Text/theme';
+export { button, ButtonSize, ButtonType, ButtonAs } from './components/Button/theme';
+export { global } from './components/XcoreGlobal/theme';
+export { typography, TypographyType, TypographyAs } from './components/Typography/theme';
+export { link, LinkType, LinkAs } from './components/Link/theme';
+export { list, ListType } from './components/List/theme';
+export { tag, TagType } from './components/Tag/theme';
+export { card, CardType } from './components/Card/theme';
+
+export { Scales, createScales } from './scales';
+
+export { breakpoints, BreakpointScale } from './scales/breakpoints';
 export {
-  XcoreTheme,
-  container,
-  breakpoints,
-  BreakpointsTheme,
-  createTheme,
-  Breakpoints,
-  text,
-  button,
-  global,
-  typography,
-  ButtonSize,
-  ButtonType,
-  ButtonAs,
-  TypographyAs,
-  TypographyType,
-  TextAs,
-  TextType
-} from './theme';
+  colors,
+  ColorScale,
+  darken,
+  lighten,
+  opacify,
+  transparentize,
+  saturate,
+  desaturate,
+  shade,
+  tint,
+  adjustHue,
+  lightColorTheme,
+  darkColorTheme
+} from './scales/colors';
+export { fonts, FontScale } from './scales/fonts';
 
 export { default as useTheme } from './useTheme';
