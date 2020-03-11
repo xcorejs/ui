@@ -88,13 +88,13 @@ const emptyButton: ButtonValue = {
     clear: {
       color: 'primary',
       _hover: {
-        bg: opacify('#0171b6', 0.1)
+        bg: opacify('primary', 0.1)
       },
       _active: {
-        bg: opacify('#0171b6', 0.2)
+        bg: opacify('primary', 0.2)
       },
       _focus: {
-        bg: opacify('#0171b6', 0.2),
+        bg: opacify('primary', 0.2),
         outline: '2px solid rgba(15, 31, 40, 0.2)',
         outlineOffset: '-2px'
       },
@@ -107,13 +107,13 @@ const emptyButton: ButtonValue = {
       borderColor: 'primary',
       color: 'primary',
       _hover: {
-        bg: opacify('#0171b6', 0.1)
+        bg: opacify('primary', 0.1)
       },
       _active: {
-        bg: opacify('#0171b6', 0.2)
+        bg: opacify('primary', 0.2)
       },
       _focus: {
-        bg: opacify('#0171b6', 0.2),
+        bg: opacify('primary', 0.2),
         outline: '2px solid rgba(15, 31, 40, 0.2)',
         outlineOffset: '-2px'
       },

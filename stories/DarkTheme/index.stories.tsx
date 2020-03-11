@@ -61,7 +61,14 @@ export const Basic: FC = () => {
           </Box>
 
           {/* Content */}
-          <Flex column="4 / span 1" row="1" placeSelf="center" width="100%" height="100%" justifyContent="space-between">
+          <Flex
+            column="4 / span 1"
+            row="1"
+            placeSelf="center"
+            width="100%"
+            height="100%"
+            justifyContent="space-between"
+          >
             <Typography t="h1" alignSelf="center">Lorem ipsum dolor sit amet</Typography>
             <Box >
               <Button onClick={() => setTheme(!light)}>{light ? 'Dark theme' : 'Light theme'}</Button>
