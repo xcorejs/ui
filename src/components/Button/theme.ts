@@ -1,7 +1,6 @@
-import { darken } from 'polished';
-
 import { ButtonProps } from '.';
 import { defaultsTheme } from '../../utils/defaults';
+import { darken, opacify } from '../../scales/colors';
 
 export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg';
 export type ButtonType = 'solid' | 'clear' | 'outline' | 'link';
@@ -28,7 +27,7 @@ export const button = (
 const emptyButton: ButtonValue = {
   default: {
     fontWeight: 500,
-    fontFamily: 'rubik',
+    fontFamily: 'text',
     fontSize: '1.4rem',
     lineHeight: '2.4rem',
     borderRadius: '0.3rem',
@@ -69,16 +68,16 @@ const emptyButton: ButtonValue = {
   },
   types: {
     solid: {
-      bg: '#0171b6',
-      color: 'white',
+      bg: 'primary',
+      color: 'background',
       _hover: {
-        bg: darken(0.025, '#0171b6')
+        bg: darken('primary', 0.025)
       },
       _active: {
-        bg: darken(0.05, '#0171b6')
+        bg: darken('primary', 0.05)
       },
       _focus: {
-        bg: darken(0.05, '#0171b6'),
+        bg: darken('primary', 0.05),
         outline: '2px solid rgba(15, 31, 40, 0.2)',
         outlineOffset: '-2px'
       },
@@ -87,15 +86,15 @@ const emptyButton: ButtonValue = {
       }
     },
     clear: {
-      color: '#0171b6',
+      color: 'primary',
       _hover: {
-        bg: 'rgba(1, 113, 182, 0.1)'
+        bg: opacify('#0171b6', 0.1)
       },
       _active: {
-        bg: 'rgba(1, 113, 182, 0.2)'
+        bg: opacify('#0171b6', 0.2)
       },
       _focus: {
-        bg: 'rgba(1, 113, 182, 0.2)',
+        bg: opacify('#0171b6', 0.2),
         outline: '2px solid rgba(15, 31, 40, 0.2)',
         outlineOffset: '-2px'
       },
@@ -104,16 +103,17 @@ const emptyButton: ButtonValue = {
       }
     },
     outline: {
-      border: '1px solid #0171B6',
-      color: '#0171b6',
+      border: '1px solid',
+      borderColor: 'primary',
+      color: 'primary',
       _hover: {
-        bg: 'rgba(1, 113, 182, 0.1)'
+        bg: opacify('#0171b6', 0.1)
       },
       _active: {
-        bg: 'rgba(1, 113, 182, 0.2)'
+        bg: opacify('#0171b6', 0.2)
       },
       _focus: {
-        bg: 'rgba(1, 113, 182, 0.2)',
+        bg: opacify('#0171b6', 0.2),
         outline: '2px solid rgba(15, 31, 40, 0.2)',
         outlineOffset: '-2px'
       },
@@ -123,12 +123,13 @@ const emptyButton: ButtonValue = {
     },
     link: {
       padding: 0,
-      color: '#0171b6',
+      color: 'primary',
       borderRadius: 0,
       border: 0,
       borderBottom: '1px solid transparent',
       _hover: {
-        borderBottom: '1px solid #0171b6'
+        borderBottom: '1px solid',
+        borderColor: 'primary'
       },
       _active: {
         color: '#036199'

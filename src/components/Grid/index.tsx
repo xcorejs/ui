@@ -6,11 +6,11 @@ import CSS from 'csstype';
 import useTheme from '../../useTheme';
 import convert, { getArrayValue } from '../../utils/convert';
 import { parseTwin, parseTemplate } from '../../utils/gridTemplate';
-import { Breakpoints } from '../../theme';
 import styled, { css } from 'styled-components';
 import { mediaQueries } from '../../utils/mediaQuery';
 import { BoxBaseProps, boxBase } from '../../bases';
 import { compose } from '../../utils/baseStyle';
+import { Breakpoints } from '../../scales/breakpoints';
 
 export type GridProps =
   {

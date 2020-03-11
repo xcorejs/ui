@@ -1,6 +1,5 @@
-import { darken } from 'polished';
-
 import { LinkProps } from '.';
+import { darken } from '../../scales/colors';
 import { defaultsTheme } from '../../utils/defaults';
 
 export type LinkType = 'underline' | 'simple';
@@ -22,8 +21,9 @@ export const link = (l: {
 
 const emptyLink: LinkValue = {
   default: {
-    color: '#0171B6',
-    borderBottom: '1px solid #0171B6',
+    color: 'primary',
+    borderBottom: '1px solid',
+    borderColor: 'primary',
     fontSize: '1.6rem',
     lineHeight: 'initial',
     display: 'inline-flex',
@@ -31,7 +31,7 @@ const emptyLink: LinkValue = {
     cursor: 'pointer',
 
     _hover: {
-      color: darken(0.025, '#0171b6'),
+      color: darken('primary', 0.025),
       borderBottom: '1px solid transparent'
     }
   },
@@ -41,7 +41,7 @@ const emptyLink: LinkValue = {
       borderBottom: '1px solid transparent',
 
       _hover: {
-        color: darken(0.025, '#0171b6'),
+        color: darken('primary', 0.025),
         borderBottom: '1px solid transparent'
       }
     }

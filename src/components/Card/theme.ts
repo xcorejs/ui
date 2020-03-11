@@ -26,8 +26,8 @@ export const card = (
 
 const emptyCard: CardValue = {
   default: {
-    color: 'black',
-    background: '#fff',
+    color: 'text',
+    background: 'background',
     maxWidth: '30rem'
   },
   types: {

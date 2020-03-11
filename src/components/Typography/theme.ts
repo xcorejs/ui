@@ -21,8 +21,9 @@ export const typography = (t: {
 
 const emptyTypography: TypographyValue = {
   default: {
-    fontFamily: 'rubik',
-    margin: 0
+    fontFamily: 'heading',
+    margin: 0,
+    color: 'text'
   },
   types: {
     p: {
@@ -32,8 +33,7 @@ const emptyTypography: TypographyValue = {
     h1: {
       fontSize: '4.4rem',
       fontWeight: 500,
-      lineHeight: '6.6rem',
-      color: '#1E3441'
+      lineHeight: '6.6rem'
     },
     h2: {
       fontSize: '3.2rem',

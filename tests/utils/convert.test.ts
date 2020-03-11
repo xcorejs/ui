@@ -1,5 +1,5 @@
 import convert, { getArrayValue } from '../../src/utils/convert';
-import { breakpoints } from '../../src/theme';
+import { breakpoints } from '../../src/scales/breakpoints';
 
 const {
   valueToArray,

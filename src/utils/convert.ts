@@ -1,5 +1,6 @@
-import { Breakpoints } from '../theme';
 import { ResponsiveValue } from 'styled-system';
+
+import { Breakpoints } from '../scales/breakpoints';
 
 const convert = (breakpoints: Breakpoints) => {
   const valueToArray = <T>(val: T, optimal: boolean = true) => [

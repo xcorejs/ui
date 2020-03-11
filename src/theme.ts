@@ -7,13 +7,14 @@ import { tag, TagTheme } from './components/Tag/theme';
 import { text, TextTheme } from './components/Text/theme';
 import { typography, TypographyTheme } from './components/Typography/theme';
 import { global, GlobalTheme } from './components/XcoreGlobal/theme';
+import { createScales, Scales } from './scales';
 
-interface XcoreThemeBase {
+export interface XcoreThemeBase {
   name: string;
 }
 
 export type XcoreTheme =
-  & BreakpointsTheme
+  & Scales
   & XcoreThemeBase
   & GlobalTheme
   & ContainerTheme
@@ -28,7 +29,6 @@ export type XcoreTheme =
 export const createTheme = (theme: Partial<XcoreTheme>): XcoreTheme => ({
   ['__xcoreTheme' as any]: true,
   name: 'Xcore',
-  ...breakpoints(),
   ...global(),
   ...container(),
   ...text(),
@@ -38,32 +38,9 @@ export const createTheme = (theme: Partial<XcoreTheme>): XcoreTheme => ({
   ...tag(),
   ...card(),
   ...list(),
+  ...createScales({}),
   ...theme
 });
-
-export type Breakpoints = string[] & Record<string, string> & { aliases: string[] };
-
-export interface BreakpointsTheme {
-  breakpoints: Breakpoints;
-}
-
-export const breakpoints = (
-  _breakpoints: string[] = ['30em', '48em', '64em', '78em', '85em'],
-  aliases: string[] = ['xs', 'sm', 'md', 'lg', 'xl']
-): BreakpointsTheme => {
-  const br = aliases.reduce((acc, val, i) => {
-    // @ts-ignore
-    acc[val] = _breakpoints[i];
-    return acc;
-  }, [..._breakpoints]);
-  // @ts-ignore
-  br.aliases = aliases;
-
-  return {
-    // @ts-ignore
-    breakpoints: br
-  };
-};
 
 export { container } from './components/Container/theme';
 export { text, TextAs, TextType } from './components/Text/theme';

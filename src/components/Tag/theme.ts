@@ -22,7 +22,7 @@ const emptyTag: TagValue = {
     borderRadius: '0.3rem',
     border: '1px solid #455663',
     px: '0.7rem',
-    fontFamily: 'rubik',
+    fontFamily: 'text',
     fontSize: '1.2rem',
     fontWeight: 500,
     lineHeight: '2rem'
@@ -30,7 +30,7 @@ const emptyTag: TagValue = {
   types: {
     solid: {
       bg: '#455663',
-      color: '#fff'
+      color: 'background'
     },
     outline: {
       color: '#0f1f28'

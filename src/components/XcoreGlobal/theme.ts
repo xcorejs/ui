@@ -25,13 +25,14 @@ const emptyGlobal: GlobalValue = {
   },
   _body: {
     m: 0,
-    p: 0
+    p: 0,
+    bg: 'background'
   },
   _all: {
     boxSizing: 'border-box'
   },
   _selection: {
-    color: '#fff',
-    backgroundColor: '#0171b6'
+    color: 'background',
+    backgroundColor: 'primary'
   }
 };

@@ -1,5 +1,5 @@
 import { ListProps } from '.';
-import { defaults, defaultsTheme } from '../../utils/defaults';
+import { defaultsTheme } from '../../utils/defaults';
 
 export type ListType = 'ordered' | 'unordered';
 
@@ -28,7 +28,7 @@ const emptyList: ListValue = {
       marginRight: '1.5rem'
     },
     _items: {
-      color: '#1e3441',
+      color: 'text',
       paddingLeft: '.5rem',
       marginBottom: '1rem'
     }

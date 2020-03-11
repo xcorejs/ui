@@ -1,9 +1,10 @@
 import * as CSS from 'csstype';
 import { DOMAttributes } from 'react';
-import { css, FlattenInterpolation, ThemeProps, CSSProperties } from 'styled-components';
+import { css, CSSProperties, FlattenInterpolation, ThemeProps } from 'styled-components';
 import { ResponsiveValue } from 'styled-system';
 import * as system from 'styled-system';
 
+import { colorTransform } from '../scales/colors';
 import { XcoreTheme } from '../theme';
 import { base, compose } from '../utils/baseStyle';
 
@@ -18,6 +19,8 @@ export type SelectionBaseProps =
     outlineOffset?: system.ResponsiveValue<CSS.OutlineOffsetProperty<TLen>>;
     textDecoration?: system.ResponsiveValue<CSS.TextDecorationProperty<TLen>>;
     textEmphasisColor?: system.ResponsiveValue<CSS.TextEmphasisColorProperty>;
+
+    theme?: XcoreTheme;
   }
   & system.BackgroundColorProps
   & system.TextShadowProps;
@@ -54,6 +57,8 @@ export type BoxBaseProps =
     // Aliases
     column?: ResponsiveValue<CSS.GridColumnProperty>;
     row?: ResponsiveValue<CSS.GridRowProperty>;
+
+    theme?: XcoreTheme;
   }
   & system.TypographyProps
   & system.FlexboxProps
@@ -107,8 +112,16 @@ export type TextBaseProps =
 
 export const selectionBase = (p: SelectionBaseProps) => css`
   ${system.system({
-    color: true,
-    backgroundColor: true,
+    color: {
+      property: 'color',
+      scale: 'colors',
+      transform: colorTransform
+    },
+    backgroundColor: {
+      property: 'backgroundColor',
+      scale: 'colors',
+      transform: colorTransform
+    },
     cursor: true,
     caretColor: true,
     outline: true,
@@ -122,11 +135,9 @@ export const selectionBase = (p: SelectionBaseProps) => css`
 export const boxBase = (p: BoxBaseProps): FlattenInterpolation<ThemeProps<XcoreTheme>> => css`
   ${system.border(p)}
   ${system.boxShadow(p)}
-  ${system.color(p)}
   ${system.layout(p)}
   ${system.position(p)}
   ${system.space(p)}
-  ${system.background(p)}
   ${system.fontSize(p)}
   ${system.fontWeight(p)}
   ${system.gridColumn(p)}
@@ -152,7 +163,28 @@ export const boxBase = (p: BoxBaseProps): FlattenInterpolation<ThemeProps<XcoreT
     userSelect: true,
     pointerEvents: true,
     outline: true,
-    outlineOffset: true
+    outlineOffset: true,
+    background: {
+      property: 'background',
+      scale: 'colors',
+      transform: colorTransform
+    },
+    color: {
+      property: 'color',
+      scale: 'colors',
+      transform: colorTransform
+    },
+    backgroundColor: {
+      property: 'backgroundColor',
+      scale: 'colors',
+      transform: colorTransform
+    },
+    bg: {
+      property: 'backgroundColor',
+      scale: 'colors',
+      transform: colorTransform
+    },
+    opacity: true
   })(p)}
 
   ${p._selection && css`
@@ -169,7 +201,7 @@ export const boxBase = (p: BoxBaseProps): FlattenInterpolation<ThemeProps<XcoreT
 
   ${Object.keys(pseudoSelectors).map(k => p[k] && css`
       ${pseudoSelectors[k]} {
-        ${pseudoBoxBaseComposed(p[k]!)}
+        ${pseudoBoxBaseComposed({ ...p[k]!, theme: p.theme })}
       }
   `)}
 `;

@@ -4,13 +4,13 @@ import styled, { css } from 'styled-components';
 
 import { GridContext } from '.';
 import { boxBase, BoxBaseProps } from '../../bases';
-import { Breakpoints } from '../../theme';
 import useTheme from '../../useTheme';
 import { compose } from '../../utils/baseStyle';
 import convert, { getArrayValue } from '../../utils/convert';
 import { parseTwin } from '../../utils/gridTemplate';
 import { mediaQueries } from '../../utils/mediaQuery';
 import { parseGridCell } from './data';
+import { Breakpoints } from '../../scales/breakpoints';
 
 export type CellProps = BoxBaseProps;
 export type ExtendedCellProps = CellProps;
