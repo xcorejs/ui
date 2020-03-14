@@ -123,11 +123,19 @@ export const selectionBase = (p: SelectionBaseProps) => css`
       transform: colorTransform
     },
     cursor: true,
-    caretColor: true,
+    caretColor: {
+      property: 'caretColor',
+      scale: 'colors',
+      transform: colorTransform
+    },
     outline: true,
     outlineOffset: true,
     textDecoration: true,
-    textEmphasisColor: true,
+    textEmphasisColor: {
+      property: 'textEmphasisColor',
+      scale: 'colors',
+      transform: colorTransform
+    },
     textShadow: true
   })(p)}
 `;
@@ -189,13 +197,13 @@ export const boxBase = (p: BoxBaseProps): FlattenInterpolation<ThemeProps<XcoreT
 
   ${p._selection && css`
       & *::selection {
-        ${selectionBase(p._selection)}
+        ${selectionBase({ ...p._selection, theme: p.theme })}
       }
   `}
 
   ${p._groupHoverIcon && css`
       [role=group]:hover & {
-        ${iconBaseComposed(p._groupHoverIcon)}
+        ${iconBaseComposed({ ...p._groupHoverIcon, theme: p.theme })}
       }
   `}
 

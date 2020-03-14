@@ -1,6 +1,5 @@
-import { createTheme, global, XcoreGlobal } from '../../src';
+import { createTheme, global, XcoreProvider } from '../../src';
 import React, { FC } from 'react';
-import { ThemeProvider } from 'styled-components';
 
 export default { title: 'Global' };
 
@@ -20,9 +19,8 @@ const theme = createTheme({
 
 export const BasicUsage: FC = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <XcoreGlobal />
+    <XcoreProvider theme={theme}>
       Text to select
-    </ThemeProvider>
+    </XcoreProvider>
   );
 };

@@ -7,7 +7,7 @@ export type Scales =
   & FontScale
   & BreakpointScale;
 
-export const createScales = (scale: Partial<Scales>): Scales => ({
+export const createScales = (scale: Partial<Scales> = {}): Scales => ({
   ...colors(),
   ...breakpoints(),
   ...fonts(),

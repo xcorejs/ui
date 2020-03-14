@@ -44,6 +44,11 @@ export { default as List, ListProps } from './components/List';
 export { default as ListItem, ListItemProps } from './components/List/ListItem';
 export { default as InsetBox, InsetBoxProps } from './components/AbsoluteBox/InsetBox';
 export { default as OutsetBox, OutsetBoxProps } from './components/AbsoluteBox/OutsetBox';
+export { default as CloseControl, CloseControlProps, ExtendedCloseControlProps } from './components/CloseControl';
+export { default as Modal, ModalProps, ExtendedModalProps } from './components/Modal';
+export { ModalContext, useModal } from './components/Modal/data';
+export { default as ModalProvider } from './components/Modal/ModalProvider';
+export { default as XcoreProvider, XcoreProviderProps } from './components/XcoreProvider';
 
 export { XcoreTheme, createTheme } from './theme';
 
@@ -78,3 +83,5 @@ export {
 export { fonts, FontScale } from './scales/fonts';
 
 export { default as useTheme } from './useTheme';
+
+export { default as useDisclosure } from './hooks/useDisclosure';

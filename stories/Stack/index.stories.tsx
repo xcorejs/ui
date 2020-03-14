@@ -1,12 +1,22 @@
-import { ActiveBreakpoint, Box, breakpoints, container, createTheme, Stack, Text, Heading3 } from '../../src';
 import React, { FC } from 'react';
-import { ThemeProvider } from 'styled-components';
+
+import {
+  ActiveBreakpoint,
+  Box,
+  breakpoints,
+  container,
+  createTheme,
+  Heading3,
+  Stack,
+  Text,
+  XcoreProvider
+} from '../../src';
 
 export default { title: 'Stack' };
 
 export const BasicUsage: FC = () => {
   return (
-    <Box>
+    <XcoreProvider>
       <Stack direction="column" gap="10px">
         <Box background="red" color="white" p="10px" width="50%">
           Box 1
@@ -15,19 +25,18 @@ export const BasicUsage: FC = () => {
           Box 2
         </Box>
       </Stack>
-      <Box>Lorem ipsum dolor sit amet</Box>
+      <Text>Lorem ipsum dolor sit amet</Text>
       <Stack direction="column" gap="10px" wrapItems>
         <Heading3>Title 1</Heading3>
         <Heading3>Title 2</Heading3>
         <Heading3>Title 3</Heading3>
       </Stack>
-    </Box>
+    </XcoreProvider>
   );
 };
 
 const theme = createTheme({
   name: 'Container theme',
-  ...breakpoints(['30em', '48em', '64em', '78em', '85em']),
   ...container({
     types: {
       normal: {
@@ -39,7 +48,7 @@ const theme = createTheme({
 });
 
 export const Responsive: FC = () => (
-  <ThemeProvider theme={theme}>
+  <XcoreProvider theme={theme}>
     <Box>
       <ActiveBreakpoint
         bg={['green', 'lime', 'crimson', 'red', 'blue', 'navy']}
@@ -58,5 +67,5 @@ export const Responsive: FC = () => (
       </Stack>
       <Text>Lorem ipsum dolor sit amet</Text>
     </Box>
-  </ThemeProvider>
+  </XcoreProvider>
 );

@@ -1,12 +1,12 @@
-import { Box, Typography, createTheme } from '../../src';
 import React, { FC } from 'react';
-import { ThemeProvider } from 'styled-components';
+
+import { Box, createTheme, Typography, XcoreProvider } from '../../src';
 
 export default { title: 'Typography' };
 
 export const BasicUsage: FC = () => {
   return (
-    <ThemeProvider theme={createTheme({})}>
+    <XcoreProvider theme={createTheme({})}>
       <Box>
         <Typography type="h1" mb="4rem">Heading 1</Typography>
         <Typography type="h2">Heading 2</Typography>
@@ -19,6 +19,6 @@ export const BasicUsage: FC = () => {
         <hr />
         <Typography type="h2" as="h3">Heading 2 as h3</Typography>
       </Box>
-    </ThemeProvider>
+    </XcoreProvider>
   );
 };

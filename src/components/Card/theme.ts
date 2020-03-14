@@ -28,7 +28,10 @@ const emptyCard: CardValue = {
   default: {
     color: 'text',
     background: 'background',
-    maxWidth: '30rem'
+    maxWidth: '30rem',
+    _header: { padding: '1rem' },
+    _body: { padding: '1rem' },
+    _footer: { padding: '1rem' }
   },
   types: {
     normal: {},

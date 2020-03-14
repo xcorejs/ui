@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { StyleSheetManager, ThemeProvider } from 'styled-components';
 
 import {
   Box,
@@ -9,7 +8,8 @@ import {
   container,
   createScales,
   createTheme,
-  useTheme
+  useTheme,
+  XcoreProvider
 } from '../../src';
 import { darken, lightColorTheme } from '../../src/scales/colors';
 
@@ -33,29 +33,27 @@ const theme = createTheme({
 });
 export const WithContainer: FC = () => {
   return (
-    <StyleSheetManager disableVendorPrefixes>
-      <ThemeProvider theme={theme}>
-        <Container flexDirection="column">
-          <Box width="100%">
-            <Box background="red" color="white" p="10px" my="15px">
-              Box 1
-            </Box>
-            <Box background={darken('primary', 0.1)} color="text" p="10px" my="15px">
-              Box 2
-            </Box>
+    <XcoreProvider theme={theme}>
+      <Container flexDirection="column">
+        <Box width="100%">
+          <Box background="red" color="white" p="10px" my="15px">
+            Box 1
           </Box>
-          <Button>Button</Button>
-        </Container>
-      </ThemeProvider>
-    </StyleSheetManager>
+          <Box background={darken('primary', 0.1)} color="text" p="10px" my="15px">
+            Box 2
+          </Box>
+        </Box>
+        <Button>Button</Button>
+      </Container>
+    </XcoreProvider>
 
   );
 };
 
 export const GetThemeValue: FC = () => (
-  <ThemeProvider theme={theme}>
+  <XcoreProvider theme={theme}>
     <ThemeToJSON />
-  </ThemeProvider>
+  </XcoreProvider>
 );
 
 const ThemeToJSON: FC = () => {

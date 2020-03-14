@@ -1,7 +1,6 @@
-
-import { Box, Text, Link, createTheme, text } from '../../src';
 import React, { FC } from 'react';
-import { ThemeProvider } from 'styled-components';
+
+import { Box, createTheme, Link, Text, text, XcoreProvider } from '../../src';
 
 export default { title: 'Text' };
 
@@ -42,8 +41,8 @@ const theme = createTheme({
 
 export const WithTheme: FC = () => {
   return (
-    <ThemeProvider theme={theme}>
+    <XcoreProvider theme={theme}>
       <BasicUsage />
-    </ThemeProvider>
+    </XcoreProvider>
   );
 };

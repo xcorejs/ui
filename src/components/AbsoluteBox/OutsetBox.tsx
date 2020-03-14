@@ -8,6 +8,8 @@ import Box, { BoxProps } from '../Box';
 import { HorizontalPosition, VerticalPosition } from './data';
 import { useDebouncedCallback } from 'use-debounce';
 
+export type OutsetBoxTarget = MutableRefObject<Element> | Element;
+
 export type OutsetBoxProps = {
   horizontalPosition?: ResponsiveValue<HorizontalPosition>;
   h?: ResponsiveValue<HorizontalPosition>;
@@ -15,7 +17,7 @@ export type OutsetBoxProps = {
   verticalPosition?: VerticalPosition;
   v?: VerticalPosition;
 
-  target: MutableRefObject<HTMLElement>;
+  target: OutsetBoxTarget;
 } & BoxProps;
 
 const OutsetBox: FC<OutsetBoxProps> = ({ h, horizontalPosition, v, verticalPosition, target, ...props }) => {
@@ -27,8 +29,10 @@ const OutsetBox: FC<OutsetBoxProps> = ({ h, horizontalPosition, v, verticalPosit
 
   const [{ top, left, right, bottom }, setRect] = useState({ top: 0, left: 0, right: 0, bottom: 0 });
 
+  const t = target instanceof Element ? target : target.current;
+
   const up = () => {
-    const rect = target.current.getBoundingClientRect();
+    const rect = t.getBoundingClientRect();
     if (top !== rect.top || left !== rect.left || right !== rect.right || bottom !== rect.bottom) {
       setRect({ top: rect.top, left: rect.left, right: rect.right, bottom: rect.bottom });
     }
@@ -37,9 +41,7 @@ const OutsetBox: FC<OutsetBoxProps> = ({ h, horizontalPosition, v, verticalPosit
   const [update] = useDebouncedCallback(up, 500);
 
   useLayoutEffect(() => {
-    if (target.current) {
-      up();
-    }
+    t && up();
   });
 
   useEffect(() => {

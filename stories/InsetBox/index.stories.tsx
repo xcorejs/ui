@@ -1,8 +1,8 @@
-import React, { FC, useRef, useEffect, useState } from 'react';
+import React, { FC, useRef } from 'react';
 
-import { InsetBox, Button, LoremIpsum, Paragraph, Box } from '../../src';
+import { InsetBox, LoremIpsum, Paragraph, Box } from '../../src';
 
-export default { title: 'ContentOver' };
+export default { title: 'Inset box' };
 
 export const BasicUsage: FC = () => {
   return (
@@ -54,13 +54,11 @@ export const BasicUsage: FC = () => {
 export const Stretch: FC = () => {
   return (
     <>
-      <InsetBox v="stretch" h="left">
+      <InsetBox v="stretch" h="stretch" bg="grey" />
+      <InsetBox v="stretch" h="left" bg="crimson" color="white">
         AAAAA
       </InsetBox>
-      <InsetBox v="top" h="stretch">
-        AAAAA
-      </InsetBox>
-      <InsetBox v="stretch" h="stretch">
+      <InsetBox v="top" h="stretch" bg="navy" color="white">
         AAAAA
       </InsetBox>
     </>

@@ -4,6 +4,7 @@ import { darken, opacify } from '../../scales/colors';
 
 export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg';
 export type ButtonType = 'solid' | 'clear' | 'outline' | 'link';
+
 export type ButtonAs = 'button' | 'div' | 'a';
 
 interface ButtonValue {
