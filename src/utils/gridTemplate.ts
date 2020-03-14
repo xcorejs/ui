@@ -37,8 +37,10 @@ const repeat = (r: string, gap?: string | null) => {
   return getTemplate(n, val, gap);
 };
 
-export const getTemplate = (n: number, val: string, gap?: string | null) =>
-  [...Array(gap ? n * 2 - 1 : n)].map((v, i) => i % 2 === 1 ? gap ?? val : val);
+export const getTemplate = (n: number, val: string, gap?: string | null) => {
+  const length = gap ? n * 2 - 1 : n;
+  return [...Array(length >= 0 ? length : 0)].map((v, i) => i % 2 === 1 ? gap ?? val : val);
+};
 
 export const parseTwin = <T extends string | null>(val: T): [string | T, string | T] => {
   if (!val) {
