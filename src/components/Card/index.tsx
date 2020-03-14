@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { forwardRef } from 'react';
 
 import useTheme from '../../useTheme';
 import { defaults } from '../../utils/defaults';
@@ -15,7 +15,7 @@ export type CardProps =
     header?: Renderable;
     _header?: FlexProps;
 
-    title?: string;
+    title?: Renderable;
     _title?: TextProps;
 
     tag?: Renderable;
@@ -37,10 +37,10 @@ export type ExtendedCardProps = {
   type?: CardType;
 } & CardProps;
 
-const Card: FC<ExtendedCardProps> = ({
+const Card = forwardRef<HTMLDivElement, ExtendedCardProps>(({
   children,
   ...p
-}) => {
+}, ref) => {
   const { card } = useTheme();
 
   const {
@@ -70,19 +70,29 @@ const Card: FC<ExtendedCardProps> = ({
       position='relative'
       flexDirection='column'
       {...props}
+      ref={ref}
     >
-      {(header || title) && (
+      {(header || title || tag) && (
         <Flex order={1} {..._header}>
-          {header
-            ? renderComponent(header)
-            : (
-              <Text
-                fontSize='2rem'
-                lineHeight='3rem'
-                {..._title}
-              >{title}
-              </Text>
-            )}
+          <Flex flexGrow={1}>
+            {header
+              ? renderComponent(header)
+              : (
+                <Text
+                  fontSize='2rem'
+                  lineHeight='3rem'
+                  {..._title}
+                >
+                  {renderComponent(title)}
+                </Text>
+              )}
+          </Flex>
+
+          {tag && (
+            <Tag alignSelf="center" {..._tag}>
+              {renderComponent(tag)}
+            </Tag>
+          )}
         </Flex>
       )}
 
@@ -109,13 +119,9 @@ const Card: FC<ExtendedCardProps> = ({
           {renderComponent(footer)}
         </Flex>
       )}
-      {tag && (
-        <Tag {..._tag}>
-          {renderComponent(tag)}
-        </Tag>
-      )}
+
     </Flex>
   );
-};
+});
 
 export default Card;

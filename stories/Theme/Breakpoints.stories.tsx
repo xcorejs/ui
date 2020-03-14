@@ -5,10 +5,10 @@ import {
   Container,
   container,
   createTheme,
-  useTheme
+  useTheme,
+  XcoreProvider
 } from '../../src';
 import React, { FC } from 'react';
-import { ThemeProvider } from 'styled-components';
 
 export default { title: 'Theme - Breakpoint' };
 
@@ -26,7 +26,7 @@ const theme = createTheme({
 });
 
 export const Aliases: FC = () => (
-  <ThemeProvider theme={theme}>
+  <XcoreProvider theme={theme}>
     <Container>
       <Box width="100%" color="white" p="10px" my="15px">
         <ActiveBreakpoint />
@@ -34,7 +34,7 @@ export const Aliases: FC = () => (
         <ThemeToJSON />
       </Box>
     </Container>
-  </ThemeProvider>
+  </XcoreProvider>
 );
 
 const GetAliases: FC = () => {

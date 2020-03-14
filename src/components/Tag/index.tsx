@@ -26,7 +26,8 @@ const Tag: FC<ExtendedTagProps> = ({ children, ...p }) => {
   const [left, right, props] = comp(
     defaults(
       p,
-      typeVariant(tag, 'solid', p)
+      typeVariant(tag, 'solid', p),
+      tag.default
     )
   );
 

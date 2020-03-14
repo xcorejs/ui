@@ -8,6 +8,8 @@ import { text, TextTheme } from './components/Text/theme';
 import { typography, TypographyTheme } from './components/Typography/theme';
 import { global, GlobalTheme } from './components/XcoreGlobal/theme';
 import { createScales, Scales } from './scales';
+import { CloseControlTheme, closeControl } from './components/CloseControl/theme';
+import { ModalTheme, modal } from './components/Modal/theme';
 
 export interface XcoreThemeBase {
   name: string;
@@ -24,9 +26,11 @@ export type XcoreTheme =
   & LinkTheme
   & TagTheme
   & CardTheme
-  & ListTheme;
+  & ListTheme
+  & CloseControlTheme
+  & ModalTheme;
 
-export const createTheme = (theme: Partial<XcoreTheme>): XcoreTheme => ({
+export const createTheme = (theme: Partial<XcoreTheme> = {}): XcoreTheme => ({
   ['__xcoreTheme' as any]: true,
   name: 'Xcore',
   ...global(),
@@ -38,9 +42,13 @@ export const createTheme = (theme: Partial<XcoreTheme>): XcoreTheme => ({
   ...tag(),
   ...card(),
   ...list(),
-  ...createScales({}),
+  ...createScales(),
+  ...closeControl(),
+  ...modal(),
   ...theme
 });
+
+export const emptyTheme = createTheme();
 
 export { container } from './components/Container/theme';
 export { text, TextAs, TextType } from './components/Text/theme';

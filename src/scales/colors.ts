@@ -12,8 +12,8 @@ export type ColorScale = {
   colors: Colors;
 };
 
-export const colors = <T extends Colors>(base: Colors = lightColorTheme, c: Partial<T> = {}) =>
-  ({ colors: defaultsScale(c, base) as T });
+export const colors = <T extends {}>(base: Colors = lightColorTheme, c: T & Partial<Colors> = {} as T) =>
+  ({ colors: defaultsScale(c, base) as Colors & T });
 
 export const lightColorTheme: Colors = {
   primary: '#0171b6',
@@ -50,7 +50,7 @@ export const colorTransform = (val: string | number, s: any) => {
     if (reg) {
       const [_, func, color, amount] = reg;
       const a = Number(amount);
-      const value = get(scale, color, color);
+      const value = get(scale, color, lightColorTheme[color as keyof Colors] || color);
 
       switch (func) {
         case 'darken':
@@ -74,7 +74,7 @@ export const colorTransform = (val: string | number, s: any) => {
       }
     }
 
-    return get(scale, val, val);
+    return get(scale, val, lightColorTheme[val as keyof Colors] || val);
   }
-  return get(scale, val, val);
+  return get(scale, val, lightColorTheme[val as keyof Colors] || val);
 };

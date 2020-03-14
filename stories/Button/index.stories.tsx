@@ -1,6 +1,5 @@
-import { Button, button, createTheme, Stack, Box } from '../../src';
+import { Button, button, createTheme, Stack, Box, XcoreProvider } from '../../src';
 import React, { FC } from 'react';
-import { ThemeProvider, StyleSheetManager } from 'styled-components';
 
 export default { title: 'Button' };
 
@@ -32,7 +31,7 @@ const theme = createTheme({
 
 export const BasicUsage: FC = () => {
   return (
-    <ThemeProvider theme={theme}>
+    <XcoreProvider theme={theme}>
       <Stack gap="10px">
         <Box>
           <Button>Button</Button>
@@ -56,6 +55,6 @@ export const BasicUsage: FC = () => {
           <Button disabled>Disabled</Button>
         </Box>
       </Stack>
-    </ThemeProvider>
+    </XcoreProvider>
   );
 };

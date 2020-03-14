@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { Card, Img, LoremIpsum, Stack, Box, Paragraph, Tag, Flex, CardProps } from '../../src';
+import { Card, CardProps, Flex, Img, LoremIpsum, Paragraph, Tag, XcoreProvider, XcoreGlobal } from '../../src';
 
 export default { title: 'Card' };
 
@@ -11,39 +11,41 @@ export const BasicUsage: FC = () => {
   };
 
   return (
-    <Flex justifyContent="space-around" flexWrap="wrap">
-      <Card
-        {...cardStyle}
-        title="Card title"
-        media={<Img src="http://placekitten.com/500/300" alt="cat" />}
-        footer={<Paragraph>Footer</Paragraph>}
-      >
-        <LoremIpsum />
-      </Card>
+    <XcoreProvider>
+      <Flex justifyContent="space-around" flexWrap="wrap">
+        <Card
+          {...cardStyle}
+          title="Card title"
+          media={<Img src="http://placekitten.com/500/300" alt="cat" />}
+          footer={<Paragraph>Footer</Paragraph>}
+        >
+          <LoremIpsum units="sentences" />
+        </Card>
 
-      <Card
-        {...cardStyle}
-        title="Card title"
-        media={<Img src="http://placekitten.com/500/300" alt="cat" />}
-        body={<LoremIpsum />}
-        footer={<Paragraph>Footer</Paragraph>}
-      />
+        <Card
+          {...cardStyle}
+          title="Card title"
+          media={<Img src="http://placekitten.com/500/300" alt="cat" />}
+          body={<LoremIpsum units="sentences" />}
+          footer={<Paragraph>Footer</Paragraph>}
+        />
 
-      <Card
-        {...cardStyle}
-        title="Card title"
-        tag={<Tag>Tag</Tag>}
-        media={<Img src="http://placekitten.com/500/300" alt="cat" />}
-        body={<LoremIpsum />}
-      />
+        <Card
+          {...cardStyle}
+          title="Card title"
+          tag="Tag"
+          media={<Img src="http://placekitten.com/500/300" alt="cat" />}
+          body={<LoremIpsum units="sentences" />}
+        />
 
-      <Card
-        {...cardStyle}
-        title="Card title"
-        tag={<Tag>Tag</Tag>}
-        media={<Img src="http://placekitten.com/500/300" alt="cat" />}
-        body={<LoremIpsum />}
-      />
-    </Flex>
+        <Card
+          {...cardStyle}
+          title="Card title"
+          tag="Tag"
+          media={<Img src="http://placekitten.com/500/300" alt="cat" />}
+          body={<LoremIpsum units="sentences" />}
+        />
+      </Flex>
+    </XcoreProvider>
   );
 };

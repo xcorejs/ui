@@ -21,7 +21,7 @@ const emptyTag: TagValue = {
   default: {
     borderRadius: '0.3rem',
     border: '1px solid #455663',
-    px: '0.7rem',
+    px: '0.8rem',
     fontFamily: 'text',
     fontSize: '1.2rem',
     fontWeight: 500,

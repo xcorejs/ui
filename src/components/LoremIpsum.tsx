@@ -1,5 +1,5 @@
 import { loremIpsum } from 'lorem-ipsum';
-import React, { FC, useMemo } from 'react';
+import React, { FC, useMemo, forwardRef } from 'react';
 
 import Text, { TextProps } from './Text';
 
@@ -8,14 +8,16 @@ export type LoremIpsumProps = {
   units?: 'paragraphs' | 'words' | 'sentences';
 } & TextProps;
 
-const LoremIpsum: FC<LoremIpsumProps> = ({ count, units, ...props }) => {
-  const text = useMemo(() =>
-    loremIpsum({ count, units: units ?? 'paragraphs' }),
-  [count, units]);
+const LoremIpsum = forwardRef<HTMLSpanElement, LoremIpsumProps>(
+  ({ count, units, ...props }, ref) => {
+    const text = useMemo(() =>
+      loremIpsum({ count, units: units ?? 'paragraphs' }),
+    [count, units]);
 
-  return (
-    <Text {...props}>{text}</Text>
-  );
-};
+    return (
+      <Text {...props} ref={ref}>{text}</Text>
+    );
+  }
+);
 
 export default LoremIpsum;

@@ -1,4 +1,4 @@
-import React, { AnchorHTMLAttributes, FC } from 'react';
+import React, { AnchorHTMLAttributes, forwardRef } from 'react';
 import styled from 'styled-components';
 import * as system from 'styled-system';
 import * as CSS from 'csstype';
@@ -34,13 +34,14 @@ export type ExtendedButtonProps =
   }
   & ({ as?: 'button' | 'div' } | ({ as: 'a' } & AnchorHTMLAttributes<unknown>));
 
-const Button: FC<ExtendedButtonProps> = (
+const Button = forwardRef<HTMLDivElement, ExtendedButtonProps>((
   {
     loading,
     as = 'button',
     children,
     ...p
-  }
+  },
+  ref
 ) => {
   const { button } = useTheme();
 
@@ -54,7 +55,7 @@ const Button: FC<ExtendedButtonProps> = (
   );
 
   return (
-    <ButtonStyle role="group" as={as} {...props}>
+    <ButtonStyle role="group" as={as} {...props} ref={ref}>
       <Complement {...left} />
 
       {loading && (
@@ -69,7 +70,7 @@ const Button: FC<ExtendedButtonProps> = (
       <Complement {...right} />
     </ButtonStyle>
   );
-};
+});
 
 export default Button;
 

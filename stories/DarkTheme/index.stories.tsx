@@ -1,5 +1,4 @@
 import React, { FC, useState } from 'react';
-import { ThemeProvider } from 'styled-components';
 
 import {
   Box,
@@ -17,7 +16,7 @@ import {
   LoremIpsum,
   Text,
   Typography,
-  XcoreGlobal
+  XcoreProvider
 } from '../../src';
 
 export default { title: 'Dark Theme' };
@@ -32,10 +31,10 @@ const darkTheme = createTheme({
 
 export const Basic: FC = () => {
   const [light, setTheme] = useState(true);
+
   return (
-    <ThemeProvider theme={light ? lightTheme : darkTheme}>
+    <XcoreProvider theme={light ? lightTheme : darkTheme}>
       <Text>
-        <XcoreGlobal />
         <Grid columns="repeat(3, 75px) auto" rows="200px auto 70px" gap="10px" p="10px" height="100%">
           {/* Sidebar */}
           <Typography column="1 / span 3" row="1" placeSelf="center" t="h2">Lorem</Typography>
@@ -89,7 +88,6 @@ export const Basic: FC = () => {
           </Box>
         </Grid>
       </Text>
-    </ThemeProvider>
-
+    </XcoreProvider>
   );
 };

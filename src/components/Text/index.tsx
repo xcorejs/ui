@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, forwardRef } from 'react';
 import styled from 'styled-components';
 
 import { useTheme } from '../..';
@@ -16,7 +16,7 @@ export interface ExtendedTextProps extends TextProps {
   as?: TextAs;
 }
 
-const Text: FC<ExtendedTextProps> = ({ as: _as, ...p }) => {
+const Text = forwardRef<HTMLSpanElement, ExtendedTextProps>(({ as: _as, ...p }, ref) => {
   const { text } = useTheme();
 
   const as = (_as ?? {
@@ -37,9 +37,9 @@ const Text: FC<ExtendedTextProps> = ({ as: _as, ...p }) => {
   );
 
   return (
-    <TextStyle {...props} as={as} />
+    <TextStyle {...props} as={as} ref={ref} />
   );
-};
+});
 
 const TextStyle = styled.span`
   ${compose(textBase)}
