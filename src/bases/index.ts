@@ -42,6 +42,14 @@ export type BoxBaseProps =
     _firstOfType?: BoxBaseProps;
     _last?: BoxBaseProps;
 
+    _group?: {
+      _hover?: BoxBaseProps;
+      _focus?: BoxBaseProps;
+      _active?: BoxBaseProps;
+    };
+
+    _icon?: IconBaseProps;
+
     color?: string;
     cursor?: ResponsiveValue<CSS.CursorProperty>;
     animation?: ResponsiveValue<CSS.AnimationProperty>;
@@ -195,6 +203,19 @@ export const boxBase = (p: BoxBaseProps): FlattenInterpolation<ThemeProps<XcoreT
     opacity: true
   })(p)}
 
+  ${p._icon && css`
+      & path {
+        ${pseudoBoxBaseComposed({ ...p._icon, theme: p.theme })}
+        ${system.system({
+          fill: {
+            property: 'fill',
+            scale: 'colors',
+            transform: colorTransform
+          }
+        })(p._icon)}
+      }
+  `}
+
   ${p._selection && css`
       & *::selection {
         ${selectionBase({ ...p._selection, theme: p.theme })}
@@ -202,14 +223,24 @@ export const boxBase = (p: BoxBaseProps): FlattenInterpolation<ThemeProps<XcoreT
   `}
 
   ${p._groupHoverIcon && css`
+      ${console.warn('Warning: _groupHoverIcon={...} is deprecated use _group={{ _hover: { _icon: {...} } }} instead!') as any}
+
       [role=group]:hover & {
         ${iconBaseComposed({ ...p._groupHoverIcon, theme: p.theme })}
       }
   `}
 
   ${Object.keys(pseudoSelectors).map(k => p[k] && css`
+      ${k === '_groupHover' && console.warn('Warning: _groupHover={...} is deprecated use _group={{ _hover: ... }} instead!') as any}
+
       ${pseudoSelectors[k]} {
         ${pseudoBoxBaseComposed({ ...p[k]!, theme: p.theme })}
+      }
+  `)}
+
+  ${p._group && Object.keys(groupPseudoSelectors).map(k => p._group![k] && css`
+      ${groupPseudoSelectors[k]} {
+        ${pseudoBoxBaseComposed({ ...p._group![k]!, theme: p.theme })}
       }
   `)}
 `;
@@ -248,7 +279,8 @@ export const iconBase = base([flexBase], (p: IconBaseProps) => css`
       ${system.system({
         fill: {
           property: 'fill',
-          scale: 'colors'
+          scale: 'colors',
+          transform: colorTransform
         }
       })(p)}
 
@@ -285,10 +317,13 @@ export const textBase = base([boxBase], (p: TextBaseProps) => css`
   ${system.textShadow(p)}
 `);
 
-type PseudoSelector =
+type GroupPseudoSelector =
   | '_hover'
   | '_active'
-  | '_focus'
+  | '_focus';
+
+type PseudoSelector =
+  | GroupPseudoSelector
   | '_before'
   | '_after'
   | '_disabled'
@@ -313,4 +348,10 @@ const pseudoSelectors: Record<PseudoSelector, string> = {
   _first: '&:first-child',
   _firstOfType: '&:first-of-type',
   _last: '&:last-child'
+};
+
+const groupPseudoSelectors: Record<GroupPseudoSelector, string> = {
+  _hover: '[role=group]:hover &',
+  _active: '[role=group]:active &',
+  _focus: '[role=group]:focus &'
 };
