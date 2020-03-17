@@ -13,7 +13,6 @@ export type ExtendedTooltipProps = {
 };
 
 const Tooltip: FC<ExtendedTooltipProps> = ({ target, ...p }) => {
-  console.log(target);
   return (
     <OutsetBox target={target} horizontalPosition="center" verticalPosition="bottom">
       <Flex borderRadius="3px" background="#333">

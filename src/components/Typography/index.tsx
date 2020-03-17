@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 
 import useTheme from '../../useTheme';
-import { TypographyAs, TypographyType } from './theme';
+import { TypographyAs, TypographyVariant } from './theme';
 import { TextBaseProps, textBase } from '../../bases';
 import { defaults } from '../../utils/defaults';
 import { typeVariant } from '../../utils/variant';
@@ -12,8 +12,8 @@ export type TypographyProps = TextBaseProps;
 
 export type ExtendedTypographyProps =
   {
-    type?: TypographyType;
-    t?: TypographyType;
+    variant?: TypographyVariant;
+    v?: TypographyVariant;
     as?: TypographyAs;
   }
   & TypographyProps;
@@ -23,7 +23,7 @@ const Typography: FC<ExtendedTypographyProps> = ({
   ...p
 }) => {
   const { typography } = useTheme();
-  const type = p.type ?? p.t ?? 'p';
+  const type = p.variant ?? p.v ?? 'p';
 
   const as: TypographyAs = _as ?? (type === 'lead' ? 'p' : type);
 

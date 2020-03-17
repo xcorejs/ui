@@ -1,27 +1,31 @@
+import React, { FC } from 'react';
+
 import {
   ActiveBreakpoint,
   Box,
   breakpoints,
   Container,
   container,
+  createScales,
   createTheme,
   useTheme,
   XcoreProvider
 } from '../../src';
-import React, { FC } from 'react';
 
 export default { title: 'Theme - Breakpoint' };
 
 const theme = createTheme({
   name: 'Container theme',
-  ...breakpoints(['30em', '48em', '64em', '78em', '85em']),
   ...container({
-    types: {
+    variants: {
       normal: {
         width: ['100%', '100%', '30rem', '40rem', '50rem', '70rem'],
         background: 'grey'
       }
     }
+  }),
+  ...createScales({
+    ...breakpoints(['30em', '48em', '64em', '78em', '85em'])
   })
 });
 

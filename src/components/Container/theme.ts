@@ -3,10 +3,10 @@ import { FlexProps } from '../Flex';
 
 type ContainerValue = {
   default: FlexProps;
-  types: Record<ContainerType, FlexProps>;
+  variants: Record<ContainerVariant, FlexProps>;
 };
 
-export type ContainerType = 'normal' | 'fluid';
+export type ContainerVariant = 'normal' | 'fluid';
 
 export interface ContainerTheme {
   container: ContainerValue;
@@ -15,16 +15,16 @@ export interface ContainerTheme {
 export const container = (
   c: {
     default?: FlexProps;
-    types?: Partial<Record<ContainerType, FlexProps>>;
+    variants?: Partial<Record<ContainerVariant, FlexProps>>;
   } = emptyContainer
-): ContainerTheme => ({ container: defaultsTheme<'types', FlexProps>(c, emptyContainer) });
+): ContainerTheme => ({ container: defaultsTheme<'variants', FlexProps>(c, emptyContainer) });
 
 const emptyContainer: ContainerValue = {
   default: {
     ml: 'auto',
     mr: 'auto'
   },
-  types: {
+  variants: {
     normal: {
       width: ['100%', '76.8rem', '102.4rem', '120rem', '132rem'],
       px: 3

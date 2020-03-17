@@ -1,11 +1,11 @@
 import { TagProps } from '.';
 import { defaultsTheme } from '../../utils/defaults';
 
-export type TagType = 'solid' | 'outline' | 'clear';
+export type TagVariant = 'solid' | 'outline' | 'clear';
 
 interface TagValue {
   default: TagProps;
-  types: Record<TagType, TagProps>;
+  variants: Record<TagVariant, TagProps>;
 }
 
 export interface TagTheme {
@@ -14,8 +14,8 @@ export interface TagTheme {
 
 export const tag = (t: {
   default?: TagProps;
-  types?: Partial<Record<TagType, TagProps>>;
-} = emptyTag): TagTheme => ({ tag: defaultsTheme<'types', TagProps>(t, emptyTag) });
+  variants?: Partial<Record<TagVariant, TagProps>>;
+} = emptyTag): TagTheme => ({ tag: defaultsTheme<'variants', TagProps>(t, emptyTag) });
 
 const emptyTag: TagValue = {
   default: {
@@ -27,7 +27,7 @@ const emptyTag: TagValue = {
     fontWeight: 500,
     lineHeight: '2rem'
   },
-  types: {
+  variants: {
     solid: {
       bg: '#455663',
       color: 'background'

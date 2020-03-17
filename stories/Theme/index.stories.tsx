@@ -18,7 +18,7 @@ export default { title: 'Theme' };
 const theme = createTheme({
   name: 'Container theme',
   ...container({
-    types: {
+    variants: {
       normal: {
         width: '70%',
         bg: 'grey'

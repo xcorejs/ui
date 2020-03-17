@@ -5,7 +5,7 @@ import useTheme from '../../useTheme';
 import { defaults } from '../../utils/defaults';
 import { typeVariant } from '../../utils/variant';
 import Complement, { comp, ComplementProps } from '../Complement';
-import { TagType } from './theme';
+import { TagVariant } from './theme';
 import { compose } from '../../utils/baseStyle';
 import { FlexBaseProps, TextBaseProps, textBase } from '../../bases';
 import { flexBase } from '../../bases/index';
@@ -16,8 +16,8 @@ export type TagProps =
   & TextBaseProps;
 
 export type ExtendedTagProps = {
-  type?: TagType;
-  t?: TagType;
+  variant?: TagVariant;
+  v?: TagVariant;
 } & TagProps;
 
 const Tag: FC<ExtendedTagProps> = ({ children, ...p }) => {

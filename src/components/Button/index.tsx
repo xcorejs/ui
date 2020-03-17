@@ -4,7 +4,7 @@ import * as system from 'styled-system';
 import * as CSS from 'csstype';
 
 import useTheme from '../../useTheme';
-import { ButtonSize, ButtonType } from './theme';
+import { ButtonSize, ButtonVariant } from './theme';
 import Spinner, { SpinnerProps } from '../Spinner';
 import Complement, { comp, ComplementProps } from '../Complement';
 import { typeVariant, sizeVariant } from '../../utils/variant';
@@ -29,8 +29,8 @@ export type ExtendedButtonProps =
 
     size?: ButtonSize;
     s?: ButtonSize;
-    type?: ButtonType;
-    t?: ButtonType;
+    variant?: ButtonVariant;
+    v?: ButtonVariant;
   }
   & ({ as?: 'button' | 'div' } | ({ as: 'a' } & AnchorHTMLAttributes<unknown>));
 

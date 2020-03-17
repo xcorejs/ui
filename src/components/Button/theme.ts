@@ -3,14 +3,14 @@ import { defaultsTheme } from '../../utils/defaults';
 import { darken, opacify } from '../../scales/colors';
 
 export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg';
-export type ButtonType = 'solid' | 'clear' | 'outline' | 'link';
+export type ButtonVariant = 'solid' | 'clear' | 'outline' | 'link';
 
 export type ButtonAs = 'button' | 'div' | 'a';
 
 interface ButtonValue {
   default: ButtonProps;
   sizes: Record<ButtonSize, ButtonProps>;
-  types: Record<ButtonType, ButtonProps>;
+  variants: Record<ButtonVariant, ButtonProps>;
 }
 
 export interface ButtonTheme {
@@ -21,9 +21,9 @@ export const button = (
   b: {
     default?: ButtonProps;
     sizes?: Partial<Record<ButtonSize, ButtonProps>>;
-    types?: Partial<Record<ButtonType, ButtonProps>>;
+    variants?: Partial<Record<ButtonVariant, ButtonProps>>;
   } = emptyButton
-): ButtonTheme => ({ button: defaultsTheme<'types' | 'sizes', ButtonProps>(b, emptyButton) });
+): ButtonTheme => ({ button: defaultsTheme<'variants' | 'sizes', ButtonProps>(b, emptyButton) });
 
 const emptyButton: ButtonValue = {
   default: {
@@ -67,7 +67,7 @@ const emptyButton: ButtonValue = {
       fontSize: '1.6rem'
     }
   },
-  types: {
+  variants: {
     solid: {
       bg: 'primary',
       color: 'background',

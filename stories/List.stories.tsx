@@ -10,7 +10,7 @@ export const BasicUsage: FC = () => {
       <Text>
         <Heading1>Ordered</Heading1>
         <Stack gap="10px">
-          <List t="ordered" flexBasis="0.5">
+          <List v="ordered" flexBasis="0.5">
             <ListItem><LoremIpsum units="sentences" /></ListItem>
             <ListItem><LoremIpsum units="sentences" /></ListItem>
             <ListItem><LoremIpsum units="sentences" /></ListItem>
@@ -27,7 +27,7 @@ export const BasicUsage: FC = () => {
         </Stack>
         <Heading1>Unordered</Heading1>
         <Stack gap="10px">
-          <List t="unordered" flexBasis="0.5">
+          <List v="unordered" flexBasis="0.5">
             <ListItem><LoremIpsum units="sentences" /></ListItem>
             <ListItem><LoremIpsum units="sentences" /></ListItem>
             <ListItem><LoremIpsum units="sentences" /></ListItem>

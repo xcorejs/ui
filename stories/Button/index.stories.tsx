@@ -19,7 +19,7 @@ const theme = createTheme({
         padding: '3rem'
       }
     },
-    types: {
+    variants: {
       outline: {
         background: 'transparent',
         color: 'grey',
@@ -40,13 +40,13 @@ export const BasicUsage: FC = () => {
           <Button bg="navy">Button</Button>
         </Box>
         <Box>
-          <Button t="outline">Button</Button>
+          <Button v="outline">Button</Button>
         </Box>
         <Box>
           <Button s="lg">Button</Button>
         </Box>
         <Box>
-          <Button s="lg" t="outline">Button</Button>
+          <Button s="lg" v="outline">Button</Button>
         </Box>
         <Box>
           <Button as="a" href="example.com">Link</Button>

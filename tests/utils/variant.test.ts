@@ -6,7 +6,7 @@ const { button } = createTheme({});
 test('variantThemed', () => {
   expect(
     variant(
-      button.types,
+      button.variants,
       'solid',
       'outline'
     )
@@ -32,7 +32,7 @@ test('variantThemed', () => {
 
   expect(
     variant(
-      button.types,
+      button.variants,
       'solid'
     )
   ).toEqual({

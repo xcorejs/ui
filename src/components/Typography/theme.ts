@@ -3,10 +3,10 @@ import { TextProps } from '../Text';
 
 interface TypographyValue {
   default: TextProps;
-  types: Record<TypographyType, TextProps>;
+  variants: Record<TypographyVariant, TextProps>;
 }
 
-export type TypographyType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'lead';
+export type TypographyVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'lead';
 
 export type TypographyAs = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'div';
 
@@ -16,8 +16,8 @@ export interface TypographyTheme {
 
 export const typography = (t: {
   default?: TextProps;
-  types?: Partial<Record<TypographyType, TextProps>>;
-} = emptyTypography) => ({ typography: defaultsTheme<'types', TextProps>(t, emptyTypography) });
+  variants?: Partial<Record<TypographyVariant, TextProps>>;
+} = emptyTypography) => ({ typography: defaultsTheme<'variants', TextProps>(t, emptyTypography) });
 
 const emptyTypography: TypographyValue = {
   default: {
@@ -25,7 +25,7 @@ const emptyTypography: TypographyValue = {
     margin: 0,
     color: 'text'
   },
-  types: {
+  variants: {
     p: {
       fontSize: '1.6rem',
       lineHeight: '2rem'
