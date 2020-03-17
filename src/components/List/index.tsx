@@ -7,7 +7,7 @@ import useTheme from '../../useTheme';
 import { defaults } from '../../utils/defaults';
 import { typeVariant } from '../../utils/variant';
 import { TLen } from '../Box';
-import { ListType } from './theme';
+import { ListVariant } from './theme';
 import { textBase, TextBaseProps } from '../../bases';
 import { compose } from '../../utils/baseStyle';
 
@@ -35,15 +35,15 @@ export type ListProps =
   & TextBaseProps;
 
 export type ExtendedListProps = {
-  type?: ListType;
-  t?: ListType;
+  variant?: ListVariant;
+  v?: ListVariant;
   as?: 'ul' | 'ol';
 } & ListProps;
 
 const List: FC<ExtendedListProps> = p => {
   const { list } = useTheme();
 
-  const type = p.t ?? p.type ?? 'unordered';
+  const type = p.v ?? p.variant ?? 'unordered';
 
   const props = defaults(p, typeVariant(list, 'unordered', p), list.default);
 

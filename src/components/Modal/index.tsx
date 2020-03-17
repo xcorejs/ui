@@ -61,7 +61,7 @@ const Modal: FC<ExtendedModalProps> = ({ children, onClose, ...p }) => {
             {header
               ? renderComponent(header)
               : (
-                <Typography t="h3" as="div" {..._title}>
+                <Typography v="h3" as="div" {..._title}>
                   {renderComponent(title)}
                 </Typography>
               )}

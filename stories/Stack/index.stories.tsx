@@ -3,7 +3,6 @@ import React, { FC } from 'react';
 import {
   ActiveBreakpoint,
   Box,
-  breakpoints,
   container,
   createTheme,
   Heading3,
@@ -38,7 +37,7 @@ export const BasicUsage: FC = () => {
 const theme = createTheme({
   name: 'Container theme',
   ...container({
-    types: {
+    variants: {
       normal: {
         width: ['100%', '100%', '30rem', '40rem', '50rem', '70rem'],
         background: 'grey'

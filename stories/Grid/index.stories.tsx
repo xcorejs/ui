@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { Grid, Cell, Text, LoremIpsum, Typography, Box, XcoreProvider } from '../../src';
+import { Grid, Cell, Text, LoremIpsum, Box, XcoreProvider, Heading1 } from '../../src';
+import { Paragraph, Heading2 } from '../../src/components/Typography/aliases';
 
 export default { title: 'Grid' };
 
@@ -8,7 +9,7 @@ export const Basic: FC = () => (
     <Text>
       <Grid columns="repeat(3, 75px) auto" rows="200px auto 70px" gap="10px" p="10px" height="100%">
         {/* Sidebar */}
-        <Typography column="1 / span 3" row="1" placeSelf="center" t="h2">Lorem</Typography>
+        <Heading2 column="1 / span 3" row="1" placeSelf="center">Lorem</Heading2>
         <Box column="1 / span 3" row="2">
           <ul>
             <li>Home</li>
@@ -31,14 +32,14 @@ export const Basic: FC = () => (
         </Box>
 
         {/* Content */}
-        <Typography column="4 / span 1" row="1" placeSelf="center" t="h1">Lorem ipsum dolor sit amet</Typography>
+        <Heading1 column="4 / span 1" row="1" placeSelf="center" >Lorem ipsum dolor sit amet</Heading1>
         <Box column="4 / span 1" row="2">
-          <Typography t="p">
+          <Paragraph>
             <LoremIpsum count={2} />
-          </Typography>
-          <Typography t="p">
+          </Paragraph>
+          <Paragraph>
             <LoremIpsum count={2} />
-          </Typography>
+          </Paragraph>
         </Box>
 
         {/* Footer */}
@@ -56,7 +57,7 @@ export const IE11: FC = () => (
       <Grid columns="repeat(3, 75px) auto" rows="200px auto 70px" gap="10px" p="10px" height="100%">
         {/* Sidebar */}
         <Cell column="1 / span 3" row="1" placeSelf="center">
-          <Typography t="h2">Lorem</Typography>
+          <Heading2>Lorem</Heading2>
         </Cell>
         <Cell column="1 / span 3" row="2">
           <ul>
@@ -81,15 +82,15 @@ export const IE11: FC = () => (
 
         {/* Content */}
         <Cell column="4 / span 1" row="1" placeSelf="center">
-          <Typography t="h1">Lorem ipsum dolor sit amet</Typography>
+          <Heading1>Lorem ipsum dolor sit amet</Heading1>
         </Cell>
         <Cell column="4 / span 1" row="2">
-          <Typography t="p">
+          <Paragraph>
             <LoremIpsum count={2} />
-          </Typography>
-          <Typography t="p">
+          </Paragraph>
+          <Paragraph>
             <LoremIpsum count={2} />
-          </Typography>
+          </Paragraph>
         </Cell>
 
         {/* Footer */}

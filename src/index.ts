@@ -53,14 +53,14 @@ export { default as XcoreProvider, XcoreProviderProps } from './components/Xcore
 export { XcoreTheme, createTheme } from './theme';
 
 export { container } from './components/Container/theme';
-export { text, TextAs, TextType } from './components/Text/theme';
-export { button, ButtonSize, ButtonType, ButtonAs } from './components/Button/theme';
+export { text, TextAs, TextVariant } from './components/Text/theme';
+export { button, ButtonSize, ButtonVariant, ButtonAs } from './components/Button/theme';
 export { global } from './components/XcoreGlobal/theme';
-export { typography, TypographyType, TypographyAs } from './components/Typography/theme';
-export { link, LinkType, LinkAs } from './components/Link/theme';
-export { list, ListType } from './components/List/theme';
-export { tag, TagType } from './components/Tag/theme';
-export { card, CardType } from './components/Card/theme';
+export { typography, TypographyVariant, TypographyAs } from './components/Typography/theme';
+export { link, LinkVariant, LinkAs } from './components/Link/theme';
+export { list, ListVariant } from './components/List/theme';
+export { tag, TagVariant } from './components/Tag/theme';
+export { card, CardVariant } from './components/Card/theme';
 
 export { Scales, createScales } from './scales';
 

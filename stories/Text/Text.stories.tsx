@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { Box, createTheme, Link, Text, text, XcoreProvider } from '../../src';
+import { Box, createTheme, Link, Text, text, XcoreProvider, Strikethrough, Em } from '../../src';
 
 export default { title: 'Text' };
 
@@ -9,18 +9,18 @@ export const BasicUsage: FC = () => {
     <Box>
       <Text>
         <Box>
-          <Text t="strong">
+          <Text v="strong">
             Number 15:
             {' '}
-            <Text t="em">Burger king foot lettuce. </Text>
+            <Text v="em">Burger king foot lettuce. </Text>
           </Text>
           The last thing you'd want in your <Link href="/">Burger King burger</Link> is someone's foot fungus. But as
           it turns out, that might be what you get. A
-          <Text t="strikethrough">
+          <Strikethrough>
             4channer
-          </Text>
+          </Strikethrough>
           uploaded a photo anonymously to the site showcasing his feet in a plastic bin of lettuce. With the statement:
-          <Text t="em">"This is the lettuce you eat at Burger King." </Text>
+          <Em>"This is the lettuce you eat at Burger King." </Em>
           Admittedly, he had shoes on.
         </Box>
 

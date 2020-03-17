@@ -2,12 +2,12 @@ import { LinkProps } from '.';
 import { darken } from '../../scales/colors';
 import { defaultsTheme } from '../../utils/defaults';
 
-export type LinkType = 'underline' | 'simple';
+export type LinkVariant = 'underline' | 'simple';
 export type LinkAs = 'a' | 'span';
 
 interface LinkValue {
   default: LinkProps;
-  types: Record<LinkType, LinkProps>;
+  variants: Record<LinkVariant, LinkProps>;
 }
 
 export interface LinkTheme {
@@ -16,8 +16,8 @@ export interface LinkTheme {
 
 export const link = (l: {
   default?: LinkProps;
-  types?: Partial<Record<LinkType, LinkProps>>;
-} = emptyLink): LinkTheme => ({ link: defaultsTheme<'types', LinkProps>(l, emptyLink) });
+  variants?: Partial<Record<LinkVariant, LinkProps>>;
+} = emptyLink): LinkTheme => ({ link: defaultsTheme<'variants', LinkProps>(l, emptyLink) });
 
 const emptyLink: LinkValue = {
   default: {
@@ -35,7 +35,7 @@ const emptyLink: LinkValue = {
       borderBottom: '1px solid transparent'
     }
   },
-  types: {
+  variants: {
     underline: {},
     simple: {
       borderBottom: '1px solid transparent',

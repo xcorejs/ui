@@ -15,8 +15,10 @@ import {
   ListItem,
   LoremIpsum,
   Text,
-  Typography,
-  XcoreProvider
+  XcoreProvider,
+  Heading1,
+  Paragraph,
+  Heading2
 } from '../../src';
 
 export default { title: 'Dark Theme' };
@@ -37,7 +39,7 @@ export const Basic: FC = () => {
       <Text>
         <Grid columns="repeat(3, 75px) auto" rows="200px auto 70px" gap="10px" p="10px" height="100%">
           {/* Sidebar */}
-          <Typography column="1 / span 3" row="1" placeSelf="center" t="h2">Lorem</Typography>
+          <Heading2 column="1 / span 3" row="1" placeSelf="center">Lorem</Heading2>
           <Box column="1 / span 3" row="2">
             <List>
               <ListItem>Home</ListItem>
@@ -68,18 +70,18 @@ export const Basic: FC = () => {
             height="100%"
             justifyContent="space-between"
           >
-            <Typography t="h1" alignSelf="center">Lorem ipsum dolor sit amet</Typography>
+            <Heading1 alignSelf="center">Lorem ipsum dolor sit amet</Heading1>
             <Box >
               <Button onClick={() => setTheme(!light)}>{light ? 'Dark theme' : 'Light theme'}</Button>
             </Box>
           </Flex>
           <Box column="4 / span 1" row="2">
-            <Typography t="p">
+            <Paragraph>
               <LoremIpsum count={2} />
-            </Typography>
-            <Typography t="p">
+            </Paragraph>
+            <Paragraph>
               <LoremIpsum count={2} />
-            </Typography>
+            </Paragraph>
           </Box>
 
           {/* Footer */}

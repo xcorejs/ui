@@ -9,11 +9,11 @@ export const variant = <TKey extends string, TValue>(
 ) ?? variants[def];
 
 export const typeVariant = <TKey extends string, TValue>(
-  theme: { types: Record<TKey, TValue> },
+  theme: { variants: Record<TKey, TValue> },
   def: TKey,
-  props: { t?: TKey; type?: TKey }
+  props: { v?: TKey; variant?: TKey }
 ) =>
-  variant(theme.types, def, props.t, props.type);
+  variant(theme.variants, def, props.v, props.variant);
 
 export const sizeVariant = <TKey extends string, TValue>(
   theme: { sizes: Record<TKey, TValue> },

@@ -1,11 +1,11 @@
 import { CardProps } from '.';
 import { defaultsTheme } from '../../utils/defaults';
 
-export type CardType = 'normal' | 'elevated' | 'outline';
+export type CardVariant = 'normal' | 'elevated' | 'outline';
 
 interface CardValue {
   default: CardProps;
-  types: Record<CardType, CardProps>;
+  variants: Record<CardVariant, CardProps>;
 }
 
 export interface CardTheme {
@@ -15,13 +15,13 @@ export interface CardTheme {
 export const card = (
   c: {
     default?: CardProps;
-    types?: Partial<Record<CardType, CardProps>>;
+    variants?: Partial<Record<CardVariant, CardProps>>;
   } = emptyCard,
   innerPadding?: string
 ): CardTheme => ({
   card: !innerPadding
-    ? defaultsTheme<'types', CardProps>(c, emptyCard)
-    : defaultsTheme<'types', CardProps>(c, emptyCard, defaultPadding(innerPadding) as CardValue)
+    ? defaultsTheme<'variants', CardProps>(c, emptyCard)
+    : defaultsTheme<'variants', CardProps>(c, emptyCard, defaultPadding(innerPadding) as CardValue)
 });
 
 const emptyCard: CardValue = {
@@ -33,7 +33,7 @@ const emptyCard: CardValue = {
     _body: { padding: '1rem' },
     _footer: { padding: '1rem' }
   },
-  types: {
+  variants: {
     normal: {},
     elevated: {
       borderRadius: '0.3rem',

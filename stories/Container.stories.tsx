@@ -17,7 +17,7 @@ export const Normal: FC = () => (
 );
 
 export const Fluid: FC = () => (
-  <Container type="fluid">
+  <Container variant="fluid">
     <Box width="100%">
       <Box background="crimson" color="white" p="10px" my="10px">
         fluid
@@ -32,7 +32,7 @@ export const Fluid: FC = () => (
 const theme = createTheme({
   name: 'Container theme',
   ...container({
-    types: {
+    variants: {
       normal: {
         width: ['100%', '100%', '30rem', '40rem', '50rem', '70rem'],
         background: 'grey'

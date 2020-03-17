@@ -1,18 +1,18 @@
-import React, { FC, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 
 import { useTheme } from '../..';
 import { textBase, TextBaseProps } from '../../bases';
-import { defaults } from '../../utils/defaults';
-import { variant } from '../../utils/variant';
-import { TextAs, TextType } from './theme';
 import { compose } from '../../utils/baseStyle';
+import { defaults } from '../../utils/defaults';
+import { typeVariant } from '../../utils/variant';
+import { TextAs, TextVariant } from './theme';
 
 export type TextProps = TextBaseProps;
 
 export interface ExtendedTextProps extends TextProps {
-  t?: TextType;
-  type?: TextType;
+  v?: TextVariant;
+  variant?: TextVariant;
   as?: TextAs;
 }
 
@@ -28,11 +28,11 @@ const Text = forwardRef<HTMLSpanElement, ExtendedTextProps>(({ as: _as, ...p }, 
     strikethrough: 's',
     sub: 'sub',
     sup: 'sup'
-  }[p.type ?? p.t ?? 'span']) as TextAs;
+  }[p.variant ?? p.v ?? 'span']) as TextAs;
 
   const props = defaults(
     p,
-    variant(text.types, 'span', p.t, p.type),
+    typeVariant(text, 'span', p),
     text.default
   );
 

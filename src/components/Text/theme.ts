@@ -1,12 +1,7 @@
 import { TextProps } from '.';
 import { defaultsTheme } from '../../utils/defaults';
 
-interface TextValue {
-  default: TextProps;
-  types: Record<TextType, TextProps>;
-}
-
-export type TextType =
+export type TextVariant =
  | 'span'
  | 'em'
  | 'strong'
@@ -27,6 +22,11 @@ export type TextAs =
   | 'sup'
   | 'time';
 
+interface TextValue {
+  default: TextProps;
+  variants: Record<TextVariant, TextProps>;
+}
+
 export interface TextTheme {
   text: TextValue;
 }
@@ -34,10 +34,10 @@ export interface TextTheme {
 export const text = (
   t: {
     default?: TextProps;
-    types?: Partial<Record<TextType, TextProps>>;
+    variants?: Partial<Record<TextVariant, TextProps>>;
   } = emptyText
 ): TextTheme => ({
-  text: defaultsTheme<'types', TextProps>(t, emptyText)
+  text: defaultsTheme<'variants', TextProps>(t, emptyText)
 });
 
 const emptyText: TextValue = {
@@ -48,7 +48,7 @@ const emptyText: TextValue = {
     transition: 'color 300ms',
     color: 'text'
   },
-  types: {
+  variants: {
     span: {},
     em: {},
     strong: {},

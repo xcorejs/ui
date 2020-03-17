@@ -1,11 +1,11 @@
 import { ListProps } from '.';
 import { defaultsTheme } from '../../utils/defaults';
 
-export type ListType = 'ordered' | 'unordered';
+export type ListVariant = 'ordered' | 'unordered';
 
 interface ListValue {
   default: ListProps;
-  types: Record<ListType, ListProps>;
+  variants: Record<ListVariant, ListProps>;
 }
 
 export interface ListTheme {
@@ -14,8 +14,8 @@ export interface ListTheme {
 
 export const list = (l: {
   default?: ListProps;
-  types?: Partial<Record<ListType, ListProps>>;
-} = emptyList): ListTheme => ({ list: defaultsTheme<'types', ListProps>(l, emptyList) });
+  variants?: Partial<Record<ListVariant, ListProps>>;
+} = emptyList): ListTheme => ({ list: defaultsTheme<'variants', ListProps>(l, emptyList) });
 
 const emptyList: ListValue = {
   default: {
@@ -33,7 +33,7 @@ const emptyList: ListValue = {
       marginBottom: '1rem'
     }
   },
-  types: {
+  variants: {
     ordered: {
       counterReset: 'list-counter',
       _items: {

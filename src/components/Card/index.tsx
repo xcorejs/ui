@@ -8,7 +8,7 @@ import { BoxProps } from '../Box';
 import Flex, { FlexProps } from '../Flex';
 import Tag, { TagProps } from '../Tag';
 import Text, { TextProps } from '../Text';
-import { CardType } from './theme';
+import { CardVariant } from './theme';
 
 export type CardProps =
   {
@@ -33,8 +33,8 @@ export type CardProps =
   & BoxProps;
 
 export type ExtendedCardProps = {
-  t?: CardType;
-  type?: CardType;
+  v?: CardVariant;
+  variant?: CardVariant;
 } & CardProps;
 
 const Card = forwardRef<HTMLDivElement, ExtendedCardProps>(({

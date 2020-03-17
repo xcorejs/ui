@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import { textBase, TextBaseProps } from '../../bases';
 import useTheme from '../../useTheme';
 import { defaults } from '../../utils/defaults';
-import { variant } from '../../utils/variant';
-import { LinkAs, LinkType } from './theme';
+import { typeVariant } from '../../utils/variant';
+import { LinkAs, LinkVariant } from './theme';
 import { compose } from '../../utils/baseStyle';
 
 export type LinkProps =
@@ -14,8 +14,8 @@ export type LinkProps =
 
 export type ExtendedLinkProps = {
   as?: LinkAs;
-  type?: LinkType;
-  t?: LinkType;
+  variant?: LinkVariant;
+  v?: LinkVariant;
 } & LinkProps;
 
 const Link: FC<ExtendedLinkProps> = p => {
@@ -23,7 +23,7 @@ const Link: FC<ExtendedLinkProps> = p => {
 
   const props = defaults(
     p,
-    variant(link.types, 'simple', p.t, p.type),
+    typeVariant(link, 'simple', p),
     link.default
   );
 
