@@ -25,6 +25,11 @@
         "react",
         "@typescript-eslint"
     ],
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
     "rules": {
       "react/prop-types": "off",
       "no-unused-vars": "off",
@@ -33,7 +38,7 @@
       "max-len": ["error", { "code": 120, "tabWidth": 2, "ignoreTemplateLiterals": true, "ignoreComments": true }],
       "react/jsx-first-prop-new-line": ["error", "multiline"],
       "no-undef": "off",
-      "no-console": "warn",
+      "no-console": ["error", { "allow": ["warn", "error"] }],
       "no-extra-parens": "off",
       "@typescript-eslint/no-extra-parens": ["warn", "all", { "ignoreJSX": "multi-line" }],
       "semi": "off",
