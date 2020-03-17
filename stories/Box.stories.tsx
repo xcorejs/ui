@@ -37,6 +37,11 @@ export const BasicUsage: FC = () => {
       >
         Box 3
       </Box>
+
+      <Box role="group">
+        <Box>Outside</Box>
+        <Box _group={{ _hover: { background: 'navy' } }}>Inside</Box>
+      </Box>
     </Box>
   );
 };
