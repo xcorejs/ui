@@ -212,7 +212,7 @@ export const boxBase = (p: BoxBaseProps): FlattenInterpolation<ThemeProps<XcoreT
             scale: 'colors',
             transform: colorTransform
           }
-        })(p._icon)}
+        })({ ...p._icon, theme: p.theme })}
       }
   `}
 
