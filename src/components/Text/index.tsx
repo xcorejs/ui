@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 import styled from 'styled-components';
 
 import { useTheme } from '../..';
@@ -14,6 +14,7 @@ export interface ExtendedTextProps extends TextProps {
   v?: TextVariant;
   variant?: TextVariant;
   as?: TextAs;
+  children?: ReactNode;
 }
 
 const Text = forwardRef<HTMLSpanElement, ExtendedTextProps>(({ as: _as, ...p }, ref) => {

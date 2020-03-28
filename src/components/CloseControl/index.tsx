@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 
 import { CloseIcon } from '../../icons/close';
@@ -25,7 +25,7 @@ export type ExtendedCloseControlProps =
   }
   & CloseControlProps;
 
-const CloseButton: FC<ExtendedCloseControlProps> = p => {
+const CloseControl = forwardRef<HTMLDivElement, ExtendedCloseControlProps>((p, ref) => {
   const { closeControl } = useTheme();
 
   const { _icon, ...props } = defaults(
@@ -40,13 +40,14 @@ const CloseButton: FC<ExtendedCloseControlProps> = p => {
       justifyContent="center"
       alignItems="center"
       {...props}
+      ref={ref}
     >
       <Icon svg={<CloseIcon />} {..._icon} />
     </CloseButtonStyle>
   );
-};
+});
 
-export default CloseButton;
+export default CloseControl;
 
 const CloseButtonStyle = styled.div`
   ${compose(flexBase)}

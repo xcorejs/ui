@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 
 import useTheme from '../../useTheme';
 import { defaults } from '../../utils/defaults';
@@ -35,6 +35,8 @@ export type CardProps =
 export type ExtendedCardProps = {
   v?: CardVariant;
   variant?: CardVariant;
+
+  children?: ReactNode;
 } & CardProps;
 
 const Card = forwardRef<HTMLDivElement, ExtendedCardProps>(({

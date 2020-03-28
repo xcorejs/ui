@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { ReactNode, forwardRef } from 'react';
 
 import useTheme from '../../useTheme';
 import { typeVariant } from '../../utils/variant';
@@ -9,14 +9,16 @@ import { defaults } from '../../utils/defaults';
 export type ExtendedContainerProps = {
   variant?: ContainerVariant;
   v?: ContainerVariant;
+
+  children?: ReactNode;
 } & FlexProps;
 
-const Container: FC<ExtendedContainerProps> = p => {
+const Container = forwardRef<HTMLDivElement, ExtendedContainerProps>((p, ref) => {
   const { container } = useTheme();
 
   const props = defaults(p, typeVariant(container, 'normal', p), container.default);
 
-  return <Flex {...props} />;
-};
+  return <Flex {...props} ref={ref} />;
+});
 
 export default Container;
