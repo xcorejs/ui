@@ -1,4 +1,4 @@
-import React, { AnchorHTMLAttributes, FC } from 'react';
+import React, { AnchorHTMLAttributes, ReactNode, forwardRef } from 'react';
 import styled from 'styled-components';
 
 import { textBase, TextBaseProps } from '../../bases';
@@ -16,9 +16,11 @@ export type ExtendedLinkProps = {
   as?: LinkAs;
   variant?: LinkVariant;
   v?: LinkVariant;
+
+  children?: ReactNode;
 } & LinkProps;
 
-const Link: FC<ExtendedLinkProps> = p => {
+const Link = forwardRef<HTMLAnchorElement, ExtendedLinkProps>((p, ref) => {
   const { link } = useTheme();
 
   const props = defaults(
@@ -28,9 +30,11 @@ const Link: FC<ExtendedLinkProps> = p => {
   );
 
   return (
-    <LinkStyle {...props} />
+    <LinkStyle {...props} ref={ref} />
   );
-};
+});
+
+export default Link;
 
 const LinkStyle = styled.a`
   ${compose(textBase)}
@@ -40,5 +44,3 @@ const LinkStyle = styled.a`
     cursor: pointer;
   }
 `;
-
-export default Link;

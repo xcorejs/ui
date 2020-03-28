@@ -1,4 +1,4 @@
-import React, { AnchorHTMLAttributes, forwardRef } from 'react';
+import React, { AnchorHTMLAttributes, forwardRef, ReactNode } from 'react';
 import styled from 'styled-components';
 import * as system from 'styled-system';
 import * as CSS from 'csstype';
@@ -31,6 +31,8 @@ export type ExtendedButtonProps =
     s?: ButtonSize;
     variant?: ButtonVariant;
     v?: ButtonVariant;
+
+    children?: ReactNode;
   }
   & ({ as?: 'button' | 'div' } | ({ as: 'a' } & AnchorHTMLAttributes<unknown>));
 
