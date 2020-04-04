@@ -105,6 +105,7 @@ export type IconBaseProps = {
 export type TextBaseProps =
   {
     whiteSpace?: system.ResponsiveValue<CSS.WhiteSpaceProperty>;
+    wordBreak?: system.ResponsiveValue<CSS.WordBreakProperty>;
 
     textDecoration?: system.ResponsiveValue<CSS.TextDecorationProperty<TLen>>;
     textOverflow?: system.ResponsiveValue<CSS.TextOverflowProperty>;
@@ -312,7 +313,8 @@ export const textBase = base([boxBase], (p: TextBaseProps) => css`
     WebkitBoxOrient: true,
     textOverflow: true,
     whiteSpace: true,
-    textDecoration: true
+    textDecoration: true,
+    wordBreak: true
   })(p)}
   ${system.textShadow(p)}
 `);
