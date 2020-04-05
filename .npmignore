@@ -1,11 +1,22 @@
 .storybook
+# lib
 logo
+# node_modules
+src
 stories
 tests
+
+.babelrc
 .editorconfig
-.eslint.json
+.eslintrc.json
 .gitignore
 .travis.yml
 jest.config.json
+# LICENSE
+# package.json
+# README.md
+rollup.config.json
+tsconfig.build.json
+tsconfig.eslint.json
+tsconfig.json
 yarn.lock
-src

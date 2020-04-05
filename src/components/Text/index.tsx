@@ -1,12 +1,12 @@
 import React, { forwardRef, ReactNode } from 'react';
 import styled from 'styled-components';
 
-import { useTheme } from '../..';
 import { textBase, TextBaseProps } from '../../bases';
 import { compose } from '../../utils/baseStyle';
 import { defaults } from '../../utils/defaults';
 import { typeVariant } from '../../utils/variant';
 import { TextAs, TextVariant } from './theme';
+import useTheme from '../../useTheme';
 
 export type TextProps = TextBaseProps;
 
