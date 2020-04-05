@@ -40,8 +40,6 @@ const Modal: FC<ExtendedModalProps> = ({ children, onClose, ...p }) => {
     modal.default
   );
 
-  console.log(props);
-
   return (
     <InsetBox
       horizontalPosition="stretch"
