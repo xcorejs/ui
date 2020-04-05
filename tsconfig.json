@@ -2,9 +2,8 @@
   "compilerOptions": {
     "target": "es5",
     "jsx": "react",
-    "module": "commonjs",
+    "module": "esnext",
     "moduleResolution": "node",
-    "outDir": "./_build_internal",
     "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
     "strict": true,
@@ -12,7 +11,7 @@
     "isolatedModules": false,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "declaration": true,
+    "declaration": false,
     "sourceMap": true
   },
   "exclude": ["node_modules", "_build_internal"],

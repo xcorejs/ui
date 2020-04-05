@@ -6,12 +6,14 @@ import Flex, { FlexProps } from '../Flex';
 import { ContainerVariant } from './theme';
 import { defaults } from '../../utils/defaults';
 
+export type ContainerProps = FlexProps;
+
 export type ExtendedContainerProps = {
   variant?: ContainerVariant;
   v?: ContainerVariant;
 
   children?: ReactNode;
-} & FlexProps;
+} & ContainerProps;
 
 const Container = forwardRef<HTMLDivElement, ExtendedContainerProps>((p, ref) => {
   const { container } = useTheme();
