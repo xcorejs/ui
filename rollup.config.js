@@ -12,7 +12,7 @@ const deps = Object.keys({
 const moduleConfig = {
   input: 'src/index.ts',
   external: id => deps.some(d => d === id || d.startsWith(d + '/')),
-  plugins: [babel(), typescript()],
+  plugins: [/* babel(), */typescript()],
   output: [
     {
       file: 'lib/index.es.js',
