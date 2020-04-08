@@ -2,6 +2,7 @@ const repeatRegex = /(repeat\()([0-9]+)( *, *)(.+)(\))/;
 
 type ParseState = [string[], string, number];
 
+// Basicaly split by " " but dont split functions like repeat
 export const parseTemplate = (template: string, gap?: string | null): string[] =>
   parse(
     template

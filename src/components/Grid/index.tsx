@@ -9,7 +9,7 @@ import { parseTwin, parseTemplate } from '../../utils/gridTemplate';
 import styled, { css } from 'styled-components';
 import { mediaQueries } from '../../utils/mediaQuery';
 import { BoxBaseProps, boxBase } from '../../bases';
-import { compose } from '../../utils/baseStyle';
+import { compose, polyfillTheme } from '../../utils/baseStyle';
 import { Breakpoints } from '../../scales/breakpoints';
 
 export type GridProps =
@@ -34,21 +34,16 @@ export const GridContext = createContext<{ gap: (string | null)[] }>({ gap: [] }
 
 export type ExtendedGridProps = GridProps;
 
-const Grid: FC<ExtendedGridProps> = ({ columns, rows, gap: _gap, ...props }) => {
+const Grid: FC<ExtendedGridProps> = ({ columns, rows, gap, ...props }) => {
   const { breakpoints } = useTheme();
   const { toArray } = convert(breakpoints);
-  const gapArray = toArray(_gap);
-  const gap = gapArray
-    .map(g => parseTwin(g))
-    .map(([c, r], i) => [c, r] as [string | null, string | null]);
 
   return (
-    <GridContext.Provider value={{ gap: toArray(_gap) }}>
+    <GridContext.Provider value={{ gap: toArray(gap) }}>
       <GridStyle
         columns={toArray(columns)}
         rows={toArray(rows)}
-        gapArray={gapArray}
-        gap={gap}
+        gap={toArray(gap)}
         breakpoints={breakpoints}
         {...props}
       />
@@ -62,20 +57,20 @@ export default Grid;
 type GridStyleProps = {
   columns: (string | null)[];
   rows: (string | null)[];
-  gap: [string | null, string | null][];
-  gapArray: (string | null)[];
+  gap: (string | null)[];
   breakpoints: Breakpoints;
 } & GridPositionProps & BoxBaseProps;
 
 const GridStyle = styled.div<GridStyleProps>`
   ${compose(boxBase)}
+
   display: grid;
   display: -ms-grid;
 
   ${system.grid}
 
-  ${system.system({
-    gapArray: {
+  ${p => system.system({
+    gap: {
       property: 'gridGap'
     },
     justifyItems: true,
@@ -88,20 +83,29 @@ const GridStyle = styled.div<GridStyleProps>`
     row: {
       property: 'gridTemplateRows'
     }
-  })}
+  })(polyfillTheme(p))}
 
-  ${({ columns, rows, gap, gapArray, breakpoints }) => mediaQueries(breakpoints, i => {
+  ${({ columns, rows, gap, breakpoints }) => mediaQueries(breakpoints, i => {
     const colVal = getArrayValue(columns, i)!;
     const rowVal = getArrayValue(rows, i)!;
-    const gapVal = getArrayValue(gap, i);
+    const gapVal = parseTwin(getArrayValue(gap, i));
 
-    return (columns[i] || rows[i] || gapArray[i]) && css`
-      ${(columns[i] || gapArray[i]) && css` -ms-grid-columns: ${parseTemplate(
+    return (columns[i] || rows[i] || gap[i]) && css`
+      ${console.log(
+        colVal,
+        gapVal,
+        gapVal ? gapVal[0] : null,
+        parseTemplate(
+          colVal,
+          gapVal ? gapVal[0] : null
+        )
+      ) as any}
+      ${(columns[i] || gap[i]) && css` -ms-grid-columns: ${parseTemplate(
           colVal,
           gapVal ? gapVal[0] : null
         ).join(' ')};`}
 
-      ${(rows[i] || gapArray[i]) && css` -ms-grid-rows: ${parseTemplate(rowVal, gapVal ? gapVal[1] : null).join(' ')}`}
+      ${(rows[i] || gap[i]) && css` -ms-grid-rows: ${parseTemplate(rowVal, gapVal ? gapVal[1] : null).join(' ')}`}
 
       ${templateQueries(parseTemplate(colVal), parseTemplate(rowVal), !!gapVal)}
     `;

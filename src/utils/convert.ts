@@ -39,11 +39,10 @@ const convert = (breakpoints: Breakpoints) => {
   return { valueToArray, objToArray, toArray, narrow };
 };
 
-export const getArrayValue = <T>(val: (T | null)[], i: number) => val[i]
-  ? val[i]
-  : val.reduceRight(
-    (acc, v, ii) => !acc && ii <= i && v ? v : acc,
+export const getArrayValue = <T>(val: T[], index: number): T | null =>
+  val[index] ?? val.reduceRight(
+    (acc, v, i) => acc === null && i < index ? v : acc,
     null as T | null
-  ) as T;
+  );
 
 export default convert;

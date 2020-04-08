@@ -1,125 +1,25 @@
-import * as CSS from 'csstype';
-import { DOMAttributes } from 'react';
-import { css, CSSProperties, FlattenInterpolation, ThemeProps } from 'styled-components';
-import { ResponsiveValue } from 'styled-system';
+import { css, FlattenInterpolation, ThemeProps } from 'styled-components';
 import * as system from 'styled-system';
 
 import { colorTransform } from '../scales/colors';
 import { XcoreTheme } from '../theme';
 import { base, compose } from '../utils/baseStyle';
 
-type TLen = string | 0 | number;
+import type {
+  SelectionBaseProps,
+  PseudoBoxBaseProps,
+  GlobalBaseProps,
+  FlexBaseProps,
+  IconBaseProps,
+  TextBaseProps,
+  BoxBaseProps
+} from './types';
 
-export type SelectionBaseProps =
-  {
-    color?: system.ResponsiveValue<string>;
-    cursor?: system.ResponsiveValue<CSS.CursorProperty>;
-    caretColor?: system.ResponsiveValue<CSS.CaretColorProperty>;
-    outline?: system.ResponsiveValue<CSS.OutlineProperty<TLen>>;
-    outlineOffset?: system.ResponsiveValue<CSS.OutlineOffsetProperty<TLen>>;
-    textDecoration?: system.ResponsiveValue<CSS.TextDecorationProperty<TLen>>;
-    textEmphasisColor?: system.ResponsiveValue<CSS.TextEmphasisColorProperty>;
+export * from './types';
 
-    theme?: XcoreTheme;
-  }
-  & system.BackgroundColorProps
-  & system.TextShadowProps;
+type WithTheme = { theme: XcoreTheme };
 
-export type BoxBaseProps =
-  {
-    _hover?: BoxBaseProps;
-    _active?: BoxBaseProps;
-    _focus?: BoxBaseProps;
-    _before?: PseudoBoxBaseProps;
-    _after?: PseudoBoxBaseProps;
-    _disabled?: BoxBaseProps;
-    _groupHover?: BoxBaseProps;
-    _groupHoverIcon?: IconBaseProps;
-    _placeholder?: BoxBaseProps;
-    _selection?: SelectionBaseProps;
-    _focusWithin?: BoxBaseProps;
-    _first?: BoxBaseProps;
-    _firstOfType?: BoxBaseProps;
-    _last?: BoxBaseProps;
-
-    _group?: {
-      _hover?: BoxBaseProps;
-      _focus?: BoxBaseProps;
-      _active?: BoxBaseProps;
-    };
-
-    _icon?: IconBaseProps;
-
-    color?: string;
-    cursor?: ResponsiveValue<CSS.CursorProperty>;
-    animation?: ResponsiveValue<CSS.AnimationProperty>;
-    transition?: ResponsiveValue<CSS.TransitionProperty>;
-    outline?: ResponsiveValue<CSS.OutlineProperty<TLen>>;
-    outlineOffset?: ResponsiveValue<CSS.OutlineOffsetProperty<TLen>>;
-    transform?: ResponsiveValue<CSS.TransformProperty>;
-    filter?: ResponsiveValue<CSS.FilterProperty>;
-    placeSelf?: ResponsiveValue<CSS.PlaceSelfProperty>;
-    userSelect?: system.ResponsiveValue<CSS.CursorProperty>;
-    pointerEvents?: system.ResponsiveValue<CSS.PointerEventsProperty>;
-
-    // Aliases
-    column?: ResponsiveValue<CSS.GridColumnProperty>;
-    row?: ResponsiveValue<CSS.GridRowProperty>;
-
-    theme?: XcoreTheme;
-  }
-  & system.TypographyProps
-  & system.FlexboxProps
-  & system.BorderProps
-  & system.BoxShadowProps
-  & Omit<system.ColorProps, 'color'>
-  & Omit<system.LayoutProps, 'size'>
-  & system.PositionProps
-  & system.SpaceProps
-  & system.BackgroundProps
-  & system.GridColumnProps
-  & system.GridRowProps
-  & system.ZIndexProps
-  & system.JustifySelfProps
-  & system.AlignSelfProps
-  & Omit<DOMAttributes<HTMLElement>, 'children' | 'dangerouslySetInnerHTML'>;
-
-export type PseudoBoxBaseProps = {
-  content?: ResponsiveValue<CSS.ContentProperty>;
-} & BoxBaseProps;
-
-export type GlobalBaseProps = {
-  webkitFontSmoothing?: system.ResponsiveValue<string>;
-  boxSizing?: system.ResponsiveValue<CSS.BoxSizingProperty>;
-} & BoxBaseProps;
-
-export type FlexBaseProps =
-  & system.FlexboxProps
-  & BoxBaseProps;
-
-export type IconBaseProps = {
-  fill?: string;
-  fillHover?: string;
-} & FlexBaseProps;
-
-export type TextBaseProps =
-  {
-    whiteSpace?: system.ResponsiveValue<CSS.WhiteSpaceProperty>;
-    wordBreak?: system.ResponsiveValue<CSS.WordBreakProperty>;
-
-    textDecoration?: system.ResponsiveValue<CSS.TextDecorationProperty<TLen>>;
-    textOverflow?: system.ResponsiveValue<CSS.TextOverflowProperty>;
-    textTransform?: system.ResponsiveValue<CSS.TextTransformProperty>;
-
-    WebkitLineClamp?: system.ResponsiveValue<CSS.WebkitLineClampProperty>;
-    WebkitBoxOrient?: system.ResponsiveValue<CSSProperties['WebkitBoxOrient']>;
-  }
-  & Omit<system.ColorProps, 'color'>
-  & system.TypographyProps
-  & system.TextShadowProps
-  & BoxBaseProps;
-
-export const selectionBase = (p: SelectionBaseProps) => css`
+export const selectionBase = (p: SelectionBaseProps & WithTheme) => css`
   ${system.system({
     color: {
       property: 'color',
@@ -149,7 +49,7 @@ export const selectionBase = (p: SelectionBaseProps) => css`
   })(p)}
 `;
 
-export const boxBase = (p: BoxBaseProps): FlattenInterpolation<ThemeProps<XcoreTheme>> => css`
+export const boxBase = (p: BoxBaseProps & WithTheme): FlattenInterpolation<ThemeProps<XcoreTheme>> => css`
   ${system.border(p)}
   ${system.boxShadow(p)}
   ${system.layout(p)}
@@ -246,7 +146,7 @@ export const boxBase = (p: BoxBaseProps): FlattenInterpolation<ThemeProps<XcoreT
   `)}
 `;
 
-export const pseudoBoxBase = base([boxBase], (p: PseudoBoxBaseProps) => css`
+export const pseudoBoxBase = base([boxBase], (p: PseudoBoxBaseProps & WithTheme) => css`
   ${system.system({
     content: true
   })(p)}
@@ -254,7 +154,7 @@ export const pseudoBoxBase = base([boxBase], (p: PseudoBoxBaseProps) => css`
 
 const pseudoBoxBaseComposed = compose(pseudoBoxBase);
 
-export const globalBase = base([boxBase], ({ webkitFontSmoothing, ...p }: GlobalBaseProps) => css`
+export const globalBase = base([boxBase], ({ webkitFontSmoothing, ...p }: GlobalBaseProps & WithTheme) => css`
   ${system.system({
     boxSizing: {
       property: 'boxSizing'
@@ -262,11 +162,11 @@ export const globalBase = base([boxBase], ({ webkitFontSmoothing, ...p }: Global
   })(p)}
 `);
 
-export const flexBase = base([boxBase], (p: FlexBaseProps) => css`
+export const flexBase = base([boxBase], (p: FlexBaseProps & WithTheme) => css`
   ${system.display({ display: p.display ?? 'flex' })}
 `);
 
-export const iconBase = base([flexBase], (p: IconBaseProps) => css`
+export const iconBase = base([flexBase], (p: IconBaseProps & WithTheme) => css`
   flex-shrink: 0;
   backface-visibility: hidden;
 
@@ -306,7 +206,7 @@ export const iconBase = base([flexBase], (p: IconBaseProps) => css`
 
 const iconBaseComposed = compose(iconBase);
 
-export const textBase = base([boxBase], (p: TextBaseProps) => css`
+export const textBase = base([boxBase], (p: TextBaseProps & WithTheme) => css`
   ${system.system({
     textTransform: true,
     WebkitLineClamp: true,

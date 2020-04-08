@@ -1,6 +1,6 @@
 import { FlattenInterpolation, ThemeProps, css } from 'styled-components';
 
-import { XcoreTheme } from '../theme';
+import { XcoreTheme, emptyTheme } from '../theme';
 
 type Style = FlattenInterpolation<ThemeProps<XcoreTheme>>;
 
@@ -16,11 +16,23 @@ export const base = <T>(inherits: BaseStyle<T>[], b: (props: T) => Style): BaseS
   return f;
 };
 
+export const polyfillTheme = <T extends { theme?: {} }>(
+  p: T,
+  theme: XcoreTheme = emptyTheme
+): T & { theme: XcoreTheme } => ({
+  ...p,
+  theme: p.theme === undefined || Object.keys(p.theme).length === 0
+    ? theme
+    : (p.theme as XcoreTheme)
+});
+
 export const compose = <T>(...bases: BaseStyle<T>[]) => {
   const flattenBases = Array.from(new Set(flatten(bases)));
-  return (p: T) => css`
-    ${flattenBases.map(b => b(p))}
-  `;
+  return (p: T & { theme: {} }) => {
+    return css`
+      ${flattenBases.map(b => b(polyfillTheme(p)))}
+    `;
+  };
 };
 
 const flatten = <T>(bases: BaseStyle<T>[]): BaseStyle<T>[] => bases.reduce(
