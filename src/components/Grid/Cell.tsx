@@ -4,25 +4,29 @@ import styled, { css } from 'styled-components';
 
 import { GridContext } from '.';
 import { boxBase, BoxBaseProps } from '../../bases';
+import { Breakpoints } from '../../scales/breakpoints';
 import useTheme from '../../useTheme';
 import { compose } from '../../utils/baseStyle';
 import convert, { getArrayValue } from '../../utils/convert';
-import { parseTwin } from '../../utils/gridTemplate';
 import { mediaQueries } from '../../utils/mediaQuery';
-import { parseGridCell } from './data';
-import { Breakpoints } from '../../scales/breakpoints';
+import { parseGridAxis } from './data';
+import { parseTwin } from '../../utils/gridTemplate';
 
 export type CellProps = BoxBaseProps;
 export type ExtendedCellProps = CellProps;
 
-const Cell: FC<CellProps> = ({ column, row, ...props }) => {
+const Cell: FC<CellProps> = ({ column, gridColumn, row, gridRow, ...props }) => {
+  const c = column ?? gridColumn;
+  const r = row ?? gridRow;
   const { breakpoints } = useTheme();
+
   const { gap } = useContext(GridContext);
   const { toArray } = convert(breakpoints);
+
   return (
     <CellStyle
-      column={toArray(column)}
-      row={toArray(row)}
+      column={toArray(c)}
+      row={toArray(r)}
       gap={toArray(gap)}
       breakpoints={breakpoints}
       {...props}
@@ -35,9 +39,9 @@ Cell.displayName = 'Cell';
 export default Cell;
 
 type CellStyleProps = {
-  column: (string | null | number)[];
-  row: (string | null | number)[];
-  gap: (string | null)[];
+  column: Array<string | null | number>;
+  row: Array<string | null | number>;
+  gap: Array<string | null>;
   breakpoints: Breakpoints;
 } & BoxBaseProps;
 
@@ -58,34 +62,31 @@ const CellStyle = styled.div<CellStyleProps>`
     const placeSelf = toArray(p.placeSelf);
     const s = placeSelf[i] && placeSelf[i]!.split(' ');
 
-    return placeSelf[i] && css`
-      -ms-grid-row-align: ${s![0]};
-      -ms-grid-column-align: ${s![1] ? s![1] : s![0]};
+    return s && css`
+      -ms-grid-row-align: ${s[0]};
+      -ms-grid-column-align: ${s[1] ? s[1] : s[0]};
     `;
   })}
 
   ${({ column, row, breakpoints, gap }) => mediaQueries(breakpoints, i => {
-    const c = getArrayValue(column, i)!;
-    const r = getArrayValue(row, i)!;
-    const [msCol, msColSpan] = parseGridCell(c);
-    const [msRow, msRowSpan] = parseGridCell(r);
-
     const [gc, gr] = parseTwin(getArrayValue(gap, i));
 
-    const getIndex = (n: string, g: string | null) => g ? 2 * parseInt(n) - 1 : n;
+    const [colStart, colEnd] = parseGridAxis(column, i, !!gc);
+    const [rowStart, rowEnd] = parseGridAxis(row, i, !!gr);
 
     return [
-      (column[i] || gap[i]) && c && css`
-        grid-column: ${c};
-
-        -ms-grid-column: ${getIndex(msCol, gc)} !important;
-        ${msColSpan && css` -ms-grid-column-span: ${getIndex(msColSpan, gc)} !important; `}
+      (column[i] || gap[i]) && colStart && css`
+        -ms-grid-column: ${colStart} !important;
       `,
-      (row[i] || gap[i]) && r && css`
-        grid-row: ${r};
+      (column[i] || gap[i]) && colEnd && css`
+        -ms-grid-column-span: ${colEnd} !important;
+      `,
 
-        -ms-grid-row: ${getIndex(msRow, gr)} !important;
-        ${msRowSpan && css` -ms-grid-row-span: ${getIndex(msRowSpan, gr)} !important; `}
+      (row[i] || gap[i]) && rowStart && css`
+        -ms-grid-row: ${rowStart} !important;
+      `,
+      (row[i] || gap[i]) && rowEnd && css`
+        -ms-grid-row-span: ${rowEnd} !important;
       `
     ];
   })}
