@@ -91,15 +91,6 @@ const GridStyle = styled.div<GridStyleProps>`
     const gapVal = parseTwin(getArrayValue(gap, i));
 
     return (columns[i] || rows[i] || gap[i]) && css`
-      ${console.log(
-        colVal,
-        gapVal,
-        gapVal ? gapVal[0] : null,
-        parseTemplate(
-          colVal,
-          gapVal ? gapVal[0] : null
-        )
-      ) as any}
       ${(columns[i] || gap[i]) && css` -ms-grid-columns: ${parseTemplate(
           colVal,
           gapVal ? gapVal[0] : null

@@ -34,7 +34,7 @@
     "build-types": "tsc -p tsconfig.build.json",
     "ts-check": "yarn tsc --noEmit",
     "lint": "eslint \"{src,stories}/**/*.{ts,tsx}\"",
-    "ci": "yarn build && yarn lint && yarn test && yarn storybook-ci",
+    "ci": "yarn lint && yarn build && yarn test && yarn storybook-ci",
     "test": "jest"
   },
   "dependencies": {
