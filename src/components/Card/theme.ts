@@ -16,12 +16,9 @@ export const card = (
   c: {
     default?: CardProps;
     variants?: Partial<Record<CardVariant, CardProps>>;
-  } = emptyCard,
-  innerPadding?: string
+  } = emptyCard
 ): CardTheme => ({
-  card: !innerPadding
-    ? defaultsTheme<'variants', CardProps>(c, emptyCard)
-    : defaultsTheme<'variants', CardProps>(c, emptyCard, defaultPadding(innerPadding) as CardValue)
+  card: defaultsTheme<'variants', CardProps>(c, emptyCard)
 });
 
 const emptyCard: CardValue = {
@@ -44,11 +41,3 @@ const emptyCard: CardValue = {
     }
   }
 };
-
-const defaultPadding = (padding: string): Partial<CardValue> => ({
-  default: {
-    _header: { padding },
-    _body: { padding },
-    _footer: { padding }
-  }
-});
