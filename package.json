@@ -28,7 +28,7 @@
     }
   ],
   "scripts": {
-    "storybook": "start-storybook -p 3000",
+    "storybook": "start-storybook -p 3001",
     "storybook-ci": "start-storybook --ci --smoke-test",
     "build": "rollup -c && yarn build-types",
     "build-types": "tsc -p tsconfig.build.json",

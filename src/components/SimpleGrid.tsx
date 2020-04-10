@@ -8,8 +8,14 @@ import { parseTwin } from '../utils/gridTemplate';
 import { BoxProps } from './Box';
 import Grid, { GridPositionProps } from './Grid';
 
+export type ColumnResponsiveValue =
+  | number
+  | null
+  | Array<number | null>
+  | { [key in string | number]?: number } & { _: number };
+
 export type SimpleGridProps = {
-  columns: ResponsiveValue<number>;
+  columns: ColumnResponsiveValue;
   unit?: ResponsiveValue<string>;
 
   gap?: ResponsiveValue<CSS.GapProperty<string>>;

@@ -12,9 +12,16 @@ import { BoxBaseProps, boxBase } from '../../bases';
 import { compose, polyfillTheme } from '../../utils/baseStyle';
 import { Breakpoints } from '../../scales/breakpoints';
 
+type Col = CSS.GridTemplateColumnsProperty<string>;
+export type GridColumnResponsiveValue =
+  | Col
+  | null
+  | Array<Col | null>
+  | { [key in string | number]?: Col } & { _: Col };
+
 export type GridProps =
   {
-    columns: ResponsiveValue<CSS.GridTemplateColumnsProperty<string>>;
+    columns: GridColumnResponsiveValue;
     rows: ResponsiveValue<CSS.GridTemplateRowsProperty<string>>;
 
     gap?: ResponsiveValue<CSS.GapProperty<string>>;
@@ -91,10 +98,9 @@ const GridStyle = styled.div<GridStyleProps>`
     const gapVal = parseTwin(getArrayValue(gap, i));
 
     return (columns[i] || rows[i] || gap[i]) && css`
-      ${(columns[i] || gap[i]) && css` -ms-grid-columns: ${parseTemplate(
-          colVal,
-          gapVal ? gapVal[0] : null
-        ).join(' ')};`}
+      ${(columns[i] || gap[i]) && css`
+        -ms-grid-columns: ${parseTemplate(colVal, gapVal ? gapVal[0] : null).join(' ')};
+      `}
 
       ${(rows[i] || gap[i]) && css` -ms-grid-rows: ${parseTemplate(rowVal, gapVal ? gapVal[1] : null).join(' ')}`}
 

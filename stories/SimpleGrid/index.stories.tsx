@@ -24,13 +24,24 @@ export const Basic: FC = () => {
 
 export const IE11: FC = () => {
   return (
-    <SimpleGrid columns={{ _: 1, sm: 12 }} gap="3rem" mb={{ _: '3rem', sm: '8rem' }}>
-      <Cell column={{ sm: '1/6' }}>
-        AAAAAA
-      </Cell>
-      <Cell column={{ sm: '6/13' }}>
-        BBBBBB
-      </Cell>
-    </SimpleGrid>
+    <>
+      <SimpleGrid columns={{ _: 12, sm: 12 }} gap="3rem">
+        <Cell gridColumn={{ sm: '1/8' }}>
+          AAAAAAA
+        </Cell>
+
+        <Cell column={{ sm: '9/13' }} display={{ _: 'none', sm: 'block' }}>
+          BBBB
+        </Cell>
+      </SimpleGrid>
+      <SimpleGrid columns={{ _: 1, sm: 12 }} gap="3rem" mb={{ _: '3rem', sm: '8rem' }}>
+        <Cell column={{ sm: '1/6' }}>
+          AAAAAA
+        </Cell>
+        <Cell column={{ sm: '6/13' }}>
+          BBBBBB
+        </Cell>
+      </SimpleGrid>
+    </>
   );
 };
