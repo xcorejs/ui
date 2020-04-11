@@ -1,10 +1,10 @@
 const path = require('path');
 
 module.exports = ({ config }) => {
+  config.resolve.modules.unshift(path.resolve(__dirname, '../src'));
   config.resolve.alias = {
     ...config.resolve.alias,
-    "../src": path.resolve(__dirname, '../src'),
-    "../../src": path.resolve(__dirname, '../src')
+    "@xcorejs/ui": path.resolve(__dirname, '../src')
   };
 
   config.module.rules.push({

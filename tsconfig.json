@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src",
     "target": "es5",
     "jsx": "react",
     "module": "esnext",
@@ -12,7 +13,10 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "declaration": false,
-    "sourceMap": true
+    "sourceMap": true,
+    "paths": {
+      "@xcorejs/ui": ["./"],
+    }
   },
   "exclude": ["node_modules", "_build_internal"],
   "include": ["src", "stories", "**/*.d.ts", "tests"]

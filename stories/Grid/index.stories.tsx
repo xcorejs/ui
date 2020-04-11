@@ -1,6 +1,16 @@
+import {
+  Box,
+  Cell,
+  Grid,
+  Heading1,
+  Heading2,
+  List,
+  LoremIpsum,
+  Paragraph,
+  Text,
+  XcoreProvider
+} from '@xcorejs/ui';
 import React, { FC } from 'react';
-import { Grid, Cell, Text, LoremIpsum, Box, XcoreProvider, Heading1 } from '../../src';
-import { Paragraph, Heading2 } from '../../src/components/Typography/aliases';
 
 export default { title: 'Grid' };
 
@@ -11,12 +21,12 @@ export const Basic: FC = () => (
         {/* Sidebar */}
         <Heading2 column="1 / span 3" row="1" placeSelf="center">Lorem</Heading2>
         <Box column="1 / span 3" row="2">
-          <ul>
+          <List>
             <li>Home</li>
             <li>Blog</li>
             <li>Jeff</li>
             <li>AAAA</li>
-          </ul>
+          </List>
         </Box>
         <Box column="1 / span 2" row="3" alignSelf="center">
           @AlfonzAlfonz
