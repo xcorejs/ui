@@ -9,6 +9,8 @@ import Flex, { FlexProps } from '../Flex';
 import Tag, { TagProps } from '../Tag';
 import Text, { TextProps } from '../Text';
 import { CardVariant } from './theme';
+import { ResponsiveValue } from 'styled-system';
+import CSS from 'csstype';
 
 export type CardProps =
   {
@@ -29,6 +31,8 @@ export type CardProps =
 
     footer?: Renderable;
     _footer?: FlexProps;
+
+    innerPadding?: ResponsiveValue<CSS.PaddingProperty<number>>;
   }
   & BoxProps;
 
@@ -45,6 +49,8 @@ const Card = forwardRef<HTMLDivElement, ExtendedCardProps>(({
 }, ref) => {
   const { card } = useTheme();
 
+  const type = typeVariant(card, 'elevated', p);
+
   const {
     _header,
     header,
@@ -58,12 +64,23 @@ const Card = forwardRef<HTMLDivElement, ExtendedCardProps>(({
     body,
     _footer,
     footer,
+    innerPadding,
     ...props
   } = defaults(
     p,
-    typeVariant(card, 'elevated', p),
+    type,
     card.default
   );
+
+  const getPadding = <T extends unknown>(
+    target: (p: CardProps) => { padding?: T } | undefined
+  ) =>
+    target(p)?.padding ??
+    p.innerPadding ??
+    target(type)?.padding ??
+    type.innerPadding ??
+    target(card.default)?.padding ??
+    card.default.innerPadding;
 
   return (
     <Flex
@@ -74,28 +91,30 @@ const Card = forwardRef<HTMLDivElement, ExtendedCardProps>(({
       {...props}
       ref={ref}
     >
-      {(header || title || tag) && (
-        <Flex order={1} {..._header}>
-          <Flex flexGrow={1}>
-            {header
-              ? renderComponent(header)
-              : (
-                <Text
-                  fontSize='2rem'
-                  lineHeight='3rem'
-                  {..._title}
-                >
-                  {renderComponent(title)}
-                </Text>
-              )}
+      {(header || title) && (
+        <Flex>
+          <Flex order={1} {..._header} padding={getPadding(x => x._header)}>
+            <Flex flexGrow={1}>
+              {header
+                ? renderComponent(header)
+                : (
+                  <Text
+                    fontSize='2rem'
+                    lineHeight='3rem'
+                    {..._title}
+                  >
+                    {renderComponent(title)}
+                  </Text>
+                )}
+            </Flex>
           </Flex>
-
-          {tag && (
-            <Tag alignSelf="center" {..._tag}>
-              {renderComponent(tag)}
-            </Tag>
-          )}
         </Flex>
+      )}
+
+      {tag && (
+        <Tag position="absolute" top="0" right="0" alignSelf="center" m={_header.p ?? _header.padding} {..._tag}>
+          {renderComponent(tag)}
+        </Tag>
       )}
 
       {media && (
@@ -105,19 +124,19 @@ const Card = forwardRef<HTMLDivElement, ExtendedCardProps>(({
       )}
 
       {body && (
-        <Flex order={3} {..._body}>
+        <Flex order={3} {..._body} padding={getPadding(x => x._body)}>
           {renderComponent(body)}
         </Flex>
       )}
 
       {children && (
-        <Flex order={3} {..._body}>
+        <Flex order={3} {..._body} padding={getPadding(x => x._body)}>
           {children}
         </Flex>
       )}
 
       {footer && (
-        <Flex order={4} {..._footer}>
+        <Flex order={4} {..._footer} padding={_footer.p ?? _footer.padding ?? innerPadding}>
           {renderComponent(footer)}
         </Flex>
       )}

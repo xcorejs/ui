@@ -45,6 +45,22 @@ export const BasicUsage: FC = () => {
           media={<Img src="http://placekitten.com/500/300" alt="cat" />}
           body={<LoremIpsum units="sentences" />}
         />
+
+        <Card
+          {...cardStyle}
+          tag="Tag"
+          media={<Img src="http://placekitten.com/500/300" alt="cat" />}
+          body={<LoremIpsum units="sentences" />}
+        />
+
+        <Card
+          {...cardStyle}
+          innerPadding="5rem"
+          title="Thick"
+          tag="Tag"
+          media={<Img src="http://placekitten.com/500/300" alt="cat" />}
+          body={<LoremIpsum units="sentences" />}
+        />
       </Flex>
     </XcoreProvider>
   );
