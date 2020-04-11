@@ -5,7 +5,7 @@ import { colorTransform } from '../scales/colors';
 import { XcoreTheme } from '../theme';
 import { base, compose } from '../utils/baseStyle';
 
-import type {
+import {
   SelectionBaseProps,
   PseudoBoxBaseProps,
   GlobalBaseProps,

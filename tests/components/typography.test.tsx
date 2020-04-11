@@ -1,12 +1,12 @@
-import React, { FC } from 'react';
+import 'jest-styled-components';
 
-import { Box, Typography, XcoreProvider } from '../../src';
+import { Box, Typography } from '@xcorejs/ui';
+import React from 'react';
+import renderer from 'react-test-renderer';
 
-export default { title: 'Typography' };
-
-export const BasicUsage: FC = () => {
-  return (
-    <XcoreProvider>
+test('Typography component', () => {
+  const component = renderer.create(
+    <>
       <Box>
         <Typography variant="h1" mb="4rem">Heading 1</Typography>
         <Typography variant="h2">Heading 2</Typography>
@@ -19,6 +19,8 @@ export const BasicUsage: FC = () => {
         <hr />
         <Typography variant="h2" as="h3">Heading 2 as h3</Typography>
       </Box>
-    </XcoreProvider>
+    </>
   );
-};
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});

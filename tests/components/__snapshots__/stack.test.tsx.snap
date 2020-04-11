@@ -1,0 +1,278 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stack component 1`] = `
+Array [
+  .c1 {
+  max-width: 100%;
+  margin-bottom: 10px;
+  margin-right: 0;
+}
+
+.c2 {
+  max-width: 100%;
+  margin-bottom: 0;
+  margin-right: 0;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+@media screen and (min-width:30em) {
+
+}
+
+@media screen and (min-width:48em) {
+
+}
+
+@media screen and (min-width:64em) {
+
+}
+
+@media screen and (min-width:78em) {
+
+}
+
+@media screen and (min-width:85em) {
+
+}
+
+@media screen and (min-width:30em) {
+
+}
+
+@media screen and (min-width:48em) {
+
+}
+
+@media screen and (min-width:64em) {
+
+}
+
+@media screen and (min-width:78em) {
+
+}
+
+@media screen and (min-width:85em) {
+
+}
+
+@media screen and (min-width:30em) {
+
+}
+
+@media screen and (min-width:48em) {
+
+}
+
+@media screen and (min-width:64em) {
+
+}
+
+@media screen and (min-width:78em) {
+
+}
+
+@media screen and (min-width:85em) {
+
+}
+
+@media screen and (min-width:30em) {
+
+}
+
+@media screen and (min-width:48em) {
+
+}
+
+@media screen and (min-width:64em) {
+
+}
+
+@media screen and (min-width:78em) {
+
+}
+
+@media screen and (min-width:85em) {
+
+}
+
+<div
+    className="c0"
+  >
+    <div
+      className="c1"
+    >
+      Box 1
+    </div>
+    <div
+      className="c2"
+    >
+      Box 2
+    </div>
+  </div>,
+  .c1 {
+  max-width: 100%;
+  margin-bottom: 10px;
+  margin-right: 0;
+}
+
+.c3 {
+  max-width: 100%;
+  margin-bottom: 0;
+  margin-right: 0;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c2 {
+  margin: 0;
+  font-size: 2.4rem;
+  font-weight: 500;
+  font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  line-height: 3.6rem;
+  font-weight: 500;
+  font-size: 2.4rem;
+  color: #1E3441;
+}
+
+@media screen and (min-width:30em) {
+
+}
+
+@media screen and (min-width:48em) {
+
+}
+
+@media screen and (min-width:64em) {
+
+}
+
+@media screen and (min-width:78em) {
+
+}
+
+@media screen and (min-width:85em) {
+
+}
+
+@media screen and (min-width:30em) {
+
+}
+
+@media screen and (min-width:48em) {
+
+}
+
+@media screen and (min-width:64em) {
+
+}
+
+@media screen and (min-width:78em) {
+
+}
+
+@media screen and (min-width:85em) {
+
+}
+
+@media screen and (min-width:30em) {
+
+}
+
+@media screen and (min-width:48em) {
+
+}
+
+@media screen and (min-width:64em) {
+
+}
+
+@media screen and (min-width:78em) {
+
+}
+
+@media screen and (min-width:85em) {
+
+}
+
+@media screen and (min-width:30em) {
+
+}
+
+@media screen and (min-width:48em) {
+
+}
+
+@media screen and (min-width:64em) {
+
+}
+
+@media screen and (min-width:78em) {
+
+}
+
+@media screen and (min-width:85em) {
+
+}
+
+<div
+    className="c0"
+  >
+    <div
+      className="c1"
+    >
+      <h3
+        className="c2"
+        color="text"
+        fontFamily="heading"
+        fontSize="2.4rem"
+        fontWeight={500}
+      >
+        Title 1
+      </h3>
+    </div>
+    <div
+      className="c1"
+    >
+      <h3
+        className="c2"
+        color="text"
+        fontFamily="heading"
+        fontSize="2.4rem"
+        fontWeight={500}
+      >
+        Title 2
+      </h3>
+    </div>
+    <div
+      className="c3"
+    >
+      <h3
+        className="c2"
+        color="text"
+        fontFamily="heading"
+        fontSize="2.4rem"
+        fontWeight={500}
+      >
+        Title 3
+      </h3>
+    </div>
+  </div>,
+]
+`;

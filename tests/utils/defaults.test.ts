@@ -25,33 +25,6 @@ test('defaults', () => {
     borderColor: 'red',
     fontSize: '2rem'
   });
-
-  expect(
-    Object.keys(defaults<CardProps>({
-      color: 'red',
-      my: '30',
-      marginTop: '20'
-    }, {
-      color: 'green',
-      margin: [10, 20, 30],
-      marginTop: '30'
-    }))
-  ).toEqual(
-    ['color', 'margin', 'my', 'marginTop']
-  );
-
-  expect(
-    Object.keys(defaults<CardProps>({
-      color: 'red',
-      my: '30'
-    }, {
-      color: 'green',
-      margin: [10, 20, 30],
-      marginTop: '30'
-    }))
-  ).toEqual(
-    ['color', 'margin', 'marginTop', 'my']
-  );
 });
 
 test('defaultsTheme', () => {

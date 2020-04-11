@@ -6,12 +6,17 @@ import Text, { TextProps } from './Text';
 export type LoremIpsumProps = {
   count?: number;
   units?: 'paragraphs' | 'words' | 'sentences';
+  random?: boolean;
 } & TextProps;
 
 const LoremIpsum = forwardRef<HTMLSpanElement, LoremIpsumProps>(
-  ({ count, units, ...props }, ref) => {
+  ({ count, units, random, ...props }, ref) => {
     const text = useMemo(() =>
-      loremIpsum({ count, units: units ?? 'paragraphs' }),
+      loremIpsum({
+        count,
+        units: units ?? 'paragraphs',
+        random: random ? Math.random : () => 0
+      }),
     [count, units]);
 
     return (

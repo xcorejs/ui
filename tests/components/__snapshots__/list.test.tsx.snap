@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List component 1`] = `
+.c0 {
+  border-color: #0171b6;
+  border-bottom: 1px solid transparent;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 1.6rem;
+  line-height: initial;
+  font-size: 1.6rem;
+  cursor: pointer;
+  -webkit-transition: color 300ms,border 300ms;
+  transition: color 300ms,border 300ms;
+  color: #0171b6;
+  cursor: pointer;
+}
+
+.c0:hover {
+  border-bottom: 1px solid transparent;
+  color: #0169a9;
+}
+
+.c0 * {
+  cursor: pointer;
+}
+
+<a
+  className="c0"
+  color="primary"
+  cursor="pointer"
+  display="inline-flex"
+  fontSize="1.6rem"
+  href="/"
+>
+  Burger King burger
+</a>
+`;

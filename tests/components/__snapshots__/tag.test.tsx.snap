@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag component 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  white-space: nowrap;
+  border: 1px solid #455663;
+  border-radius: 0.3rem;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  line-height: 2rem;
+  font-weight: 500;
+  font-size: 1.2rem;
+  font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: color 300ms,background 300ms,border-color 300ms;
+  transition: color 300ms,background 300ms,border-color 300ms;
+  color: #fff;
+  background-color: #455663;
+}
+
+<div
+  className="c0"
+  color="background"
+  fontFamily="text"
+  fontSize="1.2rem"
+  fontWeight={500}
+>
+  Tag
+</div>
+`;

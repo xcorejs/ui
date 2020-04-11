@@ -1,0 +1,260 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link component 1`] = `
+Array [
+  .c2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-size: 1.5rem;
+  font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  color: #1E3441;
+  -webkit-transition: color 300ms;
+  transition: color 300ms;
+}
+
+.c0 {
+  padding: 0;
+  margin: 0;
+  -webkit-flex-basis: 0.5;
+  -ms-flex-preferred-size: 0.5;
+  flex-basis: 0.5;
+  line-height: 2.4rem;
+  list-style-type: none;
+  counter-reset: list-counter;
+}
+
+.c0 li {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1rem;
+  padding-left: .5rem;
+  color: text;
+  counter-increment: list-counter;
+}
+
+.c0 li:before {
+  margin-right: 1.5rem;
+  color: #152028;
+  content: counter(list-counter)"." !important;
+  position: relative;
+}
+
+.c0 li:last-child {
+  margin-bottom: 0;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+<ol
+    className="c0"
+  >
+    <li
+      className="c1"
+    >
+      <span>
+        <span
+          className="c2"
+          color="text"
+          fontFamily="text"
+          fontSize="1.5rem"
+        >
+          Ad ad ad ad ad.
+        </span>
+      </span>
+    </li>
+    <li
+      className="c1"
+    >
+      <span>
+        <span
+          className="c2"
+          color="text"
+          fontFamily="text"
+          fontSize="1.5rem"
+        >
+          Ad ad ad ad ad.
+        </span>
+      </span>
+    </li>
+    <li
+      className="c1"
+    >
+      <span>
+        <span
+          className="c2"
+          color="text"
+          fontFamily="text"
+          fontSize="1.5rem"
+        >
+          Ad ad ad ad ad.
+        </span>
+      </span>
+    </li>
+    <li
+      className="c1"
+    >
+      <span>
+        <span
+          className="c2"
+          color="text"
+          fontFamily="text"
+          fontSize="1.5rem"
+        >
+          Ad ad ad ad ad.
+        </span>
+      </span>
+    </li>
+    <li
+      className="c1"
+    >
+      <span>
+        <span
+          className="c2"
+          color="text"
+          fontFamily="text"
+          fontSize="1.5rem"
+        >
+          Ad ad ad ad ad.
+        </span>
+      </span>
+    </li>
+  </ol>,
+  .c2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-size: 1.5rem;
+  font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  color: #1E3441;
+  -webkit-transition: color 300ms;
+  transition: color 300ms;
+}
+
+.c0 {
+  padding: 0;
+  margin: 0;
+  -webkit-flex-basis: 0.5;
+  -ms-flex-preferred-size: 0.5;
+  flex-basis: 0.5;
+  line-height: 2.4rem;
+  list-style-type: none;
+}
+
+.c0 li {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  color: text;
+  padding-left: .5rem;
+  margin-bottom: 1rem;
+}
+
+.c0 li:before {
+  margin-right: 1.5rem;
+  color: #152028;
+  content: "\\2022";
+  font-size: 2.6rem;
+}
+
+.c0 li:last-child {
+  margin-bottom: 0;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+<ul
+    className="c0"
+  >
+    <li
+      className="c1"
+    >
+      <span>
+        <span
+          className="c2"
+          color="text"
+          fontFamily="text"
+          fontSize="1.5rem"
+        >
+          Ad ad ad ad ad.
+        </span>
+      </span>
+    </li>
+    <li
+      className="c1"
+    >
+      <span>
+        <span
+          className="c2"
+          color="text"
+          fontFamily="text"
+          fontSize="1.5rem"
+        >
+          Ad ad ad ad ad.
+        </span>
+      </span>
+    </li>
+    <li
+      className="c1"
+    >
+      <span>
+        <span
+          className="c2"
+          color="text"
+          fontFamily="text"
+          fontSize="1.5rem"
+        >
+          Ad ad ad ad ad.
+        </span>
+      </span>
+    </li>
+    <li
+      className="c1"
+    >
+      <span>
+        <span
+          className="c2"
+          color="text"
+          fontFamily="text"
+          fontSize="1.5rem"
+        >
+          Ad ad ad ad ad.
+        </span>
+      </span>
+    </li>
+    <li
+      className="c1"
+    >
+      <span>
+        <span
+          className="c2"
+          color="text"
+          fontFamily="text"
+          fontSize="1.5rem"
+        >
+          Ad ad ad ad ad.
+        </span>
+      </span>
+    </li>
+  </ul>,
+]
+`;

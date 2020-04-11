@@ -26,7 +26,6 @@ export const BasicUsage: FC = () => {
 
         <Box>But that's even worse.</Box>
       </Text>
-
     </Box>
   );
 };
