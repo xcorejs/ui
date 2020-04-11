@@ -1,12 +1,11 @@
-import React, { AnchorHTMLAttributes, ReactNode, forwardRef } from 'react';
+import React, { AnchorHTMLAttributes, forwardRef, ReactNode } from 'react';
 import styled from 'styled-components';
 
-import { textBase, TextBaseProps } from '../../bases';
+import { composedTextBase, TextBaseProps } from '../../bases';
 import useTheme from '../../useTheme';
 import { defaults } from '../../utils/defaults';
 import { typeVariant } from '../../utils/variant';
 import { LinkAs, LinkVariant } from './theme';
-import { compose } from '../../utils/baseStyle';
 
 export type LinkProps =
   & TextBaseProps
@@ -37,7 +36,7 @@ const Link = forwardRef<HTMLAnchorElement, ExtendedLinkProps>((p, ref) => {
 export default Link;
 
 const LinkStyle = styled.a`
-  ${compose(textBase)}
+  ${composedTextBase}
 
   cursor: pointer;
   & * {

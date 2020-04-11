@@ -1,5 +1,5 @@
 import Portal from '@reach/portal';
-import React, { FC, useEffect, useLayoutEffect, useState, MutableRefObject } from 'react';
+import React, { FC, useLayoutEffect, useState, MutableRefObject } from 'react';
 import { ResponsiveValue } from 'styled-system';
 
 import useTheme from '../../useTheme';

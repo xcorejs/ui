@@ -1,14 +1,13 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 
+import { composedFlexBase } from '../../bases';
 import { CloseIcon } from '../../icons/close';
-import Icon, { IconProps } from '../Icon';
-import { FlexProps } from '../Flex';
-import { compose } from '../../utils/baseStyle';
-import { flexBase } from '../../bases';
 import useTheme from '../../useTheme';
-import { sizeVariant } from '../../utils/variant';
 import { defaults } from '../../utils/defaults';
+import { sizeVariant } from '../../utils/variant';
+import { FlexProps } from '../Flex';
+import Icon, { IconProps } from '../Icon';
 
 type CloseControlSizes = 'xs' | 'sm' | 'md' | 'lg';
 
@@ -50,7 +49,7 @@ const CloseControl = forwardRef<HTMLDivElement, ExtendedCloseControlProps>((p, r
 export default CloseControl;
 
 const CloseButtonStyle = styled.div`
-  ${compose(flexBase)}
+  ${composedFlexBase}
   svg {
     width: 100%;
     height: 100%;

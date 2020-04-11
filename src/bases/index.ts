@@ -127,7 +127,7 @@ export const boxBase = (p: BoxBaseProps & WithTheme): FlattenInterpolation<Theme
       ${console.warn('Warning: _groupHoverIcon={...} is deprecated use _group={{ _hover: { _icon: {...} } }} instead!') as any}
 
       [role=group]:hover & {
-        ${iconBaseComposed({ ...p._groupHoverIcon, theme: p.theme })}
+        ${composedIconBase({ ...p._groupHoverIcon, theme: p.theme })}
       }
   `}
 
@@ -145,6 +145,8 @@ export const boxBase = (p: BoxBaseProps & WithTheme): FlattenInterpolation<Theme
       }
   `)}
 `;
+
+export const composedBoxBase = compose(boxBase);
 
 export const pseudoBoxBase = base([boxBase], (p: PseudoBoxBaseProps & WithTheme) => css`
   ${system.system({
@@ -165,6 +167,8 @@ export const globalBase = base([boxBase], ({ webkitFontSmoothing, ...p }: Global
 export const flexBase = base([boxBase], (p: FlexBaseProps & WithTheme) => css`
   ${system.display({ display: p.display ?? 'flex' })}
 `);
+
+export const composedFlexBase = compose(flexBase);
 
 export const iconBase = base([flexBase], (p: IconBaseProps & WithTheme) => css`
   flex-shrink: 0;
@@ -204,7 +208,7 @@ export const iconBase = base([flexBase], (p: IconBaseProps & WithTheme) => css`
   }
 `);
 
-const iconBaseComposed = compose(iconBase);
+export const composedIconBase = compose(iconBase);
 
 export const textBase = base([boxBase], (p: TextBaseProps & WithTheme) => css`
   ${system.system({
@@ -218,6 +222,8 @@ export const textBase = base([boxBase], (p: TextBaseProps & WithTheme) => css`
   })(p)}
   ${system.textShadow(p)}
 `);
+
+export const composedTextBase = compose(textBase);
 
 type GroupPseudoSelector =
   | '_hover'

@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 
-import { boxBase, BoxBaseProps } from '../bases';
-import { compose } from '../utils/baseStyle';
+import { BoxBaseProps, composedBoxBase } from '../bases';
 import Flex from './Flex';
 
 export type AspectRatioProps = {
@@ -10,7 +9,7 @@ export type AspectRatioProps = {
 } & BoxBaseProps;
 
 const AspectRatioStyle = styled.div<BoxBaseProps>`
-  ${compose(boxBase)}
+  ${composedBoxBase}
 
   & > div {
     width: 100%;

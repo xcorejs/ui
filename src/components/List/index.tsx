@@ -3,13 +3,12 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import * as system from 'styled-system';
 
+import { composedTextBase, TextBaseProps } from '../../bases';
 import useTheme from '../../useTheme';
 import { defaults } from '../../utils/defaults';
 import { typeVariant } from '../../utils/variant';
 import { TLen } from '../Box';
 import { ListVariant } from './theme';
-import { textBase, TextBaseProps } from '../../bases';
-import { compose } from '../../utils/baseStyle';
 
 export type ListProps =
   {
@@ -57,7 +56,7 @@ List.displayName = 'List';
 export default List;
 
 const ListStyle = styled.ul<ListProps>`
-  ${compose(textBase)}
+  ${composedTextBase}
 
   list-style-type: none;
 

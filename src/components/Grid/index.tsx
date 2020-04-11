@@ -8,7 +8,7 @@ import convert, { getArrayValue } from '../../utils/convert';
 import { parseTwin, parseTemplate } from '../../utils/gridTemplate';
 import styled, { css } from 'styled-components';
 import { mediaQueries } from '../../utils/mediaQuery';
-import { BoxBaseProps, boxBase } from '../../bases';
+import { BoxBaseProps, boxBase, composedBoxBase } from '../../bases';
 import { compose, polyfillTheme } from '../../utils/baseStyle';
 import { Breakpoints } from '../../scales/breakpoints';
 
@@ -69,7 +69,7 @@ type GridStyleProps = {
 } & GridPositionProps & BoxBaseProps;
 
 const GridStyle = styled.div<GridStyleProps>`
-  ${compose(boxBase)}
+  ${composedBoxBase}
 
   display: grid;
   display: -ms-grid;

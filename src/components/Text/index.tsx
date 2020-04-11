@@ -1,12 +1,11 @@
 import React, { forwardRef, ReactNode } from 'react';
 import styled from 'styled-components';
 
-import { textBase, TextBaseProps } from '../../bases';
-import { compose } from '../../utils/baseStyle';
+import { composedTextBase, TextBaseProps } from '../../bases';
+import useTheme from '../../useTheme';
 import { defaults } from '../../utils/defaults';
 import { typeVariant } from '../../utils/variant';
 import { TextAs, TextVariant } from './theme';
-import useTheme from '../../useTheme';
 
 export type TextProps = TextBaseProps;
 
@@ -43,7 +42,7 @@ const Text = forwardRef<HTMLSpanElement, ExtendedTextProps>(({ as: _as, ...p }, 
 });
 
 const TextStyle = styled.span`
-  ${compose(textBase)}
+  ${composedTextBase}
 `;
 
 export default Text;
