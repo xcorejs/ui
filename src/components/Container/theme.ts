@@ -13,10 +13,10 @@ export interface ContainerTheme {
 }
 
 export const container = (
-  c: {
+  c?: {
     default?: FlexProps;
     variants?: Partial<Record<ContainerVariant, FlexProps>>;
-  } = emptyContainer
+  }
 ): ContainerTheme => ({ container: defaultsTheme<'variants', FlexProps>(c, emptyContainer) });
 
 const emptyContainer: ContainerValue = {

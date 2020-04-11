@@ -12,7 +12,7 @@ type PartialThemeItem<TKey extends keyof any, TValue extends {}> = {
 
 export const defaults = <TValue extends {}>(
   target: Partial<TValue>,
-  ...source: (Partial<TValue> | undefined)[]
+  ...source: Partial<TValue>[]
 ): TValue =>
   reverseObjectKeys(source.reduce<Partial<TValue>>((acc, val) => defaultsPair(acc, val), target) as TValue);
 
@@ -20,28 +20,30 @@ export const defaultsTheme = <
   TKey extends string,
   TValue extends {},
 >(
-  target: PartialThemeItem<TKey, TValue>,
-  ...source: ThemeItem<TKey, TValue>[]
+  target: PartialThemeItem<TKey, TValue> | undefined,
+  source: ThemeItem<TKey, TValue>
 ): ThemeItem<TKey, TValue> =>
-  source.reduce<Partial<ThemeItem<TKey, TValue>>>(
-    (acc, val) => defaultsThemePair(acc, val) as Partial<ThemeItem<TKey, TValue>>,
-    target as Partial<ThemeItem<TKey, TValue>>
-  ) as ThemeItem<TKey, TValue>;
+  target ? defaultsThemePair(target, source) : source;
 
 const defaultsPair = <TValue extends {}>(
   target: Partial<TValue>,
-  source: Partial<TValue> | undefined
-): TValue => source
-  ? Object.keys(source).reduce(
-    (acc, k) => ({
-      ...acc,
-      [k]: typeof source[k] === 'object' && (k as string).startsWith('_')
-        ? acc[k] ? defaults(acc[k]!, source[k]) : source[k]
-        : (acc[k] as any) ?? source[k]
-    }),
-    target
-  ) as TValue
-  : target as TValue;
+  source: Partial<TValue>
+): TValue => {
+  const keys = Object.keys(source);
+  return keys.length
+    ? keys.reduce(
+      (acc, k) => ({
+        ...acc,
+        [k]: typeof source[k] === 'object' && k.startsWith('_')
+          ? acc[k]
+            ? defaults(acc[k]!, source[k]!)
+            : source[k]
+          : (acc[k] as any) ?? source[k]
+      }),
+      target
+    ) as TValue
+    : target as TValue;
+};
 
 export const defaultsThemePair = <
   TKey extends string,

@@ -13,10 +13,10 @@ export interface CardTheme {
 }
 
 export const card = (
-  c: {
+  c?: {
     default?: CardProps;
     variants?: Partial<Record<CardVariant, CardProps>>;
-  } = emptyCard
+  }
 ): CardTheme => ({
   card: defaultsTheme<'variants', CardProps>(c, emptyCard)
 });

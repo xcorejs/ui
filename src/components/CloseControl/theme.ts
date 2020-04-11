@@ -12,10 +12,10 @@ export interface CloseControlTheme {
   closeControl: CloseControlValue;
 }
 
-export const closeControl = (c: {
+export const closeControl = (c?: {
   default: Partial<CloseControlProps>;
   sizes?: Partial<Record<CloseControlSizes, CloseControlProps>>;
-} = emptyCloseControl): CloseControlTheme =>
+}): CloseControlTheme =>
   ({ closeControl: defaultsTheme<'sizes', CloseControlProps>(c, emptyCloseControl) });
 
 const emptyCloseControl: CloseControlValue = {

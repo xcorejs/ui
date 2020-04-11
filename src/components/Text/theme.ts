@@ -31,12 +31,10 @@ export interface TextTheme {
   text: TextValue;
 }
 
-export const text = (
-  t: {
-    default?: TextProps;
-    variants?: Partial<Record<TextVariant, TextProps>>;
-  } = emptyText
-): TextTheme => ({
+export const text = (t?: {
+  default?: TextProps;
+  variants?: Partial<Record<TextVariant, TextProps>>;
+}): TextTheme => ({
   text: defaultsTheme<'variants', TextProps>(t, emptyText)
 });
 

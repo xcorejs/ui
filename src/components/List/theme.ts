@@ -12,10 +12,10 @@ export interface ListTheme {
   list: ListValue;
 }
 
-export const list = (l: {
+export const list = (l?: {
   default?: ListProps;
   variants?: Partial<Record<ListVariant, ListProps>>;
-} = emptyList): ListTheme => ({ list: defaultsTheme<'variants', ListProps>(l, emptyList) });
+}): ListTheme => ({ list: defaultsTheme<'variants', ListProps>(l, emptyList) });
 
 const emptyList: ListValue = {
   default: {

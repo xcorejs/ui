@@ -14,10 +14,10 @@ export interface TypographyTheme {
   typography: TypographyValue;
 }
 
-export const typography = (t: {
+export const typography = (t?: {
   default?: TextProps;
   variants?: Partial<Record<TypographyVariant, TextProps>>;
-} = emptyTypography) => ({ typography: defaultsTheme<'variants', TextProps>(t, emptyTypography) });
+}) => ({ typography: defaultsTheme<'variants', TextProps>(t, emptyTypography) });
 
 const emptyTypography: TypographyValue = {
   default: {

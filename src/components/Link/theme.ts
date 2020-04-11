@@ -14,10 +14,10 @@ export interface LinkTheme {
   link: LinkValue;
 }
 
-export const link = (l: {
+export const link = (l?: {
   default?: LinkProps;
   variants?: Partial<Record<LinkVariant, LinkProps>>;
-} = emptyLink): LinkTheme => ({ link: defaultsTheme<'variants', LinkProps>(l, emptyLink) });
+}): LinkTheme => ({ link: defaultsTheme<'variants', LinkProps>(l, emptyLink) });
 
 const emptyLink: LinkValue = {
   default: {

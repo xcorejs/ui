@@ -12,10 +12,10 @@ export interface TagTheme {
   tag: TagValue;
 }
 
-export const tag = (t: {
+export const tag = (t?: {
   default?: TagProps;
   variants?: Partial<Record<TagVariant, TagProps>>;
-} = emptyTag): TagTheme => ({ tag: defaultsTheme<'variants', TagProps>(t, emptyTag) });
+}): TagTheme => ({ tag: defaultsTheme<'variants', TagProps>(t, emptyTag) });
 
 const emptyTag: TagValue = {
   default: {

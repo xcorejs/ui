@@ -2,6 +2,7 @@ import { defaults, defaultsTheme } from '../../src/utils/defaults';
 import { createTheme } from '../../src/theme';
 import { darken } from 'polished';
 import { ButtonProps } from '../../src/components/Button/index';
+import { CardProps } from '../../src';
 
 test('defaults', () => {
   expect(defaults<ButtonProps>(
@@ -24,6 +25,33 @@ test('defaults', () => {
     borderColor: 'red',
     fontSize: '2rem'
   });
+
+  expect(
+    Object.keys(defaults<CardProps>({
+      color: 'red',
+      my: '30',
+      marginTop: '20'
+    }, {
+      color: 'green',
+      margin: [10, 20, 30],
+      marginTop: '30'
+    }))
+  ).toEqual(
+    ['color', 'margin', 'my', 'marginTop']
+  );
+
+  expect(
+    Object.keys(defaults<CardProps>({
+      color: 'red',
+      my: '30'
+    }, {
+      color: 'green',
+      margin: [10, 20, 30],
+      marginTop: '30'
+    }))
+  ).toEqual(
+    ['color', 'margin', 'marginTop', 'my']
+  );
 });
 
 test('defaultsTheme', () => {

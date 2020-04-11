@@ -18,11 +18,11 @@ export interface ButtonTheme {
 }
 
 export const button = (
-  b: {
+  b?: {
     default?: ButtonProps;
     sizes?: Partial<Record<ButtonSize, ButtonProps>>;
     variants?: Partial<Record<ButtonVariant, ButtonProps>>;
-  } = emptyButton
+  }
 ): ButtonTheme => ({ button: defaultsTheme<'variants' | 'sizes', ButtonProps>(b, emptyButton) });
 
 const emptyButton: ButtonValue = {

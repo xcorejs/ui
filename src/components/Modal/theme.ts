@@ -12,9 +12,10 @@ export interface ModalTheme {
   modal: ModalValue;
 }
 
-export const modal = (m: {
-
-} = emptyModal): ModalTheme => ({ modal: defaultsTheme<'sizes', ModalProps>(m, emptyModal) });
+export const modal = (m?: {
+  default?: ModalProps;
+  sizes: Partial<Record<ModalSize, ModalProps>>;
+}): ModalTheme => ({ modal: defaultsTheme<'sizes', ModalProps>(m, emptyModal) });
 
 const emptyModal: ModalValue = {
   default: {
