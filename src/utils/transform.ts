@@ -6,7 +6,7 @@ export interface TransformedValue<T> {
   mapAll: <U>(unit: (x: T | null | undefined, key: number | string) => U) => ResponsiveValue<U>;
   reduce: <U>(unit: (accumulator: U, value: T, key: number | string) => U, initialValue: U) => U;
 
-  get: (index: number | string) => T | null | undefined;
+  get: (index: number | string) => T | null;
   empty: (index: number | string) => boolean;
   value: ResponsiveValue<T> | undefined;
   type: 'array' | 'object' | 'value';
@@ -98,7 +98,7 @@ const transformValue = <T>(breakpoints: Breakpoints, val: T | null | undefined):
   map: unit => val !== null && val !== undefined ? unit(val, 0) ?? null : null,
   mapAll: unit => unit(val, 0),
   reduce: (unit, initialValue) => val ? unit(initialValue, val, 0) : initialValue,
-  get: _ => val,
+  get: _ => val ?? null,
   empty: i => i !== 0 || val === null || val === undefined,
   value: val,
   type: 'value'

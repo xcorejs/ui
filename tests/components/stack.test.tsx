@@ -25,3 +25,18 @@ test('Stack component', () => {
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('Stack component - responsive', () => {
+  const component = renderer.create(
+    <Stack direction={{ _: 'column', md: 'row' }} gap={{ sm: '10px', xl: '20px' }}>
+      <Box>
+        Box 1
+      </Box>
+      <Box>
+        Box 2
+      </Box>
+    </Stack>
+  );
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
