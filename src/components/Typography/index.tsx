@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import { merge } from 'utils/merge';
 
+import { textBase, TextBaseProps } from '../../bases';
 import useTheme from '../../useTheme';
-import { TypographyAs, TypographyVariant } from './theme';
-import { TextBaseProps, textBase } from '../../bases';
-import { defaults } from '../../utils/defaults';
-import { typeVariant } from '../../utils/variant';
 import { compose } from '../../utils/baseStyle';
+import { typeVariant } from '../../utils/variant';
+import { TypographyAs, TypographyVariant } from './theme';
 
 export type TypographyProps = TextBaseProps;
 
@@ -27,7 +27,7 @@ const Typography: FC<ExtendedTypographyProps> = ({
 
   const as: TypographyAs = _as ?? (type === 'lead' ? 'p' : type);
 
-  const props = defaults(
+  const props = merge(
     p,
     typeVariant(typography, 'p', p),
     typography.default

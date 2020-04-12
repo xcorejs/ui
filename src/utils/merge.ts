@@ -1,16 +1,30 @@
-export const merge = <TValue extends {}>(
-  target: Partial<TValue>,
-  ...source: (Partial<TValue> | undefined)[]
-): TValue =>
-  source.reduce<Partial<TValue>>((acc, val) => mergePair(acc, val), target) as TValue;
 
-export const mergePair = <T, U>(a: T, b: U): T & U => {
-  const r = { ...a, ...b };
+export const merge = <T>(target: T, ...sources: T[]): Required<T> => {
+  const next = appendTo({} as T, target);
+  sources.forEach(s => appendTo(next, s));
+  return appendTo({} as Required<T>, next as Required<T>);
+};
 
-  Object.keys(r).forEach(
-    k => typeof (a as T & U)[k] === 'object' && typeof (b as T & U)[k] === 'object' && k[0] === '_' &&
-      (r[k] = mergePair((a as T & U)[k], (b as T & U)[k]))
-  );
+const appendTo = <T>(t: T, s: T): T => {
+  Object.keys(s).reverse().forEach(k => {
+    t[k] && k[0] === '_' && typeof t[k] === 'object'
+      ? appendTo(t[k], s[k])
+      : !t[k] &&
+          (t[k] = s[k]);
+  });
+  return t;
+};
 
-  return r;
+const cache: Record<string, any> = {};
+
+export const cacheByKey = <T>(getter: () => T, ...keys: string[]) => {
+  const key = keys.join(';');
+
+  if (!cache[key]) {
+    cache[key] = getter();
+  } else {
+    console.log('returning cached value for key:', key);
+  }
+
+  return cache[key];
 };

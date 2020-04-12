@@ -4,7 +4,7 @@ import useTheme from '../../useTheme';
 import { typeVariant } from '../../utils/variant';
 import Flex, { FlexProps } from '../Flex';
 import { ContainerVariant } from './theme';
-import { defaults } from '../../utils/defaults';
+import { merge } from 'utils/merge';
 
 export type ContainerProps = FlexProps;
 
@@ -18,7 +18,7 @@ export type ExtendedContainerProps = {
 const Container = forwardRef<HTMLDivElement, ExtendedContainerProps>((p, ref) => {
   const { container } = useTheme();
 
-  const props = defaults(p, typeVariant(container, 'normal', p), container.default);
+  const props = merge(p, typeVariant(container, 'normal', p), container.default);
 
   return <Flex {...props} ref={ref} />;
 });

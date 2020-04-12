@@ -1,7 +1,9 @@
+import CSS from 'csstype';
 import React, { forwardRef, ReactNode } from 'react';
+import { ResponsiveValue } from 'styled-system';
+import { merge } from 'utils/merge';
 
 import useTheme from '../../useTheme';
-import { defaults } from '../../utils/defaults';
 import renderComponent, { Renderable } from '../../utils/renderComponent';
 import { typeVariant } from '../../utils/variant';
 import { BoxProps } from '../Box';
@@ -9,8 +11,6 @@ import Flex, { FlexProps } from '../Flex';
 import Tag, { TagProps } from '../Tag';
 import Text, { TextProps } from '../Text';
 import { CardVariant } from './theme';
-import { ResponsiveValue } from 'styled-system';
-import CSS from 'csstype';
 
 export type CardProps =
   {
@@ -66,7 +66,7 @@ const Card = forwardRef<HTMLDivElement, ExtendedCardProps>(({
     footer,
     innerPadding,
     ...props
-  } = defaults(
+  } = merge(
     p,
     type,
     card.default

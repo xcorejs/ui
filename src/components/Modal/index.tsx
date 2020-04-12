@@ -1,7 +1,7 @@
 import React, { FC, useContext } from 'react';
+import { merge } from 'utils/merge';
 
 import useTheme from '../../useTheme';
-import { defaults } from '../../utils/defaults';
 import renderComponent, { Renderable } from '../../utils/renderComponent';
 import { sizeVariant } from '../../utils/variant';
 import InsetBox from '../AbsoluteBox/InsetBox';
@@ -34,7 +34,7 @@ const Modal: FC<ExtendedModalProps> = ({ children, onClose, ...p }) => {
   const { modal } = useTheme();
   const { setModal } = useContext(ModalContext);
 
-  const { title, _title, header, _header, _close, _overlay, ...props } = defaults(
+  const { title, _title, header, _header, _close, _overlay, ...props } = merge(
     p,
     sizeVariant(modal, 'md', p),
     modal.default

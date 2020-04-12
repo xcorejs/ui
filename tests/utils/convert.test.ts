@@ -1,5 +1,5 @@
-import convert, { getArrayValue } from '../../src/utils/convert';
-import { breakpoints } from '../../src/scales/breakpoints';
+import convert, { getArrayValue } from 'utils/convert';
+import { breakpoints } from 'scales/breakpoints';
 
 const {
   valueToArray,

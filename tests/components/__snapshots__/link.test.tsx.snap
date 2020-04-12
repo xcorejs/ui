@@ -4,17 +4,17 @@ exports[`Link component 1`] = `
 Array [
   .c2 {
   font-size: 1.5rem;
-  line-height: 2rem;
-  font-size: 1.5rem;
   font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
-  color: #1E3441;
+  font-size: 1.5rem;
+  line-height: 2rem;
   -webkit-transition: color 300ms;
   transition: color 300ms;
+  color: #1E3441;
 }
 
 .c0 {
-  padding: 0;
   margin: 0;
+  padding: 0;
   -webkit-flex-basis: 0.5;
   -ms-flex-preferred-size: 0.5;
   flex-basis: 0.5;
@@ -28,17 +28,17 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  counter-increment: list-counter;
   margin-bottom: 1rem;
   padding-left: .5rem;
   color: text;
-  counter-increment: list-counter;
 }
 
 .c0 li:before {
+  position: relative;
+  content: counter(list-counter)"." !important;
   margin-right: 1.5rem;
   color: #152028;
-  content: counter(list-counter)"." !important;
-  position: relative;
 }
 
 .c0 li:last-child {
@@ -132,17 +132,17 @@ Array [
   </ol>,
   .c2 {
   font-size: 1.5rem;
-  line-height: 2rem;
-  font-size: 1.5rem;
   font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
-  color: #1E3441;
+  font-size: 1.5rem;
+  line-height: 2rem;
   -webkit-transition: color 300ms;
   transition: color 300ms;
+  color: #1E3441;
 }
 
 .c0 {
-  padding: 0;
   margin: 0;
+  padding: 0;
   -webkit-flex-basis: 0.5;
   -ms-flex-preferred-size: 0.5;
   flex-basis: 0.5;
@@ -161,10 +161,10 @@ Array [
 }
 
 .c0 li:before {
+  font-size: 2.6rem;
   margin-right: 1.5rem;
   color: #152028;
   content: "\\2022";
-  font-size: 2.6rem;
 }
 
 .c0 li:last-child {

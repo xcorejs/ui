@@ -9,12 +9,12 @@ exports[`List component 1`] = `
   display: -ms-inline-flexbox;
   display: inline-flex;
   font-size: 1.6rem;
-  line-height: initial;
   font-size: 1.6rem;
-  cursor: pointer;
+  line-height: initial;
+  color: #0171b6;
   -webkit-transition: color 300ms,border 300ms;
   transition: color 300ms,border 300ms;
-  color: #0171b6;
+  cursor: pointer;
   cursor: pointer;
 }
 

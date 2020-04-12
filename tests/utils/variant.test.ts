@@ -1,5 +1,5 @@
-import { createTheme, darken, opacify } from '../../src';
-import { variant } from '../../src/utils/variant';
+import { createTheme, darken, opacify } from '@xcorejs/ui';
+import { variant } from 'utils/variant';
 
 const { button } = createTheme({});
 

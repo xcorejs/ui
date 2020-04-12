@@ -2,10 +2,10 @@ import CSS from 'csstype';
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import * as system from 'styled-system';
+import { merge } from 'utils/merge';
 
 import { composedTextBase, TextBaseProps } from '../../bases';
 import useTheme from '../../useTheme';
-import { defaults } from '../../utils/defaults';
 import { typeVariant } from '../../utils/variant';
 import { TLen } from '../Box';
 import { ListVariant } from './theme';
@@ -44,7 +44,7 @@ const List: FC<ExtendedListProps> = p => {
 
   const type = p.v ?? p.variant ?? 'unordered';
 
-  const props = defaults(p, typeVariant(list, 'unordered', p), list.default);
+  const props = merge(p, typeVariant(list, 'unordered', p), list.default);
 
   return (
     <ListStyle as={type === 'unordered' ? 'ul' : 'ol'} {...props} />

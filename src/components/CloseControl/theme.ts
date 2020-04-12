@@ -1,5 +1,5 @@
 import { CloseControlProps } from '.';
-import { defaultsTheme } from '../../utils/defaults';
+import { defaultsTheme } from '../../utils/defaultsTheme';
 
 export type CloseControlSizes = 'xs' | 'sm' | 'md' | 'lg';
 

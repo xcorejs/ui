@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { composedFlexBase } from '../../bases';
 import { CloseIcon } from '../../icons/close';
 import useTheme from '../../useTheme';
-import { defaults } from '../../utils/defaults';
+import { merge } from 'utils/merge';
 import { sizeVariant } from '../../utils/variant';
 import { FlexProps } from '../Flex';
 import Icon, { IconProps } from '../Icon';
@@ -27,7 +27,7 @@ export type ExtendedCloseControlProps =
 const CloseControl = forwardRef<HTMLDivElement, ExtendedCloseControlProps>((p, ref) => {
   const { closeControl } = useTheme();
 
-  const { _icon, ...props } = defaults(
+  const { _icon, ...props } = merge(
     p,
     sizeVariant(closeControl, 'md', p),
     closeControl.default

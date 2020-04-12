@@ -25,7 +25,7 @@ export const defaultsTheme = <
 ): ThemeItem<TKey, TValue> =>
   target ? defaultsThemePair(target, source) : source;
 
-const defaultsPair = <TValue extends {}>(
+export const defaultsPair = <TValue extends {}>(
   target: Partial<TValue>,
   source: Partial<TValue>
 ): TValue => {

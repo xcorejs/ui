@@ -11,14 +11,14 @@ export type XcoreProviderProps = {
 };
 
 const XcoreProvider: FC<XcoreProviderProps> = ({ children, theme, disableGlobalStyles }) => {
-  const result = children;
-
-  return theme !== null ? (
-    <ThemeProvider theme={theme ?? emptyTheme}>
-      {!disableGlobalStyles && <XcoreGlobal />}
-      <ModalProvider>{result}</ModalProvider>
-    </ThemeProvider>
-  ) : <ModalProvider>{result}</ModalProvider>;
+  return theme !== null
+    ? (
+      <ThemeProvider theme={theme ?? emptyTheme}>
+        {!disableGlobalStyles && <XcoreGlobal />}
+        <ModalProvider>{children}</ModalProvider>
+      </ThemeProvider>
+    )
+    : <ModalProvider>{children}</ModalProvider>;
 };
 
 export default XcoreProvider;

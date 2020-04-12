@@ -1,6 +1,6 @@
 import { LinkProps } from '.';
 import { darken } from '../../scales/colors';
-import { defaultsTheme } from '../../utils/defaults';
+import { defaultsTheme } from '../../utils/defaultsTheme';
 
 export type LinkVariant = 'underline' | 'simple';
 export type LinkAs = 'a' | 'span';
