@@ -10,6 +10,7 @@ import { mediaQueries } from 'utils/mediaQuery';
 
 import { GridContext } from '.';
 import { parseGridAxis } from './data';
+import { isIE } from 'utils/isIE';
 
 export type CellProps = BoxBaseProps;
 export type ExtendedCellProps = CellProps;
@@ -47,16 +48,16 @@ type CellStyleProps = {
 const CellStyle = styled.div<CellStyleProps>`
   ${composedBoxBase}
 
-  ${p => p.alignSelf && css`
+  ${p => isIE() && p.alignSelf && css`
     -ms-flex-item-align: ${p.alignSelf};
     -ms-grid-row-align: ${p.alignSelf};
   `}
 
-  ${p => p.justifySelf && css`
+  ${p => isIE() && p.justifySelf && css`
     -ms-grid-column-align: ${p.justifySelf};
   `}
 
-  ${p => mediaQueries(p.breakpoints, i => {
+  ${p => isIE() && mediaQueries(p.breakpoints, i => {
     const { toArray } = convert(p.breakpoints);
     const placeSelf = toArray(p.placeSelf);
     const s = placeSelf[i] && placeSelf[i]!.split(' ');
@@ -67,7 +68,7 @@ const CellStyle = styled.div<CellStyleProps>`
     `;
   })}
 
-  ${({ column, row, breakpoints, gap }) => mediaQueries(breakpoints, i => {
+  ${({ column, row, breakpoints, gap }) => isIE() && mediaQueries(breakpoints, i => {
     const [gc, gr] = parseTwin(getArrayValue(gap, i));
 
     const [colStart, colEnd] = parseGridAxis(column, i, !!gc);

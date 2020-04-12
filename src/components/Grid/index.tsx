@@ -10,6 +10,7 @@ import { polyfillTheme } from 'utils/baseStyle';
 import convert, { getArrayValue } from 'utils/convert';
 import { parseTemplate, parseTwin } from 'utils/gridTemplate';
 import { mediaQueries } from 'utils/mediaQuery';
+import { isIE } from 'utils/isIE';
 
 type Col = CSS.GridTemplateColumnsProperty<string>;
 export type GridColumnResponsiveValue =
@@ -91,21 +92,25 @@ const GridStyle = styled.div<GridStyleProps>`
     }
   })(polyfillTheme(p))}
 
-  ${({ columns, rows, gap, breakpoints }) => mediaQueries(breakpoints, i => {
-    const colVal = getArrayValue(columns, i)!;
-    const rowVal = getArrayValue(rows, i)!;
-    const gapVal = parseTwin(getArrayValue(gap, i));
+  ${({ columns, rows, gap, breakpoints }) =>
+    isIE() && mediaQueries(breakpoints, i => {
+      const colVal = getArrayValue(columns, i)!;
+      const rowVal = getArrayValue(rows, i)!;
+      const gapVal = parseTwin(getArrayValue(gap, i));
 
-    return (columns[i] || rows[i] || gap[i]) && css`
-      ${(columns[i] || gap[i]) && css`
-        -ms-grid-columns: ${parseTemplate(colVal, gapVal ? gapVal[0] : null).join(' ')};
-      `}
+      return (columns[i] || rows[i] || gap[i]) && css`
+        ${(columns[i] || gap[i]) && css`
+          -ms-grid-columns: ${parseTemplate(colVal, gapVal ? gapVal[0] : null).join(' ')};
+        `}
 
-      ${(rows[i] || gap[i]) && css` -ms-grid-rows: ${parseTemplate(rowVal, gapVal ? gapVal[1] : null).join(' ')}`}
+        ${(rows[i] || gap[i]) && css`
+          -ms-grid-rows: ${parseTemplate(rowVal, gapVal ? gapVal[1] : null).join(' ')};
+        `}
 
-      ${templateQueries(parseTemplate(colVal), parseTemplate(rowVal), !!gapVal)}
-    `;
-  })}
+        ${templateQueries(parseTemplate(colVal), parseTemplate(rowVal), !!gapVal)}
+      `;
+    })
+  }
 `;
 
 const templateQueries = (columns: string[], rows: string[], gap: boolean) => css`
