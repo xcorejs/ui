@@ -1,5 +1,5 @@
 import { CardProps } from '.';
-import { defaultsTheme } from 'utils/defaultsTheme';
+import { mergeThemes } from 'utils/mergeThemes';
 
 export type CardVariant = 'normal' | 'elevated' | 'outline';
 
@@ -18,7 +18,7 @@ export const card = (
     variants?: Partial<Record<CardVariant, CardProps>>;
   }
 ): CardTheme => ({
-  card: defaultsTheme<'variants', CardProps>(c, emptyCard)
+  card: mergeThemes<'variants', CardProps>(c, emptyCard)
 });
 
 const emptyCard: CardValue = {

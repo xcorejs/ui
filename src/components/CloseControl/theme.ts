@@ -1,5 +1,5 @@
 import { CloseControlProps } from '.';
-import { defaultsTheme } from 'utils/defaultsTheme';
+import { mergeThemes } from 'utils/mergeThemes';
 
 export type CloseControlSizes = 'xs' | 'sm' | 'md' | 'lg';
 
@@ -16,7 +16,7 @@ export const closeControl = (c?: {
   default: Partial<CloseControlProps>;
   sizes?: Partial<Record<CloseControlSizes, CloseControlProps>>;
 }): CloseControlTheme =>
-  ({ closeControl: defaultsTheme<'sizes', CloseControlProps>(c, emptyCloseControl) });
+  ({ closeControl: mergeThemes<'sizes', CloseControlProps>(c, emptyCloseControl) });
 
 const emptyCloseControl: CloseControlValue = {
   default: {

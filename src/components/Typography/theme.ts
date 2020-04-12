@@ -1,5 +1,5 @@
 import { TextProps } from 'components/Text';
-import { defaultsTheme } from 'utils/defaultsTheme';
+import { mergeThemes } from 'utils/mergeThemes';
 
 interface TypographyValue {
   default: TextProps;
@@ -17,7 +17,7 @@ export interface TypographyTheme {
 export const typography = (t?: {
   default?: TextProps;
   variants?: Partial<Record<TypographyVariant, TextProps>>;
-}) => ({ typography: defaultsTheme<'variants', TextProps>(t, emptyTypography) });
+}) => ({ typography: mergeThemes<'variants', TextProps>(t, emptyTypography) });
 
 const emptyTypography: TypographyValue = {
   default: {

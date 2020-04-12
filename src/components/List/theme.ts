@@ -1,4 +1,4 @@
-import { defaultsTheme } from 'utils/defaultsTheme';
+import { mergeThemes } from 'utils/mergeThemes';
 
 import { ListProps } from '.';
 
@@ -16,7 +16,7 @@ export interface ListTheme {
 export const list = (l?: {
   default?: ListProps;
   variants?: Partial<Record<ListVariant, ListProps>>;
-}): ListTheme => ({ list: defaultsTheme<'variants', ListProps>(l, emptyList) });
+}): ListTheme => ({ list: mergeThemes<'variants', ListProps>(l, emptyList) });
 
 const emptyList: ListValue = {
   default: {

@@ -1,5 +1,5 @@
 import { darken } from 'scales/colors';
-import { defaultsTheme } from 'utils/defaultsTheme';
+import { mergeThemes } from 'utils/mergeThemes';
 
 import { LinkProps } from '.';
 
@@ -18,7 +18,7 @@ export interface LinkTheme {
 export const link = (l?: {
   default?: LinkProps;
   variants?: Partial<Record<LinkVariant, LinkProps>>;
-}): LinkTheme => ({ link: defaultsTheme<'variants', LinkProps>(l, emptyLink) });
+}): LinkTheme => ({ link: mergeThemes<'variants', LinkProps>(l, emptyLink) });
 
 const emptyLink: LinkValue = {
   default: {

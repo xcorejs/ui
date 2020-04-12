@@ -1,5 +1,5 @@
 import { ButtonProps } from '.';
-import { defaultsTheme } from 'utils/defaultsTheme';
+import { mergeThemes } from 'utils/mergeThemes';
 import { darken, opacify } from 'scales/colors';
 
 export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg';
@@ -23,7 +23,7 @@ export const button = (
     sizes?: Partial<Record<ButtonSize, ButtonProps>>;
     variants?: Partial<Record<ButtonVariant, ButtonProps>>;
   }
-): ButtonTheme => ({ button: defaultsTheme<'variants' | 'sizes', ButtonProps>(b, emptyButton) });
+): ButtonTheme => ({ button: mergeThemes<'variants' | 'sizes', ButtonProps>(b, emptyButton) });
 
 const emptyButton: ButtonValue = {
   default: {

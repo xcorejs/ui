@@ -1,5 +1,5 @@
 import { TextProps } from '.';
-import { defaultsTheme } from 'utils/defaultsTheme';
+import { mergeThemes } from 'utils/mergeThemes';
 
 export type TextVariant =
  | 'span'
@@ -35,7 +35,7 @@ export const text = (t?: {
   default?: TextProps;
   variants?: Partial<Record<TextVariant, TextProps>>;
 }): TextTheme => ({
-  text: defaultsTheme<'variants', TextProps>(t, emptyText)
+  text: mergeThemes<'variants', TextProps>(t, emptyText)
 });
 
 const emptyText: TextValue = {

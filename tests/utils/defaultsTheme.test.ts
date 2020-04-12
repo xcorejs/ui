@@ -1,10 +1,10 @@
 
-import { defaultsTheme } from '../../src/utils/defaultsTheme';
+import { mergeThemes } from '../../src/utils/mergeThemes';
 import { darken } from 'polished';
 import { ButtonProps } from '../../src/components/Button/index';
 
 test('defaultsTheme', () => {
-  expect(defaultsTheme<'types' | 'sizes', ButtonProps>(
+  expect(mergeThemes<'types' | 'sizes', ButtonProps>(
     {
       default: {
         bg: 'crimson',

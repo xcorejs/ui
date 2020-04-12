@@ -1,4 +1,4 @@
-import { defaultsTheme } from 'utils/defaultsTheme';
+import { mergeThemes } from 'utils/mergeThemes';
 
 import { ModalProps } from '.';
 
@@ -16,7 +16,7 @@ export interface ModalTheme {
 export const modal = (m?: {
   default?: ModalProps;
   sizes: Partial<Record<ModalSize, ModalProps>>;
-}): ModalTheme => ({ modal: defaultsTheme<'sizes', ModalProps>(m, emptyModal) });
+}): ModalTheme => ({ modal: mergeThemes<'sizes', ModalProps>(m, emptyModal) });
 
 const emptyModal: ModalValue = {
   default: {
