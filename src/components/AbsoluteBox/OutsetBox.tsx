@@ -22,10 +22,10 @@ export type OutsetBoxProps = {
 
 const OutsetBox: FC<OutsetBoxProps> = ({ h, horizontalPosition, v, verticalPosition, target, ...props }) => {
   const { breakpoints } = useTheme();
-  const { toArray } = convert(breakpoints);
+  const { transform } = convert(breakpoints);
 
-  const hor = toArray(h ?? horizontalPosition);
-  const ver = toArray(v ?? verticalPosition);
+  const hor = transform(h ?? horizontalPosition);
+  const ver = transform(v ?? verticalPosition);
 
   const [{ top, left, right, bottom }, setRect] = useState({ top: 0, left: 0, right: 0, bottom: 0 });
 

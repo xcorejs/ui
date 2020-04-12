@@ -54,10 +54,10 @@ export default InsetBox;
 
 const InnerInsetBox: FC<InsetBoxProps> = ({ h, horizontalPosition, v, verticalPosition, ...props }) => {
   const { breakpoints } = useTheme();
-  const { toArray } = convert(breakpoints);
+  const { transform } = convert(breakpoints);
 
-  const hor = toArray(h ?? horizontalPosition);
-  const ver = toArray(v ?? verticalPosition);
+  const hor = transform(h ?? horizontalPosition);
+  const ver = transform(v ?? verticalPosition);
 
   return (
     <Box
@@ -87,7 +87,7 @@ const InnerInsetBox: FC<InsetBoxProps> = ({ h, horizontalPosition, v, verticalPo
           : null
       )}
       transform={ver.map((y, i) =>
-          `${y === 'center' ? 'translateY(-50%)' : ''} ${hor[i] === 'center' ? 'translateX(-50%)' : ''}`
+          `${y === 'center' ? 'translateY(-50%)' : ''} ${hor.get(i) === 'center' ? 'translateX(-50%)' : ''}`
       )}
       {...props}
     />

@@ -124,54 +124,19 @@ exports[`Grid component 1`] = `
   -ms-grid-row: 5;
 }
 
-@media screen and (min-width:30em) {
-
-}
-
-@media screen and (min-width:48em) {
-
-}
-
-@media screen and (min-width:64em) {
-
-}
-
-@media screen and (min-width:78em) {
-
-}
-
-@media screen and (min-width:85em) {
-
-}
-
-@media screen and (min-width:30em) {
-
-}
-
-@media screen and (min-width:48em) {
-
-}
-
-@media screen and (min-width:64em) {
-
-}
-
-@media screen and (min-width:78em) {
-
-}
-
 <div
   className="c0"
   height="100%"
   rows={
-    Array [
-      "200px auto 70px",
-      null,
-      null,
-      null,
-      null,
-      null,
-    ]
+    Object {
+      "empty": [Function],
+      "get": [Function],
+      "map": [Function],
+      "mapAll": [Function],
+      "reduce": [Function],
+      "type": "value",
+      "value": "200px auto 70px",
+    }
   }
 >
   <div

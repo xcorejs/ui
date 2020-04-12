@@ -11,13 +11,14 @@ import convert, { getArrayValue } from 'utils/convert';
 import { parseTemplate, parseTwin } from 'utils/gridTemplate';
 import { mediaQueries } from 'utils/mediaQuery';
 import { isIE } from 'utils/isIE';
+import { TransformedValue } from 'utils/transform';
 
 type Col = CSS.GridTemplateColumnsProperty<string>;
 export type GridColumnResponsiveValue =
   | Col
   | null
   | Array<Col | null>
-  | { [key in string | number]?: Col } & { _: Col };
+  | { [key in string | number]?: Col };
 
 export type GridProps =
   {
@@ -43,14 +44,14 @@ export type ExtendedGridProps = GridProps;
 
 const Grid: FC<ExtendedGridProps> = ({ columns, rows, gap, ...props }) => {
   const { breakpoints } = useTheme();
-  const { toArray } = convert(breakpoints);
+  const { toArray, transform } = convert(breakpoints);
 
   return (
     <GridContext.Provider value={{ gap: toArray(gap) }}>
       <GridStyle
-        columns={toArray(columns)}
-        rows={toArray(rows)}
-        gap={toArray(gap)}
+        columns={transform(columns)}
+        rows={transform(rows)}
+        gap={transform(gap)}
         breakpoints={breakpoints}
         {...props}
       />
@@ -62,9 +63,9 @@ Grid.displayName = 'Grid';
 export default Grid;
 
 type GridStyleProps = {
-  columns: (string | null)[];
-  rows: (string | null)[];
-  gap: (string | null)[];
+  columns: TransformedValue<string>;
+  rows: TransformedValue<string>;
+  gap: TransformedValue<string>;
   breakpoints: Breakpoints;
 } & GridPositionProps & BoxBaseProps;
 
@@ -77,9 +78,6 @@ const GridStyle = styled.div<GridStyleProps>`
   ${system.grid}
 
   ${p => system.system({
-    gap: {
-      property: 'gridGap'
-    },
     justifyItems: true,
     justifyContent: true,
     alignContent: true,
@@ -89,21 +87,29 @@ const GridStyle = styled.div<GridStyleProps>`
     },
     row: {
       property: 'gridTemplateRows'
+    },
+    gap: {
+      property: 'gridGap'
     }
-  })(polyfillTheme(p))}
+  })(polyfillTheme({
+    ...p,
+    rows: p.rows.value,
+    columns: p.columns.value,
+    gap: p.gap.value
+  }))}
 
   ${({ columns, rows, gap, breakpoints }) =>
     isIE() && mediaQueries(breakpoints, i => {
-      const colVal = getArrayValue(columns, i)!;
-      const rowVal = getArrayValue(rows, i)!;
-      const gapVal = parseTwin(getArrayValue(gap, i));
+      const colVal = columns.get(i)!;
+      const rowVal = rows.get(i)!;
+      const gapVal = parseTwin(gap.get(i)!);
 
-      return (columns[i] || rows[i] || gap[i]) && css`
-        ${(columns[i] || gap[i]) && css`
+      return !(columns.empty(i) && rows.empty(i) && gap.empty(i)) && css`
+        ${!(columns.empty(i) && gap.empty(i)) && css`
           -ms-grid-columns: ${parseTemplate(colVal, gapVal ? gapVal[0] : null).join(' ')};
         `}
 
-        ${(rows[i] || gap[i]) && css`
+        ${!(rows.empty(i) && gap.empty(i)) && css`
           -ms-grid-rows: ${parseTemplate(rowVal, gapVal ? gapVal[1] : null).join(' ')};
         `}
 
