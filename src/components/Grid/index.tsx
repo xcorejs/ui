@@ -7,11 +7,10 @@ import * as system from 'styled-system';
 import { ResponsiveValue } from 'styled-system';
 import useTheme from 'useTheme';
 import { polyfillTheme } from 'utils/baseStyle';
-import convert, { getArrayValue } from 'utils/convert';
 import { parseTemplate, parseTwin } from 'utils/gridTemplate';
 import { mediaQueries } from 'utils/mediaQuery';
 import { isIE } from 'utils/isIE';
-import { TransformedValue } from 'utils/transform';
+import { TransformedValue, transform } from 'utils/transform';
 
 type Col = CSS.GridTemplateColumnsProperty<string>;
 export type GridColumnResponsiveValue =
@@ -37,21 +36,20 @@ export type GridPositionProps = {
   alignContent?: ResponsiveValue<CSS.AlignContentProperty>;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-extra-parens
-export const GridContext = createContext<{ gap: (string | null)[] }>({ gap: [] });
+export const GridContext = createContext<{ gap?: ResponsiveValue<CSS.GapProperty<string>> }>({ gap: [] });
 
 export type ExtendedGridProps = GridProps;
 
 const Grid: FC<ExtendedGridProps> = ({ columns, rows, gap, ...props }) => {
   const { breakpoints } = useTheme();
-  const { toArray, transform } = convert(breakpoints);
+  const t = transform(breakpoints);
 
   return (
-    <GridContext.Provider value={{ gap: toArray(gap) }}>
+    <GridContext.Provider value={{ gap }}>
       <GridStyle
-        columns={transform(columns)}
-        rows={transform(rows)}
-        gap={transform(gap)}
+        columns={t(columns)}
+        rows={t(rows)}
+        gap={t(gap)}
         breakpoints={breakpoints}
         {...props}
       />

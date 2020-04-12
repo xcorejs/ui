@@ -3,9 +3,9 @@ import Box, { BoxProps } from 'components/Box';
 import React, { FC, MutableRefObject, useLayoutEffect, useState } from 'react';
 import { ResponsiveValue } from 'styled-system';
 import useTheme from 'useTheme';
-import convert from 'utils/convert';
 
 import { HorizontalPosition, VerticalPosition } from './data';
+import { transform } from 'utils/transform';
 
 export type InsetBoxProps = {
   horizontalPosition?: ResponsiveValue<HorizontalPosition>;
@@ -54,10 +54,10 @@ export default InsetBox;
 
 const InnerInsetBox: FC<InsetBoxProps> = ({ h, horizontalPosition, v, verticalPosition, ...props }) => {
   const { breakpoints } = useTheme();
-  const { transform } = convert(breakpoints);
+  const t = transform(breakpoints);
 
-  const hor = transform(h ?? horizontalPosition);
-  const ver = transform(v ?? verticalPosition);
+  const hor = t(h ?? horizontalPosition);
+  const ver = t(v ?? verticalPosition);
 
   return (
     <Box

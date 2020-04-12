@@ -4,9 +4,9 @@ import React, { FC, MutableRefObject, useEffect, useLayoutEffect, useMemo, useSt
 import { ResponsiveValue } from 'styled-system';
 import { useDebouncedCallback } from 'use-debounce';
 import useTheme from 'useTheme';
-import convert from 'utils/convert';
 
 import { HorizontalPosition, VerticalPosition } from './data';
+import { transform } from 'utils/transform';
 
 export type OutsetBoxTarget = MutableRefObject<Element> | Element;
 
@@ -22,10 +22,10 @@ export type OutsetBoxProps = {
 
 const OutsetBox: FC<OutsetBoxProps> = ({ h, horizontalPosition, v, verticalPosition, target, ...props }) => {
   const { breakpoints } = useTheme();
-  const { transform } = convert(breakpoints);
+  const tr = transform(breakpoints);
 
-  const hor = transform(h ?? horizontalPosition);
-  const ver = transform(v ?? verticalPosition);
+  const hor = tr(h ?? horizontalPosition);
+  const ver = tr(v ?? verticalPosition);
 
   const [{ top, left, right, bottom }, setRect] = useState({ top: 0, left: 0, right: 0, bottom: 0 });
 

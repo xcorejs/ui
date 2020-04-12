@@ -4,8 +4,8 @@ import * as CSS from 'csstype';
 import React, { Children, FC } from 'react';
 import { ResponsiveValue } from 'styled-system';
 import useTheme from 'useTheme';
-import convert from 'utils/convert';
 import { parseTwin } from 'utils/gridTemplate';
+import { transform } from 'utils/transform';
 
 export type ColumnResponsiveValue =
   | number
@@ -22,11 +22,11 @@ export type SimpleGridProps = {
 
 const SimpleGrid: FC<SimpleGridProps> = ({ columns, unit: _unit, children, gap: _gap, ...props }) => {
   const { breakpoints } = useTheme();
-  const { transform } = convert(breakpoints);
+  const t = transform(breakpoints);
 
-  const cols = transform(columns);
-  const gapRow = transform(transform<string>(_gap!).map(g => g && parseTwin(g)[1]));
-  const unit = transform(_unit);
+  const cols = t(columns);
+  const gapRow = t(t<string>(_gap).map(g => g && parseTwin(g)[1]));
+  const unit = t(_unit);
 
   return (
     <Grid

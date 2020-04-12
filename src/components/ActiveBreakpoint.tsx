@@ -2,12 +2,10 @@ import Box, { BoxProps } from 'components/Box';
 import Text from 'components/Text';
 import React, { FC } from 'react';
 import useTheme from 'useTheme';
-import convert from 'utils/convert';
 
 const ActiveBreakpoint: FC<BoxProps> = props => {
   const { breakpoints } = useTheme();
-  const { toArray } = convert(breakpoints);
-  const style = toArray('none');
+  const style = breakpoints.aliases.map(() => 'none');
 
   return (
     <Box {...props}>

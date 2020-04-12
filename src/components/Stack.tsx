@@ -3,7 +3,7 @@ import Flex, { FlexProps } from 'components/Flex';
 import React, { Children, cloneElement, FC, isValidElement, ReactNode } from 'react';
 import { ResponsiveValue } from 'styled-system';
 import useTheme from 'useTheme';
-import convert from 'utils/convert';
+import { transform } from '../utils/transform';
 
 export interface StackProps extends FlexProps {
   direction?: ResponsiveValue<'column' | 'row'>;
@@ -32,10 +32,10 @@ const Stack: FC<StackProps> = ({
   ...props
 }) => {
   const { breakpoints } = useTheme();
-  const { transform } = convert(breakpoints);
+  const t = transform(breakpoints);
 
-  const direction = transform(_direction ?? _dir ?? 'row');
-  const gap = transform(_gap);
+  const direction = t(_direction ?? _dir ?? 'row');
+  const gap = t(_gap);
 
   const itemStyle = ['_', ...breakpoints.aliases].reduce(
     (acc, val) => {

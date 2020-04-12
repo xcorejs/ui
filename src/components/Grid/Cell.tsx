@@ -1,94 +1,92 @@
 import { BoxBaseProps, composedBoxBase } from 'bases';
-import { FC, useContext } from 'react';
-import * as React from 'react';
+import React, { FC, useContext } from 'react';
 import { Breakpoints } from 'scales/breakpoints';
 import styled, { css } from 'styled-components';
 import useTheme from 'useTheme';
-import convert, { getArrayValue } from 'utils/convert';
 import { parseTwin } from 'utils/gridTemplate';
 import { mediaQueries } from 'utils/mediaQuery';
 
 import { GridContext } from '.';
 import { parseGridAxis } from './data';
 import { isIE } from 'utils/isIE';
+import { system, ResponsiveValue } from 'styled-system';
+import { polyfillTheme } from 'utils/baseStyle';
+import { transform } from 'utils/transform';
 
 export type CellProps = BoxBaseProps;
 export type ExtendedCellProps = CellProps;
 
 const Cell: FC<CellProps> = ({ column, gridColumn, row, gridRow, ...props }) => {
-  const c = column ?? gridColumn;
-  const r = row ?? gridRow;
   const { breakpoints } = useTheme();
-
   const { gap } = useContext(GridContext);
-  const { toArray } = convert(breakpoints);
 
   return (
     <CellStyle
-      column={toArray(c)}
-      row={toArray(r)}
-      gap={toArray(gap)}
+      column={column ?? gridColumn}
+      row={row ?? gridRow}
+      gap={gap}
       breakpoints={breakpoints}
       {...props}
     />
   );
 };
 
-Cell.displayName = 'Cell';
-
 export default Cell;
 
 type CellStyleProps = {
-  column: Array<string | null | number>;
-  row: Array<string | null | number>;
-  gap: Array<string | null>;
+  gap?: ResponsiveValue<string>;
   breakpoints: Breakpoints;
 } & BoxBaseProps;
 
 const CellStyle = styled.div<CellStyleProps>`
   ${composedBoxBase}
 
-  ${p => isIE() && p.alignSelf && css`
-    -ms-flex-item-align: ${p.alignSelf};
-    -ms-grid-row-align: ${p.alignSelf};
-  `}
+  ${p => isIE() && [
+      // Styled system properties
+      system({
+        alignSelf: {
+          properties: ['-ms-flex-item-align', '-ms-grid-row-align'] as any[]
+        },
+        justifySelf: {
+          property: '-ms-grid-column-align' as any
+        }
+      })(polyfillTheme(p)),
+      // Manually position element in grid and handle place-self property
+      mediaQueries(p.breakpoints, i => {
+        const t = transform(p.breakpoints);
+        const column = t(p.column);
+        const row = t(p.row);
+        const gap = t(p.gap);
+        const [gc, gr] = parseTwin(gap.get(i));
 
-  ${p => isIE() && p.justifySelf && css`
-    -ms-grid-column-align: ${p.justifySelf};
-  `}
+        const [colStart, colEnd] = parseGridAxis(column.get(i), !!gc);
+        const [rowStart, rowEnd] = parseGridAxis(row.get(i), !!gr);
 
-  ${p => isIE() && mediaQueries(p.breakpoints, i => {
-    const { toArray } = convert(p.breakpoints);
-    const placeSelf = toArray(p.placeSelf);
-    const s = placeSelf[i] && placeSelf[i]!.split(' ');
+        const placeSelf = transform(p.breakpoints)(p.placeSelf).get(i);
+        const s = placeSelf?.split(' ');
 
-    return s && css`
-      -ms-grid-row-align: ${s[0]};
-      -ms-grid-column-align: ${s[1] ? s[1] : s[0]};
-    `;
-  })}
+        return [
+          // Grid position
+          (!column.empty(i) || !gap.empty(i)) && colStart && css`
+            -ms-grid-column: ${colStart} !important;
+          `,
+          (!column.empty(i) || !gap.empty(i)) && colEnd && css`
+            -ms-grid-column-span: ${colEnd} !important;
+          `,
 
-  ${({ column, row, breakpoints, gap }) => isIE() && mediaQueries(breakpoints, i => {
-    const [gc, gr] = parseTwin(getArrayValue(gap, i));
-
-    const [colStart, colEnd] = parseGridAxis(column, i, !!gc);
-    const [rowStart, rowEnd] = parseGridAxis(row, i, !!gr);
-
-    return [
-      (column[i] || gap[i]) && colStart && css`
-        -ms-grid-column: ${colStart} !important;
-      `,
-      (column[i] || gap[i]) && colEnd && css`
-        -ms-grid-column-span: ${colEnd} !important;
-      `,
-
-      (row[i] || gap[i]) && rowStart && css`
-        -ms-grid-row: ${rowStart} !important;
-      `,
-      (row[i] || gap[i]) && rowEnd && css`
-        -ms-grid-row-span: ${rowEnd} !important;
-      `
-    ];
-  })}
+          (!row.empty(i) || !gap.empty(i)) && rowStart && css`
+            -ms-grid-row: ${rowStart} !important;
+          `,
+          (!row.empty(i) || !gap.empty(i)) && rowEnd && css`
+            -ms-grid-row-span: ${rowEnd} !important;
+          `,
+          // place-self
+          s && css`
+            -ms-grid-row-align: ${s[0]};
+            -ms-grid-column-align: ${s[1] ? s[1] : s[0]};
+          `
+        ];
+      })
+  ]}
 
 `;
