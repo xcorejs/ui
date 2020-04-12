@@ -8,7 +8,8 @@ import {
   LoremIpsum,
   Paragraph,
   Text,
-  XcoreProvider
+  XcoreProvider,
+  ListItem
 } from '@xcorejs/ui';
 import React, { FC } from 'react';
 
@@ -20,14 +21,12 @@ export const Basic: FC = () => (
       <Grid columns="repeat(3, 75px) auto" rows="200px auto 70px" gap="10px" p="10px" height="100%">
         {/* Sidebar */}
         <Heading2 column="1 / span 3" row="1" placeSelf="center">Lorem</Heading2>
-        <Box column="1 / span 3" row="2">
-          <List>
-            <li>Home</li>
-            <li>Blog</li>
-            <li>Jeff</li>
-            <li>AAAA</li>
-          </List>
-        </Box>
+        <List column="1 / span 3" row="2">
+          <ListItem>Home</ListItem>
+          <ListItem>Blog</ListItem>
+          <ListItem>Jeff</ListItem>
+          <ListItem>AAAA</ListItem>
+        </List>
         <Box column="1 / span 2" row="3" alignSelf="center">
           @AlfonzAlfonz
           <br />
@@ -70,12 +69,12 @@ export const IE11: FC = () => (
           <Heading2>Lorem</Heading2>
         </Cell>
         <Cell column="1 / span 3" row="2">
-          <ul>
-            <li>Home</li>
-            <li>Blog</li>
-            <li>Jeff</li>
-            <li>AAAA</li>
-          </ul>
+          <List>
+            <ListItem>Home</ListItem>
+            <ListItem>Blog</ListItem>
+            <ListItem>Jeff</ListItem>
+            <ListItem>AAAA</ListItem>
+          </List>
         </Cell>
         <Cell column="1 / span 2" row="3" alignSelf="center">
           @AlfonzAlfonz
