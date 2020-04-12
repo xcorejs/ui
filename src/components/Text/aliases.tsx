@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import Text, { TextProps } from '.';
 
 type TextAliasProps = Omit<TextProps, 't' | 'type'>;

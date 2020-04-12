@@ -1,16 +1,15 @@
+import { BoxBaseProps, composedBoxBase } from 'bases';
+import CSS from 'csstype';
 import React, { createContext, FC } from 'react';
+import { Breakpoints } from 'scales/breakpoints';
+import styled, { css } from 'styled-components';
 import * as system from 'styled-system';
 import { ResponsiveValue } from 'styled-system';
-import CSS from 'csstype';
-
-import useTheme from '../../useTheme';
-import convert, { getArrayValue } from '../../utils/convert';
-import { parseTwin, parseTemplate } from '../../utils/gridTemplate';
-import styled, { css } from 'styled-components';
-import { mediaQueries } from '../../utils/mediaQuery';
-import { BoxBaseProps, boxBase, composedBoxBase } from '../../bases';
-import { compose, polyfillTheme } from '../../utils/baseStyle';
-import { Breakpoints } from '../../scales/breakpoints';
+import useTheme from 'useTheme';
+import { polyfillTheme } from 'utils/baseStyle';
+import convert, { getArrayValue } from 'utils/convert';
+import { parseTemplate, parseTwin } from 'utils/gridTemplate';
+import { mediaQueries } from 'utils/mediaQuery';
 
 type Col = CSS.GridTemplateColumnsProperty<string>;
 export type GridColumnResponsiveValue =

@@ -1,9 +1,9 @@
 import { css, FlattenInterpolation, ThemeProps } from 'styled-components';
 import * as system from 'styled-system';
 
-import { colorTransform } from '../scales/colors';
-import { XcoreTheme } from '../theme';
-import { base, compose } from '../utils/baseStyle';
+import { colorTransform } from 'scales/colors';
+import { XcoreTheme } from 'theme';
+import { base, compose } from 'utils/baseStyle';
 
 import {
   SelectionBaseProps,

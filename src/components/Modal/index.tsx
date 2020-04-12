@@ -1,14 +1,14 @@
+import InsetBox from 'components/AbsoluteBox/InsetBox';
+import CloseButton, { CloseControlProps } from 'components/CloseControl';
+import Flex, { ExtendedFlexProps, FlexProps } from 'components/Flex';
+import Typography, { ExtendedTypographyProps } from 'components/Typography';
 import React, { FC, useContext } from 'react';
+import useTheme from 'useTheme';
 import { merge } from 'utils/merge';
+import renderComponent, { Renderable } from 'utils/renderComponent';
+import { sizeVariant } from 'utils/variant';
 
-import useTheme from '../../useTheme';
-import renderComponent, { Renderable } from '../../utils/renderComponent';
-import { sizeVariant } from '../../utils/variant';
-import InsetBox from '../AbsoluteBox/InsetBox';
 import Box, { BoxProps } from '../Box';
-import CloseButton, { CloseControlProps } from '../CloseControl';
-import Flex, { ExtendedFlexProps, FlexProps } from '../Flex';
-import Typography, { ExtendedTypographyProps } from '../Typography';
 import { ModalContext } from './data';
 import { ModalSize } from './theme';
 

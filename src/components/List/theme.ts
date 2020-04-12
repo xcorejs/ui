@@ -1,5 +1,6 @@
+import { defaultsTheme } from 'utils/defaultsTheme';
+
 import { ListProps } from '.';
-import { defaultsTheme } from '../../utils/defaultsTheme';
 
 export type ListVariant = 'ordered' | 'unordered';
 

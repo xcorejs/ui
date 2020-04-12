@@ -1,10 +1,9 @@
+import { composedBoxBase } from 'bases';
+import { BoxProps } from 'components/Box';
 import * as CSS from 'csstype';
 import React, { FC, ImgHTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { ResponsiveValue, system } from 'styled-system';
-
-import { composedBoxBase } from '../bases';
-import { BoxProps } from './Box';
 
 export type ImgProps =
   {

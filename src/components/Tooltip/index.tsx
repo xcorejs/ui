@@ -1,8 +1,7 @@
+import OutsetBox, { OutsetBoxTarget } from 'components/AbsoluteBox/OutsetBox';
+import Box, { BoxProps } from 'components/Box';
+import Flex from 'components/Flex';
 import React, { FC } from 'react';
-
-import OutsetBox, { OutsetBoxTarget } from '../AbsoluteBox/OutsetBox';
-import Box, { BoxProps } from '../Box';
-import Flex from '../Flex';
 
 export type TooltipProps = {
   _outset: BoxProps;

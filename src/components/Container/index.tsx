@@ -1,10 +1,10 @@
-import React, { ReactNode, forwardRef } from 'react';
-
-import useTheme from '../../useTheme';
-import { typeVariant } from '../../utils/variant';
-import Flex, { FlexProps } from '../Flex';
-import { ContainerVariant } from './theme';
+import Flex, { FlexProps } from 'components/Flex';
+import React, { forwardRef, ReactNode } from 'react';
+import useTheme from 'useTheme';
 import { merge } from 'utils/merge';
+import { typeVariant } from 'utils/variant';
+
+import { ContainerVariant } from './theme';
 
 export type ContainerProps = FlexProps;
 

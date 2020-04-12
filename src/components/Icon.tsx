@@ -1,8 +1,7 @@
+import { composedIconBase, IconBaseProps } from 'bases';
 import React, { FC, ReactNode } from 'react';
 import styled from 'styled-components';
-
-import { composedIconBase, IconBaseProps } from '../bases';
-import renderComponent from '../utils/renderComponent';
+import renderComponent from 'utils/renderComponent';
 
 export type IconProps = IconBaseProps & {
   svg?: ReactNode;

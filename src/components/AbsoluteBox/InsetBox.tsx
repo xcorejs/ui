@@ -1,10 +1,10 @@
 import Portal from '@reach/portal';
-import React, { FC, useLayoutEffect, useState, MutableRefObject } from 'react';
+import Box, { BoxProps } from 'components/Box';
+import React, { FC, MutableRefObject, useLayoutEffect, useState } from 'react';
 import { ResponsiveValue } from 'styled-system';
+import useTheme from 'useTheme';
+import convert from 'utils/convert';
 
-import useTheme from '../../useTheme';
-import convert from '../../utils/convert';
-import Box, { BoxProps } from '../Box';
 import { HorizontalPosition, VerticalPosition } from './data';
 
 export type InsetBoxProps = {

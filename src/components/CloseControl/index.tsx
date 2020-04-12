@@ -1,15 +1,14 @@
+import { composedFlexBase } from 'bases';
+import { FlexProps } from 'components/Flex';
+import Icon, { IconProps } from 'components/Icon';
+import { CloseIcon } from 'icons/close';
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
-
-import { composedFlexBase } from '../../bases';
-import { CloseIcon } from '../../icons/close';
-import useTheme from '../../useTheme';
+import useTheme from 'useTheme';
 import { merge } from 'utils/merge';
-import { sizeVariant } from '../../utils/variant';
-import { FlexProps } from '../Flex';
-import Icon, { IconProps } from '../Icon';
+import { sizeVariant } from 'utils/variant';
 
-type CloseControlSizes = 'xs' | 'sm' | 'md' | 'lg';
+import { CloseControlSizes } from './theme';
 
 export type CloseControlProps =
   {

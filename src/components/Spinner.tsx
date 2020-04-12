@@ -1,7 +1,6 @@
+import { BoxBaseProps, composedBoxBase } from 'bases';
 import React, { FC } from 'react';
 import styled, { keyframes } from 'styled-components';
-
-import { BoxBaseProps, composedBoxBase } from '../bases';
 
 export type SpinnerProps = {
   speed?: string;

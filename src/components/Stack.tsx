@@ -1,10 +1,9 @@
-import React, { Children, cloneElement, FC, isValidElement, ReactNode, createElement } from 'react';
+import Box from 'components/Box';
+import Flex, { FlexProps } from 'components/Flex';
+import React, { Children, cloneElement, createElement, FC, isValidElement, ReactNode } from 'react';
 import system from 'styled-system';
-
-import useTheme from '../useTheme';
-import convert from '../utils/convert';
-import Flex, { FlexProps } from './Flex';
-import Box from './Box';
+import useTheme from 'useTheme';
+import convert from 'utils/convert';
 
 export interface StackProps extends FlexProps {
   direction?: system.ResponsiveValue<'column' | 'row'>;

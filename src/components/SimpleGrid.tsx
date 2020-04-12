@@ -1,12 +1,11 @@
+import { BoxProps } from 'components/Box';
+import Grid, { GridPositionProps } from 'components/Grid';
 import * as CSS from 'csstype';
 import React, { Children, FC } from 'react';
 import { ResponsiveValue } from 'styled-system';
-
-import useTheme from '../useTheme';
-import convert, { getArrayValue } from '../utils/convert';
-import { parseTwin } from '../utils/gridTemplate';
-import { BoxProps } from './Box';
-import Grid, { GridPositionProps } from './Grid';
+import useTheme from 'useTheme';
+import convert, { getArrayValue } from 'utils/convert';
+import { parseTwin } from 'utils/gridTemplate';
 
 export type ColumnResponsiveValue =
   | number

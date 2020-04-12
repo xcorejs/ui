@@ -1,16 +1,15 @@
+import { flexBase, FlexBaseProps, textBase, TextBaseProps } from 'bases';
+import Complement, { comp, ComplementProps } from 'components/Complement';
+import Spinner, { SpinnerProps } from 'components/Spinner';
 import * as CSS from 'csstype';
 import React, { AnchorHTMLAttributes, forwardRef, ReactNode } from 'react';
 import styled from 'styled-components';
 import * as system from 'styled-system';
-
-import { flexBase, FlexBaseProps, textBase, TextBaseProps } from '../../bases';
-import useTheme from '../../useTheme';
-import { compose } from '../../utils/baseStyle';
-import { sizeVariant, typeVariant } from '../../utils/variant';
-import Complement, { comp, ComplementProps } from '../Complement';
-import Spinner, { SpinnerProps } from '../Spinner';
-import { ButtonSize, ButtonVariant } from './theme';
-import { merge } from '../../utils/merge';
+import { ButtonSize, ButtonVariant } from 'theme';
+import useTheme from 'useTheme';
+import { compose } from 'utils/baseStyle';
+import { merge } from 'utils/merge';
+import { sizeVariant, typeVariant } from 'utils/variant';
 
 export type ButtonProps =
   {

@@ -1,10 +1,10 @@
+import { composedTextBase, TextBaseProps } from 'bases';
 import React, { forwardRef, ReactNode } from 'react';
 import styled from 'styled-components';
+import useTheme from 'useTheme';
 import { merge } from 'utils/merge';
+import { typeVariant } from 'utils/variant';
 
-import { composedTextBase, TextBaseProps } from '../../bases';
-import useTheme from '../../useTheme';
-import { typeVariant } from '../../utils/variant';
 import { TextAs, TextVariant } from './theme';
 
 export type TextProps = TextBaseProps;

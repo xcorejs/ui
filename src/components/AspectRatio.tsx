@@ -1,8 +1,7 @@
+import { BoxBaseProps, composedBoxBase } from 'bases';
+import Flex from 'components/Flex';
 import React, { FC } from 'react';
 import styled from 'styled-components';
-
-import { BoxBaseProps, composedBoxBase } from '../bases';
-import Flex from './Flex';
 
 export type AspectRatioProps = {
   ratio: number;

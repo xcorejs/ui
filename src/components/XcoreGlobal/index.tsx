@@ -1,9 +1,9 @@
+import { globalBase, selectionBase } from 'bases';
 import React, { FC } from 'react';
 import { createGlobalStyle } from 'styled-components';
+import useTheme from 'useTheme';
+import { compose } from 'utils/baseStyle';
 
-import { globalBase, selectionBase } from '../../bases';
-import useTheme from '../../useTheme';
-import { compose } from '../../utils/baseStyle';
 import { GlobalValue } from './theme';
 
 const XcoreGlobal: FC = () => {

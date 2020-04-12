@@ -1,11 +1,11 @@
+import { textBase, TextBaseProps } from 'bases';
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import useTheme from 'useTheme';
+import { compose } from 'utils/baseStyle';
 import { merge } from 'utils/merge';
+import { typeVariant } from 'utils/variant';
 
-import { textBase, TextBaseProps } from '../../bases';
-import useTheme from '../../useTheme';
-import { compose } from '../../utils/baseStyle';
-import { typeVariant } from '../../utils/variant';
 import { TypographyAs, TypographyVariant } from './theme';
 
 export type TypographyProps = TextBaseProps;

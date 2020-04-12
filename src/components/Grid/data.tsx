@@ -1,4 +1,4 @@
-import { getArrayValue } from '../../utils/convert';
+import { getArrayValue } from 'utils/convert';
 
 export const parseGridCell = (val: string | number): [string, string | undefined] =>
   typeof val === 'number'

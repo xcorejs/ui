@@ -1,7 +1,6 @@
+import Text, { TextProps } from 'components/Text';
 import { loremIpsum } from 'lorem-ipsum';
-import React, { FC, useMemo, forwardRef } from 'react';
-
-import Text, { TextProps } from './Text';
+import React, { forwardRef, useMemo } from 'react';
 
 export type LoremIpsumProps = {
   count?: number;

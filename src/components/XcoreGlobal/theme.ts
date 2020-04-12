@@ -1,5 +1,5 @@
-import { defaults } from '../../utils/defaults';
-import { GlobalBaseProps, SelectionBaseProps } from '../../bases';
+import { GlobalBaseProps, SelectionBaseProps } from 'bases';
+import { defaults } from 'utils/defaults';
 
 export type GlobalValue = {
   _html: GlobalBaseProps;

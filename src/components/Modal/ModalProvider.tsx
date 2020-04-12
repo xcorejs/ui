@@ -1,4 +1,4 @@
-import React, { FC, useState, createElement, ComponentType } from 'react';
+import React, { FC, useState, createElement } from 'react';
 
 import { ModalContext, ModalType } from './data';
 

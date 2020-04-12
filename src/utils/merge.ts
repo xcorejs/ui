@@ -22,8 +22,6 @@ export const cacheByKey = <T>(getter: () => T, ...keys: string[]) => {
 
   if (!cache[key]) {
     cache[key] = getter();
-  } else {
-    console.log('returning cached value for key:', key);
   }
 
   return cache[key];

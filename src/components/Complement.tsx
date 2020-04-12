@@ -1,6 +1,6 @@
+import Icon, { IconProps } from 'components/Icon';
 import React, { FC } from 'react';
-import Icon, { IconProps } from './Icon';
-import renderComponent, { Renderable } from '../utils/renderComponent';
+import renderComponent, { Renderable } from 'utils/renderComponent';
 
 export type SideComplementProps = {
   _icon?: IconProps;

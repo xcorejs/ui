@@ -1,5 +1,5 @@
-import { defaultsTheme } from '../../utils/defaultsTheme';
-import { FlexProps } from '../Flex';
+import { FlexProps } from 'components/Flex';
+import { defaultsTheme } from 'utils/defaultsTheme';
 
 type ContainerValue = {
   default: FlexProps;

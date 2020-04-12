@@ -1,5 +1,5 @@
 import { TextProps } from '.';
-import { defaultsTheme } from '../../utils/defaultsTheme';
+import { defaultsTheme } from 'utils/defaultsTheme';
 
 export type TextVariant =
  | 'span'

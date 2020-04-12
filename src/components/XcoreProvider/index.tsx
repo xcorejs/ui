@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import { XcoreTheme, emptyTheme } from '../../theme';
-import ModalProvider from '../Modal/ModalProvider';
-import XcoreGlobal from '../XcoreGlobal';
+import { XcoreTheme, emptyTheme } from 'theme';
+import ModalProvider from 'components/Modal/ModalProvider';
+import XcoreGlobal from 'components/XcoreGlobal';
 
 export type XcoreProviderProps = {
   theme?: XcoreTheme | null;

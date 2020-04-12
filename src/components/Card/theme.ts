@@ -1,5 +1,5 @@
 import { CardProps } from '.';
-import { defaultsTheme } from '../../utils/defaultsTheme';
+import { defaultsTheme } from 'utils/defaultsTheme';
 
 export type CardVariant = 'normal' | 'elevated' | 'outline';
 

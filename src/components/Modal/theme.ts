@@ -1,5 +1,6 @@
+import { defaultsTheme } from 'utils/defaultsTheme';
+
 import { ModalProps } from '.';
-import { defaultsTheme } from '../../utils/defaultsTheme';
 
 export type ModalSize = 'sm' | 'md' | 'lg' | 'full';
 

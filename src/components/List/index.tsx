@@ -1,13 +1,13 @@
+import { composedTextBase, TextBaseProps } from 'bases';
+import { TLen } from 'components/Box';
 import CSS from 'csstype';
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import * as system from 'styled-system';
+import useTheme from 'useTheme';
 import { merge } from 'utils/merge';
+import { typeVariant } from 'utils/variant';
 
-import { composedTextBase, TextBaseProps } from '../../bases';
-import useTheme from '../../useTheme';
-import { typeVariant } from '../../utils/variant';
-import { TLen } from '../Box';
 import { ListVariant } from './theme';
 
 export type ListProps =

@@ -1,6 +1,6 @@
 import { ButtonProps } from '.';
-import { defaultsTheme } from '../../utils/defaultsTheme';
-import { darken, opacify } from '../../scales/colors';
+import { defaultsTheme } from 'utils/defaultsTheme';
+import { darken, opacify } from 'scales/colors';
 
 export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg';
 export type ButtonVariant = 'solid' | 'clear' | 'outline' | 'link';

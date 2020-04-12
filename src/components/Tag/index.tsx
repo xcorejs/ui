@@ -1,13 +1,12 @@
+import { flexBase, FlexBaseProps, textBase, TextBaseProps } from 'bases';
+import Complement, { comp, ComplementProps } from 'components/Complement';
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import useTheme from 'useTheme';
+import { compose } from 'utils/baseStyle';
 import { merge } from 'utils/merge';
+import { typeVariant } from 'utils/variant';
 
-import { FlexBaseProps, textBase, TextBaseProps, flexBase } from '../../bases';
-
-import useTheme from '../../useTheme';
-import { compose } from '../../utils/baseStyle';
-import { typeVariant } from '../../utils/variant';
-import Complement, { comp, ComplementProps } from '../Complement';
 import { TagVariant } from './theme';
 
 export type TagProps =

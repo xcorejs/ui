@@ -1,4 +1,4 @@
-import Box, { BoxProps } from './Box';
+import Box, { BoxProps } from 'components/Box';
 import React, { FC } from 'react';
 import AnimateHeight from 'react-animate-height';
 

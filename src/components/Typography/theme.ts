@@ -1,5 +1,5 @@
-import { defaultsTheme } from '../../utils/defaultsTheme';
-import { TextProps } from '../Text';
+import { TextProps } from 'components/Text';
+import { defaultsTheme } from 'utils/defaultsTheme';
 
 interface TypographyValue {
   default: TextProps;

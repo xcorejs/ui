@@ -1,5 +1,6 @@
+import { defaultsTheme } from 'utils/defaultsTheme';
+
 import { TagProps } from '.';
-import { defaultsTheme } from '../../utils/defaultsTheme';
 
 export type TagVariant = 'solid' | 'outline' | 'clear';
 

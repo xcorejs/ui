@@ -1,14 +1,14 @@
+import { BoxBaseProps, composedBoxBase } from 'bases';
 import { FC, useContext } from 'react';
 import * as React from 'react';
+import { Breakpoints } from 'scales/breakpoints';
 import styled, { css } from 'styled-components';
+import useTheme from 'useTheme';
+import convert, { getArrayValue } from 'utils/convert';
+import { parseTwin } from 'utils/gridTemplate';
+import { mediaQueries } from 'utils/mediaQuery';
 
 import { GridContext } from '.';
-import { BoxBaseProps, composedBoxBase } from '../../bases';
-import { Breakpoints } from '../../scales/breakpoints';
-import useTheme from '../../useTheme';
-import convert, { getArrayValue } from '../../utils/convert';
-import { parseTwin } from '../../utils/gridTemplate';
-import { mediaQueries } from '../../utils/mediaQuery';
 import { parseGridAxis } from './data';
 
 export type CellProps = BoxBaseProps;
