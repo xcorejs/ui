@@ -6,8 +6,8 @@ import CSS from 'csstype';
 import React, { forwardRef, ReactNode } from 'react';
 import { ResponsiveValue } from 'styled-system';
 import useTheme from 'useTheme';
-import { merge } from 'utils/merge';
 import renderComponent, { Renderable } from 'utils/renderComponent';
+import useMerge from 'utils/useMerge';
 import { typeVariant } from 'utils/variant';
 
 import { CardVariant } from './theme';
@@ -66,7 +66,7 @@ const Card = forwardRef<HTMLDivElement, ExtendedCardProps>(({
     footer,
     innerPadding,
     ...props
-  } = merge(
+  } = useMerge(
     p,
     type,
     card.default

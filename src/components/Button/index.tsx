@@ -8,7 +8,7 @@ import * as system from 'styled-system';
 import { ButtonSize, ButtonVariant } from 'theme';
 import useTheme from 'useTheme';
 import { compose } from 'utils/baseStyle';
-import { merge } from 'utils/merge';
+import useMerge from 'utils/useMerge';
 import { sizeVariant, typeVariant } from 'utils/variant';
 
 export type ButtonProps =
@@ -46,14 +46,13 @@ const Button = forwardRef<HTMLDivElement, ExtendedButtonProps>((
 ) => {
   const { button } = useTheme();
 
-  const [left, right, { _spinner, ...props }] = comp(
-    merge(
-      p,
-      typeVariant(button, 'solid', p),
-      sizeVariant(button, 'md', p),
-      button.default
-    )
+  const m = useMerge(
+    p,
+    typeVariant(button, 'solid', p),
+    sizeVariant(button, 'md', p),
+    button.default
   );
+  const [left, right, { _spinner, ...props }] = comp(m);
 
   return (
     <ButtonStyle role="group" as={as} {...props} ref={ref}>

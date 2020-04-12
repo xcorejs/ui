@@ -2,7 +2,7 @@ import { composedTextBase, TextBaseProps } from 'bases';
 import React, { forwardRef, ReactNode } from 'react';
 import styled from 'styled-components';
 import useTheme from 'useTheme';
-import { merge } from 'utils/merge';
+import useMerge from 'utils/useMerge';
 import { typeVariant } from 'utils/variant';
 
 import { TextAs, TextVariant } from './theme';
@@ -30,7 +30,7 @@ const Text = forwardRef<HTMLSpanElement, ExtendedTextProps>(({ as: _as, ...p }, 
     sup: 'sup'
   }[p.variant ?? p.v ?? 'span']) as TextAs;
 
-  const props = merge(
+  const props = useMerge(
     p,
     typeVariant(text, 'span', p),
     text.default

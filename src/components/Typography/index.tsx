@@ -1,9 +1,8 @@
-import { textBase, TextBaseProps } from 'bases';
+import { composedTextBase, TextBaseProps } from 'bases';
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import useTheme from 'useTheme';
-import { compose } from 'utils/baseStyle';
-import { merge } from 'utils/merge';
+import useMerge from 'utils/useMerge';
 import { typeVariant } from 'utils/variant';
 
 import { TypographyAs, TypographyVariant } from './theme';
@@ -27,7 +26,7 @@ const Typography: FC<ExtendedTypographyProps> = ({
 
   const as: TypographyAs = _as ?? (type === 'lead' ? 'p' : type);
 
-  const props = merge(
+  const props = useMerge(
     p,
     typeVariant(typography, 'p', p),
     typography.default
@@ -41,5 +40,5 @@ const Typography: FC<ExtendedTypographyProps> = ({
 export default Typography;
 
 const TypographyStyle = styled.p<TypographyProps>`
-  ${compose(textBase)}
+  ${composedTextBase}
 `;

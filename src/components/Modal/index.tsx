@@ -4,8 +4,8 @@ import Flex, { ExtendedFlexProps, FlexProps } from 'components/Flex';
 import Typography, { ExtendedTypographyProps } from 'components/Typography';
 import React, { FC, useContext } from 'react';
 import useTheme from 'useTheme';
-import { merge } from 'utils/merge';
 import renderComponent, { Renderable } from 'utils/renderComponent';
+import useMerge from 'utils/useMerge';
 import { sizeVariant } from 'utils/variant';
 
 import Box, { BoxProps } from '../Box';
@@ -34,7 +34,7 @@ const Modal: FC<ExtendedModalProps> = ({ children, onClose, ...p }) => {
   const { modal } = useTheme();
   const { setModal } = useContext(ModalContext);
 
-  const { title, _title, header, _header, _close, _overlay, ...props } = merge(
+  const { title, _title, header, _header, _close, _overlay, ...props } = useMerge(
     p,
     sizeVariant(modal, 'md', p),
     modal.default

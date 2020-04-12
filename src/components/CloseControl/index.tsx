@@ -5,7 +5,7 @@ import { CloseIcon } from 'icons/close';
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import useTheme from 'useTheme';
-import { merge } from 'utils/merge';
+import useMerge from 'utils/useMerge';
 import { sizeVariant } from 'utils/variant';
 
 import { CloseControlSizes } from './theme';
@@ -26,7 +26,7 @@ export type ExtendedCloseControlProps =
 const CloseControl = forwardRef<HTMLDivElement, ExtendedCloseControlProps>((p, ref) => {
   const { closeControl } = useTheme();
 
-  const { _icon, ...props } = merge(
+  const { _icon, ...props } = useMerge(
     p,
     sizeVariant(closeControl, 'md', p),
     closeControl.default

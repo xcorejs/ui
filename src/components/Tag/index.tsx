@@ -4,7 +4,7 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import useTheme from 'useTheme';
 import { compose } from 'utils/baseStyle';
-import { merge } from 'utils/merge';
+import useMerge from 'utils/useMerge';
 import { typeVariant } from 'utils/variant';
 
 import { TagVariant } from './theme';
@@ -22,12 +22,13 @@ export type ExtendedTagProps = {
 const Tag: FC<ExtendedTagProps> = ({ children, ...p }) => {
   const { tag } = useTheme();
 
+  const m = useMerge(
+    p,
+    typeVariant(tag, 'solid', p),
+    tag.default
+  );
   const [left, right, props] = comp(
-    merge(
-      p,
-      typeVariant(tag, 'solid', p),
-      tag.default
-    )
+    m
   );
 
   return (

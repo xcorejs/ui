@@ -2,7 +2,7 @@ import { composedTextBase, TextBaseProps } from 'bases';
 import React, { AnchorHTMLAttributes, forwardRef, ReactNode } from 'react';
 import styled from 'styled-components';
 import useTheme from 'useTheme';
-import { merge } from 'utils/merge';
+import useMerge from 'utils/useMerge';
 import { typeVariant } from 'utils/variant';
 
 import { LinkAs, LinkVariant } from './theme';
@@ -22,7 +22,7 @@ export type ExtendedLinkProps = {
 const Link = forwardRef<HTMLAnchorElement, ExtendedLinkProps>((p, ref) => {
   const { link } = useTheme();
 
-  const props = merge(
+  const props = useMerge(
     p,
     typeVariant(link, 'simple', p),
     link.default
