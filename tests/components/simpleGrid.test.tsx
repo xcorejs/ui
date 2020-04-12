@@ -5,6 +5,10 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 
 test('SimpleGrid component', () => {
+  Object.defineProperty(window.navigator, 'userAgent', {
+    value: 'MSIE'
+  });
+
   const component = renderer.create(
     <>
       <SimpleGrid display="inline-grid" columns={2} gap="6rem 2rem" mt="3rem" justifyItems="center">

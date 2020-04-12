@@ -61,9 +61,10 @@ exports[`Grid component 1`] = `
   grid-template-columns: repeat(3,75px) auto;
   grid-gap: 10px;
   -ms-grid-columns: 75px 10px 75px 10px 75px 10px auto;
+  -ms-grid-rows: 200px 10px auto 10px 70px;
 }
 
--ms-grid-rows:200px 10px auto 10px 70px .c0 > *:nth-child(1) {
+.c0 > *:nth-child(1) {
   -ms-grid-column: 1;
   -ms-grid-row: 1;
 }

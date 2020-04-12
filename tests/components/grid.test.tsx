@@ -5,6 +5,10 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 
 test('Grid component', () => {
+  Object.defineProperty(window.navigator, 'userAgent', {
+    value: 'MSIE'
+  });
+
   const component = renderer.create(
     <>
       <Grid columns="repeat(3, 75px) auto" rows="200px auto 70px" gap="10px" p="10px" height="100%">
