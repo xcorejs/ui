@@ -4,16 +4,28 @@ import React, { FC } from 'react';
 export default { title: 'Container' };
 
 export const Normal: FC = () => (
-  <Container>
-    <Box width="100%">
-      <Box background="crimson" color="white" p="10px" my="10px">
-        Box 1
+  <>
+    <Container>
+      <Box width="100%">
+        <Box background="crimson" color="white" p="10px" my="10px">
+          Box 1
+        </Box>
+        <Box background="navy" color="white" p="10px" my="10px">
+          Box 2
+        </Box>
       </Box>
-      <Box background="navy" color="white" p="10px" my="10px">
-        Box 2
+    </Container>
+    <Container px={0}>
+      <Box width="100%">
+        <Box background="crimson" color="white" p="10px" my="10px">
+          Box 1
+        </Box>
+        <Box background="navy" color="white" p="10px" my="10px">
+          Box 2
+        </Box>
       </Box>
-    </Box>
-  </Container>
+    </Container>
+  </>
 );
 
 export const Fluid: FC = () => (

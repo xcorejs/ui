@@ -140,3 +140,23 @@ test('merge button props', () => {
       'color'
     ]);
 });
+
+test('merge container props with falsy value', () => {
+  const { container } = createTheme();
+
+  const props = merge(
+    {
+      px: 0
+    },
+    container.variants.normal,
+    container.default
+  );
+
+  expect(props)
+    .toEqual({
+      ml: 'auto',
+      mr: 'auto',
+      px: 0,
+      width: ['100%', '76.8rem', '102.4rem', '120rem', '132rem']
+    });
+});
