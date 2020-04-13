@@ -1,6 +1,6 @@
-import typescript from '@rollup/plugin-typescript';
-import babel from 'rollup-plugin-babel';
-import { dependencies, peerDependencies } from './package.json';
+import ts from '@wessberg/rollup-plugin-ts';
+
+import pkg, { dependencies, peerDependencies } from './package.json';
 
 // Get all packages we are using
 const deps = Object.keys({
@@ -8,25 +8,25 @@ const deps = Object.keys({
   ...peerDependencies
 });
 
-// ES Module config
-const moduleConfig = {
+export default {
   input: 'src/index.ts',
   external: id => deps.some(d => d === id || d.startsWith(d + '/')),
-  plugins: [/* babel(), */typescript()],
+  plugins: [
+    ts({
+      transpiler: 'babel',
+      tsconfig: 'tsconfig.build.json'
+    })
+  ],
   output: [
     {
-      file: 'lib/index.es.js',
+      file: pkg.module,
       format: 'esm',
       sourcemap: true
     },
     {
-      file: 'lib/index.js',
+      file: pkg.main,
       format: 'cjs',
       sourcemap: true
     }
   ]
 };
-
-export default [
-  moduleConfig
-];
