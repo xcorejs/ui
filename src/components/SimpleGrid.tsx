@@ -1,8 +1,8 @@
+import { ResponsiveValue } from '@styled-system/core';
 import { BoxProps } from 'components/Box';
 import Grid, { GridPositionProps } from 'components/Grid';
 import * as CSS from 'csstype';
 import React, { Children, FC } from 'react';
-import { ResponsiveValue } from 'styled-system';
 import useTheme from 'useTheme';
 import { parseTwin } from 'utils/gridTemplate';
 import { transform } from 'utils/transform';

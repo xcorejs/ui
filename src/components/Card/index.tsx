@@ -4,7 +4,7 @@ import Tag, { TagProps } from 'components/Tag';
 import Text, { TextProps } from 'components/Text';
 import CSS from 'csstype';
 import React, { forwardRef, ReactNode } from 'react';
-import { ResponsiveValue } from 'styled-system';
+import { ResponsiveValue } from '@styled-system/core';
 import useTheme from 'useTheme';
 import renderComponent, { Renderable } from 'utils/renderComponent';
 import useMerge from 'utils/useMerge';

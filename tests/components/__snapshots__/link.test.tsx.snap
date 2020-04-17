@@ -3,7 +3,6 @@
 exports[`Link component 1`] = `
 Array [
   .c2 {
-  font-size: 1.5rem;
   font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
   font-size: 1.5rem;
   line-height: 2rem;
@@ -13,12 +12,12 @@ Array [
 }
 
 .c0 {
+  line-height: 2.4rem;
   margin: 0;
   padding: 0;
   -webkit-flex-basis: 0.5;
   -ms-flex-preferred-size: 0.5;
   flex-basis: 0.5;
-  line-height: 2.4rem;
   list-style-type: none;
   counter-reset: list-counter;
 }
@@ -131,7 +130,6 @@ Array [
     </li>
   </ol>,
   .c2 {
-  font-size: 1.5rem;
   font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
   font-size: 1.5rem;
   line-height: 2rem;
@@ -141,12 +139,12 @@ Array [
 }
 
 .c0 {
+  line-height: 2.4rem;
   margin: 0;
   padding: 0;
   -webkit-flex-basis: 0.5;
   -ms-flex-preferred-size: 0.5;
   flex-basis: 0.5;
-  line-height: 2.4rem;
   list-style-type: none;
 }
 

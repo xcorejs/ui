@@ -6,19 +6,19 @@ exports[`Container component 1`] = `
 }
 
 .c2 {
+  background: crimson;
+  color: white;
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
-  background: crimson;
-  color: white;
 }
 
 .c3 {
+  background: navy;
+  color: white;
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
-  background: navy;
-  color: white;
 }
 
 .c0 {
@@ -26,9 +26,9 @@ exports[`Container component 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
   padding-left: 16px;
   padding-right: 16px;
 }

@@ -3,17 +3,15 @@
 exports[`Card component 1`] = `
 Array [
   .c4 {
-  font-size: 2rem;
   font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
-  font-size: 2rem;
-  line-height: 3rem;
   -webkit-transition: color 300ms;
   transition: color 300ms;
   color: #1E3441;
+  font-size: 2rem;
+  line-height: 3rem;
 }
 
 .c7 {
-  font-size: 1.5rem;
   font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
   font-size: 1.5rem;
   line-height: 2rem;
@@ -27,16 +25,16 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  border-radius: 0.3rem;
-  box-shadow: 0 0.3rem 0.8rem 0 rgba(36,49,70,0.25);
   width: 100%;
-  max-width: 30rem;
   position: relative;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
   color: #1E3441;
   background: #fff;
+  max-width: 30rem;
+  border-radius: 0.3rem;
+  box-shadow: 0 0.3rem 0.8rem 0 rgba(36,49,70,0.25);
 }
 
 .c1 {
@@ -51,10 +49,10 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 1rem;
   -webkit-order: 1;
   -ms-flex-order: 1;
   order: 1;
+  padding: 1rem;
 }
 
 .c3 {
@@ -83,10 +81,10 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 1rem;
   -webkit-order: 3;
   -ms-flex-order: 3;
   order: 3;
+  padding: 1rem;
 }
 
 .c8 {
@@ -94,19 +92,18 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 1rem;
   -webkit-order: 4;
   -ms-flex-order: 4;
   order: 4;
+  padding: 1rem;
 }
 
 .c9 {
-  margin: 0;
-  font-size: 1.6rem;
   font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  margin: 0;
+  color: #1E3441;
   font-size: 1.6rem;
   line-height: 2rem;
-  color: #1E3441;
 }
 
 <div
@@ -174,17 +171,15 @@ Array [
     </div>
   </div>,
   .c4 {
-  font-size: 2rem;
   font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
-  font-size: 2rem;
-  line-height: 3rem;
   -webkit-transition: color 300ms;
   transition: color 300ms;
   color: #1E3441;
+  font-size: 2rem;
+  line-height: 3rem;
 }
 
 .c7 {
-  font-size: 1.5rem;
   font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
   font-size: 1.5rem;
   line-height: 2rem;
@@ -198,16 +193,16 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  border-radius: 0.3rem;
-  box-shadow: 0 0.3rem 0.8rem 0 rgba(36,49,70,0.25);
   width: 100%;
-  max-width: 30rem;
   position: relative;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
   color: #1E3441;
   background: #fff;
+  max-width: 30rem;
+  border-radius: 0.3rem;
+  box-shadow: 0 0.3rem 0.8rem 0 rgba(36,49,70,0.25);
 }
 
 .c1 {
@@ -222,10 +217,10 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 1rem;
   -webkit-order: 1;
   -ms-flex-order: 1;
   order: 1;
+  padding: 1rem;
 }
 
 .c3 {
@@ -254,10 +249,10 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 1rem;
   -webkit-order: 3;
   -ms-flex-order: 3;
   order: 3;
+  padding: 1rem;
 }
 
 .c8 {
@@ -265,19 +260,18 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 1rem;
   -webkit-order: 4;
   -ms-flex-order: 4;
   order: 4;
+  padding: 1rem;
 }
 
 .c9 {
-  margin: 0;
-  font-size: 1.6rem;
   font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  margin: 0;
+  color: #1E3441;
   font-size: 1.6rem;
   line-height: 2rem;
-  color: #1E3441;
 }
 
 <div
@@ -345,17 +339,15 @@ Array [
     </div>
   </div>,
   .c4 {
-  font-size: 2rem;
   font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
-  font-size: 2rem;
-  line-height: 3rem;
   -webkit-transition: color 300ms;
   transition: color 300ms;
   color: #1E3441;
+  font-size: 2rem;
+  line-height: 3rem;
 }
 
 .c8 {
-  font-size: 1.5rem;
   font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
   font-size: 1.5rem;
   line-height: 2rem;
@@ -369,16 +361,16 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  border-radius: 0.3rem;
-  box-shadow: 0 0.3rem 0.8rem 0 rgba(36,49,70,0.25);
   width: 100%;
-  max-width: 30rem;
   position: relative;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
   color: #1E3441;
   background: #fff;
+  max-width: 30rem;
+  border-radius: 0.3rem;
+  box-shadow: 0 0.3rem 0.8rem 0 rgba(36,49,70,0.25);
 }
 
 .c1 {
@@ -393,10 +385,10 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 1rem;
   -webkit-order: 1;
   -ms-flex-order: 1;
   order: 1;
+  padding: 1rem;
 }
 
 .c3 {
@@ -425,10 +417,10 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 1rem;
   -webkit-order: 3;
   -ms-flex-order: 3;
   order: 3;
+  padding: 1rem;
 }
 
 .c5 {
@@ -437,35 +429,33 @@ Array [
   display: -ms-flexbox;
   display: flex;
   white-space: nowrap;
-  border-radius: 0.3rem;
-  border: 1px solid #455663;
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding-left: 0.8rem;
-  padding-right: 0.8rem;
-  margin: 1rem;
-  font-size: 1.2rem;
-  font-weight: 500;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-  font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
-  font-size: 1.2rem;
-  font-weight: 500;
-  line-height: 2rem;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   -webkit-transition: color 300ms,background 300ms,border-color 300ms;
   transition: color 300ms,background 300ms,border-color 300ms;
-  background-color: #455663;
+  border-radius: 0.3rem;
+  border: 1px solid #455663;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 2rem;
+  background: #455663;
   color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin: 1rem;
 }
 
 <div
@@ -529,17 +519,15 @@ Array [
     </div>
   </div>,
   .c4 {
-  font-size: 2rem;
   font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
-  font-size: 2rem;
-  line-height: 3rem;
   -webkit-transition: color 300ms;
   transition: color 300ms;
   color: #1E3441;
+  font-size: 2rem;
+  line-height: 3rem;
 }
 
 .c8 {
-  font-size: 1.5rem;
   font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
   font-size: 1.5rem;
   line-height: 2rem;
@@ -553,16 +541,16 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  border-radius: 0.3rem;
-  box-shadow: 0 0.3rem 0.8rem 0 rgba(36,49,70,0.25);
   width: 100%;
-  max-width: 30rem;
   position: relative;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
   color: #1E3441;
   background: #fff;
+  max-width: 30rem;
+  border-radius: 0.3rem;
+  box-shadow: 0 0.3rem 0.8rem 0 rgba(36,49,70,0.25);
 }
 
 .c1 {
@@ -577,10 +565,10 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 1rem;
   -webkit-order: 1;
   -ms-flex-order: 1;
   order: 1;
+  padding: 1rem;
 }
 
 .c3 {
@@ -609,10 +597,10 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 1rem;
   -webkit-order: 3;
   -ms-flex-order: 3;
   order: 3;
+  padding: 1rem;
 }
 
 .c5 {
@@ -621,35 +609,33 @@ Array [
   display: -ms-flexbox;
   display: flex;
   white-space: nowrap;
-  border-radius: 0.3rem;
-  border: 1px solid #455663;
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding-left: 0.8rem;
-  padding-right: 0.8rem;
-  margin: 1rem;
-  font-size: 1.2rem;
-  font-weight: 500;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-  font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
-  font-size: 1.2rem;
-  font-weight: 500;
-  line-height: 2rem;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   -webkit-transition: color 300ms,background 300ms,border-color 300ms;
   transition: color 300ms,background 300ms,border-color 300ms;
-  background-color: #455663;
+  border-radius: 0.3rem;
+  border: 1px solid #455663;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 2rem;
+  background: #455663;
   color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin: 1rem;
 }
 
 <div
@@ -713,7 +699,6 @@ Array [
     </div>
   </div>,
   .c4 {
-  font-size: 1.5rem;
   font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
   font-size: 1.5rem;
   line-height: 2rem;
@@ -727,16 +712,16 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  border-radius: 0.3rem;
-  box-shadow: 0 0.3rem 0.8rem 0 rgba(36,49,70,0.25);
   width: 100%;
-  max-width: 30rem;
   position: relative;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
   color: #1E3441;
   background: #fff;
+  max-width: 30rem;
+  border-radius: 0.3rem;
+  box-shadow: 0 0.3rem 0.8rem 0 rgba(36,49,70,0.25);
 }
 
 .c2 {
@@ -754,10 +739,10 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 1rem;
   -webkit-order: 3;
   -ms-flex-order: 3;
   order: 3;
+  padding: 1rem;
 }
 
 .c1 {
@@ -766,35 +751,33 @@ Array [
   display: -ms-flexbox;
   display: flex;
   white-space: nowrap;
-  border-radius: 0.3rem;
-  border: 1px solid #455663;
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding-left: 0.8rem;
-  padding-right: 0.8rem;
-  margin: 1rem;
-  font-size: 1.2rem;
-  font-weight: 500;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-  font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
-  font-size: 1.2rem;
-  font-weight: 500;
-  line-height: 2rem;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   -webkit-transition: color 300ms,background 300ms,border-color 300ms;
   transition: color 300ms,background 300ms,border-color 300ms;
-  background-color: #455663;
+  border-radius: 0.3rem;
+  border: 1px solid #455663;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 2rem;
+  background: #455663;
   color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin: 1rem;
 }
 
 <div
@@ -837,17 +820,15 @@ Array [
     </div>
   </div>,
   .c4 {
-  font-size: 2rem;
   font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
-  font-size: 2rem;
-  line-height: 3rem;
   -webkit-transition: color 300ms;
   transition: color 300ms;
   color: #1E3441;
+  font-size: 2rem;
+  line-height: 3rem;
 }
 
 .c8 {
-  font-size: 1.5rem;
   font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
   font-size: 1.5rem;
   line-height: 2rem;
@@ -861,16 +842,16 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  border-radius: 0.3rem;
-  box-shadow: 0 0.3rem 0.8rem 0 rgba(36,49,70,0.25);
   width: 100%;
-  max-width: 30rem;
   position: relative;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
   color: #1E3441;
   background: #fff;
+  max-width: 30rem;
+  border-radius: 0.3rem;
+  box-shadow: 0 0.3rem 0.8rem 0 rgba(36,49,70,0.25);
 }
 
 .c1 {
@@ -906,10 +887,10 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 5rem;
   -webkit-order: 1;
   -ms-flex-order: 1;
   order: 1;
+  padding: 5rem;
 }
 
 .c7 {
@@ -917,10 +898,10 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 5rem;
   -webkit-order: 3;
   -ms-flex-order: 3;
   order: 3;
+  padding: 5rem;
 }
 
 .c5 {
@@ -929,35 +910,33 @@ Array [
   display: -ms-flexbox;
   display: flex;
   white-space: nowrap;
-  border-radius: 0.3rem;
-  border: 1px solid #455663;
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding-left: 0.8rem;
-  padding-right: 0.8rem;
-  margin: 1rem;
-  font-size: 1.2rem;
-  font-weight: 500;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-  font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
-  font-size: 1.2rem;
-  font-weight: 500;
-  line-height: 2rem;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   -webkit-transition: color 300ms,background 300ms,border-color 300ms;
   transition: color 300ms,background 300ms,border-color 300ms;
-  background-color: #455663;
+  border-radius: 0.3rem;
+  border: 1px solid #455663;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 2rem;
+  background: #455663;
   color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin: 1rem;
 }
 
 <div

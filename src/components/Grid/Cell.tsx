@@ -9,7 +9,7 @@ import { mediaQueries } from 'utils/mediaQuery';
 import { GridContext } from '.';
 import { parseGridAxis } from './data';
 import { isIE } from 'utils/isIE';
-import { system, ResponsiveValue } from 'styled-system';
+import { system, ResponsiveValue } from '@styled-system/core';
 import { polyfillTheme } from 'utils/baseStyle';
 import { transform } from 'utils/transform';
 

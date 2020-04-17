@@ -13,11 +13,11 @@ exports[`Grid component 1`] = `
 }
 
 .c3 {
+  grid-column: 1 / span 2;
+  grid-row: 3;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
-  grid-column: 1 / span 2;
-  grid-row: 3;
 }
 
 .c4 {
@@ -44,7 +44,6 @@ exports[`Grid component 1`] = `
 }
 
 .c7 {
-  font-size: 1.5rem;
   font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
   font-size: 1.5rem;
   line-height: 2rem;
@@ -54,8 +53,8 @@ exports[`Grid component 1`] = `
 }
 
 .c0 {
-  height: 100%;
   padding: 10px;
+  height: 100%;
   display: grid;
   display: -ms-grid;
   grid-template-columns: repeat(3,75px) auto;

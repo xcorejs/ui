@@ -1,11 +1,11 @@
 import Portal from '@reach/portal';
+import { ResponsiveValue } from '@styled-system/core';
 import Box, { BoxProps } from 'components/Box';
 import React, { FC, MutableRefObject, useLayoutEffect, useState } from 'react';
-import { ResponsiveValue } from 'styled-system';
 import useTheme from 'useTheme';
+import { transform } from 'utils/transform';
 
 import { HorizontalPosition, VerticalPosition } from './data';
-import { transform } from 'utils/transform';
 
 export type InsetBoxProps = {
   horizontalPosition?: ResponsiveValue<HorizontalPosition>;

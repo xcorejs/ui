@@ -1,5 +1,5 @@
 import { defaultsScale } from './utils';
-import { get } from 'styled-system';
+import { get } from '@styled-system/core';
 import * as polished from 'polished';
 
 export type Colors = {
@@ -50,7 +50,7 @@ export const colorTransform = (val: string | number, s: any) => {
     if (reg) {
       const [_, func, color, amount] = reg;
       const a = Number(amount);
-      const value = get(scale, color, lightColorTheme[color as keyof Colors] || color);
+      const value = get<string>(scale, color, lightColorTheme[color as keyof Colors] || color);
 
       switch (func) {
         case 'darken':

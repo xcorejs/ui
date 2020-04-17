@@ -4,17 +4,17 @@ import Spinner, { SpinnerProps } from 'components/Spinner';
 import * as CSS from 'csstype';
 import React, { AnchorHTMLAttributes, forwardRef, ReactNode } from 'react';
 import styled from 'styled-components';
-import * as system from 'styled-system';
 import { ButtonSize, ButtonVariant } from 'theme';
 import useTheme from 'useTheme';
 import { compose } from 'utils/baseStyle';
 import useMerge from 'utils/useMerge';
 import { sizeVariant, typeVariant } from 'utils/variant';
+import { ResponsiveValue } from '@styled-system/core';
 
 export type ButtonProps =
   {
     _spinner?: SpinnerProps;
-    textTransform?: system.ResponsiveValue<CSS.TextTransformProperty>;
+    textTransform?: ResponsiveValue<CSS.TextTransformProperty>;
   }
   & ComplementProps
   & FlexBaseProps

@@ -1,12 +1,12 @@
 import Portal from '@reach/portal';
+import { ResponsiveValue } from '@styled-system/core';
 import Box, { BoxProps } from 'components/Box';
 import React, { FC, MutableRefObject, useEffect, useLayoutEffect, useMemo, useState } from 'react';
-import { ResponsiveValue } from 'styled-system';
 import { useDebouncedCallback } from 'use-debounce';
 import useTheme from 'useTheme';
+import { transform } from 'utils/transform';
 
 import { HorizontalPosition, VerticalPosition } from './data';
-import { transform } from 'utils/transform';
 
 export type OutsetBoxTarget = MutableRefObject<Element> | Element;
 

@@ -1,5 +1,5 @@
 import { Breakpoints } from 'scales/breakpoints';
-import { ResponsiveValue } from 'styled-system';
+import { ResponsiveValue } from '@styled-system/core';
 
 export interface TransformedValue<T> {
   map: <U>(unit: (x: T, key: number | string) => U | null | undefined) => ResponsiveValue<U>;

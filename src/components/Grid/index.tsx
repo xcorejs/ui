@@ -3,14 +3,14 @@ import CSS from 'csstype';
 import React, { createContext, FC } from 'react';
 import { Breakpoints } from 'scales/breakpoints';
 import styled, { css } from 'styled-components';
-import * as system from 'styled-system';
-import { ResponsiveValue } from 'styled-system';
+import { system, ResponsiveValue } from '@styled-system/core';
 import useTheme from 'useTheme';
 import { polyfillTheme } from 'utils/baseStyle';
 import { parseTemplate, parseTwin } from 'utils/gridTemplate';
 import { mediaQueries } from 'utils/mediaQuery';
 import { isIE } from 'utils/isIE';
 import { TransformedValue, transform } from 'utils/transform';
+import { gridConfig } from 'bases/config/grid';
 
 type Col = CSS.GridTemplateColumnsProperty<string>;
 export type GridColumnResponsiveValue =
@@ -73,9 +73,8 @@ const GridStyle = styled.div<GridStyleProps>`
   display: grid;
   display: -ms-grid;
 
-  ${system.grid}
-
-  ${p => system.system({
+  ${p => system({
+    ...gridConfig,
     justifyItems: true,
     justifyContent: true,
     alignContent: true,

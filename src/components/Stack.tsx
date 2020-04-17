@@ -1,8 +1,9 @@
+import { ResponsiveValue } from '@styled-system/core';
 import Box from 'components/Box';
 import Flex, { FlexProps } from 'components/Flex';
 import React, { Children, cloneElement, FC, isValidElement, ReactNode } from 'react';
-import { ResponsiveValue } from 'styled-system';
 import useTheme from 'useTheme';
+
 import { transform } from '../utils/transform';
 
 export interface StackProps extends FlexProps {

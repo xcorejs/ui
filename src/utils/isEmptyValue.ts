@@ -1,4 +1,4 @@
-import { ResponsiveValue } from 'styled-system';
+import { ResponsiveValue } from '@styled-system/core';
 
 export const isValueEmpty = <T>(value: ResponsiveValue<T>): boolean =>
   typeof value !== 'object'

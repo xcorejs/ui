@@ -3,7 +3,7 @@ import { TLen } from 'components/Box';
 import CSS from 'csstype';
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import * as system from 'styled-system';
+import { system, ResponsiveValue } from '@styled-system/core';
 import useTheme from 'useTheme';
 import useMerge from 'utils/useMerge';
 import { typeVariant } from 'utils/variant';
@@ -12,23 +12,23 @@ import { ListVariant } from './theme';
 
 export type ListProps =
   {
-    counterReset?: system.ResponsiveValue<CSS.CounterResetProperty>;
+    counterReset?: ResponsiveValue<CSS.CounterResetProperty>;
     _items?: {
-      paddingLeft?: system.ResponsiveValue<CSS.PaddingLeftProperty<TLen>>;
-      marginBottom?: system.ResponsiveValue<CSS.MarginBottomProperty<TLen>>;
-      color?: system.ResponsiveValue<string>;
-      fontSize?: system.ResponsiveValue<CSS.FontSizeProperty<TLen>>;
-      lineHeight?: system.ResponsiveValue<CSS.LineHeightProperty<TLen>>;
-      counterIncrement?: system.ResponsiveValue<CSS.CounterIncrementProperty>;
+      paddingLeft?: ResponsiveValue<CSS.PaddingLeftProperty<TLen>>;
+      marginBottom?: ResponsiveValue<CSS.MarginBottomProperty<TLen>>;
+      color?: ResponsiveValue<string>;
+      fontSize?: ResponsiveValue<CSS.FontSizeProperty<TLen>>;
+      lineHeight?: ResponsiveValue<CSS.LineHeightProperty<TLen>>;
+      counterIncrement?: ResponsiveValue<CSS.CounterIncrementProperty>;
     };
     _bullet?: {
-      content?: system.ResponsiveValue<CSS.ContentProperty>;
-      position?: system.ResponsiveValue<CSS.PositionProperty>;
-      color?: system.ResponsiveValue<string>;
-      marginRight?: system.ResponsiveValue<CSS.MarginRightProperty<TLen>>;
-      width?: system.ResponsiveValue<CSS.WidthProperty<TLen>>;
-      fontSize?: system.ResponsiveValue<CSS.FontSizeProperty<TLen>>;
-      lineHeight?: system.ResponsiveValue<CSS.LineHeightProperty<TLen>>;
+      content?: ResponsiveValue<CSS.ContentProperty>;
+      position?: ResponsiveValue<CSS.PositionProperty>;
+      color?: ResponsiveValue<string>;
+      marginRight?: ResponsiveValue<CSS.MarginRightProperty<TLen>>;
+      width?: ResponsiveValue<CSS.WidthProperty<TLen>>;
+      fontSize?: ResponsiveValue<CSS.FontSizeProperty<TLen>>;
+      lineHeight?: ResponsiveValue<CSS.LineHeightProperty<TLen>>;
     };
   }
   & TextBaseProps;
@@ -63,7 +63,7 @@ const ListStyle = styled.ul<ListProps>`
   & li {
     display: flex;
 
-    ${p => system.system({
+    ${p => system({
       paddingLeft: true,
       marginBottom: true,
       color: true,
@@ -73,7 +73,7 @@ const ListStyle = styled.ul<ListProps>`
     })(p._items)}
 
     &:before {
-      ${p => system.system({
+      ${p => system({
         content: true,
         position: true,
         color: true,
@@ -89,7 +89,7 @@ const ListStyle = styled.ul<ListProps>`
     margin-bottom: 0;
   }
 
-  ${system.system({
+  ${system({
     counterReset: true
   })}
 `;

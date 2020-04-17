@@ -2,13 +2,13 @@
 
 exports[`Spinner component 1`] = `
 .c0 {
+  display: inline-block;
   border-color: currentColor;
   border-style: solid;
   border-radius: full;
   border-width: 2px;
   border-left-color: transparent;
   border-bottom-color: transparent;
-  display: inline-block;
   width: 1.6rem;
   height: 1.6rem;
   -webkit-animation: cilQsd 0.5s linear infinite;

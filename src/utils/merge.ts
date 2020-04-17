@@ -14,15 +14,3 @@ const appendTo = <T>(t: T, s: T): T => {
   });
   return t;
 };
-
-const cache: Record<string, any> = {};
-
-export const cacheByKey = <T>(getter: () => T, ...keys: string[]) => {
-  const key = keys.join(';');
-
-  if (!cache[key]) {
-    cache[key] = getter();
-  }
-
-  return cache[key];
-};

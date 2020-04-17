@@ -8,8 +8,6 @@ Array [
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  left: 0;
-  top: 0;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -18,13 +16,15 @@ Array [
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  left: 0;
+  top: 0;
 }
 
 .c0 {
   width: 100%;
   height: 0;
-  position: relative;
   padding-bottom: 56.25%;
+  position: relative;
 }
 
 .c0 > div {
@@ -54,8 +54,6 @@ Array [
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  left: 0;
-  top: 0;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -64,13 +62,15 @@ Array [
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  left: 0;
+  top: 0;
 }
 
 .c0 {
   width: 100%;
   height: 0;
-  position: relative;
   padding-bottom: 75%;
+  position: relative;
 }
 
 .c0 > div {

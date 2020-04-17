@@ -2,7 +2,6 @@
 
 exports[`Text component 1`] = `
 .c0 {
-  font-size: 1.5rem;
   font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
   font-size: 1.5rem;
   line-height: 2rem;
@@ -12,25 +11,24 @@ exports[`Text component 1`] = `
 }
 
 .c1 {
+  color: #0171b6;
   border-color: #0171b6;
-  border-bottom: 1px solid transparent;
+  font-size: 1.6rem;
+  line-height: initial;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  font-size: 1.6rem;
-  font-size: 1.6rem;
-  line-height: initial;
-  color: #0171b6;
   -webkit-transition: color 300ms,border 300ms;
   transition: color 300ms,border 300ms;
   cursor: pointer;
+  border-bottom: 1px solid transparent;
   cursor: pointer;
 }
 
 .c1:hover {
-  border-bottom: 1px solid transparent;
   color: #0169a9;
+  border-bottom: 1px solid transparent;
 }
 
 .c1 * {
