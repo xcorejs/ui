@@ -8,6 +8,6 @@
       "*": ["./src/*"]
     }
   },
-  "include": ["src", "src/lib.es5.d.ts", "src/styled.d.ts"],
+  "include": ["src", "src/lib.es5.d.ts", "src/styled.d.ts", "**/*.d.ts"],
   "exclude": ["test", "stories"]
 }
