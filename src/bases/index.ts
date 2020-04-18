@@ -1,5 +1,3 @@
-import { system } from '@styled-system/core';
-import { colorTransform } from 'scales/colors';
 import { css, FlattenInterpolation, ThemeProps } from 'styled-components';
 import { XcoreTheme } from 'theme';
 import { base, compose } from 'utils/baseStyle';
@@ -10,7 +8,9 @@ import {
   globalSystem,
   pseudoBoxSystem,
   selectionSystem,
-  textSystem
+  textSystem,
+  pathSystem,
+  pathHoverSystem
 } from './configs';
 import {
   BoxBaseProps,
@@ -36,13 +36,7 @@ export const boxBase = (p: BoxBaseProps & WithTheme): FlattenInterpolation<Theme
   ${p._icon && css`
       & path {
         ${pseudoBoxBaseComposed({ ...p._icon, theme: p.theme })}
-        ${system({
-          fill: {
-            property: 'fill',
-            scale: 'colors',
-            transform: colorTransform
-          }
-        })({ ...p._icon, theme: p.theme })}
+        ${pathSystem({ ...p._icon, theme: p.theme })}
       }
   `}
 
@@ -92,14 +86,7 @@ export const iconBase = base([flexBase], (p: IconBaseProps & WithTheme) => css`
 
     path {
       transition: fill 300ms;
-      ${system({
-        fill: {
-          property: 'fill',
-          scale: 'colors',
-          transform: colorTransform
-        }
-      })(p)}
-
+      ${pathSystem(p)}
     }
   }
 
@@ -109,12 +96,7 @@ export const iconBase = base([flexBase], (p: IconBaseProps & WithTheme) => css`
 
   &:hover {
     svg path {
-      ${system({
-        fillHover: {
-          property: 'fill',
-          scale: 'colors'
-        }
-      })(p)}
+      ${pathHoverSystem(p)}
     }
   }
 `);

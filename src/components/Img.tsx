@@ -20,10 +20,9 @@ const Img: FC<ImgProps> = ({ ...props }) =>
 
 export default Img;
 
+const imgSystem = system({ objectFit: true });
+
 const ImgStyle = styled.img<ImgProps>`
   ${composedBoxBase}
-
-  ${system({
-    objectFit: true
-  })}
+  ${imgSystem}
 `;

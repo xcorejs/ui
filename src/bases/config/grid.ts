@@ -26,5 +26,19 @@ export const gridConfig: Config = {
   gridTemplateColumns: true,
   gridTemplateRows: true,
   gridTemplateAreas: true,
-  gridArea: true
+  gridArea: true,
+
+  justifyItems: true,
+  justifyContent: true,
+  alignContent: true,
+  alignItems: true,
+  columns: {
+    property: 'gridTemplateColumns'
+  },
+  rows: {
+    property: 'gridTemplateRows'
+  },
+  gap: {
+    property: 'gridGap'
+  }
 };

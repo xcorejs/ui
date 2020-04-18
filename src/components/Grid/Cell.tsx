@@ -43,14 +43,7 @@ const CellStyle = styled.div<CellStyleProps>`
 
   ${p => isIE() && [
       // Styled system properties
-      system({
-        alignSelf: {
-          properties: ['-ms-flex-item-align', '-ms-grid-row-align'] as any[]
-        },
-        justifySelf: {
-          property: '-ms-grid-column-align' as any
-        }
-      })(polyfillTheme(p)),
+      cellSystem(polyfillTheme(p)),
       // Manually position element in grid and handle place-self property
       mediaQueries(p.breakpoints, i => {
         const t = transform(p.breakpoints);
@@ -90,3 +83,12 @@ const CellStyle = styled.div<CellStyleProps>`
   ]}
 
 `;
+
+const cellSystem = system({
+  alignSelf: {
+    properties: ['-ms-flex-item-align', '-ms-grid-row-align'] as any[]
+  },
+  justifySelf: {
+    property: '-ms-grid-column-align' as any
+  }
+});

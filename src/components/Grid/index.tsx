@@ -65,7 +65,7 @@ type GridStyleProps = {
   rows: TransformedValue<string>;
   gap: TransformedValue<string>;
   breakpoints: Breakpoints;
-} & GridPositionProps & BoxBaseProps;
+} & GridPositionProps & BoxBaseProps
 
 const GridStyle = styled.div<GridStyleProps>`
   ${composedBoxBase}
@@ -73,22 +73,7 @@ const GridStyle = styled.div<GridStyleProps>`
   display: grid;
   display: -ms-grid;
 
-  ${p => system({
-    ...gridConfig,
-    justifyItems: true,
-    justifyContent: true,
-    alignContent: true,
-    alignItems: true,
-    columns: {
-      property: 'gridTemplateColumns'
-    },
-    row: {
-      property: 'gridTemplateRows'
-    },
-    gap: {
-      property: 'gridGap'
-    }
-  })(polyfillTheme({
+  ${p => gridSystem(polyfillTheme({
     ...p,
     rows: p.rows.value,
     columns: p.columns.value,
@@ -115,6 +100,8 @@ const GridStyle = styled.div<GridStyleProps>`
     })
   }
 `;
+
+const gridSystem = system(gridConfig);
 
 const templateQueries = (columns: string[], rows: string[], gap: boolean) => css`
   ${rows.map((_, y) =>

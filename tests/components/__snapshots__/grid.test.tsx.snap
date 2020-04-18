@@ -58,6 +58,7 @@ exports[`Grid component 1`] = `
   display: grid;
   display: -ms-grid;
   grid-template-columns: repeat(3,75px) auto;
+  grid-template-rows: 200px auto 70px;
   grid-gap: 10px;
   -ms-grid-columns: 75px 10px 75px 10px 75px 10px auto;
   -ms-grid-rows: 200px 10px auto 10px 70px;

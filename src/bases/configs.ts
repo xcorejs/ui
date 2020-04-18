@@ -81,3 +81,17 @@ export const textSystem = system({
   textDecoration: true,
   wordBreak: true
 });
+
+export const pathSystem = system({
+  fill: {
+    property: 'fill',
+    scale: 'colors'
+  }
+});
+
+export const pathHoverSystem = system({
+  fillHover: {
+    property: 'fill',
+    scale: 'colors'
+  }
+});

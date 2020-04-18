@@ -9,6 +9,7 @@ import useMerge from 'utils/useMerge';
 import { typeVariant } from 'utils/variant';
 
 import { ListVariant } from './theme';
+import { polyfillTheme } from 'utils/baseStyle';
 
 export type ListProps =
   {
@@ -55,6 +56,27 @@ List.displayName = 'List';
 
 export default List;
 
+const listSystem = system({
+  counterReset: true
+});
+const itemSystem = system({
+  paddingLeft: true,
+  marginBottom: true,
+  color: true,
+  fontSize: true,
+  lineHeight: true,
+  counterIncrement: true
+});
+const bulletSystem = system({
+  content: true,
+  position: true,
+  color: true,
+  marginRight: true,
+  width: true,
+  fontSize: true,
+  lineHeight: true
+});
+
 const ListStyle = styled.ul<ListProps>`
   ${composedTextBase}
 
@@ -63,25 +85,10 @@ const ListStyle = styled.ul<ListProps>`
   & li {
     display: flex;
 
-    ${p => system({
-      paddingLeft: true,
-      marginBottom: true,
-      color: true,
-      fontSize: true,
-      lineHeight: true,
-      counterIncrement: true
-    })(p._items)}
+    ${p => itemSystem(polyfillTheme(p._items, p.theme))}
 
     &:before {
-      ${p => system({
-        content: true,
-        position: true,
-        color: true,
-        marginRight: true,
-        width: true,
-        fontSize: true,
-        lineHeight: true
-      })(p._bullet)}
+      ${p => bulletSystem(polyfillTheme(p._bullet, p.theme))}
     }
   }
 
@@ -89,7 +96,5 @@ const ListStyle = styled.ul<ListProps>`
     margin-bottom: 0;
   }
 
-  ${system({
-    counterReset: true
-  })}
+  ${listSystem}
 `;
