@@ -18,6 +18,7 @@ export const mediaQueries = (breakpoints: Breakpoints, predicate: (i: number, br
     });
 
 const isValueEmpty = <T extends unknown>(val: T) =>
+  // eslint-disable-next-line @typescript-eslint/no-extra-parens
   val === false || val === undefined || (Array.isArray(val) && val.length === 0);
 
 const filterVal = <T>(val: T) => Array.isArray(val) ? val.filter(Boolean) : val;

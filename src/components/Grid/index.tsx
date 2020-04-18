@@ -65,7 +65,7 @@ type GridStyleProps = {
   rows: TransformedValue<string>;
   gap: TransformedValue<string>;
   breakpoints: Breakpoints;
-} & GridPositionProps & BoxBaseProps
+} & GridPositionProps & BoxBaseProps;
 
 const GridStyle = styled.div<GridStyleProps>`
   ${composedBoxBase}
