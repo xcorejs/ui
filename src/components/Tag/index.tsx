@@ -1,14 +1,13 @@
+import { flexBase, FlexBaseProps, textBase, TextBaseProps } from 'bases';
+import Complement, { comp, ComplementProps } from 'components/Complement';
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import useTheme from 'useTheme';
+import { compose } from 'utils/baseStyle';
+import useMerge from 'utils/useMerge';
+import { typeVariant } from 'utils/variant';
 
-import useTheme from '../../useTheme';
-import { defaults } from '../../utils/defaults';
-import { typeVariant } from '../../utils/variant';
-import Complement, { comp, ComplementProps } from '../Complement';
 import { TagVariant } from './theme';
-import { compose } from '../../utils/baseStyle';
-import { FlexBaseProps, TextBaseProps, textBase } from '../../bases';
-import { flexBase } from '../../bases/index';
 
 export type TagProps =
   & ComplementProps
@@ -23,12 +22,13 @@ export type ExtendedTagProps = {
 const Tag: FC<ExtendedTagProps> = ({ children, ...p }) => {
   const { tag } = useTheme();
 
+  const m = useMerge(
+    p,
+    typeVariant(tag, 'solid', p),
+    tag.default
+  );
   const [left, right, props] = comp(
-    defaults(
-      p,
-      typeVariant(tag, 'solid', p),
-      tag.default
-    )
+    m
   );
 
   return (

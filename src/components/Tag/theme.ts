@@ -1,5 +1,6 @@
+import { mergeThemes } from 'utils/mergeThemes';
+
 import { TagProps } from '.';
-import { defaultsTheme } from '../../utils/defaults';
 
 export type TagVariant = 'solid' | 'outline' | 'clear';
 
@@ -12,10 +13,10 @@ export interface TagTheme {
   tag: TagValue;
 }
 
-export const tag = (t: {
+export const tag = (t?: {
   default?: TagProps;
   variants?: Partial<Record<TagVariant, TagProps>>;
-} = emptyTag): TagTheme => ({ tag: defaultsTheme<'variants', TagProps>(t, emptyTag) });
+}): TagTheme => ({ tag: mergeThemes<'variants', TagProps>(t, emptyTag) });
 
 const emptyTag: TagValue = {
   default: {

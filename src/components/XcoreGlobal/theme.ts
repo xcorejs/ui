@@ -1,5 +1,5 @@
-import { defaults } from '../../utils/defaults';
-import { GlobalBaseProps, SelectionBaseProps } from '../../bases';
+import { GlobalBaseProps, SelectionBaseProps } from 'bases';
+import { merge } from 'utils/merge';
 
 export type GlobalValue = {
   _html: GlobalBaseProps;
@@ -13,7 +13,7 @@ export interface GlobalTheme {
 }
 
 export const global = (g: Partial<GlobalValue> = emptyGlobal): GlobalTheme => ({
-  global: defaults<GlobalValue>(g, emptyGlobal)
+  global: merge<GlobalValue>(g as GlobalValue, emptyGlobal)
 });
 
 const emptyGlobal: GlobalValue = {

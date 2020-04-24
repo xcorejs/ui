@@ -1,10 +1,9 @@
-import React, { FC, ImgHTMLAttributes } from 'react';
-import { BoxProps } from './Box';
-import { ResponsiveValue, system } from 'styled-system';
+import { composedBoxBase } from 'bases';
+import { BoxProps } from 'components/Box';
 import * as CSS from 'csstype';
+import React, { FC, ImgHTMLAttributes } from 'react';
 import styled from 'styled-components';
-import { compose } from '../utils/baseStyle';
-import { boxBase } from '../bases';
+import { ResponsiveValue, system } from '@styled-system/core';
 
 export type ImgProps =
   {
@@ -21,10 +20,9 @@ const Img: FC<ImgProps> = ({ ...props }) =>
 
 export default Img;
 
-const ImgStyle = styled.img<ImgProps>`
-  ${compose(boxBase)}
+const imgSystem = system({ objectFit: true });
 
-  ${system({
-    objectFit: true
-  })}
+const ImgStyle = styled.img<ImgProps>`
+  ${composedBoxBase}
+  ${imgSystem}
 `;

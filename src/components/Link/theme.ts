@@ -1,6 +1,7 @@
+import { darken } from 'scales/colors';
+import { mergeThemes } from 'utils/mergeThemes';
+
 import { LinkProps } from '.';
-import { darken } from '../../scales/colors';
-import { defaultsTheme } from '../../utils/defaults';
 
 export type LinkVariant = 'underline' | 'simple';
 export type LinkAs = 'a' | 'span';
@@ -14,10 +15,10 @@ export interface LinkTheme {
   link: LinkValue;
 }
 
-export const link = (l: {
+export const link = (l?: {
   default?: LinkProps;
   variants?: Partial<Record<LinkVariant, LinkProps>>;
-} = emptyLink): LinkTheme => ({ link: defaultsTheme<'variants', LinkProps>(l, emptyLink) });
+}): LinkTheme => ({ link: mergeThemes<'variants', LinkProps>(l, emptyLink) });
 
 const emptyLink: LinkValue = {
   default: {

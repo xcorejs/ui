@@ -1,9 +1,8 @@
+import { flexBase, FlexBaseProps, textBase, TextBaseProps } from 'bases';
+import Complement, { sideComp, SideComplementProps } from 'components/Complement';
 import React, { FC } from 'react';
 import styled from 'styled-components';
-
-import Complement, { SideComplementProps, sideComp } from '../Complement';
-import { FlexBaseProps, TextBaseProps, flexBase, textBase } from '../../bases';
-import { compose } from '../../utils/baseStyle';
+import { compose } from 'utils/baseStyle';
 
 export type ListItemProps =
   & FlexBaseProps

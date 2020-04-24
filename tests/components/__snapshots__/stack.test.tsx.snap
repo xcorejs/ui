@@ -1,0 +1,266 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stack component - responsive 1`] = `
+.c1 {
+  margin-right: 0;
+  max-width: 100%;
+}
+
+.c2 {
+  margin-bottom: 0;
+  margin-right: 0;
+  max-width: 100%;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+@media screen and (min-width:30em) {
+  .c1 {
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width:48em) {
+  .c1 {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width:64em) {
+  .c1 {
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+}
+
+@media screen and (min-width:78em) {
+  .c1 {
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+}
+
+@media screen and (min-width:85em) {
+  .c1 {
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
+}
+
+@media screen and (min-width:64em) {
+  .c0 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    Box 1
+  </div>
+  <div
+    className="c2"
+  >
+    Box 2
+  </div>
+</div>
+`;
+
+exports[`Stack component 1`] = `
+Array [
+  .c1 {
+  margin-bottom: 10px;
+  margin-right: 0;
+  max-width: 100%;
+}
+
+.c2 {
+  margin-bottom: 0;
+  margin-right: 0;
+  max-width: 100%;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+@media screen and (min-width:30em) {
+  .c1 {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width:48em) {
+  .c1 {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width:64em) {
+  .c1 {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width:78em) {
+  .c1 {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width:85em) {
+  .c1 {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+}
+
+<div
+    className="c0"
+  >
+    <div
+      className="c1"
+    >
+      Box 1
+    </div>
+    <div
+      className="c2"
+    >
+      Box 2
+    </div>
+  </div>,
+  .c1 {
+  margin-bottom: 10px;
+  margin-right: 0;
+  max-width: 100%;
+}
+
+.c3 {
+  margin-bottom: 0;
+  margin-right: 0;
+  max-width: 100%;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c2 {
+  font-family: "rubik",-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  margin: 0;
+  color: #1E3441;
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 3.6rem;
+}
+
+@media screen and (min-width:30em) {
+  .c1 {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width:48em) {
+  .c1 {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width:64em) {
+  .c1 {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width:78em) {
+  .c1 {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width:85em) {
+  .c1 {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+}
+
+<div
+    className="c0"
+  >
+    <div
+      className="c1"
+    >
+      <h3
+        className="c2"
+        color="text"
+        fontFamily="heading"
+        fontSize="2.4rem"
+        fontWeight={500}
+      >
+        Title 1
+      </h3>
+    </div>
+    <div
+      className="c1"
+    >
+      <h3
+        className="c2"
+        color="text"
+        fontFamily="heading"
+        fontSize="2.4rem"
+        fontWeight={500}
+      >
+        Title 2
+      </h3>
+    </div>
+    <div
+      className="c3"
+    >
+      <h3
+        className="c2"
+        color="text"
+        fontFamily="heading"
+        fontSize="2.4rem"
+        fontWeight={500}
+      >
+        Title 3
+      </h3>
+    </div>
+  </div>,
+]
+`;

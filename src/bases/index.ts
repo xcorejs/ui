@@ -1,18 +1,25 @@
 import { css, FlattenInterpolation, ThemeProps } from 'styled-components';
-import * as system from 'styled-system';
+import { XcoreTheme } from 'theme';
+import { base, compose } from 'utils/baseStyle';
 
-import { colorTransform } from '../scales/colors';
-import { XcoreTheme } from '../theme';
-import { base, compose } from '../utils/baseStyle';
-
-import type {
-  SelectionBaseProps,
-  PseudoBoxBaseProps,
-  GlobalBaseProps,
+import {
+  boxSystem,
+  flexSystem,
+  globalSystem,
+  pseudoBoxSystem,
+  selectionSystem,
+  textSystem,
+  pathSystem,
+  pathHoverSystem
+} from './configs';
+import {
+  BoxBaseProps,
   FlexBaseProps,
+  GlobalBaseProps,
   IconBaseProps,
-  TextBaseProps,
-  BoxBaseProps
+  PseudoBoxBaseProps,
+  SelectionBaseProps,
+  TextBaseProps
 } from './types';
 
 export * from './types';
@@ -20,100 +27,16 @@ export * from './types';
 type WithTheme = { theme: XcoreTheme };
 
 export const selectionBase = (p: SelectionBaseProps & WithTheme) => css`
-  ${system.system({
-    color: {
-      property: 'color',
-      scale: 'colors',
-      transform: colorTransform
-    },
-    backgroundColor: {
-      property: 'backgroundColor',
-      scale: 'colors',
-      transform: colorTransform
-    },
-    cursor: true,
-    caretColor: {
-      property: 'caretColor',
-      scale: 'colors',
-      transform: colorTransform
-    },
-    outline: true,
-    outlineOffset: true,
-    textDecoration: true,
-    textEmphasisColor: {
-      property: 'textEmphasisColor',
-      scale: 'colors',
-      transform: colorTransform
-    },
-    textShadow: true
-  })(p)}
+  ${selectionSystem(p)}
 `;
 
 export const boxBase = (p: BoxBaseProps & WithTheme): FlattenInterpolation<ThemeProps<XcoreTheme>> => css`
-  ${system.border(p)}
-  ${system.boxShadow(p)}
-  ${system.layout(p)}
-  ${system.position(p)}
-  ${system.space(p)}
-  ${system.fontSize(p)}
-  ${system.fontWeight(p)}
-  ${system.gridColumn(p)}
-  ${system.gridRow(p)}
-  ${system.zIndex(p)}
-  ${system.flexbox(p)}
-
-  ${system.typography(p)}
-
-  ${system.system({
-    animation: true,
-    transition: true,
-    transform: true,
-    cursor: true,
-    filter: true,
-    placeSelf: true,
-    column: {
-      property: 'gridColumn'
-    },
-    row: {
-      property: 'gridRow'
-    },
-    userSelect: true,
-    pointerEvents: true,
-    outline: true,
-    outlineOffset: true,
-    background: {
-      property: 'background',
-      scale: 'colors',
-      transform: colorTransform
-    },
-    color: {
-      property: 'color',
-      scale: 'colors',
-      transform: colorTransform
-    },
-    backgroundColor: {
-      property: 'backgroundColor',
-      scale: 'colors',
-      transform: colorTransform
-    },
-    bg: {
-      property: 'backgroundColor',
-      scale: 'colors',
-      transform: colorTransform
-    },
-    opacity: true
-  })(p)}
+  ${boxSystem(p)}
 
   ${p._icon && css`
       & path {
         ${pseudoBoxBaseComposed({ ...p._icon, theme: p.theme })}
-        ${system.system({
-          fill: {
-            property: 'fill',
-            scale: 'colors',
-            transform: colorTransform
-          }
-        })({ ...p._icon, theme: p.theme })}
+        ${pathSystem({ ...p._icon, theme: p.theme })}
       }
   `}
 
@@ -123,19 +46,9 @@ export const boxBase = (p: BoxBaseProps & WithTheme): FlattenInterpolation<Theme
       }
   `}
 
-  ${p._groupHoverIcon && css`
-      ${console.warn('Warning: _groupHoverIcon={...} is deprecated use _group={{ _hover: { _icon: {...} } }} instead!') as any}
-
-      [role=group]:hover & {
-        ${iconBaseComposed({ ...p._groupHoverIcon, theme: p.theme })}
-      }
-  `}
-
   ${Object.keys(pseudoSelectors).map(k => p[k] && css`
-      ${k === '_groupHover' && console.warn('Warning: _groupHover={...} is deprecated use _group={{ _hover: ... }} instead!') as any}
-
       ${pseudoSelectors[k]} {
-        ${pseudoBoxBaseComposed({ ...p[k]!, theme: p.theme })}
+        ${pseudoBoxBaseComposed({ ...p[k], theme: p.theme })}
       }
   `)}
 
@@ -145,26 +58,22 @@ export const boxBase = (p: BoxBaseProps & WithTheme): FlattenInterpolation<Theme
       }
   `)}
 `;
+export const composedBoxBase = compose(boxBase);
 
 export const pseudoBoxBase = base([boxBase], (p: PseudoBoxBaseProps & WithTheme) => css`
-  ${system.system({
-    content: true
-  })(p)}
+  ${pseudoBoxSystem(p)}
 `);
-
 const pseudoBoxBaseComposed = compose(pseudoBoxBase);
 
 export const globalBase = base([boxBase], ({ webkitFontSmoothing, ...p }: GlobalBaseProps & WithTheme) => css`
-  ${system.system({
-    boxSizing: {
-      property: 'boxSizing'
-    }
-  })(p)}
+  ${globalSystem(p)}
 `);
 
 export const flexBase = base([boxBase], (p: FlexBaseProps & WithTheme) => css`
-  ${system.display({ display: p.display ?? 'flex' })}
+  ${flexSystem({ display: p.display ?? 'flex' })}
 `);
+
+export const composedFlexBase = compose(flexBase);
 
 export const iconBase = base([flexBase], (p: IconBaseProps & WithTheme) => css`
   flex-shrink: 0;
@@ -177,14 +86,7 @@ export const iconBase = base([flexBase], (p: IconBaseProps & WithTheme) => css`
 
     path {
       transition: fill 300ms;
-      ${system.system({
-        fill: {
-          property: 'fill',
-          scale: 'colors',
-          transform: colorTransform
-        }
-      })(p)}
-
+      ${pathSystem(p)}
     }
   }
 
@@ -194,30 +96,18 @@ export const iconBase = base([flexBase], (p: IconBaseProps & WithTheme) => css`
 
   &:hover {
     svg path {
-      ${system.system({
-        fillHover: {
-          property: 'fill',
-          scale: 'colors'
-        }
-      })(p)}
+      ${pathHoverSystem(p)}
     }
   }
 `);
 
-const iconBaseComposed = compose(iconBase);
+export const composedIconBase = compose(iconBase);
 
 export const textBase = base([boxBase], (p: TextBaseProps & WithTheme) => css`
-  ${system.system({
-    textTransform: true,
-    WebkitLineClamp: true,
-    WebkitBoxOrient: true,
-    textOverflow: true,
-    whiteSpace: true,
-    textDecoration: true,
-    wordBreak: true
-  })(p)}
-  ${system.textShadow(p)}
+  ${textSystem(p)}
 `);
+
+export const composedTextBase = compose(textBase);
 
 type GroupPseudoSelector =
   | '_hover'
@@ -245,8 +135,8 @@ const pseudoSelectors: Record<PseudoSelector, string> = {
   // eslint-disable-next-line max-len
   _disabled: '&:disabled, &:disabled:focus, &:disabled:hover, &[aria-disabled=true], &[aria-disabled=true]:focus, &[aria-disabled=true]:hover',
   _groupHover: '[role=group]:hover &',
-  _placeholder: '::placeholder',
-  _focusWithin: ':focus-within',
+  _placeholder: '&::placeholder',
+  _focusWithin: '&:focus-within',
   _first: '&:first-child',
   _firstOfType: '&:first-of-type',
   _last: '&:last-child'

@@ -1,22 +1,17 @@
-import { getArrayValue } from '../../utils/convert';
-
 export const parseGridCell = (val: string | number): [string, string | undefined] =>
   typeof val === 'number'
     ? [val.toString(), undefined]
     : (val.split('/') as [string, string]);
 
 export const parseGridAxis = (
-  axis: Array<string | null | number>,
-  i: number,
+  axis: string | null | number,
   gap: boolean
 ): [number | undefined, number | undefined] => {
-  const value = getArrayValue(axis, i);
-
-  if (value === null) {
+  if (axis === null) {
     return [undefined, undefined];
   }
 
-  const [start, end] = parseGridCell(value);
+  const [start, end] = parseGridCell(axis);
 
   const getIndex = (n: number) => gap ? 2 * n - 1 : n;
 

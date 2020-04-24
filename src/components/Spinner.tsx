@@ -1,8 +1,6 @@
+import { BoxBaseProps, composedBoxBase } from 'bases';
 import React, { FC } from 'react';
 import styled, { keyframes } from 'styled-components';
-
-import { compose } from '../utils/baseStyle';
-import { boxBase, BoxBaseProps } from '../bases';
 
 export type SpinnerProps = {
   speed?: string;
@@ -38,7 +36,7 @@ const spin = keyframes`
 `;
 
 const SpinnerStyle = styled.div<SpinnerProps>`
-  ${compose(boxBase)}
+  ${composedBoxBase}
 
   animation: ${spin} ${({ speed }) => speed} linear infinite;
 `;

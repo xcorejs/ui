@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container component 1`] = `
+.c1 {
+  width: 100%;
+}
+
+.c2 {
+  background: crimson;
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.c3 {
+  background: navy;
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media screen and (min-width:30em) {
+  .c0 {
+    width: 76.8rem;
+  }
+}
+
+@media screen and (min-width:48em) {
+  .c0 {
+    width: 102.4rem;
+  }
+}
+
+@media screen and (min-width:64em) {
+  .c0 {
+    width: 120rem;
+  }
+}
+
+@media screen and (min-width:78em) {
+  .c0 {
+    width: 132rem;
+  }
+}
+
+<div
+  className="c0"
+  width={
+    Array [
+      "100%",
+      "76.8rem",
+      "102.4rem",
+      "120rem",
+      "132rem",
+    ]
+  }
+>
+  <div
+    className="c1"
+    width="100%"
+  >
+    <div
+      className="c2"
+      color="white"
+    >
+      Box 1
+    </div>
+    <div
+      className="c3"
+      color="white"
+    >
+      Box 2
+    </div>
+  </div>
+</div>
+`;

@@ -1,7 +1,8 @@
-import system, { ResponsiveValue } from 'styled-system';
 import CSS from 'csstype';
-import { XcoreTheme } from '../theme';
-import { DOMAttributes, CSSProperties } from 'react';
+import { CSSProperties, DOMAttributes } from 'react';
+import { ResponsiveValue } from '@styled-system/core';
+import system from 'styled-system';
+import { XcoreTheme } from 'theme';
 
 type TLen = string | 0 | number;
 

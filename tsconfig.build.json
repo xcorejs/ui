@@ -1,11 +1,13 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "noEmit": false,
+    "target": "esnext",
     "declaration": true,
-    "emitDeclarationOnly": true,
-    "declarationDir": "types"
+    "declarationMap": true,
+    "paths": {
+      "*": ["./src/*"]
+    }
   },
-  "include": ["src", "src/lib.es5.d.ts", "src/styled.d.ts"],
+  "include": ["src", "src/lib.es5.d.ts", "src/styled.d.ts", "**/*.d.ts"],
   "exclude": ["test", "stories"]
 }

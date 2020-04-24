@@ -16,23 +16,21 @@ export const base = <T>(inherits: BaseStyle<T>[], b: (props: T) => Style): BaseS
   return f;
 };
 
-export const polyfillTheme = <T extends { theme?: {} }>(
+export const polyfillTheme = <T extends {} | undefined>(
   p: T,
   theme: XcoreTheme = emptyTheme
-): T & { theme: XcoreTheme } => ({
-  ...p,
-  theme: p.theme === undefined || Object.keys(p.theme).length === 0
-    ? theme
-    : (p.theme as XcoreTheme)
-});
+): T & { theme: XcoreTheme } =>
+  p &&
+  ('theme' in p || (p as any).theme === undefined || Object.keys((p as any).theme).length === 0
+    ? {
+      ...p,
+      theme
+    }
+    : p as T & { theme: XcoreTheme });
 
 export const compose = <T>(...bases: BaseStyle<T>[]) => {
   const flattenBases = Array.from(new Set(flatten(bases)));
-  return (p: T & { theme: {} }) => {
-    return css`
-      ${flattenBases.map(b => b(polyfillTheme(p)))}
-    `;
-  };
+  return (p: T & { theme: {} }) => flattenBases.map(b => b(polyfillTheme(p)));
 };
 
 const flatten = <T>(bases: BaseStyle<T>[]): BaseStyle<T>[] => bases.reduce(

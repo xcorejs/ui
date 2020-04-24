@@ -1,21 +1,20 @@
+import { flexBase, FlexBaseProps, textBase, TextBaseProps } from 'bases';
+import Complement, { comp, ComplementProps } from 'components/Complement';
+import Spinner, { SpinnerProps } from 'components/Spinner';
+import * as CSS from 'csstype';
 import React, { AnchorHTMLAttributes, forwardRef, ReactNode } from 'react';
 import styled from 'styled-components';
-import * as system from 'styled-system';
-import * as CSS from 'csstype';
-
-import useTheme from '../../useTheme';
-import { ButtonSize, ButtonVariant } from './theme';
-import Spinner, { SpinnerProps } from '../Spinner';
-import Complement, { comp, ComplementProps } from '../Complement';
-import { typeVariant, sizeVariant } from '../../utils/variant';
-import { defaults } from '../../utils/defaults';
-import { compose } from '../../utils/baseStyle';
-import { FlexBaseProps, TextBaseProps, textBase, flexBase } from '../../bases';
+import { ButtonSize, ButtonVariant } from 'theme';
+import useTheme from 'useTheme';
+import { compose } from 'utils/baseStyle';
+import useMerge from 'utils/useMerge';
+import { sizeVariant, typeVariant } from 'utils/variant';
+import { ResponsiveValue } from '@styled-system/core';
 
 export type ButtonProps =
   {
     _spinner?: SpinnerProps;
-    textTransform?: system.ResponsiveValue<CSS.TextTransformProperty>;
+    textTransform?: ResponsiveValue<CSS.TextTransformProperty>;
   }
   & ComplementProps
   & FlexBaseProps
@@ -47,14 +46,13 @@ const Button = forwardRef<HTMLDivElement, ExtendedButtonProps>((
 ) => {
   const { button } = useTheme();
 
-  const [left, right, { _spinner, ...props }] = comp(
-    defaults(
-      p,
-      typeVariant(button, 'solid', p),
-      sizeVariant(button, 'md', p),
-      button.default
-    )
+  const m = useMerge(
+    p,
+    typeVariant(button, 'solid', p),
+    sizeVariant(button, 'md', p),
+    button.default
   );
+  const [left, right, { _spinner, ...props }] = comp(m);
 
   return (
     <ButtonStyle role="group" as={as} {...props} ref={ref}>

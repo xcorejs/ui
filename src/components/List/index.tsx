@@ -1,35 +1,35 @@
+import { composedTextBase, TextBaseProps } from 'bases';
+import { TLen } from 'components/Box';
 import CSS from 'csstype';
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import * as system from 'styled-system';
+import { system, ResponsiveValue } from '@styled-system/core';
+import useTheme from 'useTheme';
+import useMerge from 'utils/useMerge';
+import { typeVariant } from 'utils/variant';
 
-import useTheme from '../../useTheme';
-import { defaults } from '../../utils/defaults';
-import { typeVariant } from '../../utils/variant';
-import { TLen } from '../Box';
 import { ListVariant } from './theme';
-import { textBase, TextBaseProps } from '../../bases';
-import { compose } from '../../utils/baseStyle';
+import { polyfillTheme } from 'utils/baseStyle';
 
 export type ListProps =
   {
-    counterReset?: system.ResponsiveValue<CSS.CounterResetProperty>;
+    counterReset?: ResponsiveValue<CSS.CounterResetProperty>;
     _items?: {
-      paddingLeft?: system.ResponsiveValue<CSS.PaddingLeftProperty<TLen>>;
-      marginBottom?: system.ResponsiveValue<CSS.MarginBottomProperty<TLen>>;
-      color?: system.ResponsiveValue<string>;
-      fontSize?: system.ResponsiveValue<CSS.FontSizeProperty<TLen>>;
-      lineHeight?: system.ResponsiveValue<CSS.LineHeightProperty<TLen>>;
-      counterIncrement?: system.ResponsiveValue<CSS.CounterIncrementProperty>;
+      paddingLeft?: ResponsiveValue<CSS.PaddingLeftProperty<TLen>>;
+      marginBottom?: ResponsiveValue<CSS.MarginBottomProperty<TLen>>;
+      color?: ResponsiveValue<string>;
+      fontSize?: ResponsiveValue<CSS.FontSizeProperty<TLen>>;
+      lineHeight?: ResponsiveValue<CSS.LineHeightProperty<TLen>>;
+      counterIncrement?: ResponsiveValue<CSS.CounterIncrementProperty>;
     };
     _bullet?: {
-      content?: system.ResponsiveValue<CSS.ContentProperty>;
-      position?: system.ResponsiveValue<CSS.PositionProperty>;
-      color?: system.ResponsiveValue<string>;
-      marginRight?: system.ResponsiveValue<CSS.MarginRightProperty<TLen>>;
-      width?: system.ResponsiveValue<CSS.WidthProperty<TLen>>;
-      fontSize?: system.ResponsiveValue<CSS.FontSizeProperty<TLen>>;
-      lineHeight?: system.ResponsiveValue<CSS.LineHeightProperty<TLen>>;
+      content?: ResponsiveValue<CSS.ContentProperty>;
+      position?: ResponsiveValue<CSS.PositionProperty>;
+      color?: ResponsiveValue<string>;
+      marginRight?: ResponsiveValue<CSS.MarginRightProperty<TLen>>;
+      width?: ResponsiveValue<CSS.WidthProperty<TLen>>;
+      fontSize?: ResponsiveValue<CSS.FontSizeProperty<TLen>>;
+      lineHeight?: ResponsiveValue<CSS.LineHeightProperty<TLen>>;
     };
   }
   & TextBaseProps;
@@ -45,7 +45,7 @@ const List: FC<ExtendedListProps> = p => {
 
   const type = p.v ?? p.variant ?? 'unordered';
 
-  const props = defaults(p, typeVariant(list, 'unordered', p), list.default);
+  const props = useMerge(p, typeVariant(list, 'unordered', p), list.default);
 
   return (
     <ListStyle as={type === 'unordered' ? 'ul' : 'ol'} {...props} />
@@ -56,33 +56,39 @@ List.displayName = 'List';
 
 export default List;
 
+const listSystem = system({
+  counterReset: true
+});
+const itemSystem = system({
+  paddingLeft: true,
+  marginBottom: true,
+  color: true,
+  fontSize: true,
+  lineHeight: true,
+  counterIncrement: true
+});
+const bulletSystem = system({
+  content: true,
+  position: true,
+  color: true,
+  marginRight: true,
+  width: true,
+  fontSize: true,
+  lineHeight: true
+});
+
 const ListStyle = styled.ul<ListProps>`
-  ${compose(textBase)}
+  ${composedTextBase}
 
   list-style-type: none;
 
   & li {
     display: flex;
 
-    ${p => system.system({
-      paddingLeft: true,
-      marginBottom: true,
-      color: true,
-      fontSize: true,
-      lineHeight: true,
-      counterIncrement: true
-    })(p._items)}
+    ${p => itemSystem(polyfillTheme(p._items, p.theme))}
 
     &:before {
-      ${p => system.system({
-        content: true,
-        position: true,
-        color: true,
-        marginRight: true,
-        width: true,
-        fontSize: true,
-        lineHeight: true
-      })(p._bullet)}
+      ${p => bulletSystem(polyfillTheme(p._bullet, p.theme))}
     }
   }
 
@@ -90,7 +96,5 @@ const ListStyle = styled.ul<ListProps>`
     margin-bottom: 0;
   }
 
-  ${system.system({
-    counterReset: true
-  })}
+  ${listSystem}
 `;

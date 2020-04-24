@@ -1,5 +1,5 @@
-import { defaultsTheme } from '../../utils/defaults';
-import { FlexProps } from '../Flex';
+import { FlexProps } from 'components/Flex';
+import { mergeThemes } from 'utils/mergeThemes';
 
 type ContainerValue = {
   default: FlexProps;
@@ -13,11 +13,11 @@ export interface ContainerTheme {
 }
 
 export const container = (
-  c: {
+  c?: {
     default?: FlexProps;
     variants?: Partial<Record<ContainerVariant, FlexProps>>;
-  } = emptyContainer
-): ContainerTheme => ({ container: defaultsTheme<'variants', FlexProps>(c, emptyContainer) });
+  }
+): ContainerTheme => ({ container: mergeThemes<'variants', FlexProps>(c, emptyContainer) });
 
 const emptyContainer: ContainerValue = {
   default: {

@@ -1,10 +1,10 @@
 import Portal from '@reach/portal';
-import React, { FC, useEffect, useLayoutEffect, useState, MutableRefObject } from 'react';
-import { ResponsiveValue } from 'styled-system';
+import { ResponsiveValue } from '@styled-system/core';
+import Box, { BoxProps } from 'components/Box';
+import React, { FC, MutableRefObject, useLayoutEffect, useState } from 'react';
+import useTheme from 'useTheme';
+import { transform } from 'utils/transform';
 
-import useTheme from '../../useTheme';
-import convert from '../../utils/convert';
-import Box, { BoxProps } from '../Box';
 import { HorizontalPosition, VerticalPosition } from './data';
 
 export type InsetBoxProps = {
@@ -54,10 +54,10 @@ export default InsetBox;
 
 const InnerInsetBox: FC<InsetBoxProps> = ({ h, horizontalPosition, v, verticalPosition, ...props }) => {
   const { breakpoints } = useTheme();
-  const { toArray } = convert(breakpoints);
+  const t = transform(breakpoints);
 
-  const hor = toArray(h ?? horizontalPosition);
-  const ver = toArray(v ?? verticalPosition);
+  const hor = t(h ?? horizontalPosition);
+  const ver = t(v ?? verticalPosition);
 
   return (
     <Box
@@ -87,7 +87,7 @@ const InnerInsetBox: FC<InsetBoxProps> = ({ h, horizontalPosition, v, verticalPo
           : null
       )}
       transform={ver.map((y, i) =>
-          `${y === 'center' ? 'translateY(-50%)' : ''} ${hor[i] === 'center' ? 'translateX(-50%)' : ''}`
+          `${y === 'center' ? 'translateY(-50%)' : ''} ${hor.get(i) === 'center' ? 'translateX(-50%)' : ''}`
       )}
       {...props}
     />

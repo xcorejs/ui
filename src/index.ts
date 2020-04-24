@@ -15,6 +15,7 @@ export { default as Grid, GridProps, ExtendedGridProps } from './components/Grid
 export { default as Cell, CellProps, ExtendedCellProps } from './components/Grid/Cell';
 export { default as InsetBox, InsetBoxProps } from './components/AbsoluteBox/InsetBox';
 export { default as OutsetBox, OutsetBoxProps } from './components/AbsoluteBox/OutsetBox';
+export { HorizontalPosition, VerticalPosition } from './components/AbsoluteBox/data';
 
 // Button
 export { default as Button, ButtonProps, ExtendedButtonProps } from './components/Button';

@@ -1,16 +1,14 @@
+import { composedFlexBase } from 'bases';
+import { FlexProps } from 'components/Flex';
+import Icon, { IconProps } from 'components/Icon';
+import { CloseIcon } from 'icons/close';
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
+import useTheme from 'useTheme';
+import useMerge from 'utils/useMerge';
+import { sizeVariant } from 'utils/variant';
 
-import { CloseIcon } from '../../icons/close';
-import Icon, { IconProps } from '../Icon';
-import { FlexProps } from '../Flex';
-import { compose } from '../../utils/baseStyle';
-import { flexBase } from '../../bases';
-import useTheme from '../../useTheme';
-import { sizeVariant } from '../../utils/variant';
-import { defaults } from '../../utils/defaults';
-
-type CloseControlSizes = 'xs' | 'sm' | 'md' | 'lg';
+import { CloseControlSizes } from './theme';
 
 export type CloseControlProps =
   {
@@ -28,7 +26,7 @@ export type ExtendedCloseControlProps =
 const CloseControl = forwardRef<HTMLDivElement, ExtendedCloseControlProps>((p, ref) => {
   const { closeControl } = useTheme();
 
-  const { _icon, ...props } = defaults(
+  const { _icon, ...props } = useMerge(
     p,
     sizeVariant(closeControl, 'md', p),
     closeControl.default
@@ -50,7 +48,7 @@ const CloseControl = forwardRef<HTMLDivElement, ExtendedCloseControlProps>((p, r
 export default CloseControl;
 
 const CloseButtonStyle = styled.div`
-  ${compose(flexBase)}
+  ${composedFlexBase}
   svg {
     width: 100%;
     height: 100%;

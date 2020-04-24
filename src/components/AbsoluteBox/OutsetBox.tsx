@@ -1,12 +1,12 @@
 import Portal from '@reach/portal';
-import React, { FC, MutableRefObject, useLayoutEffect, useState, useEffect, useMemo } from 'react';
-import { ResponsiveValue } from 'styled-system';
-
-import useTheme from '../../useTheme';
-import convert from '../../utils/convert';
-import Box, { BoxProps } from '../Box';
-import { HorizontalPosition, VerticalPosition } from './data';
+import { ResponsiveValue } from '@styled-system/core';
+import Box, { BoxProps } from 'components/Box';
+import React, { FC, MutableRefObject, useEffect, useLayoutEffect, useMemo, useState } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
+import useTheme from 'useTheme';
+import { transform } from 'utils/transform';
+
+import { HorizontalPosition, VerticalPosition } from './data';
 
 export type OutsetBoxTarget = MutableRefObject<Element> | Element;
 
@@ -22,10 +22,10 @@ export type OutsetBoxProps = {
 
 const OutsetBox: FC<OutsetBoxProps> = ({ h, horizontalPosition, v, verticalPosition, target, ...props }) => {
   const { breakpoints } = useTheme();
-  const { toArray } = convert(breakpoints);
+  const tr = transform(breakpoints);
 
-  const hor = toArray(h ?? horizontalPosition);
-  const ver = toArray(v ?? verticalPosition);
+  const hor = tr(h ?? horizontalPosition);
+  const ver = tr(v ?? verticalPosition);
 
   const [{ top, left, right, bottom }, setRect] = useState({ top: 0, left: 0, right: 0, bottom: 0 });
 

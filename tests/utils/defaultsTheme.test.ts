@@ -1,33 +1,10 @@
-import { defaults, defaultsTheme } from '../../src/utils/defaults';
-import { createTheme } from '../../src/theme';
+
+import { mergeThemes } from '../../src/utils/mergeThemes';
 import { darken } from 'polished';
 import { ButtonProps } from '../../src/components/Button/index';
 
-test('defaults', () => {
-  expect(defaults<ButtonProps>(
-    {
-      color: 'blue'
-    },
-    {
-      color: 'red',
-      background: 'red',
-      borderColor: 'red'
-    },
-    {
-      color: 'green',
-      borderColor: 'green',
-      fontSize: '2rem'
-    }
-  )).toEqual({
-    color: 'blue',
-    background: 'red',
-    borderColor: 'red',
-    fontSize: '2rem'
-  });
-});
-
 test('defaultsTheme', () => {
-  expect(defaultsTheme<'types' | 'sizes', ButtonProps>(
+  expect(mergeThemes<'types' | 'sizes', ButtonProps>(
     {
       default: {
         bg: 'crimson',

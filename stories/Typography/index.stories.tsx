@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 
-import { Box, createTheme, Typography, XcoreProvider } from '../../src';
+import { Box, Typography, XcoreProvider } from '../../src';
 
 export default { title: 'Typography' };
 
 export const BasicUsage: FC = () => {
   return (
-    <XcoreProvider theme={createTheme({})}>
+    <XcoreProvider>
       <Box>
         <Typography variant="h1" mb="4rem">Heading 1</Typography>
         <Typography variant="h2">Heading 2</Typography>

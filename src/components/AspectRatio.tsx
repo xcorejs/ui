@@ -1,16 +1,14 @@
+import { BoxBaseProps, composedBoxBase } from 'bases';
+import Flex from 'components/Flex';
 import React, { FC } from 'react';
 import styled from 'styled-components';
-
-import { boxBase, BoxBaseProps } from '../bases';
-import { compose } from '../utils/baseStyle';
-import Flex from './Flex';
 
 export type AspectRatioProps = {
   ratio: number;
 } & BoxBaseProps;
 
 const AspectRatioStyle = styled.div<BoxBaseProps>`
-  ${compose(boxBase)}
+  ${composedBoxBase}
 
   & > div {
     width: 100%;

@@ -110,6 +110,7 @@
       "react/no-danger-with-children": "error",
       "react/no-deprecated": "error",
       "react/no-direct-mutation-state": "error",
-      "react/display-name": "off"
+      "react/display-name": "off",
+      "no-unused-expressions": "off"
     }
 }

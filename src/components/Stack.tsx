@@ -1,15 +1,15 @@
-import React, { Children, cloneElement, FC, isValidElement, ReactNode, createElement } from 'react';
-import system from 'styled-system';
+import { ResponsiveValue } from '@styled-system/core';
+import Box from 'components/Box';
+import Flex, { FlexProps } from 'components/Flex';
+import React, { Children, cloneElement, FC, isValidElement, ReactNode } from 'react';
+import useTheme from 'useTheme';
 
-import useTheme from '../useTheme';
-import convert from '../utils/convert';
-import Flex, { FlexProps } from './Flex';
-import Box from './Box';
+import { transform } from '../utils/transform';
 
 export interface StackProps extends FlexProps {
-  direction?: system.ResponsiveValue<'column' | 'row'>;
-  dir?: system.ResponsiveValue<'column' | 'row'>;
-  gap?: system.ResponsiveValue<number | string>;
+  direction?: ResponsiveValue<'column' | 'row'>;
+  dir?: ResponsiveValue<'column' | 'row'>;
+  gap?: ResponsiveValue<number | string>;
   wrapItems?: boolean;
 
   children: ReactNode;
@@ -27,37 +27,40 @@ const Stack: FC<StackProps> = ({
   align,
   justify,
   wrap,
-  gap,
+  gap: _gap,
   children,
   wrapItems,
   ...props
 }) => {
   const { breakpoints } = useTheme();
-  const { toArray, narrow } = convert(breakpoints);
-  const isLast = (i: number) => Children.count(children) === i + 1;
+  const t = transform(breakpoints);
 
-  const direction = _direction ?? _dir ?? 'row';
+  const direction = t(_direction ?? _dir ?? 'row');
+  const gap = t(_gap);
 
-  const getStyle = (
-    dir: ('column' | 'row' | null)[],
-    s: (number | string | null)[],
-    index: number
-  ) => {
-    const { mb, mr, maxWidth } = dir.reduce((acc, val, i) => ({
-      mb: [...acc.mb, val === 'column' && !isLast(index) ? s[i] : 0],
-      mr: [...acc.mr, val === 'row' && !isLast(index) ? s[i] : 0],
-      maxWidth: [...acc.maxWidth, val === 'column' ? '100%' : null]
-    }),
+  const itemStyle = ['_', ...breakpoints.aliases].reduce(
+    (acc, val) => {
+      const d = direction.get(val);
+      const g = gap.get(val);
+      return {
+        mb: [...acc.mb, d === 'column' ? g : 0],
+        mr: [...acc.mr, d === 'row' ? g : 0]
+      };
+    },
     {
-      mb: [],
-      mr: [],
-      maxWidth: []
-    } as { mb: (string | number | null)[]; mr: (string | number | null)[]; maxWidth: (string | number | null)[] });
+      mb: [] as (string | number | null)[],
+      mr: [] as (string | number | null)[]
+    }
+  );
 
+  const maxWidth = direction.map(d => d === 'column' ? '100%' : null);
+
+  const getStyle = (i: number) => {
+    const last = Children.count(children) === i + 1;
     return {
-      mb: narrow(mb),
-      mr: narrow(mr),
-      maxWidth: narrow(maxWidth)
+      mb: last ? 0 : itemStyle.mb,
+      mr: last ? 0 : itemStyle.mr,
+      maxWidth
     };
   };
 
@@ -65,19 +68,16 @@ const Stack: FC<StackProps> = ({
     <Flex
       alignItems={align}
       justifyContent={justify}
-      flexDirection={direction}
+      flexDirection={direction.value}
       flexWrap={wrap}
       {...props}
     >
-      {Children.map(children, (child, index) => wrapItems
-        ? (
-          <Box {...getStyle(toArray(direction, false), toArray(gap, false), index)}>
-            {child}
-          </Box>
-        )
-        : isValidElement(child)
-          ? cloneElement(child, getStyle(toArray(direction, false), toArray(gap, false), index))
-          : child
+      {Children.map(children, (child, i) =>
+        wrapItems
+          ? <Box {...getStyle(i)}>{child}</Box>
+          : isValidElement(child)
+            ? cloneElement(child, getStyle(i))
+            : child
       )}
 
     </Flex>

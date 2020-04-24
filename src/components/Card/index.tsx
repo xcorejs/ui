@@ -1,16 +1,16 @@
-import React, { forwardRef, ReactNode } from 'react';
-
-import useTheme from '../../useTheme';
-import { defaults } from '../../utils/defaults';
-import renderComponent, { Renderable } from '../../utils/renderComponent';
-import { typeVariant } from '../../utils/variant';
-import { BoxProps } from '../Box';
-import Flex, { FlexProps } from '../Flex';
-import Tag, { TagProps } from '../Tag';
-import Text, { TextProps } from '../Text';
-import { CardVariant } from './theme';
-import { ResponsiveValue } from 'styled-system';
+import { BoxProps } from 'components/Box';
+import Flex, { FlexProps } from 'components/Flex';
+import Tag, { TagProps } from 'components/Tag';
+import Text, { TextProps } from 'components/Text';
 import CSS from 'csstype';
+import React, { forwardRef, ReactNode } from 'react';
+import { ResponsiveValue } from '@styled-system/core';
+import useTheme from 'useTheme';
+import renderComponent, { Renderable } from 'utils/renderComponent';
+import useMerge from 'utils/useMerge';
+import { typeVariant } from 'utils/variant';
+
+import { CardVariant } from './theme';
 
 export type CardProps =
   {
@@ -66,7 +66,7 @@ const Card = forwardRef<HTMLDivElement, ExtendedCardProps>(({
     footer,
     innerPadding,
     ...props
-  } = defaults(
+  } = useMerge(
     p,
     type,
     card.default

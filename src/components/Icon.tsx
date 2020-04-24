@@ -1,9 +1,7 @@
+import { composedIconBase, IconBaseProps } from 'bases';
 import React, { FC, ReactNode } from 'react';
 import styled from 'styled-components';
-
-import { iconBase, IconBaseProps } from '../bases';
-import renderComponent from '../utils/renderComponent';
-import { compose } from '../utils/baseStyle';
+import renderComponent from 'utils/renderComponent';
 
 export type IconProps = IconBaseProps & {
   svg?: ReactNode;
@@ -28,5 +26,5 @@ const Icon: FC<ExtendedIconProps> = ({ svg, children, ...props }) => {
 export default Icon;
 
 const IconStyle = styled.span<IconProps>`
-  ${compose(iconBase)}
+  ${composedIconBase}
 `;

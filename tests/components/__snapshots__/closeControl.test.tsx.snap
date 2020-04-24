@@ -1,0 +1,451 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CloseControl component 1`] = `
+Array [
+  .c1 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: inline-block;
+  display: inline-block;
+  vertical-align: middle;
+  max-height: 100%;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.c1 svg {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.c1 svg path {
+  -webkit-transition: fill 300ms;
+  transition: fill 300ms;
+  fill: #455663;
+}
+
+.c1:not(:root) {
+  overflow: hidden;
+}
+
+.c1:hover svg path {
+  fill: #1e1e1e;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.c0 svg {
+  width: 100%;
+  height: 100%;
+}
+
+<div
+    className="c0"
+    cursor="pointer"
+    display="inline-flex"
+    height="2.4rem"
+    width="2.4rem"
+  >
+    <span
+      className="c1"
+      display="inline-block"
+      fill="#455663"
+      height="1.2rem"
+      width="1.2rem"
+    >
+      <svg
+        height="8"
+        viewBox="0 0 8 8"
+        width="8"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0.292893219,0.292893219 C0.683417511,-0.0976310729 1.31658249,-0.0976310729 1.70710678,0.292893219 L1.70710678,0.292893219 L4,2.585 L6.29289322,0.292893219 C6.65337718,-0.0675907428 7.22060824,-0.0953202783 7.61289944,0.209704612 L7.70710678,0.292893219 C8.09763107,0.683417511 8.09763107,1.31658249 7.70710678,1.70710678 L7.70710678,1.70710678 L5.415,4 L7.70710678,6.29289322 C8.06759074,6.65337718 8.09532028,7.22060824 7.79029539,7.61289944 L7.70710678,7.70710678 C7.31658249,8.09763107 6.68341751,8.09763107 6.29289322,7.70710678 L6.29289322,7.70710678 L4,5.415 L1.70710678,7.70710678 C1.34662282,8.06759074 0.779391764,8.09532028 0.387100557,7.79029539 L0.292893219,7.70710678 C-0.0976310729,7.31658249 -0.0976310729,6.68341751 0.292893219,6.29289322 L0.292893219,6.29289322 L2.585,4 L0.292893219,1.70710678 C-0.0675907428,1.34662282 -0.0953202783,0.779391764 0.209704612,0.387100557 Z"
+          fill="#1E1E1E"
+          fillRule="evenodd"
+        />
+      </svg>
+    </span>
+  </div>,
+  .c1 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: inline-block;
+  display: inline-block;
+  vertical-align: middle;
+  max-height: 100%;
+  width: 0.6rem;
+  height: 0.6rem;
+}
+
+.c1 svg {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.c1 svg path {
+  -webkit-transition: fill 300ms;
+  transition: fill 300ms;
+  fill: #455663;
+}
+
+.c1:not(:root) {
+  overflow: hidden;
+}
+
+.c1:hover svg path {
+  fill: #1e1e1e;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.c0 svg {
+  width: 100%;
+  height: 100%;
+}
+
+<div
+    className="c0"
+    cursor="pointer"
+    display="inline-flex"
+    height="1.2rem"
+    width="1.2rem"
+  >
+    <span
+      className="c1"
+      display="inline-block"
+      fill="#455663"
+      height="0.6rem"
+      width="0.6rem"
+    >
+      <svg
+        height="8"
+        viewBox="0 0 8 8"
+        width="8"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0.292893219,0.292893219 C0.683417511,-0.0976310729 1.31658249,-0.0976310729 1.70710678,0.292893219 L1.70710678,0.292893219 L4,2.585 L6.29289322,0.292893219 C6.65337718,-0.0675907428 7.22060824,-0.0953202783 7.61289944,0.209704612 L7.70710678,0.292893219 C8.09763107,0.683417511 8.09763107,1.31658249 7.70710678,1.70710678 L7.70710678,1.70710678 L5.415,4 L7.70710678,6.29289322 C8.06759074,6.65337718 8.09532028,7.22060824 7.79029539,7.61289944 L7.70710678,7.70710678 C7.31658249,8.09763107 6.68341751,8.09763107 6.29289322,7.70710678 L6.29289322,7.70710678 L4,5.415 L1.70710678,7.70710678 C1.34662282,8.06759074 0.779391764,8.09532028 0.387100557,7.79029539 L0.292893219,7.70710678 C-0.0976310729,7.31658249 -0.0976310729,6.68341751 0.292893219,6.29289322 L0.292893219,6.29289322 L2.585,4 L0.292893219,1.70710678 C-0.0675907428,1.34662282 -0.0953202783,0.779391764 0.209704612,0.387100557 Z"
+          fill="#1E1E1E"
+          fillRule="evenodd"
+        />
+      </svg>
+    </span>
+  </div>,
+  .c1 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: inline-block;
+  display: inline-block;
+  vertical-align: middle;
+  max-height: 100%;
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+.c1 svg {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.c1 svg path {
+  -webkit-transition: fill 300ms;
+  transition: fill 300ms;
+  fill: #455663;
+}
+
+.c1:not(:root) {
+  overflow: hidden;
+}
+
+.c1:hover svg path {
+  fill: #1e1e1e;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.c0 svg {
+  width: 100%;
+  height: 100%;
+}
+
+<div
+    className="c0"
+    cursor="pointer"
+    display="inline-flex"
+    height="1.6rem"
+    width="1.6rem"
+  >
+    <span
+      className="c1"
+      display="inline-block"
+      fill="#455663"
+      height="0.8rem"
+      width="0.8rem"
+    >
+      <svg
+        height="8"
+        viewBox="0 0 8 8"
+        width="8"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0.292893219,0.292893219 C0.683417511,-0.0976310729 1.31658249,-0.0976310729 1.70710678,0.292893219 L1.70710678,0.292893219 L4,2.585 L6.29289322,0.292893219 C6.65337718,-0.0675907428 7.22060824,-0.0953202783 7.61289944,0.209704612 L7.70710678,0.292893219 C8.09763107,0.683417511 8.09763107,1.31658249 7.70710678,1.70710678 L7.70710678,1.70710678 L5.415,4 L7.70710678,6.29289322 C8.06759074,6.65337718 8.09532028,7.22060824 7.79029539,7.61289944 L7.70710678,7.70710678 C7.31658249,8.09763107 6.68341751,8.09763107 6.29289322,7.70710678 L6.29289322,7.70710678 L4,5.415 L1.70710678,7.70710678 C1.34662282,8.06759074 0.779391764,8.09532028 0.387100557,7.79029539 L0.292893219,7.70710678 C-0.0976310729,7.31658249 -0.0976310729,6.68341751 0.292893219,6.29289322 L0.292893219,6.29289322 L2.585,4 L0.292893219,1.70710678 C-0.0675907428,1.34662282 -0.0953202783,0.779391764 0.209704612,0.387100557 Z"
+          fill="#1E1E1E"
+          fillRule="evenodd"
+        />
+      </svg>
+    </span>
+  </div>,
+  .c1 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: inline-block;
+  display: inline-block;
+  vertical-align: middle;
+  max-height: 100%;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.c1 svg {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.c1 svg path {
+  -webkit-transition: fill 300ms;
+  transition: fill 300ms;
+  fill: #455663;
+}
+
+.c1:not(:root) {
+  overflow: hidden;
+}
+
+.c1:hover svg path {
+  fill: #1e1e1e;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.c0 svg {
+  width: 100%;
+  height: 100%;
+}
+
+<div
+    className="c0"
+    cursor="pointer"
+    display="inline-flex"
+    height="2.4rem"
+    width="2.4rem"
+  >
+    <span
+      className="c1"
+      display="inline-block"
+      fill="#455663"
+      height="1.2rem"
+      width="1.2rem"
+    >
+      <svg
+        height="8"
+        viewBox="0 0 8 8"
+        width="8"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0.292893219,0.292893219 C0.683417511,-0.0976310729 1.31658249,-0.0976310729 1.70710678,0.292893219 L1.70710678,0.292893219 L4,2.585 L6.29289322,0.292893219 C6.65337718,-0.0675907428 7.22060824,-0.0953202783 7.61289944,0.209704612 L7.70710678,0.292893219 C8.09763107,0.683417511 8.09763107,1.31658249 7.70710678,1.70710678 L7.70710678,1.70710678 L5.415,4 L7.70710678,6.29289322 C8.06759074,6.65337718 8.09532028,7.22060824 7.79029539,7.61289944 L7.70710678,7.70710678 C7.31658249,8.09763107 6.68341751,8.09763107 6.29289322,7.70710678 L6.29289322,7.70710678 L4,5.415 L1.70710678,7.70710678 C1.34662282,8.06759074 0.779391764,8.09532028 0.387100557,7.79029539 L0.292893219,7.70710678 C-0.0976310729,7.31658249 -0.0976310729,6.68341751 0.292893219,6.29289322 L0.292893219,6.29289322 L2.585,4 L0.292893219,1.70710678 C-0.0675907428,1.34662282 -0.0953202783,0.779391764 0.209704612,0.387100557 Z"
+          fill="#1E1E1E"
+          fillRule="evenodd"
+        />
+      </svg>
+    </span>
+  </div>,
+  .c1 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: inline-block;
+  display: inline-block;
+  vertical-align: middle;
+  max-height: 100%;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.c1 svg {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.c1 svg path {
+  -webkit-transition: fill 300ms;
+  transition: fill 300ms;
+  fill: #455663;
+}
+
+.c1:not(:root) {
+  overflow: hidden;
+}
+
+.c1:hover svg path {
+  fill: #1e1e1e;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
+.c0 svg {
+  width: 100%;
+  height: 100%;
+}
+
+<div
+    className="c0"
+    cursor="pointer"
+    display="inline-flex"
+    height="3.2rem"
+    width="3.2rem"
+  >
+    <span
+      className="c1"
+      display="inline-block"
+      fill="#455663"
+      height="1.6rem"
+      width="1.6rem"
+    >
+      <svg
+        height="8"
+        viewBox="0 0 8 8"
+        width="8"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0.292893219,0.292893219 C0.683417511,-0.0976310729 1.31658249,-0.0976310729 1.70710678,0.292893219 L1.70710678,0.292893219 L4,2.585 L6.29289322,0.292893219 C6.65337718,-0.0675907428 7.22060824,-0.0953202783 7.61289944,0.209704612 L7.70710678,0.292893219 C8.09763107,0.683417511 8.09763107,1.31658249 7.70710678,1.70710678 L7.70710678,1.70710678 L5.415,4 L7.70710678,6.29289322 C8.06759074,6.65337718 8.09532028,7.22060824 7.79029539,7.61289944 L7.70710678,7.70710678 C7.31658249,8.09763107 6.68341751,8.09763107 6.29289322,7.70710678 L6.29289322,7.70710678 L4,5.415 L1.70710678,7.70710678 C1.34662282,8.06759074 0.779391764,8.09532028 0.387100557,7.79029539 L0.292893219,7.70710678 C-0.0976310729,7.31658249 -0.0976310729,6.68341751 0.292893219,6.29289322 L0.292893219,6.29289322 L2.585,4 L0.292893219,1.70710678 C-0.0675907428,1.34662282 -0.0953202783,0.779391764 0.209704612,0.387100557 Z"
+          fill="#1E1E1E"
+          fillRule="evenodd"
+        />
+      </svg>
+    </span>
+  </div>,
+]
+`;
