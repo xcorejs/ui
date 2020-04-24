@@ -21,7 +21,7 @@ export const polyfillTheme = <T extends {} | undefined>(
   theme: XcoreTheme = emptyTheme
 ): T & { theme: XcoreTheme } =>
   p &&
-  ('theme' in p || (p as any).theme === undefined || Object.keys((p as any).theme).length === 0
+  (!('theme' in p) || (p as any).theme === undefined || Object.keys((p as any).theme).length === 0
     ? {
       ...p,
       theme
