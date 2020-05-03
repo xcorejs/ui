@@ -1,17 +1,37 @@
-import { createContext, useContext, ComponentType, useMemo } from 'react';
+import { ComponentType, createContext, useContext } from 'react';
 
-export type ModalType = ComponentType<{ close: () => unknown}> | undefined | null;
+export interface ModalContext {
+  push: (modal: ComponentType) => unknown;
+  replace: (modal: ComponentType) => unknown;
 
-interface ModalContext {
-  setModal: (modal: ModalType) => unknown;
+  pop: () => unknown;
+
+  go: (n: number) => unknown;
+  back: () => unknown;
+  forward: () => unknown;
 }
 
 export const ModalContext = createContext<ModalContext>({
-  setModal: () => {}
+  push: () => {},
+  replace: () => {},
+
+  pop: () => {},
+
+  go: () => {},
+  back: () => {},
+  forward: () => {}
 });
 
-export const useModal = (modal: ModalType): [() => unknown] => {
-  const { setModal } = useContext(ModalContext);
+export const useModal = (modal?: ComponentType | null): [() => unknown] => {
+  const { push, pop } = useContext(ModalContext);
 
-  return [() => setModal(modal)];
+  return [() => modal ? push(modal) : pop()];
 };
+
+export const useModalHistory = () => useContext(ModalContext);
+
+interface ModalInstanceContext {
+  active: boolean;
+}
+
+export const ModalInstanceContext = createContext<ModalInstanceContext>({ active: false });

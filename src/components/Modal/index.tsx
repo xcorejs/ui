@@ -9,7 +9,7 @@ import useMerge from 'utils/useMerge';
 import { sizeVariant } from 'utils/variant';
 
 import Box, { BoxProps } from '../Box';
-import { ModalContext } from './data';
+import { ModalContext, ModalInstanceContext } from './data';
 import { ModalSize } from './theme';
 
 export type ModalProps = {
@@ -32,7 +32,8 @@ export type ExtendedModalProps = {
 
 const Modal: FC<ExtendedModalProps> = ({ children, onClose, ...p }) => {
   const { modal } = useTheme();
-  const { setModal } = useContext(ModalContext);
+  const { active } = useContext(ModalInstanceContext);
+  const { pop } = useContext(ModalContext);
 
   const { title, _title, header, _header, _close, _overlay, ...props } = useMerge(
     p,
@@ -45,14 +46,14 @@ const Modal: FC<ExtendedModalProps> = ({ children, onClose, ...p }) => {
       horizontalPosition="stretch"
       verticalPosition="stretch"
       position="fixed"
-      display="flex"
+      display={active ? 'flex' : 'none'}
       alignItems="center"
       justifyContent="center"
       zIndex={3}
       {..._overlay}
     >
       <Flex flexDirection="column" position="relative" {...props}>
-        <Box onClick={onClose ?? (() => setModal(undefined))}>
+        <Box onClick={onClose ?? pop}>
           <CloseButton {..._close} />
         </Box>
 
