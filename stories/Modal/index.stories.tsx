@@ -8,8 +8,9 @@ import {
   Paragraph,
   useDisclosure,
   useModal,
-  XcoreProvider
-} from '../../src';
+  XcoreProvider,
+  useModalHistory
+} from '@xcorejs/ui';
 
 export default { title: 'Modal' };
 
@@ -36,13 +37,32 @@ const NameForm: FC = () => {
 };
 
 const NameModal: FC<{ submit: (s: string) => unknown }> = ({ submit }) => {
-  const [close] = useModal(null);
+  const [close] = useModal();
+  const [openNext] = useModal(NextModal);
   const [val, setVal] = useState('');
 
   return (
     <Modal title="title" s="lg">
+      <Button onClick={openNext}>Next modal</Button>
       <input value={val} onChange={e => setVal(e.target.value)} />
-      <Button onClick={() => submit(val) || close()}>Confirm</Button>
+      <Button
+        onClick={() => {
+          submit(val);
+          close();
+        }}
+      >Confirm
+      </Button>
+    </Modal>
+  );
+};
+
+const NextModal: FC = () => {
+  const { pop } = useModalHistory();
+  const [val, setVal] = useState('');
+
+  return (
+    <Modal title="title" s="lg">
+      Another modal
     </Modal>
   );
 };

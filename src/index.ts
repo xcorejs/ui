@@ -44,7 +44,7 @@ export { list, ListVariant } from './components/List/theme';
 
 // Modal
 export { default as Modal, ModalProps, ExtendedModalProps } from './components/Modal';
-export { ModalContext, useModal } from './components/Modal/data';
+export { ModalContext, useModal, useModalHistory } from './components/Modal/data';
 export { default as ModalProvider } from './components/Modal/ModalProvider';
 export { modal } from './components/Modal/theme';
 
