@@ -65,17 +65,10 @@ Array [
 
 <div
     className="c0"
-    cursor="pointer"
-    display="inline-flex"
-    height="2.4rem"
-    width="2.4rem"
   >
     <span
       className="c1"
-      display="inline-block"
       fill="#455663"
-      height="1.2rem"
-      width="1.2rem"
     >
       <svg
         height="8"
@@ -154,17 +147,10 @@ Array [
 
 <div
     className="c0"
-    cursor="pointer"
-    display="inline-flex"
-    height="1.2rem"
-    width="1.2rem"
   >
     <span
       className="c1"
-      display="inline-block"
       fill="#455663"
-      height="0.6rem"
-      width="0.6rem"
     >
       <svg
         height="8"
@@ -243,17 +229,10 @@ Array [
 
 <div
     className="c0"
-    cursor="pointer"
-    display="inline-flex"
-    height="1.6rem"
-    width="1.6rem"
   >
     <span
       className="c1"
-      display="inline-block"
       fill="#455663"
-      height="0.8rem"
-      width="0.8rem"
     >
       <svg
         height="8"
@@ -332,17 +311,10 @@ Array [
 
 <div
     className="c0"
-    cursor="pointer"
-    display="inline-flex"
-    height="2.4rem"
-    width="2.4rem"
   >
     <span
       className="c1"
-      display="inline-block"
       fill="#455663"
-      height="1.2rem"
-      width="1.2rem"
     >
       <svg
         height="8"
@@ -421,17 +393,10 @@ Array [
 
 <div
     className="c0"
-    cursor="pointer"
-    display="inline-flex"
-    height="3.2rem"
-    width="3.2rem"
   >
     <span
       className="c1"
-      display="inline-block"
       fill="#455663"
-      height="1.6rem"
-      width="1.6rem"
     >
       <svg
         height="8"

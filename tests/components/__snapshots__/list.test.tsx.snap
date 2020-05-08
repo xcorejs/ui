@@ -28,10 +28,6 @@ exports[`List component 1`] = `
 
 <a
   className="c0"
-  color="primary"
-  cursor="pointer"
-  display="inline-flex"
-  fontSize="1.6rem"
   href="/"
 >
   Burger King burger

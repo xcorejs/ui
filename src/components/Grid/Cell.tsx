@@ -1,17 +1,18 @@
+import { ResponsiveValue, system } from '@styled-system/core';
 import { BoxBaseProps, composedBoxBase } from 'bases';
 import React, { FC, useContext } from 'react';
 import { Breakpoints } from 'scales/breakpoints';
 import styled, { css } from 'styled-components';
 import useTheme from 'useTheme';
+import { polyfillTheme } from 'utils/baseStyle';
 import { parseTwin } from 'utils/gridTemplate';
+import { isIE } from 'utils/isIE';
 import { mediaQueries } from 'utils/mediaQuery';
+import { transform } from 'utils/transform';
+import { shouldForwardProp } from 'utils/withConfig';
 
 import { GridContext } from '.';
 import { parseGridAxis } from './data';
-import { isIE } from 'utils/isIE';
-import { system, ResponsiveValue } from '@styled-system/core';
-import { polyfillTheme } from 'utils/baseStyle';
-import { transform } from 'utils/transform';
 
 export type CellProps = BoxBaseProps;
 export type ExtendedCellProps = CellProps;
@@ -38,7 +39,7 @@ type CellStyleProps = {
   breakpoints: Breakpoints;
 } & BoxBaseProps;
 
-const CellStyle = styled.div<CellStyleProps>`
+const CellStyle = styled.div.withConfig<CellStyleProps>({ shouldForwardProp })`
   ${composedBoxBase}
 
   ${p => isIE() && [

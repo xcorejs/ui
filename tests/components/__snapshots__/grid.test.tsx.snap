@@ -126,18 +126,6 @@ exports[`Grid component 1`] = `
 
 <div
   className="c0"
-  height="100%"
-  rows={
-    Object {
-      "empty": [Function],
-      "get": [Function],
-      "map": [Function],
-      "mapAll": [Function],
-      "reduce": [Function],
-      "type": "value",
-      "value": "200px auto 70px",
-    }
-  }
 >
   <div
     className="c1"
@@ -181,9 +169,6 @@ exports[`Grid component 1`] = `
     >
       <span
         className="c7"
-        color="text"
-        fontFamily="text"
-        fontSize="1.5rem"
       >
         Culpa nostrud ex sint incididunt tempor irure elit proident id ea consequat. Ex sint incididunt eiusmod proident fugiat sunt ipsum ullamco irure ut labore enim. Id sunt ipsum elit cupidatat nostrud excepteur. Officia exercitation duis consequat aute mollit et dolor occaecat exercitation dolore consequat non ex. Incididunt tempor irure elit cupidatat cillum amet minim et do commodo anim minim voluptate laborum. Laboris enim deserunt nulla excepteur dolore. Non ex dolor consectetur anim aliquip aliqua adipisicing Lorem.
 Dolor consectetur anim aliquip aliqua. Lorem veniam laboris esse deserunt commodo amet aliqua adipisicing adipisicing ad. Veniam laboris enim qui id ea pariatur fugiat. Consequat aute aliquip aliqua adipisicing Lorem veniam laboris esse qui.
@@ -194,9 +179,6 @@ Dolor consectetur anim aliquip aliqua. Lorem veniam laboris esse deserunt commod
     >
       <span
         className="c7"
-        color="text"
-        fontFamily="text"
-        fontSize="1.5rem"
       >
         Culpa nostrud ex sint incididunt tempor irure elit proident id ea consequat. Ex sint incididunt eiusmod proident fugiat sunt ipsum ullamco irure ut labore enim. Id sunt ipsum elit cupidatat nostrud excepteur. Officia exercitation duis consequat aute mollit et dolor occaecat exercitation dolore consequat non ex. Incididunt tempor irure elit cupidatat cillum amet minim et do commodo anim minim voluptate laborum. Laboris enim deserunt nulla excepteur dolore. Non ex dolor consectetur anim aliquip aliqua adipisicing Lorem.
 Dolor consectetur anim aliquip aliqua. Lorem veniam laboris esse deserunt commodo amet aliqua adipisicing adipisicing ad. Veniam laboris enim qui id ea pariatur fugiat. Consequat aute aliquip aliqua adipisicing Lorem veniam laboris esse qui.

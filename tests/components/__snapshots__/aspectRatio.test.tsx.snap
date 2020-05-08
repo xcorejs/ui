@@ -39,8 +39,6 @@ Array [
 
 <div
     className="c0"
-    height={0}
-    width="100%"
   >
     <div
       className="c1"
@@ -85,8 +83,6 @@ Array [
 
 <div
     className="c0"
-    height={0}
-    width="100%"
   >
     <div
       className="c1"

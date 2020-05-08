@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import useTheme from 'useTheme';
 import useMerge from 'utils/useMerge';
 import { typeVariant } from 'utils/variant';
+import { shouldForwardProp } from 'utils/withConfig';
 
 import { TypographyAs, TypographyVariant } from './theme';
 
@@ -39,6 +40,6 @@ const Typography: FC<ExtendedTypographyProps> = ({
 
 export default Typography;
 
-const TypographyStyle = styled.p<TypographyProps>`
+const TypographyStyle = styled.p.withConfig<TypographyProps>({ shouldForwardProp })`
   ${composedTextBase}
 `;

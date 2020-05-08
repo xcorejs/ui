@@ -48,74 +48,47 @@ exports[`Typography component 1`] = `
 >
   <h1
     className="c0"
-    color="text"
-    fontFamily="heading"
-    fontSize="4.4rem"
-    fontWeight={500}
   >
     Heading 1
   </h1>
   <h2
     className="c1"
-    color="text"
-    fontFamily="heading"
-    fontSize="3.2rem"
-    fontWeight={500}
   >
     Heading 2
   </h2>
   <h3
     className="c2"
-    color="text"
-    fontFamily="heading"
-    fontSize="2.4rem"
-    fontWeight={500}
   >
     Heading 3
   </h3>
   <h4
     className="c3"
-    color="text"
-    fontFamily="heading"
   >
     Heading 4
   </h4>
   <h5
     className="c3"
-    color="text"
-    fontFamily="heading"
   >
     Heading 5
   </h5>
   <h6
     className="c3"
-    color="text"
-    fontFamily="heading"
   >
     Heading 6
   </h6>
   <p
     className="c4"
-    color="text"
-    fontFamily="heading"
-    fontSize="1.6rem"
   >
     Paragraph
   </p>
   <p
     className="c3"
-    color="text"
-    fontFamily="heading"
   >
     Lead
   </p>
   <hr />
   <h3
     className="c1"
-    color="text"
-    fontFamily="heading"
-    fontSize="3.2rem"
-    fontWeight={500}
   >
     Heading 2 as h3
   </h3>

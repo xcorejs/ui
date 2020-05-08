@@ -2,12 +2,13 @@ import { BoxBaseProps, composedBoxBase } from 'bases';
 import Flex from 'components/Flex';
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import { shouldForwardProp } from 'utils/withConfig';
 
 export type AspectRatioProps = {
   ratio: number;
 } & BoxBaseProps;
 
-const AspectRatioStyle = styled.div<BoxBaseProps>`
+const AspectRatioStyle = styled.div.withConfig<BoxBaseProps>({ shouldForwardProp })`
   ${composedBoxBase}
 
   & > div {

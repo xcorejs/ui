@@ -161,23 +161,6 @@ Array [
 
 <div
     className="c0"
-    rows={
-      Object {
-        "empty": [Function],
-        "get": [Function],
-        "map": [Function],
-        "mapAll": [Function],
-        "reduce": null,
-        "type": "array",
-        "value": Array [
-          "repeat(1, 1fr)",
-          null,
-          null,
-          null,
-          null,
-        ],
-      }
-    }
   >
     <div
       className="c1"
@@ -186,12 +169,6 @@ Array [
     </div>
     <div
       className="c2"
-      display={
-        Object {
-          "_": "none",
-          "sm": "block",
-        }
-      }
     >
       BBBB
     </div>
@@ -369,23 +346,6 @@ Array [
 
 <div
     className="c0"
-    rows={
-      Object {
-        "empty": [Function],
-        "get": [Function],
-        "map": [Function],
-        "mapAll": [Function],
-        "reduce": null,
-        "type": "array",
-        "value": Array [
-          "repeat(2, 1fr)",
-          null,
-          "repeat(1, 1fr)",
-          null,
-          null,
-        ],
-      }
-    }
   >
     <div
       className="c1"
@@ -464,24 +424,6 @@ exports[`SimpleGrid component 1`] = `
 
 <div
   className="c0"
-  display="inline-grid"
-  rows={
-    Object {
-      "empty": [Function],
-      "get": [Function],
-      "map": [Function],
-      "mapAll": [Function],
-      "reduce": null,
-      "type": "array",
-      "value": Array [
-        "repeat(3, 1fr)",
-        null,
-        null,
-        null,
-        null,
-      ],
-    }
-  }
 >
   <div
     className=""

@@ -1,16 +1,17 @@
+import { ResponsiveValue, system } from '@styled-system/core';
 import { BoxBaseProps, composedBoxBase } from 'bases';
+import { gridConfig } from 'bases/config/grid';
 import CSS from 'csstype';
 import React, { createContext, FC } from 'react';
 import { Breakpoints } from 'scales/breakpoints';
 import styled, { css } from 'styled-components';
-import { system, ResponsiveValue } from '@styled-system/core';
 import useTheme from 'useTheme';
 import { polyfillTheme } from 'utils/baseStyle';
 import { parseTemplate, parseTwin } from 'utils/gridTemplate';
-import { mediaQueries } from 'utils/mediaQuery';
 import { isIE } from 'utils/isIE';
-import { TransformedValue, transform } from 'utils/transform';
-import { gridConfig } from 'bases/config/grid';
+import { mediaQueries } from 'utils/mediaQuery';
+import { transform, TransformedValue } from 'utils/transform';
+import { shouldForwardProp } from 'utils/withConfig';
 
 type Col = CSS.GridTemplateColumnsProperty<string>;
 export type GridColumnResponsiveValue =
@@ -67,7 +68,7 @@ type GridStyleProps = {
   breakpoints: Breakpoints;
 } & GridPositionProps & BoxBaseProps;
 
-const GridStyle = styled.div<GridStyleProps>`
+const GridStyle = styled.div.withConfig<GridStyleProps>({ shouldForwardProp })`
   ${composedBoxBase}
 
   display: grid;
