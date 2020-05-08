@@ -3,6 +3,7 @@ import Complement, { sideComp, SideComplementProps } from 'components/Complement
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import { compose } from 'utils/baseStyle';
+import { shouldForwardProp } from 'utils/withConfig';
 
 export type ListItemProps =
   & FlexBaseProps
@@ -22,7 +23,7 @@ const ListItem: FC<ListItemProps> = p => {
   );
 };
 
-const ListItemStyle = styled.li<FlexBaseProps & TextBaseProps>`
+const ListItemStyle = styled.li.withConfig<FlexBaseProps & TextBaseProps>({ shouldForwardProp })`
   ${compose(flexBase, textBase)}
 `;
 

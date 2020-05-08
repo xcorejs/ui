@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import useTheme from 'useTheme';
 import useMerge from 'utils/useMerge';
 import { typeVariant } from 'utils/variant';
+import { shouldForwardProp } from 'utils/withConfig';
 
 import { TextAs, TextVariant } from './theme';
 
@@ -41,7 +42,7 @@ const Text = forwardRef<HTMLSpanElement, ExtendedTextProps>(({ as: _as, ...p }, 
   );
 });
 
-const TextStyle = styled.span`
+const TextStyle = styled.span.withConfig<TextProps>({ shouldForwardProp })`
   ${composedTextBase}
 `;
 

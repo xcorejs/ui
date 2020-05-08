@@ -227,10 +227,6 @@ Array [
     >
       <h3
         className="c2"
-        color="text"
-        fontFamily="heading"
-        fontSize="2.4rem"
-        fontWeight={500}
       >
         Title 1
       </h3>
@@ -240,10 +236,6 @@ Array [
     >
       <h3
         className="c2"
-        color="text"
-        fontFamily="heading"
-        fontSize="2.4rem"
-        fontWeight={500}
       >
         Title 2
       </h3>
@@ -253,10 +245,6 @@ Array [
     >
       <h3
         className="c2"
-        color="text"
-        fontFamily="heading"
-        fontSize="2.4rem"
-        fontWeight={500}
       >
         Title 3
       </h3>

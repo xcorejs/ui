@@ -10,6 +10,7 @@ import { compose } from 'utils/baseStyle';
 import useMerge from 'utils/useMerge';
 import { sizeVariant, typeVariant } from 'utils/variant';
 import { ResponsiveValue } from '@styled-system/core';
+import { shouldForwardProp } from 'utils/withConfig';
 
 export type ButtonProps =
   {
@@ -74,6 +75,6 @@ const Button = forwardRef<HTMLDivElement, ExtendedButtonProps>((
 
 export default Button;
 
-const ButtonStyle = styled.div<ButtonProps>`
+const ButtonStyle = styled.div.withConfig<ButtonProps>({ shouldForwardProp })`
   ${compose(textBase, flexBase)}
 `;

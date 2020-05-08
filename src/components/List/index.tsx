@@ -7,6 +7,7 @@ import { system, ResponsiveValue } from '@styled-system/core';
 import useTheme from 'useTheme';
 import useMerge from 'utils/useMerge';
 import { typeVariant } from 'utils/variant';
+import { shouldForwardProp } from 'utils/withConfig';
 
 import { ListVariant } from './theme';
 import { polyfillTheme } from 'utils/baseStyle';
@@ -77,7 +78,7 @@ const bulletSystem = system({
   lineHeight: true
 });
 
-const ListStyle = styled.ul<ListProps>`
+const ListStyle = styled.ul.withConfig<ListProps>({ shouldForwardProp })`
   ${composedTextBase}
 
   list-style-type: none;

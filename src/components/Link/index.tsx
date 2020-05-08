@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import useTheme from 'useTheme';
 import useMerge from 'utils/useMerge';
 import { typeVariant } from 'utils/variant';
+import { shouldForwardProp } from 'utils/withConfig';
 
 import { LinkAs, LinkVariant } from './theme';
 
@@ -35,7 +36,7 @@ const Link = forwardRef<HTMLAnchorElement, ExtendedLinkProps>((p, ref) => {
 
 export default Link;
 
-const LinkStyle = styled.a`
+const LinkStyle = styled.a.withConfig<LinkProps>({ shouldForwardProp })`
   ${composedTextBase}
 
   cursor: pointer;
