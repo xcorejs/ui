@@ -7,7 +7,6 @@ exports[`Scales - dark theme 1`] = `
 
 <div
   className="c0"
-  color="primary"
 />
 `;
 
@@ -18,7 +17,6 @@ exports[`Scales - light theme 1`] = `
 
 <div
   className="c0"
-  color="primary"
 />
 `;
 
@@ -29,6 +27,5 @@ exports[`Scales - no theme 1`] = `
 
 <div
   className="c0"
-  color="primary"
 />
 `;

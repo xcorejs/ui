@@ -25,7 +25,6 @@ Array [
 
 <div
     className="c0"
-    color="white"
   >
     Box 1
   </div>,
@@ -49,7 +48,6 @@ Array [
 
 <div
     className="c0"
-    color="white"
   >
     Box 2
   </div>,
@@ -77,7 +75,6 @@ Array [
 
 <div
     className="c0"
-    color="white"
   >
     Box 3
   </div>,

@@ -17,9 +17,6 @@ exports[`Spinner component 1`] = `
 
 <div
   className="c0"
-  display="inline-block"
-  height="1.6rem"
   speed="0.5s"
-  width="1.6rem"
 />
 `;

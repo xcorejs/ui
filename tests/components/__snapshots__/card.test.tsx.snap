@@ -108,25 +108,19 @@ Array [
 
 <div
     className="c0"
-    color="text"
     role="group"
-    width="100%"
   >
     <div
       className="c1"
     >
       <div
         className="c2"
-        order={1}
       >
         <div
           className="c3"
         >
           <span
             className="c4"
-            color="text"
-            fontFamily="text"
-            fontSize="2rem"
           >
             Card title
           </span>
@@ -135,7 +129,6 @@ Array [
     </div>
     <div
       className="c5"
-      order={2}
     >
       <img
         alt="cat"
@@ -145,26 +138,18 @@ Array [
     </div>
     <div
       className="c6"
-      order={3}
     >
       <span
         className="c7"
-        color="text"
-        fontFamily="text"
-        fontSize="1.5rem"
       >
         Nulla excepteur dolore consectetur non ex dolor consectetur anim aliquip aliqua adipisicing Lorem est.
       </span>
     </div>
     <div
       className="c8"
-      order={4}
     >
       <p
         className="c9"
-        color="text"
-        fontFamily="heading"
-        fontSize="1.6rem"
       >
         Footer
       </p>
@@ -276,25 +261,19 @@ Array [
 
 <div
     className="c0"
-    color="text"
     role="group"
-    width="100%"
   >
     <div
       className="c1"
     >
       <div
         className="c2"
-        order={1}
       >
         <div
           className="c3"
         >
           <span
             className="c4"
-            color="text"
-            fontFamily="text"
-            fontSize="2rem"
           >
             Card title
           </span>
@@ -303,7 +282,6 @@ Array [
     </div>
     <div
       className="c5"
-      order={2}
     >
       <img
         alt="cat"
@@ -313,26 +291,18 @@ Array [
     </div>
     <div
       className="c6"
-      order={3}
     >
       <span
         className="c7"
-        color="text"
-        fontFamily="text"
-        fontSize="1.5rem"
       >
         Nulla excepteur dolore consectetur non ex dolor consectetur anim aliquip aliqua adipisicing Lorem est.
       </span>
     </div>
     <div
       className="c8"
-      order={4}
     >
       <p
         className="c9"
-        color="text"
-        fontFamily="heading"
-        fontSize="1.6rem"
       >
         Footer
       </p>
@@ -460,25 +430,19 @@ Array [
 
 <div
     className="c0"
-    color="text"
     role="group"
-    width="100%"
   >
     <div
       className="c1"
     >
       <div
         className="c2"
-        order={1}
       >
         <div
           className="c3"
         >
           <span
             className="c4"
-            color="text"
-            fontFamily="text"
-            fontSize="2rem"
           >
             Card title
           </span>
@@ -487,16 +451,11 @@ Array [
     </div>
     <div
       className="c5"
-      color="background"
-      fontFamily="text"
-      fontSize="1.2rem"
-      fontWeight={500}
     >
       Tag
     </div>
     <div
       className="c6"
-      order={2}
     >
       <img
         alt="cat"
@@ -506,13 +465,9 @@ Array [
     </div>
     <div
       className="c7"
-      order={3}
     >
       <span
         className="c8"
-        color="text"
-        fontFamily="text"
-        fontSize="1.5rem"
       >
         Nulla excepteur dolore consectetur non ex dolor consectetur anim aliquip aliqua adipisicing Lorem est.
       </span>
@@ -640,25 +595,19 @@ Array [
 
 <div
     className="c0"
-    color="text"
     role="group"
-    width="100%"
   >
     <div
       className="c1"
     >
       <div
         className="c2"
-        order={1}
       >
         <div
           className="c3"
         >
           <span
             className="c4"
-            color="text"
-            fontFamily="text"
-            fontSize="2rem"
           >
             Card title
           </span>
@@ -667,16 +616,11 @@ Array [
     </div>
     <div
       className="c5"
-      color="background"
-      fontFamily="text"
-      fontSize="1.2rem"
-      fontWeight={500}
     >
       Tag
     </div>
     <div
       className="c6"
-      order={2}
     >
       <img
         alt="cat"
@@ -686,13 +630,9 @@ Array [
     </div>
     <div
       className="c7"
-      order={3}
     >
       <span
         className="c8"
-        color="text"
-        fontFamily="text"
-        fontSize="1.5rem"
       >
         Nulla excepteur dolore consectetur non ex dolor consectetur anim aliquip aliqua adipisicing Lorem est.
       </span>
@@ -782,22 +722,15 @@ Array [
 
 <div
     className="c0"
-    color="text"
     role="group"
-    width="100%"
   >
     <div
       className="c1"
-      color="background"
-      fontFamily="text"
-      fontSize="1.2rem"
-      fontWeight={500}
     >
       Tag
     </div>
     <div
       className="c2"
-      order={2}
     >
       <img
         alt="cat"
@@ -807,13 +740,9 @@ Array [
     </div>
     <div
       className="c3"
-      order={3}
     >
       <span
         className="c4"
-        color="text"
-        fontFamily="text"
-        fontSize="1.5rem"
       >
         Nulla excepteur dolore consectetur non ex dolor consectetur anim aliquip aliqua adipisicing Lorem est.
       </span>
@@ -941,25 +870,19 @@ Array [
 
 <div
     className="c0"
-    color="text"
     role="group"
-    width="100%"
   >
     <div
       className="c1"
     >
       <div
         className="c2"
-        order={1}
       >
         <div
           className="c3"
         >
           <span
             className="c4"
-            color="text"
-            fontFamily="text"
-            fontSize="2rem"
           >
             Thick
           </span>
@@ -968,16 +891,11 @@ Array [
     </div>
     <div
       className="c5"
-      color="background"
-      fontFamily="text"
-      fontSize="1.2rem"
-      fontWeight={500}
     >
       Tag
     </div>
     <div
       className="c6"
-      order={2}
     >
       <img
         alt="cat"
@@ -987,13 +905,9 @@ Array [
     </div>
     <div
       className="c7"
-      order={3}
     >
       <span
         className="c8"
-        color="text"
-        fontFamily="text"
-        fontSize="1.5rem"
       >
         Nulla excepteur dolore consectetur non ex dolor consectetur anim aliquip aliqua adipisicing Lorem est.
       </span>

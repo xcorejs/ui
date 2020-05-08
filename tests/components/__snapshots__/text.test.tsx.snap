@@ -37,26 +37,17 @@ exports[`Text component 1`] = `
 
 <span
   className="c0"
-  color="text"
-  fontFamily="text"
-  fontSize="1.5rem"
 >
   <div
     className=""
   >
     <strong
       className="c0"
-      color="text"
-      fontFamily="text"
-      fontSize="1.5rem"
     >
       Number 15:
        
       <em
         className="c0"
-        color="text"
-        fontFamily="text"
-        fontSize="1.5rem"
       >
         Burger king foot lettuce. 
       </em>
@@ -64,10 +55,6 @@ exports[`Text component 1`] = `
     The last thing you'd want in your 
     <a
       className="c1"
-      color="primary"
-      cursor="pointer"
-      display="inline-flex"
-      fontSize="1.6rem"
       href="/"
     >
       Burger King burger
@@ -75,18 +62,12 @@ exports[`Text component 1`] = `
      is someone's foot fungus. But as it turns out, that might be what you get. A
     <s
       className="c0"
-      color="text"
-      fontFamily="text"
-      fontSize="1.5rem"
     >
       4channer
     </s>
     uploaded a photo anonymously to the site showcasing his feet in a plastic bin of lettuce. With the statement:
     <em
       className="c0"
-      color="text"
-      fontFamily="text"
-      fontSize="1.5rem"
     >
       "This is the lettuce you eat at Burger King." 
     </em>

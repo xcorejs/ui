@@ -6,6 +6,7 @@ import useTheme from 'useTheme';
 import { compose } from 'utils/baseStyle';
 import useMerge from 'utils/useMerge';
 import { typeVariant } from 'utils/variant';
+import { shouldForwardProp } from 'utils/withConfig';
 
 import { TagVariant } from './theme';
 
@@ -48,6 +49,6 @@ const Tag: FC<ExtendedTagProps> = ({ children, ...p }) => {
 
 export default Tag;
 
-const TagStyle = styled.div<TagProps>`
+const TagStyle = styled.div.withConfig<TagProps>({ shouldForwardProp })`
   ${compose(flexBase, textBase)}
 `;

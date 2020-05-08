@@ -31,10 +31,6 @@ exports[`Tag component 1`] = `
 
 <div
   className="c0"
-  color="background"
-  fontFamily="text"
-  fontSize="1.2rem"
-  fontWeight={500}
 >
   Tag
 </div>

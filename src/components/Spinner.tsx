@@ -1,6 +1,7 @@
 import { BoxBaseProps, composedBoxBase } from 'bases';
 import React, { FC } from 'react';
 import styled, { keyframes } from 'styled-components';
+import { shouldForwardProp } from 'utils/withConfig';
 
 export type SpinnerProps = {
   speed?: string;
@@ -35,7 +36,7 @@ const spin = keyframes`
   }
 `;
 
-const SpinnerStyle = styled.div<SpinnerProps>`
+const SpinnerStyle = styled.div.withConfig<SpinnerProps>({ shouldForwardProp })`
   ${composedBoxBase}
 
   animation: ${spin} ${({ speed }) => speed} linear infinite;
