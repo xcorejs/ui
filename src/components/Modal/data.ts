@@ -1,4 +1,4 @@
-import { ComponentType, createContext, useContext } from 'react';
+import { ComponentType, createContext, useContext, createElement } from 'react';
 
 export interface ModalContext {
   push: <T>(modal: ComponentType<T>, props?: T) => unknown;
@@ -22,14 +22,21 @@ export const ModalContext = createContext<ModalContext>({
   forward: () => {}
 });
 
-export const useModal = <T>(modal?: ComponentType<T> | null, defaultProps?: Partial<T>) => {
+interface UseModal {
+  (): [() => unknown];
+  (m: null): [() => unknown];
+  (m: undefined): [() => unknown];
+  <T>(modal: ComponentType<T>, defaultProps?: Partial<T>): [(props: T) => unknown];
+}
+
+export const useModal: UseModal = <T>(modal?: ComponentType<T> | null, defaultProps?: Partial<T>) => {
   const { push, pop } = useContext(ModalContext);
 
   return [
     (props: T) => modal
       ? push(modal, { ...defaultProps, ...props })
       : pop()
-  ] as [OpenModal<T>];
+  ] as any;
 };
 
 export const useModalHistory = () => useContext(ModalContext);
@@ -39,5 +46,3 @@ interface ModalInstanceContext {
 }
 
 export const ModalInstanceContext = createContext<ModalInstanceContext>({ active: false });
-
-type OpenModal<T> = T extends {} ? (props: T) => unknown : () => unknown;
