@@ -1,4 +1,4 @@
-import { ComponentType, createContext, useContext, createElement } from 'react';
+import { ComponentType, createContext, useContext, createElement, ReactNode, ReactElement } from 'react';
 
 export interface ModalContext {
   push: <T>(modal: ComponentType<T>, props?: T) => unknown;
@@ -26,10 +26,14 @@ interface UseModal {
   (): [() => unknown];
   (m: null): [() => unknown];
   (m: undefined): [() => unknown];
-  <T>(modal: ComponentType<T>, defaultProps?: Partial<T>): [(props: T) => unknown];
+  (m: () => ReactElement): [() => unknown];
+  <T>(modal: ComponentType<T>, defaultProps?: Partial<T>): [OpenModal<T>];
 }
 
-export const useModal: UseModal = <T>(modal?: ComponentType<T> | null, defaultProps?: Partial<T>) => {
+export const useModal: UseModal = <T>(
+  modal?: ComponentType<T> | null,
+  defaultProps?: Partial<T>
+) => {
   const { push, pop } = useContext(ModalContext);
 
   return [
@@ -46,3 +50,5 @@ interface ModalInstanceContext {
 }
 
 export const ModalInstanceContext = createContext<ModalInstanceContext>({ active: false });
+
+type OpenModal<T> = T extends {} ? (props: T) => unknown : () => unknown;
