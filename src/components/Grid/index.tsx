@@ -57,6 +57,7 @@ const Grid: FC<ExtendedGridProps> = ({ columns, rows, gap, ...props }) => {
     </GridContext.Provider>
   );
 };
+
 Grid.displayName = 'Grid';
 
 export default Grid;

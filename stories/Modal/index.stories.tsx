@@ -1,16 +1,18 @@
-import React, { FC, useState } from 'react';
-
 import {
   Box,
   Button,
+  Flex,
+  Heading1,
+  Img,
   LoremIpsum,
   Modal,
   Paragraph,
+  Stack,
   useDisclosure,
   useModal,
-  XcoreProvider,
-  useModalHistory
+  XcoreProvider
 } from '@xcorejs/ui';
+import React, { FC, useState } from 'react';
 
 export default { title: 'Modal' };
 
@@ -57,12 +59,56 @@ const NameModal: FC<{ submit: (s: string) => unknown }> = ({ submit }) => {
 };
 
 const NextModal: FC = () => {
-  const { pop } = useModalHistory();
-  const [val, setVal] = useState('');
-
   return (
     <Modal title="title" s="lg">
       Another modal
+    </Modal>
+  );
+};
+
+const imgs = [
+  'http://placekitten.com/400/600',
+  'http://placekitten.com/400/800',
+  'http://placekitten.com/600/600',
+  'http://placekitten.com/800/600',
+  'http://placekitten.com/800/1000',
+  'http://placekitten.com/400/700'
+];
+
+export const WithProps: FC = () => {
+  return (
+    <XcoreProvider>
+      <KittenGallery />
+    </XcoreProvider>
+  );
+};
+
+const KittenGallery: FC = () => {
+  const [open] = useModal(Gallery);
+
+  return (
+    <Box p="2rem">
+      <Heading1>Kitten gallery</Heading1>
+      <Stack gap="2rem">
+        {imgs.map((i, index) => (
+          <Img
+            key={index}
+            src={i}
+            alt="img"
+            maxWidth="10rem"
+            maxHeight="10rem"
+            onClick={() => open({ index })}
+          />
+        ))}
+      </Stack>
+    </Box>
+  );
+};
+
+const Gallery: FC<{ index: number }> = ({ index }) => {
+  return (
+    <Modal s="full" padding={0}>
+      <Img src={imgs[index]} alt="img" />
     </Modal>
   );
 };

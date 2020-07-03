@@ -18,10 +18,7 @@ export type ExtendedTypographyProps =
   }
   & TypographyProps;
 
-const Typography: FC<ExtendedTypographyProps> = ({
-  as: _as,
-  ...p
-}) => {
+const Typography: FC<ExtendedTypographyProps> = ({ as: _as, ...p }) => {
   const { typography } = useTheme();
   const type = p.variant ?? p.v ?? 'p';
 
