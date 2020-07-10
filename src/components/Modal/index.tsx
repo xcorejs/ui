@@ -32,7 +32,7 @@ export type ExtendedModalProps = {
 
 const Modal: FC<ExtendedModalProps> = ({ children, onClose, ...p }) => {
   const { modal } = useTheme();
-  const { active } = useContext(ModalInstanceContext);
+  const { hide } = useContext(ModalInstanceContext);
   const { pop } = useContext(ModalContext);
 
   const { title, _title, header, _header, _close, _overlay, ...props } = useMerge(
@@ -46,7 +46,7 @@ const Modal: FC<ExtendedModalProps> = ({ children, onClose, ...p }) => {
       horizontalPosition="stretch"
       verticalPosition="stretch"
       position="fixed"
-      display={active ? 'flex' : 'none'}
+      display={hide ? 'none' : 'flex'}
       alignItems="center"
       justifyContent="center"
       zIndex={3}

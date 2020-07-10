@@ -49,7 +49,7 @@ const ModalProvider: FC = ({ children }) => {
     <ModalContext.Provider value={context}>
       {children}
       {position !== -1 && queue.map(([m, props], i) => (
-        <ModalInstanceContext.Provider key={i} value={{ active: i === position }}>
+        <ModalInstanceContext.Provider key={i} value={{ hide: i !== position }}>
           {createElement(m, props)}
         </ModalInstanceContext.Provider>
       ))}

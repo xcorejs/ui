@@ -49,9 +49,9 @@ export const useModal: UseModal = <T, U>(modal?: ComponentType<T> | null, defaul
 export const useModalHistory = () => useContext(ModalContext);
 
 interface ModalInstanceContext {
-  active: boolean;
+  hide: boolean;
 }
 
-export const ModalInstanceContext = createContext<ModalInstanceContext>({ active: false });
+export const ModalInstanceContext = createContext<ModalInstanceContext>({ hide: false });
 
 type OpenModal<T> = T extends {} ? (props: T) => unknown : () => unknown;
