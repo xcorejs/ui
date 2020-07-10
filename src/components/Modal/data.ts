@@ -23,32 +23,35 @@ export const ModalContext = createContext<ModalContext>({
 });
 
 interface UseModal {
-  (): [() => unknown];
-  (m: null): [() => unknown];
-  (m: undefined): [() => unknown];
-  (m: () => ReactElement): [() => unknown];
-  <T>(modal: ComponentType<T>, defaultProps?: Partial<T>): [OpenModal<T>];
+  // do not require props, if m is null or undefined
+  (): [() => unknown, () => unknown];
+  (m: null): [() => unknown, () => unknown];
+  (m: undefined): [() => unknown, () => unknown];
+  (m: () => ReactElement): [() => unknown, () => unknown];
+  // open modal without defaultProps
+  <T>(modal: ComponentType<T>): [OpenModal<T>, () => unknown];
+  // open modal with defaultProps
+  <T, U>(modal: ComponentType<T>, defaultProps: U): [OpenModal<Omit<T, keyof U> & Partial<U>>, () => unknown];
 }
 
-export const useModal: UseModal = <T>(
-  modal?: ComponentType<T> | null,
-  defaultProps?: Partial<T>
-) => {
-  const { push, pop } = useContext(ModalContext);
+export const useModal: UseModal = <T, U>(modal?: ComponentType<T> | null, defaultProps?: U) => {
+  const history = useContext(ModalContext);
 
   return [
     (props: T) => modal
-      ? push(modal, { ...defaultProps, ...props })
-      : pop()
+      ? history.push(modal, { ...defaultProps, ...props })
+      : history.pop(),
+    history.pop,
+    history
   ] as any;
 };
 
 export const useModalHistory = () => useContext(ModalContext);
 
 interface ModalInstanceContext {
-  active: boolean;
+  hide: boolean;
 }
 
-export const ModalInstanceContext = createContext<ModalInstanceContext>({ active: false });
+export const ModalInstanceContext = createContext<ModalInstanceContext>({ hide: false });
 
 type OpenModal<T> = T extends {} ? (props: T) => unknown : () => unknown;

@@ -84,7 +84,7 @@ export const WithProps: FC = () => {
 };
 
 const KittenGallery: FC = () => {
-  const [open] = useModal(Gallery);
+  const [open, close] = useModal(Gallery, { images: imgs });
 
   return (
     <Box p="2rem">
@@ -105,10 +105,19 @@ const KittenGallery: FC = () => {
   );
 };
 
-const Gallery: FC<{ index: number }> = ({ index }) => {
+const Gallery: FC<{ index: number; images: string[] }> = ({ index, images }) => {
+  const [offset, setOffset] = useState(0);
+
+  const prev = (index + offset + images.length - 1) % images.length;
+  const next = (index + offset + 1) % images.length;
+
   return (
-    <Modal s="full" padding={0}>
-      <Img src={imgs[index]} alt="img" />
+    <Modal s="full" padding={0} bg="transparent">
+      <Flex alignItems="center" fontSize="3rem" color="#455663">
+        <Box m="1rem" onClick={() => setOffset(prev - index)}>{'<'}</Box>
+        <Img src={images[index + offset]} alt="img" />
+        <Box m="1rem" onClick={() => setOffset(next - index)}>{'>'}</Box>
+      </Flex>
     </Modal>
   );
 };
