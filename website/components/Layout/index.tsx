@@ -35,7 +35,7 @@ const Layout: FC<Props> = ({ children, pages }) => {
               )}
             </Stack>
 
-            <Typography as="div" px="10rem" borderLeft="1px solid" borderColor="grey" flexGrow={1}>
+            <Typography as="div" px="10rem" borderLeft="1px solid" borderColor="grey" flexGrow={1} pb="15rem">
               {children}
             </Typography>
           </Stack>
