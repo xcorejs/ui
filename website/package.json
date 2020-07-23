@@ -21,6 +21,7 @@
   "devDependencies": {
     "@types/next": "^9.0.0",
     "typescript": "^3.9.7",
-    "@types/mdx-js__react": "^1.5.2"
+    "@types/mdx-js__react": "^1.5.2",
+    "react-svg-loader": "^3.0.3"
   }
 }

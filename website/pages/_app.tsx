@@ -15,7 +15,13 @@ const pages: [string, string][] = [
 ];
 
 const components: [string, string][] = [
-  ['Button', '/button']
+  ['Aspect Ratio', '/aspectRatio'],
+  ['Button', '/button'],
+  ['Collapse', '/collapse'],
+  ['Icon', '/icon'],
+  ['Image', '/image'],
+  ['Link', '/link'],
+  ['Tag', '/tag']
 ];
 
 const mdxComponents = {
@@ -35,6 +41,7 @@ class App extends NextApp {
         <Head>
           <title key="title">Xcore UI</title>
         </Head>
+
         <XcoreProvider theme={theme}>
           <MDXProvider components={mdxComponents}>
             <Layout pages={pages} components={components}>

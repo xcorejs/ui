@@ -1,0 +1,31 @@
+import Header from "../components/Header";
+import PropsTable from "../components/PropsTable";
+import { Button, Stack, Img } from "@xcorejs/ui";
+
+<Header
+  title="Image"
+/>
+
+This is an image.
+
+<Img src="//placehold.it/200x200" alt="Dummy image"/>
+
+```jsx
+import { Img } from "@xcorejs/ui";
+
+<Img src="//placehold.it/200x200" alt="Dummy image" />
+```
+
+## Props
+
+### ImgProps
+
+Extends: Box, ImgHTMLAttributes
+
+<PropsTable
+  props={[
+    ["src", "string", null, "The url path to the image source"],
+    ["alt", "string", null, "The alt text that describes the image"],
+    ["objectFit", "ResponsiveValue<CSS.ObjectFitProperty>", null, "CSS property to set how the image should be resized"],
+  ]}
+/>

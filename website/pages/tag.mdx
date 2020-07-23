@@ -1,0 +1,98 @@
+import Header from "../components/Header";
+import PropsTable from "../components/PropsTable";
+import { Button, Stack, Tag } from "@xcorejs/ui";
+import XcoreIcon from "../components/icons/16/xcore.svg";
+
+<Header
+  title="Tag"
+/>
+
+This is a tag.
+
+<Tag>
+  Tag
+</Tag>
+
+```jsx
+import { Tag } from "@xcorejs/ui";
+
+<Tag>Tag</Tag>
+```
+
+### With icon
+
+Icon can be added to the Tag, both left and right positions
+
+<Tag leftIcon={<XcoreIcon/>}>
+  Tag
+</Tag>
+
+```jsx
+import { Tag } from "@xcorejs/ui";
+
+<Tag leftIcon={<XcoreIcon/>}>
+  Tag
+</Tag>
+```
+
+
+## Variants
+
+Default: *solid*
+
+<Stack gap="1rem" alignItems="center">
+  <Tag variant="solid">Solid</Tag>
+  <Tag variant="clear">Clear</Tag>
+  <Tag variant="outline">Outline</Tag>
+</Stack>
+
+```jsx
+<Stack gap="1rem" alignItems="center">
+  <Tag variant="solid">Solid</Tag>
+  <Tag variant="clear">Clear</Tag>
+  <Tag variant="outline">Outline</Tag>
+</Stack>
+```
+
+## Props
+
+### TagProps
+
+Extends: Complement, Flex, Text
+
+### ExtendedTagProps
+
+<PropsTable
+  props={[
+    ["variant", ["solid", "outline", "clear"], ["solid"], "Variants"],
+    ["v", ["solid", "outline", "clear"], ["solid"], "Alias for variants"],
+  ]}
+/>
+
+## Default theme
+
+```
+const emptyTag: TagValue = {
+  default: {
+    borderRadius: '0.3rem',
+    border: '1px solid #455663',
+    px: '0.8rem',
+    fontFamily: 'text',
+    fontSize: '1.2rem',
+    fontWeight: 500,
+    lineHeight: '2rem'
+  },
+  variants: {
+    solid: {
+      bg: '#455663',
+      color: 'background'
+    },
+    outline: {
+      color: '#0f1f28'
+    },
+    clear: {
+      borderColor: 'transparent'
+    }
+  }
+};
+```

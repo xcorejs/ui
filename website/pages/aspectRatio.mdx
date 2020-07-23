@@ -1,0 +1,31 @@
+import Header from "../components/Header";
+import PropsTable from "../components/PropsTable";
+import { Button, Stack, AspectRatio } from "@xcorejs/ui";
+import XcoreIcon from "../components/icons/16/xcore.svg";
+
+<Header
+  title="Aspect Ratio"
+/>
+
+AspectRatio component is used to embed responsive videos and maps, etc.
+It uses a very common [padding hack](https://css-tricks.com/aspect-ratio-boxes/) to achieve this.
+
+<AspectRatio ratio={9/16} bg="primary" />
+
+```jsx
+import { Icon } from "@xcorejs/ui";
+
+<AspectRatio ratio={9/16} bg="primary" />
+```
+
+## Props
+
+### AspectRatioProps
+
+Extends: Box
+
+<PropsTable
+  props={[
+    ["ratio", "number", null, "Ratio - height/width"],
+  ]}
+/>
