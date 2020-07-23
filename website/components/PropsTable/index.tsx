@@ -1,5 +1,7 @@
-import React, { FC } from 'react';
-import { Box, Tag, Stack } from '@xcorejs/ui';
+import React, { FC, useContext } from 'react';
+import { Box, Tag, Stack, Text } from '@xcorejs/ui';
+import { PropsContext } from 'components/PropsContext';
+import Link from 'next/link';
 
 interface Props {
   props: [string, string | string[], string | null, string][];
@@ -37,10 +39,22 @@ const PropsTable: FC<Props> = ({ props }) => {
   );
 };
 
-const TypeBadge: FC<{ type: string }> = ({ type, ...props }) => {
-  return (
-    <Tag {...props}>
-      {type}
+const TypeBadge: FC<{ type: string }> = ({ type: t, ...props }) => {
+  const propsLinks = useContext(PropsContext);
+
+  return t in propsLinks ? (
+    <Text>
+      <Link href={propsLinks[t]}>
+        <a>
+          <Tag bg="primary" {...props}>
+            {t}
+          </Tag>
+        </a>
+      </Link>
+    </Text>
+  ) : (
+    <Tag v="outline" {...props}>
+      {t}
     </Tag>
   );
 };

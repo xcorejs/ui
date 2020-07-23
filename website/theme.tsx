@@ -1,4 +1,4 @@
-import { createTheme, list, typography, createScales, colors, lightColorTheme } from '@xcorejs/ui';
+import { createTheme, list, typography, createScales, colors, lightColorTheme, link, tag } from '@xcorejs/ui';
 
 export const theme = createTheme({
   ...list({
@@ -21,5 +21,17 @@ export const theme = createTheme({
     ...colors(lightColorTheme, {
       grey: '#ddd'
     })
+  }),
+  ...link({
+    variants: {
+      simple: {
+        textDecoration: 'none'
+      }
+    }
+  }),
+  ...tag({
+    default: {
+      display: 'inline-flex'
+    }
   })
 });

@@ -1,0 +1,42 @@
+import Header from "../components/Header";
+import PropsTable from "../components/PropsTable";
+import Extends from "../components/Extends";
+import { Flex, Box } from "@xcorejs/ui";
+import XcoreIcon from "../components/icons/16/xcore.svg";
+
+<Header
+  title="Flex"
+/>
+
+Box with `display: flex`.
+
+<Flex>
+  <Box width="64px" height="64px"  bg="primary" mr="1rem" />
+  <Box width="64px" height="64px"  bg="primary" mr="1rem" />
+  <Box width="64px" height="64px"  bg="primary" />
+</Flex>
+
+```jsx
+import { Flex, Box } from "@xcorejs/ui";
+
+<Flex>
+  <Box width="64px" height="64px"  bg="primary" mr="1rem" />
+  <Box width="64px" height="64px"  bg="primary" mr="1rem" />
+  <Box width="64px" height="64px"  bg="primary" />
+</Flex>
+```
+
+## Props
+
+### FlexProps
+
+<Extends props={["BoxProps"]} />
+
+<PropsTable
+  props={[
+    ["direction", [], null, "Shorthand for flexDirection (TODO)"],
+    ["wrap", [], null, "Shorthand for flexWrap (TODO)"],
+    ["align", [], null, "Shorthand for alignItems (TODO)"],
+    ["justify", [], null, "Shorthand for justifyContent (TODO)"],
+  ]}
+/>

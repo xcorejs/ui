@@ -3,11 +3,10 @@ import { Img, Typography, Stack, List, ListItem, Container, Heading3, Box, Headi
 import NextLink from 'next/link';
 
 interface Props {
-  pages: [string, string][];
-  components: [string, string][];
+  pages: [string| undefined, [string, string][]][];
 }
 
-const Layout: FC<Props> = ({ children, pages, components }) => {
+const Layout: FC<Props> = ({ children, pages }) => {
   return (
     <Flex minHeight="100vh" flexDirection="column">
       <Box height="100%">
@@ -30,33 +29,10 @@ const Layout: FC<Props> = ({ children, pages, components }) => {
 
         <Container mt="4rem">
           <Stack gap="5rem" width="100%">
-            <Stack direction="column" width="20rem">
-              <List _bullet={{ content: '' }} _items={{ lineHeight: '2' }}>
-                {pages.map(([label, link]) => (
-                  <ListItem>
-                    <NextLink key={label + link} href={link} passHref>
-                      <Link display="block">
-                        {label}
-                      </Link>
-                    </NextLink>
-                  </ListItem>
-                ))}
-              </List>
-
-              <Box>
-                <Heading2 fontSize="1.6rem">Components</Heading2>
-                <List _bullet={{ content: '' }} _items={{ lineHeight: '2' }}>
-                  {components.map(([label, link]) => (
-                    <ListItem>
-                      <NextLink key={label + link} href={link} passHref>
-                        <Link display="block">
-                          {label}
-                        </Link>
-                      </NextLink>
-                    </ListItem>
-                  ))}
-                </List>
-              </Box>
+            <Stack gap="1rem" direction="column" width="20rem" flexShrink={0}>
+              {pages.map(([heading, p]) =>
+                <MenuList key={heading} heading={heading} pages={p} />
+              )}
             </Stack>
 
             <Typography as="div" px="10rem" borderLeft="1px solid" borderColor="grey" flexGrow={1}>
@@ -74,3 +50,20 @@ const Layout: FC<Props> = ({ children, pages, components }) => {
 };
 
 export default Layout;
+
+const MenuList: FC<{heading?: string; pages: [string, string][]}> = ({ heading, pages, ...props }) => (
+  <Box {...props}>
+    {heading && <Heading2 my=".5rem" fontSize="1.6rem">{heading}</Heading2>}
+    <List _bullet={{ content: '' }} _items={{ lineHeight: '2' }}>
+      {pages.map(([label, link]) => (
+        <ListItem key={label + link}>
+          <NextLink href={link} passHref>
+            <Link display="block">
+              {label}
+            </Link>
+          </NextLink>
+        </ListItem>
+      ))}
+    </List>
+  </Box>
+);

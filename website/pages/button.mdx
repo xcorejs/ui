@@ -1,9 +1,11 @@
 import Header from "../components/Header";
 import PropsTable from "../components/PropsTable";
+import Extends from "../components/Extends";
 import { Button, Stack } from "@xcorejs/ui";
 
 <Header
   title="Button"
+  themable
 />
 
 This is a button
@@ -60,7 +62,7 @@ Default: *md*
 
 ### ButtonProps
 
-Extends: Complement, Flex, Text
+<Extends props={["ComplementProps", "FlexProps", "TextProps"]} />
 
 <PropsTable
   props={[
@@ -84,7 +86,7 @@ Extends: Complement, Flex, Text
 
 ## Theme
 
-```
+```tsx
 export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg';
 export type ButtonVariant = 'solid' | 'clear' | 'outline' | 'link';
 
@@ -99,7 +101,7 @@ interface ButtonValue {
 
 ## Default theme
 
-```
+```tsx
 const emptyButton: ButtonValue = {
   default: {
     fontWeight: 500,
