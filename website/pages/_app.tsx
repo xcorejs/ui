@@ -27,7 +27,8 @@ const pages: [string | undefined, [string, string][]][] = [
     ['Icon', '/icon'],
     ['Img', '/image'],
     ['Link', '/link'],
-    ['Tag', '/tag']
+    ['Tag', '/tag'],
+    ['Typography', '/typography'],
   ]]
 ];
 
@@ -60,7 +61,6 @@ class App extends NextApp {
               <Layout pages={pages}>
                 <Component {...pageProps} />
               </Layout>
-
             </MDXProvider>
           </PropsContext.Provider>
         </XcoreProvider>
