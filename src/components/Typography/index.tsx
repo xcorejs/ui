@@ -1,5 +1,5 @@
 import { composedTextBase, TextBaseProps } from 'bases';
-import React, { FC } from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 import styled from 'styled-components';
 import useTheme from 'useTheme';
 import useMerge from 'utils/useMerge';
@@ -15,10 +15,12 @@ export type ExtendedTypographyProps =
     variant?: TypographyVariant;
     v?: TypographyVariant;
     as?: TypographyAs;
+
+    children?: ReactNode;
   }
   & TypographyProps;
 
-const Typography: FC<ExtendedTypographyProps> = ({ as: _as, ...p }) => {
+const Typography = forwardRef<HTMLDivElement, ExtendedTypographyProps>(({ as: _as, ...p }, ref) => {
   const { typography } = useTheme();
   const type = p.variant ?? p.v ?? 'p';
 
@@ -31,9 +33,9 @@ const Typography: FC<ExtendedTypographyProps> = ({ as: _as, ...p }) => {
   );
 
   return (
-    <TypographyStyle {...props} as={as} />
+    <TypographyStyle {...props} as={as} ref={ref} />
   );
-};
+});
 
 export default Typography;
 
