@@ -1,29 +1,18 @@
-import React, { FC } from 'react';
+import React, { forwardRef } from 'react';
 
 import Typography, { ExtendedTypographyProps } from '.';
+import { TypographyVariant } from './theme';
 
 type TypograhyAliasProps = Omit<ExtendedTypographyProps, 't' | 'type'>;
 
-export const Heading1: FC<TypograhyAliasProps> = p =>
-  <Typography v="h1" {...p} />;
+const makeAlias = (v: TypographyVariant) =>
+  forwardRef<HTMLDivElement, TypograhyAliasProps>((p, ref) => <Typography v={v} {...p} ref={ref} />);
 
-export const Heading2: FC<TypograhyAliasProps> = p =>
-  <Typography v="h2" {...p} />;
-
-export const Heading3: FC<TypograhyAliasProps> = p =>
-  <Typography v="h3" {...p} />;
-
-export const Heading4: FC<TypograhyAliasProps> = p =>
-  <Typography v="h4" {...p} />;
-
-export const Heading5: FC<TypograhyAliasProps> = p =>
-  <Typography v="h5" {...p} />;
-
-export const Heading6: FC<TypograhyAliasProps> = p =>
-  <Typography v="h6" {...p} />;
-
-export const Paragraph: FC<TypograhyAliasProps> = p =>
-  <Typography v="p" {...p} />;
-
-export const Lead: FC<TypograhyAliasProps> = p =>
-  <Typography v="lead" {...p} />;
+export const Heading1 = makeAlias('h1');
+export const Heading2 = makeAlias('h2');
+export const Heading3 = makeAlias('h3');
+export const Heading4 = makeAlias('h4');
+export const Heading5 = makeAlias('h5');
+export const Heading6 = makeAlias('h6');
+export const Paragraph = makeAlias('p');
+export const Lead = makeAlias('lead');
