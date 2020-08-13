@@ -2,36 +2,55 @@ import React, { createElement, FC, useState, ComponentType } from 'react';
 
 import { ModalContext, ModalInstanceContext } from './data';
 
+interface ModalState {
+  position: number;
+  queue: [ComponentType<any>, any][];
+}
+
 const ModalProvider: FC = ({ children }) => {
-  const [position, setPosition] = useState(-1);
-  const [modals, setModal] = useState<ComponentType[]>([]);
+  const [{ position, queue }, setState] = useState<ModalState>({ position: -1, queue: [] });
 
   const context: ModalContext = {
-    push: m => {
-      setModal(v => [...v, m]);
-      setPosition(p => p + 1);
+    push: (m, props) => {
+      setState(s => ({
+        position: s.position + 1,
+        queue: [...s.queue, [m, props]]
+      }));
     },
-    replace: m => {
-      setModal(v => [...v.slice(0, -1), m]);
-      setPosition(p => p + 1);
+    replace: (m, props) => {
+      setState(s => ({
+        position: s.position + 1,
+        queue: [...s.queue.slice(0, -1), [m, props]]
+      }));
     },
 
     pop: () => {
-      setModal(v => v.slice(0, -1));
-      setPosition(p => p - 1);
+      setState(s => ({
+        position: s.position - 1,
+        queue: [...s.queue.slice(0, -1)]
+      }));
     },
 
-    go: (n: number) => setPosition(p => p + n),
-    back: () => setPosition(p => p - 1),
-    forward: () => setPosition(p => p + 1)
+    go: (n: number) => setState(s => ({
+      position: s.position + n,
+      queue: s.queue
+    })),
+    back: () => setState(s => ({
+      position: s.position - 1,
+      queue: s.queue
+    })),
+    forward: () => setState(s => ({
+      position: s.position + 1,
+      queue: s.queue
+    }))
   };
 
   return (
     <ModalContext.Provider value={context}>
       {children}
-      {position !== -1 && modals.map((m, i) => (
-        <ModalInstanceContext.Provider key={i} value={{ active: i === position }}>
-          {createElement(m)}
+      {position !== -1 && queue.map(([m, props], i) => (
+        <ModalInstanceContext.Provider key={i} value={{ hide: i !== position }}>
+          {createElement(m, props)}
         </ModalInstanceContext.Provider>
       ))}
     </ModalContext.Provider>

@@ -1,29 +1,18 @@
-import React, { FC } from 'react';
+import React, { forwardRef } from 'react';
 
-import Text, { TextProps } from '.';
+import Text, { ExtendedTextProps } from '.';
+import { TextVariant } from './theme';
 
-type TextAliasProps = Omit<TextProps, 't' | 'type'>;
+type TextAliasProps = Omit<ExtendedTextProps, 't' | 'type'>;
 
-export const Span: FC<TextAliasProps> = (p) =>
-  <Text v="span" {...p} />;
+const makeAlias = (v: TextVariant) =>
+  forwardRef<HTMLSpanElement, TextAliasProps>((p, ref) => <Text v={v} {...p} ref={ref} />);
 
-export const Em: FC<TextAliasProps> = (p) =>
-  <Text v="em" {...p} />;
-
-export const Strong: FC<TextAliasProps> = (p) =>
-  <Text v="strong" {...p} />;
-
-export const Underline: FC<TextAliasProps> = (p) =>
-  <Text v="underline" {...p} />;
-
-export const Abbr: FC<TextAliasProps> = (p) =>
-  <Text v="abbr" {...p} />;
-
-export const Strikethrough: FC<TextAliasProps> = (p) =>
-  <Text v="strikethrough" {...p} />;
-
-export const Sub: FC<TextAliasProps> = (p) =>
-  <Text v="sub" {...p} />;
-
-export const Sup: FC<TextAliasProps> = (p) =>
-  <Text v="sup" {...p} />;
+export const Span = makeAlias('span');
+export const Em = makeAlias('em');
+export const Strong = makeAlias('strong');
+export const Underline = makeAlias('underline');
+export const Abbr = makeAlias('abbr');
+export const Strikethrough = makeAlias('strikethrough');
+export const Sub = makeAlias('sub');
+export const Sup = makeAlias('sup');
