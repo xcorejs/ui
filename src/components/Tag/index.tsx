@@ -18,8 +18,6 @@ export type TagProps =
 export type ExtendedTagProps = {
   variant?: TagVariant;
   v?: TagVariant;
-
-  children?: ReactNode;
 } & TagProps;
 
 const Tag = forwardRef<HTMLDivElement, ExtendedTagProps>(({ children, ...p }, ref) => {
