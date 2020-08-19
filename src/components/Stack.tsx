@@ -3,6 +3,7 @@ import Box from 'components/Box';
 import Flex, { FlexProps } from 'components/Flex';
 import React, { Children, cloneElement, FC, isValidElement, ReactNode } from 'react';
 import useTheme from 'useTheme';
+import CSS from 'csstype';
 
 import { transform } from '../utils/transform';
 
@@ -33,7 +34,7 @@ const Stack: FC<StackProps> = ({
   const { breakpoints } = useTheme();
   const t = transform(breakpoints);
 
-  const direction = t(_direction ?? 'row');
+  const direction = t<CSS.FlexDirectionProperty>(_direction ?? 'row');
   const gap = t(_gap);
 
   const itemStyle = ['_', ...breakpoints.aliases].reduce(
