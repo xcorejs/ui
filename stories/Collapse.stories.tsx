@@ -7,7 +7,7 @@ export default { title: 'Collapse' };
 export const BasicUsage: FC = () => {
   const [open, setOpen] = useState(false);
   return (
-    <Stack gap="30px" dir="column">
+    <Stack gap="3rem" direction="column" alignItems="flex-start">
       <Button onClick={() => setOpen(!open)}>
         Toggle
       </Button>

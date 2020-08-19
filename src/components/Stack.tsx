@@ -7,13 +7,12 @@ import useTheme from 'useTheme';
 import { transform } from '../utils/transform';
 
 export interface StackProps extends FlexProps {
-  direction?: ResponsiveValue<'column' | 'row'>;
-  dir?: ResponsiveValue<'column' | 'row'>;
   gap?: ResponsiveValue<number | string>;
   wrapItems?: boolean;
 
   children: ReactNode;
 
+  direction?: FlexProps['flexDirection'];
   align?: FlexProps['alignItems'];
   justify?: FlexProps['justifyContent'];
   wrap?: FlexProps['flexWrap'];
@@ -23,7 +22,6 @@ export type ExtendedStackProps = StackProps;
 
 const Stack: FC<StackProps> = ({
   direction: _direction,
-  dir: _dir,
   align,
   justify,
   wrap,
@@ -35,7 +33,7 @@ const Stack: FC<StackProps> = ({
   const { breakpoints } = useTheme();
   const t = transform(breakpoints);
 
-  const direction = t(_direction ?? _dir ?? 'row');
+  const direction = t(_direction ?? 'row');
   const gap = t(_gap);
 
   const itemStyle = ['_', ...breakpoints.aliases].reduce(

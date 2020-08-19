@@ -11,8 +11,6 @@ export type ContainerProps = FlexProps;
 export type ExtendedContainerProps = {
   variant?: ContainerVariant;
   v?: ContainerVariant;
-
-  children?: ReactNode;
 } & ContainerProps;
 
 const Container = forwardRef<HTMLDivElement, ExtendedContainerProps>((p, ref) => {

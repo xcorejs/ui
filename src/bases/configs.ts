@@ -57,7 +57,8 @@ export const boxSystem = system({
   transform: true,
   filter: true,
   outline: true,
-  outlineOffset: true
+  outlineOffset: true,
+  WebkitTapHighlightColor: true
 });
 
 export const pseudoBoxSystem = system({

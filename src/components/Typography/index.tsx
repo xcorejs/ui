@@ -15,8 +15,6 @@ export type ExtendedTypographyProps =
     variant?: TypographyVariant;
     v?: TypographyVariant;
     as?: TypographyAs;
-
-    children?: ReactNode;
   }
   & TypographyProps;
 

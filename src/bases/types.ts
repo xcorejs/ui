@@ -1,5 +1,5 @@
 import CSS from 'csstype';
-import { CSSProperties, DOMAttributes } from 'react';
+import { CSSProperties, HTMLAttributes } from 'react';
 import { ResponsiveValue } from '@styled-system/core';
 import system from 'styled-system';
 import { XcoreTheme } from 'theme';
@@ -58,6 +58,8 @@ export type BoxBaseProps =
     userSelect?: system.ResponsiveValue<CSS.CursorProperty>;
     pointerEvents?: system.ResponsiveValue<CSS.PointerEventsProperty>;
 
+    WebkitTapHighlightColor?: system.ResponsiveValue<CSS.WebkitTapHighlightColorProperty>;
+
     // Aliases
     column?: ResponsiveValue<CSS.GridColumnProperty>;
     row?: ResponsiveValue<CSS.GridRowProperty>;
@@ -78,7 +80,7 @@ export type BoxBaseProps =
   & system.ZIndexProps
   & system.JustifySelfProps
   & system.AlignSelfProps
-  & Omit<DOMAttributes<HTMLElement>, 'children' | 'dangerouslySetInnerHTML'>;
+  & HTMLAttributes<HTMLElement>;
 
 export type PseudoBoxBaseProps = {
   content?: ResponsiveValue<CSS.ContentProperty>;
