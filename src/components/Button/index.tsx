@@ -31,8 +31,6 @@ export type ExtendedButtonProps =
     s?: ButtonSize;
     variant?: ButtonVariant;
     v?: ButtonVariant;
-
-    children?: ReactNode;
   }
   & ({ as?: 'button' | 'div' } | ({ as: 'a' } & AnchorHTMLAttributes<unknown>));
 

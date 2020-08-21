@@ -39,11 +39,7 @@ export type GridPositionProps = {
 
 export const GridContext = createContext<{ gap?: ResponsiveValue<CSS.GapProperty<string>> }>({ gap: [] });
 
-export type ExtendedGridProps =
-  & GridProps
-  & {
-    children?: ReactNode;
-  };
+export type ExtendedGridProps = GridProps;
 
 const Grid = forwardRef<HTMLDivElement, ExtendedGridProps>(({ columns, rows, gap, ...props }, ref) => {
   const { breakpoints } = useTheme();

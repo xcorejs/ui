@@ -39,8 +39,6 @@ export type ExtendedListProps = {
   variant?: ListVariant;
   v?: ListVariant;
   as?: 'ul' | 'ol';
-
-  children?: ReactNode;
 } & ListProps;
 
 const List = forwardRef<HTMLUListElement, ExtendedListProps>((p, ref) => {

@@ -1,5 +1,5 @@
 
-export const merge = <T>(target: T, ...sources: T[]): Required<T> => {
+export const merge = <T>(target: T, ...sources: T[]): T => {
   const next = appendTo({} as T, target);
   sources.forEach(s => appendTo(next, s));
   return appendTo({} as Required<T>, next as Required<T>);

@@ -6,7 +6,7 @@ export type LoremIpsumProps = {
   count?: number;
   units?: 'paragraphs' | 'words' | 'sentences';
   random?: boolean;
-} & TextProps;
+} & Omit<TextProps, 'children'>;
 
 const pseudoRandomGenerator = () => {
   let acc = 0.5;
