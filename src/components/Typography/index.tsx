@@ -37,6 +37,6 @@ const Typography = forwardRef<HTMLDivElement, ExtendedTypographyProps>(({ as: _a
 
 export default Typography;
 
-const TypographyStyle = styled.p.withConfig<TypographyProps>({ shouldForwardProp })`
+const TypographyStyle = styled.div.withConfig<TypographyProps>({ shouldForwardProp })`
   ${composedTextBase}
 `;
