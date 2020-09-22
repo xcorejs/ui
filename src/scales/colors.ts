@@ -1,11 +1,14 @@
 import { defaultsScale } from './utils';
 import { get } from '@styled-system/core';
 import * as polished from 'polished';
+import { Palette, palette } from 'utils/palette';
 
 export type Colors = {
   primary: string;
   text: string;
   background: string;
+
+  gray: Palette;
 };
 
 export type ColorScale = {
@@ -18,13 +21,17 @@ export const colors = <T extends {}>(base: Colors = lightColorTheme, c: T & Part
 export const lightColorTheme: Colors = {
   primary: '#0171b6',
   text: '#1E3441',
-  background: '#fff'
+  background: '#fff',
+
+  gray: palette('#596e7f')
 };
 
 export const darkColorTheme: Colors = {
   primary: '#DAA520',
   text: '#fff',
-  background: '#211E15'
+  background: '#211E15',
+
+  gray: palette('#698396', -0.4)
 };
 
 export const colorMod = (func: string) => (color: string, amount: number) => `__$${func};${color};${amount}`;
@@ -50,7 +57,7 @@ export const colorTransform = (val: string | number, s: any) => {
     if (reg) {
       const [_, func, color, amount] = reg;
       const a = Number(amount);
-      const value = get<string>(scale, color, lightColorTheme[color as keyof Colors] || color);
+      const value = get<string>(scale, color, color);
 
       switch (func) {
         case 'darken':
@@ -74,7 +81,7 @@ export const colorTransform = (val: string | number, s: any) => {
       }
     }
 
-    return get(scale, val, lightColorTheme[val as keyof Colors] || val);
+    return get(scale, val, val);
   }
-  return get(scale, val, lightColorTheme[val as keyof Colors] || val);
+  return get(scale, val, val);
 };

@@ -1,6 +1,7 @@
-import { ButtonProps } from '.';
+import { darken, transparentize } from 'scales/colors';
 import { mergeThemes } from 'utils/mergeThemes';
-import { darken, opacify } from 'scales/colors';
+
+import { ButtonProps } from '.';
 
 export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg';
 export type ButtonVariant = 'solid' | 'clear' | 'outline' | 'link';
@@ -89,13 +90,13 @@ const emptyButton: ButtonValue = {
     clear: {
       color: 'primary',
       _hover: {
-        bg: opacify('primary', 0.1)
+        bg: transparentize('primary', 0.9)
       },
       _active: {
-        bg: opacify('primary', 0.2)
+        bg: transparentize('primary', 0.8)
       },
       _focus: {
-        bg: opacify('primary', 0.2),
+        bg: transparentize('primary', 0.8),
         outline: '2px solid rgba(15, 31, 40, 0.2)',
         outlineOffset: '-2px'
       },
@@ -108,13 +109,13 @@ const emptyButton: ButtonValue = {
       borderColor: 'primary',
       color: 'primary',
       _hover: {
-        bg: opacify('primary', 0.1)
+        bg: transparentize('primary', 0.9)
       },
       _active: {
-        bg: opacify('primary', 0.2)
+        bg: transparentize('primary', 0.8)
       },
       _focus: {
-        bg: opacify('primary', 0.2),
+        bg: transparentize('primary', 0.8),
         outline: '2px solid rgba(15, 31, 40, 0.2)',
         outlineOffset: '-2px'
       },
