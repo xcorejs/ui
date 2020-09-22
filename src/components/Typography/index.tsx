@@ -20,9 +20,9 @@ export type ExtendedTypographyProps =
 
 const Typography = forwardRef<HTMLDivElement, ExtendedTypographyProps>(({ as: _as, ...p }, ref) => {
   const { typography } = useTheme();
-  const type = p.variant ?? p.v ?? 'p';
+  const type = p.variant ?? p.v;
 
-  const as: TypographyAs = _as ?? (type === 'lead' ? 'p' : type);
+  const as: TypographyAs | undefined = _as ?? (type === 'lead' ? 'p' : type);
 
   const props = useMerge(
     p,
