@@ -8,6 +8,7 @@ export type ExtendedFlexProps = FlexProps;
 const Flex = styled.div.withConfig<FlexProps>({ shouldForwardProp })`
   ${composedFlexBase}
 `;
+
 Flex.displayName = 'Flex';
 
 export default Flex;
