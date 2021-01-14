@@ -49,49 +49,53 @@ const Modal: FC<ExtendedModalProps> = ({ children, onClose, persistent, ...p }) 
       e.key === 'Escape' && (onClose ?? pop)();
     };
 
-    const onClickOutside = (e: MouseEvent) => {
-      !persistent && !ref.current.contains(e.target as any) && (onClose ?? pop)();
-    };
-
-    document.addEventListener('keyup', onEscape);
-    document.addEventListener('click', onClickOutside);
+    window.addEventListener('keyup', onEscape);
 
     return () => {
-      document.removeEventListener('keyup', onEscape);
-      document.removeEventListener('click', onClickOutside);
+      window.removeEventListener('keyup', onEscape);
     };
-  }, [onClose, pop,persistent]);
+  }, [onClose, pop, persistent]);
 
   return (
     <InsetBox
       horizontalPosition="stretch"
       verticalPosition="stretch"
-      position="fixed"
-      display={hide ? 'none' : 'flex'}
-      alignItems="center"
-      justifyContent="center"
-      zIndex={3}
-      {..._overlay}
     >
-      <Flex ref={ref} flexDirection="column" position="relative" {...props}>
-        <Box onClick={onClose ?? pop}>
-          <CloseButton {..._close} />
-        </Box>
+      <Box
+        width="100%"
+        height="100%"
+        position="fixed"
+        display={hide ? 'none' : 'flex'}
+        alignItems="center"
+        justifyContent="center"
+        zIndex={3}
+        onClick={(e: any) => {
+          !persistent && !ref.current.contains(e.target) && (onClose ?? pop)();
+          _overlay?.onClick?.(e);
+        }}
+        {..._overlay}
+      >
+        <Flex ref={ref} flexDirection="column" position="relative" {...props}>
+          <Box onClick={onClose ?? pop}>
+            <CloseButton {..._close} />
+          </Box>
 
-        {(header || title) && (
-          <Flex mb="2rem" {..._header}>
-            {header
-              ? renderComponent(header)
-              : (
-                <Typography v="h3" as="div" {..._title}>
-                  {renderComponent(title)}
-                </Typography>
-              )}
-          </Flex>
-        )}
+          {(header || title) && (
+            <Flex mb="2rem" {..._header}>
+              {header
+                ? renderComponent(header)
+                : (
+                  <Typography v="h3" as="div" {..._title}>
+                    {renderComponent(title)}
+                  </Typography>
+                )}
+            </Flex>
+          )}
 
-        {children}
-      </Flex>
+          {children}
+        </Flex>
+      </Box>
+
     </InsetBox>
   );
 };
