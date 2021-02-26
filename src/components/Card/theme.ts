@@ -22,13 +22,22 @@ export const cardTheme = (c?: PartialComponentTheme<CardTheme>): { card: CardThe
 
 const emptyCard: CardTheme = {
   baseStyle: {
+    display:"flex",
+    role:"group",
+    w:'100%',
+    position: 'relative',
+    flexDirection: 'column',
     color: 'text',
-    background: 'background',
+    background: 'white',
     maxWidth: '30rem',
     _header: {
       display: "flex",
       order: 1,
       padding: '1rem'
+    },
+    _title: {
+      fontSize:'2rem',
+      lineHeight:'3rem'
     },
     _tag: {
       position: "absolute",

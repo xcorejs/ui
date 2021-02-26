@@ -13,4 +13,4 @@ export { default as XcoreProvider, XcoreProviderProps } from './components/Xcore
 export { XcoreTheme, createTheme } from './theme';
 
 // Hooks
-export { default as useTheme } from './useTheme';
+export { default as useTheme } from './hooks/useTheme';

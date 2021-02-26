@@ -1,8 +1,8 @@
-import 'styled-components';
-import { XcoreTheme } from '../src/theme';
+// import 'styled-components';
+// import { XcoreTheme } from '../src/theme';
 
-declare module 'styled-components' {
-  export interface DefaultTheme extends XcoreTheme {
+// declare module 'styled-components' {
+//   export interface DefaultTheme extends XcoreTheme {
 
-  }
-}
+//   }
+// }

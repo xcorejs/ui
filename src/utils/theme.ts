@@ -1,10 +1,10 @@
-import { merge } from "./merge";
-import { SystemProps } from '@xstyled/styled-components';
+import { merge } from './merge';
+import { PseudoProp } from './PseudoProp';
 
 export interface ComponentTheme<P = {}, V extends keyof any = never, S extends keyof any = never> {
-  baseStyle: P & SystemProps<{}>;
-  sizes: Record<S, P & SystemProps<{}>>;
-  variants: Record<V, P & SystemProps<{}>>;
+  baseStyle: P & PseudoProp;
+  sizes: Record<S, P & PseudoProp>;
+  variants: Record<V, P & PseudoProp>;
   defaultProps: {
     s?: S;
     v?: V;

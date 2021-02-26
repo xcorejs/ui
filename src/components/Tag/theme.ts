@@ -1,5 +1,5 @@
-import { ComponentTheme, extendTheme, PartialComponentTheme } from '../../utils/theme';
-import { ComplementThemeProps } from '../Complement';
+import { ComponentTheme, extendTheme, PartialComponentTheme } from 'utils/theme';
+import { ComplementThemeProps } from 'components/Complement';
 
 export type TagVariant = 'solid' | 'outline' | 'clear';
 
@@ -22,7 +22,6 @@ const emptyTag: TagTheme = {
     borderRadius: '0.3rem',
     border: '1px solid #455663',
     px: '0.8rem',
-    fontFamily: 'text',
     fontSize: '1.2rem',
     fontWeight: 500,
     lineHeight: '2rem'
@@ -31,7 +30,7 @@ const emptyTag: TagTheme = {
   variants: {
     solid: {
       bg: '#455663',
-      color: 'background'
+      color: 'white'
     },
     outline: {
       color: '#0f1f28'
