@@ -16,7 +16,7 @@ export interface CardThemeProps {
 
 export type CardTheme = ComponentTheme<CardThemeProps, CardVariant>;
 
-export const card = (c?: PartialComponentTheme<CardTheme>): { card: CardTheme } => ({
+export const cardTheme = (c?: PartialComponentTheme<CardTheme>): { card: CardTheme } => ({
   card: extendTheme(emptyCard, c)
 });
 

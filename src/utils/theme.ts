@@ -2,9 +2,9 @@ import { merge } from "./merge";
 import { SystemProps } from '@xstyled/styled-components';
 
 export interface ComponentTheme<P = {}, V extends keyof any = never, S extends keyof any = never> {
-  baseStyle: P & SystemProps<Record<string | number, unknown>>;
-  sizes: Record<S, P & SystemProps<Record<string | number, unknown>>>;
-  variants: Record<V, P & SystemProps<Record<string | number, unknown>>>;
+  baseStyle: P & SystemProps<{}>;
+  sizes: Record<S, P & SystemProps<{}>>;
+  variants: Record<V, P & SystemProps<{}>>;
   defaultProps: {
     s?: S;
     v?: V;

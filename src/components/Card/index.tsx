@@ -1,6 +1,6 @@
 import { x } from '@xstyled/styled-components';
-import Tag from 'components/Tag';
-import useTheme from 'useTheme';
+import { Tag } from 'components/Tag';
+import { useTheme } from '../../useTheme';
 import renderComponent, { Renderable } from 'utils/renderComponent';
 import { xcoreComponent } from 'utils/xcoreComponent';
 
@@ -34,7 +34,6 @@ export const Card = xcoreComponent<"div", CardProps, CardVariant>(({
   v,
   ...props
 }, ref) => {
-  const { card } = useTheme();
 
   return (
     <x.div

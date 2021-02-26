@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
+import { ThemeContext } from '@xstyled/styled-components';
 
 import { XcoreTheme, emptyTheme } from './theme';
 
-const useTheme = (): XcoreTheme => {
+export const useTheme = (): XcoreTheme => {
   const theme = useContext(ThemeContext) as XcoreTheme | undefined;
 
   return theme ?? emptyTheme;

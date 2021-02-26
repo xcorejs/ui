@@ -16,7 +16,7 @@
     "importHelpers": true,
     "declaration": true,
     "rootDir": "./src",
-    "noEmit": true,
+    "noEmit": false,
     "paths": {
       "*": [
         "*"

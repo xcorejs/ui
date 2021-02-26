@@ -11,7 +11,10 @@ type XcoreComponent<J extends Styleable, P, V extends keyof any = never, S exten
 
 
 export const xcoreComponent = <C extends Styleable, P = {}, V extends keyof any = never, S extends keyof any = never>(Component: ForwardRefRenderFunction<C, P  & XcoreComponentProps<V, S>>): XcoreComponent<C, P, V, S> => {
-  const a =  hoistNonReactStatics(forwardRef(Component), x.div);
+  const a = (forwardRef(Component));
 
   return a as any;
 }
+
+
+type A = SystemProps<{}>["color"] & number;

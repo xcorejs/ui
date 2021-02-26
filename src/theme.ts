@@ -1,5 +1,7 @@
-import { tag, TagTheme } from 'components/Tag';
-import { card, CardTheme } from './components/Card/theme';
+// Import components from /theme to prevent circular references in Storybook
+import { CardTheme, cardTheme } from 'components/Card/theme';
+import { TagTheme, tagTheme } from 'components/Tag/theme';
+
 
 export const xcoreSymbol = Symbol("xcore theme symbol");
 
@@ -11,8 +13,8 @@ export type XcoreTheme = {
 
 export const createTheme = (theme: Partial<XcoreTheme> = {}): XcoreTheme => ({
   [xcoreSymbol]: true,
-  ...card(),
-  ...tag(),
+  ...cardTheme(),
+  ...tagTheme(),
   ...theme
 });
 
