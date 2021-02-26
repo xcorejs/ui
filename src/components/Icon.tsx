@@ -1,18 +1,16 @@
-import { composedIconBase, IconBaseProps } from 'bases';
-import React, { FC, ReactNode } from 'react';
-import styled from 'styled-components';
+import { x } from '@xstyled/styled-components';
+import { ReactNode } from 'react';
 import renderComponent from 'utils/renderComponent';
-import { shouldForwardProp } from 'utils/withConfig';
+import { xcoreComponent } from 'utils/xcoreComponent';
 
-export type IconProps = IconBaseProps & {
+export type IconProps = {
   svg?: ReactNode;
 };
 
-export type ExtendedIconProps = IconProps;
-
-const Icon: FC<ExtendedIconProps> = ({ svg, children, ...props }) => {
+const Icon = xcoreComponent<"span", IconProps>(({ svg, children, ...props }, ref) => {
   return (
-    <IconStyle
+    <x.span
+      ref={ref as any}
       display="inline-block"
       verticalAlign="middle"
       maxHeight="100%"
@@ -20,12 +18,8 @@ const Icon: FC<ExtendedIconProps> = ({ svg, children, ...props }) => {
     >
       {renderComponent(svg)}
       {children}
-    </IconStyle>
+    </x.span>
   );
-};
+})
 
 export default Icon;
-
-const IconStyle = styled.span.withConfig<IconProps>({ shouldForwardProp })`
-  ${composedIconBase}
-`;

@@ -1,19 +1,24 @@
 import Icon, { IconProps } from 'components/Icon';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import renderComponent, { Renderable } from 'utils/renderComponent';
 
-export type SideComplementProps = {
+export type SideComplementThemeProps = {
   _icon?: IconProps;
+}
+
+export interface SideComplementProps extends SideComplementThemeProps {
   icon?: Renderable;
   element?: Renderable;
 };
 
-export type ComplementProps = {
+export type ComplementThemeProps = {
   _leftIcon?: IconProps;
+  _rightIcon?: IconProps;
+};
+
+export interface ComplementProps extends ComplementThemeProps {
   leftIcon?: Renderable;
   leftElement?: Renderable;
-
-  _rightIcon?: IconProps;
   rightIcon?: Renderable;
   rightElement?: Renderable;
 };

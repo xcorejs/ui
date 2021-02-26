@@ -1,4 +1,4 @@
-import { ComponentType, ReactNode, isValidElement, createElement } from 'react';
+import { ComponentType, ReactNode, createElement } from 'react';
 
 export type Renderable = ReactNode | ComponentType;
 

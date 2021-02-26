@@ -1,146 +1,97 @@
-import { BoxProps } from 'components/Box';
-import Flex, { FlexProps } from 'components/Flex';
-import Tag, { TagProps } from 'components/Tag';
-import Text, { TextProps } from 'components/Text';
-import CSS from 'csstype';
-import React, { forwardRef, ReactNode } from 'react';
-import { ResponsiveValue } from '@styled-system/core';
+import { x } from '@xstyled/styled-components';
+import Tag from 'components/Tag';
 import useTheme from 'useTheme';
 import renderComponent, { Renderable } from 'utils/renderComponent';
-import useMerge from 'utils/useMerge';
-import { typeVariant } from 'utils/variant';
+import { xcoreComponent } from 'utils/xcoreComponent';
 
-import { CardVariant } from './theme';
+import { CardThemeProps, CardVariant } from './theme';
 
-export type CardProps =
-  {
-    header?: Renderable;
-    _header?: FlexProps;
+export * from "./theme";
 
-    title?: Renderable;
-    _title?: TextProps;
+export interface CardProps extends CardThemeProps {
+  header?: Renderable;
+  title?: Renderable;
+  tag?: Renderable;
+  media?: Renderable;
+  body?: Renderable;
+  footer?: Renderable;
+};
 
-    tag?: Renderable;
-    _tag?: TagProps;
-
-    media?: Renderable;
-    _media?: FlexProps;
-
-    body?: Renderable;
-    _body?: FlexProps;
-
-    footer?: Renderable;
-    _footer?: FlexProps;
-
-    innerPadding?: ResponsiveValue<CSS.PaddingProperty<number>>;
-  }
-  & BoxProps;
-
-export type ExtendedCardProps = {
-  v?: CardVariant;
-  variant?: CardVariant;
-} & CardProps;
-
-const Card = forwardRef<HTMLDivElement, ExtendedCardProps>(({
+export const Card = xcoreComponent<"div", CardProps, CardVariant>(({
+  _header,
+  header,
+  _tag,
+  tag,
+  _title,
+  title,
+  _media,
+  media,
+  _body,
+  body,
+  _footer,
+  footer,
   children,
-  ...p
+  v,
+  ...props
 }, ref) => {
   const { card } = useTheme();
 
-  const type = typeVariant(card, 'elevated', p);
-
-  const {
-    _header,
-    header,
-    _tag,
-    tag,
-    _title,
-    title,
-    _media,
-    media,
-    _body,
-    body,
-    _footer,
-    footer,
-    innerPadding,
-    ...props
-  } = useMerge(
-    p,
-    type,
-    card.default
-  );
-
-  const getPadding = <T extends unknown>(
-    target: (p: CardProps) => { padding?: T } | undefined
-  ) =>
-    target(p)?.padding ??
-    p.innerPadding ??
-    target(type)?.padding ??
-    type.innerPadding ??
-    target(card.default)?.padding ??
-    card.default.innerPadding;
-
   return (
-    <Flex
-      role="group"
-      width='100%'
-      position='relative'
-      flexDirection='column'
-      {...props}
-      ref={ref}
-    >
-      {(header || title) && (
-        <Flex>
-          <Flex order={1} {..._header} padding={getPadding(x => x._header)}>
-            <Flex flexGrow={1}>
-              {header
-                ? renderComponent(header)
-                : (
-                  <Text
-                    fontSize='2rem'
-                    lineHeight='3rem'
-                    {..._title}
-                  >
-                    {renderComponent(title)}
-                  </Text>
-                )}
-            </Flex>
-          </Flex>
-        </Flex>
-      )}
+    <x.div
+    display="flex"
+    role="group"
+    w='100%'
+    position='relative'
+    flexDirection='column'
+    {...props}
+    ref={ref as any}
+  >
+    {(header || title) && (
+      <x.div {..._header}>
+        {header
+          ? renderComponent(header)
+          : (
+            <x.span
+              fontSize='2rem'
+              lineHeight='3rem'
+              {..._title}
+            >
+              {renderComponent(title)}
+            </x.span>
+          )}
+      </x.div>
+    )}
 
-      {tag && (
-        <Tag position="absolute" top="0" right="0" alignSelf="center" m={_header?.p ?? _header?.padding} {..._tag}>
-          {renderComponent(tag)}
-        </Tag>
-      )}
+    {tag && (
+      <Tag m={_header?.p ?? _header?.padding} {..._tag}>
+        {renderComponent(tag)}
+      </Tag>
+    )}
 
-      {media && (
-        <Flex order={2} {..._media}>
-          {renderComponent(media)}
-        </Flex>
-      )}
+    {media && (
+      <x.div order={2} {..._media}>
+        {renderComponent(media)}
+      </x.div>
+    )}
 
-      {body && (
-        <Flex order={3} {..._body} padding={getPadding(x => x._body)}>
-          {renderComponent(body)}
-        </Flex>
-      )}
+    {body && (
+      <x.div {..._body}>
+        {renderComponent(body)}
+      </x.div>
+    )}
 
-      {children && (
-        <Flex order={3} {..._body} padding={getPadding(x => x._body)}>
-          {children}
-        </Flex>
-      )}
+    {children && (
+      <x.div {..._body}>
+        {children}
+      </x.div>
+    )}
 
-      {footer && (
-        <Flex order={4} {..._footer} padding={_footer?.p ?? _footer?.padding ?? innerPadding}>
-          {renderComponent(footer)}
-        </Flex>
-      )}
+    {footer && (
+      <x.div>
+        {renderComponent(footer)}
+      </x.div>
+    )}
 
-    </Flex>
-  );
+  </x.div>
+  )
 });
-
-export default Card;

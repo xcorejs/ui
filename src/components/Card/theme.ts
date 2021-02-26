@@ -1,35 +1,57 @@
-import { CardProps } from '.';
-import { mergeThemes } from 'utils/mergeThemes';
+import { PseudoProp } from 'utils/PseudoProp';
+import { ComponentTheme, PartialComponentTheme } from 'utils/theme';
+
+import { extendTheme } from '../../utils/theme';
 
 export type CardVariant = 'normal' | 'elevated' | 'outline';
 
-interface CardValue {
-  default: CardProps;
-  variants: Record<CardVariant, CardProps>;
+export interface CardThemeProps {
+  _header?: PseudoProp;
+  _title?: PseudoProp;
+  _tag?: PseudoProp;
+  _media?: PseudoProp;
+  _body?: PseudoProp;
+  _footer?: PseudoProp;
 }
 
-export interface CardTheme {
-  card: CardValue;
-}
+export type CardTheme = ComponentTheme<CardThemeProps, CardVariant>;
 
-export const card = (
-  c?: {
-    default?: CardProps;
-    variants?: Partial<Record<CardVariant, CardProps>>;
-  }
-): CardTheme => ({
-  card: mergeThemes<'variants', CardProps>(c, emptyCard)
+export const card = (c?: PartialComponentTheme<CardTheme>): { card: CardTheme } => ({
+  card: extendTheme(emptyCard, c)
 });
 
-const emptyCard: CardValue = {
-  default: {
+const emptyCard: CardTheme = {
+  baseStyle: {
     color: 'text',
     background: 'background',
     maxWidth: '30rem',
-    _header: { padding: '1rem' },
-    _body: { padding: '1rem' },
-    _footer: { padding: '1rem' }
+    _header: {
+      display: "flex",
+      order: 1,
+      padding: '1rem'
+    },
+    _tag: {
+      position: "absolute",
+      top: 0,
+      right: 0,
+      alignSelf: "center"
+    },
+    _media: {
+      display: "flex",
+      order: 2
+    },
+    _body: {
+      padding: '1rem',
+      display: "flex",
+      order: 3
+    },
+    _footer: {
+      display: "flex",
+      order: 4,
+      padding: '1rem'
+    }
   },
+  sizes: {},
   variants: {
     normal: {},
     elevated: {
@@ -39,5 +61,8 @@ const emptyCard: CardValue = {
     outline: {
       border: '1px solid rgba(69, 86, 99, 0.5)'
     }
+  },
+  defaultProps: {
+    v: "normal"
   }
 };

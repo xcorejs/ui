@@ -1,25 +1,20 @@
-import { mergeThemes } from 'utils/mergeThemes';
-
-import { TagProps } from '.';
+import { ComponentTheme, extendTheme, PartialComponentTheme } from '../../utils/theme';
+import { ComplementThemeProps } from '../Complement';
 
 export type TagVariant = 'solid' | 'outline' | 'clear';
 
-interface TagValue {
-  default: TagProps;
-  variants: Record<TagVariant, TagProps>;
+export interface TagThemeProps extends ComplementThemeProps {
+
 }
 
-export interface TagTheme {
-  tag: TagValue;
-}
+export type TagTheme = ComponentTheme<TagThemeProps, TagVariant>;
 
-export const tag = (t?: {
-  default?: TagProps;
-  variants?: Partial<Record<TagVariant, TagProps>>;
-}): TagTheme => ({ tag: mergeThemes<'variants', TagProps>(t, emptyTag) });
+export const tag = (t?: PartialComponentTheme<TagTheme>): { tag: TagTheme } =>({
+  tag: extendTheme(emptyTag, t)
+});
 
-const emptyTag: TagValue = {
-  default: {
+const emptyTag: TagTheme = {
+  baseStyle: {
     borderRadius: '0.3rem',
     border: '1px solid #455663',
     px: '0.8rem',
@@ -28,6 +23,7 @@ const emptyTag: TagValue = {
     fontWeight: 500,
     lineHeight: '2rem'
   },
+  sizes: {},
   variants: {
     solid: {
       bg: '#455663',
@@ -39,5 +35,8 @@ const emptyTag: TagValue = {
     clear: {
       borderColor: 'transparent'
     }
+  },
+  defaultProps: {
+    v: "solid"
   }
 };
