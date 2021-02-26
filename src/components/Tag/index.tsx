@@ -1,9 +1,9 @@
-import { x } from '@xstyled/styled-components';
-import Complement, { comp, ComplementProps } from 'components/Complement';
-import { useComponentTheme } from 'hooks/useComponentTheme';
-import { xcoreComponent } from 'utils/xcoreComponent';
+import { x } from "@xstyled/styled-components";
+import Complement, { comp, ComplementProps } from "components/Complement";
+import { useComponentTheme } from "hooks/useComponentTheme";
+import { xcoreComponent } from "utils/xcoreComponent";
 
-import { TagVariant } from './theme';
+import { TagVariant } from "./theme";
 
 export * from "./theme";
 

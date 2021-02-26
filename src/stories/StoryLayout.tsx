@@ -1,6 +1,6 @@
-import { x } from '@xstyled/styled-components';
-import XcoreProvider from 'components/XcoreProvider';
-import { FC, ReactNode } from 'react';
+import { x } from "@xstyled/styled-components";
+import XcoreProvider from "components/XcoreProvider";
+import { FC, ReactNode } from "react";
 
 interface Props {
   title?: ReactNode;
@@ -20,7 +20,7 @@ const StoryLayout: FC<Props> = ({ title, description, children }) => {
         </x.div>
       </x.div>
     </XcoreProvider>
-  )
-}
+  );
+};
 
 export default StoryLayout;

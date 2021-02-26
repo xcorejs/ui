@@ -1,11 +1,11 @@
-import 'jest-styled-components';
+import "jest-styled-components";
 
-import { Card } from '.';
+import { Card } from ".";
 import { x } from "@xstyled/styled-components";
-import React, { FC } from 'react';
-import renderer from 'react-test-renderer';
+import React, { FC } from "react";
+import renderer from "react-test-renderer";
 
-test('Card component', () => {
+test("Card component", () => {
   const component = renderer.create(
     <>
       <Card

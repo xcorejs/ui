@@ -1,5 +1,5 @@
 import { x } from "@xstyled/styled-components";
-import { FC } from 'react';
+import { FC } from "react";
 import StoryLayout from "stories/StoryLayout";
 import { Card } from ".";
 
@@ -39,9 +39,8 @@ export const Normal: FC = () => {
         />
       </x.div>
     </StoryLayout>
-  )
-}
-
+  );
+};
 
 const LoremIpsum: FC<any> = () => {
   return (

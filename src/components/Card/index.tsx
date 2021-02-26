@@ -1,11 +1,11 @@
-import { x } from '@xstyled/styled-components';
-import { Tag } from 'components/Tag';
-import { useTheme } from '../../hooks/useTheme';
-import renderComponent, { Renderable } from 'utils/renderComponent';
-import { xcoreComponent } from 'utils/xcoreComponent';
+import { x } from "@xstyled/styled-components";
+import { Tag } from "components/Tag";
+import { useTheme } from "../../hooks/useTheme";
+import renderComponent, { Renderable } from "utils/renderComponent";
+import { xcoreComponent } from "utils/xcoreComponent";
 
-import { CardThemeProps, CardVariant } from './theme';
-import { useComponentTheme } from 'hooks/useComponentTheme';
+import { CardThemeProps, CardVariant } from "./theme";
+import { useComponentTheme } from "hooks/useComponentTheme";
 
 export * from "./theme";
 
@@ -16,7 +16,7 @@ export interface CardProps extends CardThemeProps {
   media?: Renderable;
   body?: Renderable;
   footer?: Renderable;
-};
+}
 
 export const Card = xcoreComponent<"div", CardProps, CardVariant>(({
   _header,
@@ -86,5 +86,5 @@ export const Card = xcoreComponent<"div", CardProps, CardVariant>(({
       )}
 
     </x.div>
-  )
+  );
 });

@@ -6,12 +6,12 @@ export const merge = <T>(target: T, ...sources: (T | undefined)[]): T => {
 };
 
 const appendTo = <T>(t: T, s: T | undefined): T => {
-  if(s === undefined) {
+  if (s === undefined) {
     return t;
   }
 
   keys(s).reverse().forEach(k => {
-    t[k] && k[0] === '_' && typeof t[k] === 'object'
+    t[k] && k[0] === "_" && typeof t[k] === "object"
       ? appendTo(t[k], s[k])
       : !(k in t) &&
           (t[k] = s[k]);

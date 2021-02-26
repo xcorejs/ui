@@ -1,8 +1,8 @@
-import { defaultTheme, x } from '@xstyled/styled-components';
-import { FC } from 'react';
-import StoryLayout from 'stories/StoryLayout';
+import { defaultTheme, x } from "@xstyled/styled-components";
+import { FC } from "react";
+import StoryLayout from "stories/StoryLayout";
 
-import { Tag } from '.';
+import { Tag } from ".";
 
 export default {
   title: "Themed/Tag"
@@ -10,7 +10,7 @@ export default {
 
 const theme = {
   ...defaultTheme
-}
+};
 
 export const Normal: FC = () => {
   return (
@@ -20,5 +20,5 @@ export const Normal: FC = () => {
         <Tag>Tag</Tag>
       </x.div>
     </StoryLayout>
-  )
-}
+  );
+};

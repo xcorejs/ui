@@ -1,6 +1,6 @@
-import { x } from '@xstyled/styled-components';
-import { FC } from 'react';
-import StoryLayout from 'stories/StoryLayout';
+import { x } from "@xstyled/styled-components";
+import { FC } from "react";
+import StoryLayout from "stories/StoryLayout";
 
 export default {
   title: "Unthemed/Icon"
@@ -13,5 +13,5 @@ export const Normal: FC = () => {
         Empty
       </x.div>
     </StoryLayout>
-  )
-}
+  );
+};
