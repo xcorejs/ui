@@ -1,4 +1,4 @@
-import { x, ThemeProvider, defaultTheme } from "@xstyled/styled-components";
+import { x, ThemeProvider, defaultTheme } from "@xstyled/emotion";
 import { FC } from "react";
 
 export default {

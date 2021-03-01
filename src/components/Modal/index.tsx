@@ -1,5 +1,5 @@
 import Portal from "@reach/portal";
-import { x } from "@xstyled/styled-components";
+import { x } from "@xstyled/emotion";
 import { CloseControl } from "components/Control/CloseControl";
 import { Txt } from "components/Typography/Txt";
 import { useComponentTheme } from "hooks/useComponentTheme";
@@ -21,7 +21,7 @@ export interface ModalProps extends Omit<ModalThemeProps, "title"> {
   onClose?: () => unknown;
 }
 
-export const Modal = xcoreComponent<"div", ModalProps>(({
+export const Modal = xcoreComponent<"div", ModalProps>("div", ({
   children,
   onClose,
   persistent,

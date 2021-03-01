@@ -1,4 +1,4 @@
-import { createElement, FC, useState, ComponentType } from "react";
+import { FC, useState, ComponentType } from "react";
 
 import { ModalContext, ModalInstanceContext } from "./data";
 
@@ -48,9 +48,9 @@ const ModalProvider: FC = ({ children }) => {
   return (
     <ModalContext.Provider value={context}>
       {children}
-      {position !== -1 && queue.map(([m, props], i) => (
+      {position !== -1 && queue.map(([M, props], i) => (
         <ModalInstanceContext.Provider key={i} value={{ hide: i !== position }}>
-          {createElement(m, props)}
+          <M {...props} />
         </ModalInstanceContext.Provider>
       ))}
     </ModalContext.Provider>

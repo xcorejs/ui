@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ThemeContext } from "@xstyled/styled-components";
+import { ThemeContext } from "@xstyled/emotion";
 
 import { XcoreTheme, emptyTheme } from "../theme";
 

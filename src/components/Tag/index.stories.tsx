@@ -1,4 +1,4 @@
-import { defaultTheme, x } from "@xstyled/styled-components";
+import { defaultTheme, x } from "@xstyled/emotion";
 import { FC } from "react";
 import StoryLayout from "stories/StoryLayout";
 

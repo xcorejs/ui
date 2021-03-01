@@ -1,5 +1,4 @@
-import { StyledComponentProps } from "styled-components";
-import { SystemProps } from "@xstyled/styled-components";
+import { PropsOf } from "@emotion/react";
+import { x } from "@xstyled/emotion";
 
-export type PseudoProp<C extends string | React.ComponentType<any> = "div"> =
-  Omit<StyledComponentProps<C, {}, SystemProps<Record<string | number, unknown>>, never>, "theme">;
+export type PseudoProp<C extends keyof JSX.IntrinsicElements = "div", P extends object = {}> = PropsOf<(typeof x)[C]> & P;

@@ -1,5 +1,3 @@
-import "jest-styled-components";
-
 import { Tag } from ".";
 import React from "react";
 import renderer from "react-test-renderer";

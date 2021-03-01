@@ -1,7 +1,5 @@
-import "jest-styled-components";
-
 import { Card } from ".";
-import { x } from "@xstyled/styled-components";
+import { x } from "@xstyled/emotion";
 import { FC } from "react";
 import renderer from "react-test-renderer";
 

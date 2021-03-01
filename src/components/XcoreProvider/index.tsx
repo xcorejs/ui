@@ -1,4 +1,4 @@
-import { defaultTheme, Preflight, ThemeProvider } from "@xstyled/styled-components";
+import { defaultTheme, Preflight, ThemeProvider } from "@xstyled/emotion";
 import ModalProvider from "components/Modal/ModalProvider";
 import { Typography } from "components/Typography";
 import { FC, useMemo } from "react";

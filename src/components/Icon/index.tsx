@@ -1,4 +1,4 @@
-import { x } from "@xstyled/styled-components";
+import { x } from "@xstyled/emotion";
 import renderComponent, { Renderable } from "utils/renderComponent";
 import { xcoreComponent } from "utils/xcoreComponent";
 
@@ -6,7 +6,7 @@ export type IconProps = {
   svg?: Renderable;
 };
 
-export const Icon = xcoreComponent<"span", IconProps>(({ svg, children, ...props }, ref) => {
+export const Icon = xcoreComponent<"span", IconProps>("span", ({ svg, children, ...props }, ref) => {
   return (
     <x.span
       ref={ref as any}

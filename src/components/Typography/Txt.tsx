@@ -1,4 +1,4 @@
-import { x } from "@xstyled/styled-components";
+import { x } from "@xstyled/emotion";
 import { PseudoProp } from "utils/PseudoProp";
 import { xcoreComponent } from "utils/xcoreComponent";
 import { useComponentTheme } from "hooks/useComponentTheme";
@@ -7,7 +7,7 @@ interface TxtProps extends PseudoProp {
   t: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "lead" | "a";
 }
 
-export const Txt = xcoreComponent<"p", TxtProps>(({ v, t, ...props }, ref) => {
+export const Txt = xcoreComponent<"p", TxtProps>("p", ({ v, t, ...props }, ref) => {
   const theme = useComponentTheme("typography", v);
 
   return <x.p ref={ref as any} {...theme[prefix(t)]} {...props} className={`_xcore-as-${t} ${props.className ?? ""}`} />;

@@ -1,4 +1,4 @@
-import { x } from "@xstyled/styled-components";
+import { x } from "@xstyled/emotion";
 import XcoreProvider from "components/XcoreProvider";
 import { FC, ReactNode } from "react";
 

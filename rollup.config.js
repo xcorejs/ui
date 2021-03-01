@@ -2,7 +2,6 @@
 import { DEFAULT_EXTENSIONS } from '@babel/core';
 import babel from '@rollup/plugin-babel';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
-import reactSvg from 'rollup-plugin-react-svg';
 import tsPlugin from 'rollup-plugin-typescript2';
 import typescript from 'ttypescript';
 
@@ -20,7 +19,6 @@ const config = (input, outputCjs, outputEsm) => ({
     nodeResolve({
       moduleDirectories: ["node_modules", "src"]
     }),
-    reactSvg({}),
     tsPlugin({ typescript }),
     babel({
       babelHelpers: "runtime",

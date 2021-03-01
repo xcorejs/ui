@@ -1,4 +1,4 @@
-import { x } from "@xstyled/styled-components";
+import { x } from "@xstyled/emotion";
 import { FC } from "react";
 import StoryLayout from "stories/StoryLayout";
 

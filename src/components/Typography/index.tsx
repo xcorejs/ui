@@ -1,4 +1,4 @@
-import styled, { css, system } from "@xstyled/styled-components";
+import { x } from "@xstyled/emotion";
 import { useComponentTheme } from "hooks/useComponentTheme";
 import { useMemo } from "react";
 import { xcoreComponent } from "utils/xcoreComponent";
@@ -9,7 +9,7 @@ export * from "./theme";
 
 interface TypographyProps extends TypographyThemeProps { }
 
-export const Typography = xcoreComponent<"div", TypographyProps, TypographyVariant>(({
+export const Typography = xcoreComponent<"div", TypographyProps, TypographyVariant>("div", ({
   v,
   s,
   _h1,
@@ -26,60 +26,36 @@ export const Typography = xcoreComponent<"div", TypographyProps, TypographyVaria
   const theme = useComponentTheme("typography", v);
 
   const styles = useMemo(() => ({
-    _h1: { ...theme._h1, ..._h1 },
-    _h2: { ...theme._h2, ..._h2 },
-    _h3: { ...theme._h3, ..._h3 },
-    _h4: { ...theme._h4, ..._h4 },
-    _h5: { ...theme._h5, ..._h5 },
-    _h6: { ...theme._h6, ..._h6 },
-    _p: { ...theme._p, ..._p },
-    _lead: { ...theme._lead, ..._lead },
-    _a: { ...theme._a, ..._a }
+    "h1, ._xcore-as-h1": { ...theme._h1, ..._h1 },
+    "h2, ._xcore-as-h2": { ...theme._h2, ..._h2 },
+    "h3, ._xcore-as-h3": { ...theme._h3, ..._h3 },
+    "h4, ._xcore-as-h4": { ...theme._h4, ..._h4 },
+    "h5, ._xcore-as-h5": { ...theme._h5, ..._h5 },
+    "h6, ._xcore-as-h6": { ...theme._h6, ..._h6 },
+    "p, ._xcore-as-p": { ...theme._p, ..._p },
+    "._xcore-as-lead": { ...theme._lead, ..._lead },
+    "a, ._xcore-as-a": { ...theme._a, ..._a }
   // eslint-disable-next-line max-len
   }), [_a, _h1, _h2, _h3, _h4, _h5, _h6, _lead, _p, theme._a, theme._h1, theme._h2, theme._h3, theme._h4, theme._h5, theme._h6, theme._lead, theme._p]);
 
+  console.log({ ...theme._p, ..._p });
+
   return (
-    <TypographyStyle ref={ref as any} {...styles} {...theme} {...props} />
+    <x.div
+      ref={ref}
+      {...props}
+      css={{
+        "h1, ._xcore-as-h1": { ...theme._h1, ..._h1 },
+        "h2, ._xcore-as-h2": { ...theme._h2, ..._h2 },
+        "h3, ._xcore-as-h3": { ...theme._h3, ..._h3 },
+        "h4, ._xcore-as-h4": { ...theme._h4, ..._h4 },
+        "h5, ._xcore-as-h5": { ...theme._h5, ..._h5 },
+        "h6, ._xcore-as-h6": { ...theme._h6, ..._h6 },
+        "p, ._xcore-as-p": { ...theme._p, ..._p },
+        "._xcore-as-lead": { ...theme._lead, ..._lead },
+        "a, ._xcore-as-a": { ...theme._a, ..._a }
+        // eslint-disable-next-line max-len
+      }}
+    />
   );
 });
-
-const TypographyStyle = styled.divBox<TypographyThemeProps>`
-  h1, ._xcore-as-h1 {
-    ${p => css(system(p._h1!))}
-  }
-
-  h2, ._xcore-as-h2 {
-    ${p => {
-      const a = css(system(p._h2!));
-      return a;
-    }}
-  }
-
-  h3, ._xcore-as-h3 {
-    ${p => css(system(p._h3!))}
-  }
-
-  h4, ._xcore-as-h4 {
-    ${p => css(system(p._h4!))}
-  }
-
-  h5, ._xcore-as-h5 {
-    ${p => css(system(p._h5!))}
-  }
-
-  h6, ._xcore-as-h6 {
-    ${p => css(system(p._h6!))}
-  }
-
-  p, ._xcore-as-p {
-    ${p => css(system(p._p!))}
-  }
-
-  ._xcore-as-lead {
-    ${p => css(system(p._lead!))}
-  }
-
-  a, ._xcore-as-a  {
-    ${p => css(system(p._a!))}
-  }
-`;

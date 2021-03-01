@@ -1,4 +1,4 @@
-import { x } from "@xstyled/styled-components";
+import { x } from "@xstyled/emotion";
 import { Tag } from "components/Tag";
 import { useTheme } from "../../hooks/useTheme";
 import renderComponent, { Renderable } from "utils/renderComponent";
@@ -18,7 +18,7 @@ export interface CardProps extends Omit<CardThemeProps, "title"> {
   footer?: Renderable;
 }
 
-export const Card = xcoreComponent<"div", CardProps, CardVariant>(({
+export const Card = xcoreComponent<"div", CardProps, CardVariant>("div", ({
   _header,
   header,
   _tag,

@@ -1,7 +1,7 @@
-import { x } from "@xstyled/styled-components";
+import { x } from "@xstyled/emotion";
+import { Typography } from "components/Typography";
 import XcoreProvider from "components/XcoreProvider";
 import { FC } from "react";
-import { Typography } from "../../components/Typography/index";
 
 export default {
   title: "Examples/Typography"
@@ -31,10 +31,10 @@ export const WithCustomTypography: FC = () => {
       <x.h1>With custom typography</x.h1>
       <x.p>This story demonstrates different sets of typography</x.p>
 
-      <Typography as="article" _h2={{ fontSize: "1.2rem" }} p={{ fontSize: "0.9rem" }}>
+      <Typography as="article" _h2={{ fontSize: "1.1rem" }} _p={{ fontSize: "0.9rem" }}>
         <x.header><h2>Article</h2></x.header>
         <x.section>
-          <x.p>This article has different set of typography (work in progress).</x.p>
+          <x.p>This article has different set of typography.</x.p>
         </x.section>
       </Typography>
     </XcoreProvider>
