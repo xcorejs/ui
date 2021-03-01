@@ -7,7 +7,6 @@ module.exports = {
     '@babel/preset-typescript'
   ],
   plugins: [
-    "@babel/plugin-transform-runtime",
-    "inline-react-svg"
+    "@babel/plugin-transform-runtime"
   ]
 };

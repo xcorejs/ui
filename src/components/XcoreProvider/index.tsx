@@ -1,4 +1,5 @@
 import { defaultTheme, Preflight, ThemeProvider } from "@xstyled/styled-components";
+import ModalProvider from "components/Modal/ModalProvider";
 import { Typography } from "components/Typography";
 import { FC, useMemo } from "react";
 import { emptyTheme, XcoreTheme } from "theme";
@@ -32,11 +33,11 @@ const XcoreProvider: FC<XcoreProviderProps> = ({ children, theme, xstyledTheme, 
       <ThemeProvider theme={mergedTheme}>
         {!noPreflight && <Preflight />}
         <Typography>
-          <>{children}</>
+          <ModalProvider>{children}</ModalProvider>
         </Typography>
       </ThemeProvider>
     )
-    : <>{children}</>;
+    : <ModalProvider>{children}</ModalProvider>;
 };
 
 export default XcoreProvider;
