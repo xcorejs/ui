@@ -1,7 +1,5 @@
 import { PseudoProp } from "utils/PseudoProp";
-import { ComponentTheme, PartialComponentTheme } from "utils/theme";
-
-import { extendTheme } from "../../utils/theme";
+import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
 
 export type CardVariant = "normal" | "elevated" | "outline";
 

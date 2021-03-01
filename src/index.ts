@@ -1,5 +1,6 @@
 // Themed
 export * from "./components/Card";
+export * from "./components/Control";
 export * from "./components/Tag";
 
 // Unthemed

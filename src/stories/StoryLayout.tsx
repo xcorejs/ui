@@ -11,9 +11,9 @@ const StoryLayout: FC<Props> = ({ title, description, children }) => {
   return (
     <XcoreProvider>
       <x.div spaceY="5">
-        <x.h1>{title} <x.span>XCORE UI</x.span></x.h1>
+        {title && <x.h1>{title} <x.span color="gray-500">XCORE UI</x.span></x.h1>}
 
-        <x.p>{description}</x.p>
+        {description && <x.p>{description}</x.p>}
 
         <x.div>
           {children}

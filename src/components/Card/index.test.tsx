@@ -2,7 +2,7 @@ import "jest-styled-components";
 
 import { Card } from ".";
 import { x } from "@xstyled/styled-components";
-import React, { FC } from "react";
+import { FC } from "react";
 import renderer from "react-test-renderer";
 
 test("Card component", () => {

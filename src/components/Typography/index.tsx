@@ -5,6 +5,8 @@ import { xcoreComponent } from "utils/xcoreComponent";
 
 import { TypographyThemeProps, TypographyVariant } from "./theme";
 
+export * from "./theme";
+
 interface TypographyProps extends TypographyThemeProps { }
 
 export const Typography = xcoreComponent<"div", TypographyProps, TypographyVariant>(({
@@ -47,7 +49,10 @@ const TypographyStyle = styled.divBox<Required<TypographyThemeProps>>`
   }
 
   h2, ._xcore-as-h2 {
-    ${p => css(system(p._h2))}
+    ${p => {
+      const a = css(system(p._h2));
+      return a;
+    }}
   }
 
   h3, ._xcore-as-h3 {

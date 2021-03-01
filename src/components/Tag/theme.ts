@@ -21,10 +21,10 @@ const emptyTag: TagTheme = {
     transition: "color 300ms, background 300ms, border-color 300ms",
     borderRadius: "0.3rem",
     border: "1px solid #455663",
-    px: "0.8rem",
-    fontSize: "1.2rem",
+    px: "3",
+    fontSize: "sm",
     fontWeight: 500,
-    lineHeight: "2rem"
+    lineHeight: "relaxed"
   },
   sizes: {},
   variants: {

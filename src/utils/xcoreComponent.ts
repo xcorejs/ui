@@ -17,9 +17,7 @@ export const xcoreComponent = <
 >(
   Component: ForwardRefRenderFunction<C, P & XcoreComponentProps<V, S>>
 ): XcoreComponent<C, P, V, S> => {
-  const a = forwardRef(Component);
+  const a = forwardRef(hoistNonReactStatics(Component, x.div));
 
   return a as any;
 };
-
-type A = SystemProps<{}>["color"] & number;

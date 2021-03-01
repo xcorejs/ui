@@ -30,19 +30,19 @@ const emptyTypography: TypographyTheme = {
   variants: {
     normal: {
       _h1: {
-        fontSize: "4.4rem",
+        fontSize: "2xl",
         fontWeight: 500,
-        lineHeight: "6.6rem"
+        lineHeight: "loose"
       },
       _h2: {
-        fontSize: "3.2rem",
+        fontSize: "xl",
         fontWeight: 500,
-        lineHeight: "4.8rem"
+        lineHeight: "loose"
       },
       _h3: {
-        fontSize: "2.4rem",
+        fontSize: "lg",
         fontWeight: 500,
-        lineHeight: "3.6rem"
+        lineHeight: "loose"
       },
       _h4: {
 
