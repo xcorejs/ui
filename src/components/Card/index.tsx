@@ -1,11 +1,10 @@
 import { x } from "@xstyled/emotion";
 import { Tag } from "components/Tag";
-import { useTheme } from "../../hooks/useTheme";
+import { useComponentTheme } from "hooks/useComponentTheme";
+import { anolisComponent } from "utils/anolisComponent";
 import renderComponent, { Renderable } from "utils/renderComponent";
-import { xcoreComponent } from "utils/xcoreComponent";
 
 import { CardThemeProps, CardVariant } from "./theme";
-import { useComponentTheme } from "hooks/useComponentTheme";
 
 export * from "./theme";
 
@@ -18,7 +17,7 @@ export interface CardProps extends Omit<CardThemeProps, "title"> {
   footer?: Renderable;
 }
 
-export const Card = xcoreComponent<"div", CardProps, CardVariant>("div", ({
+export const Card = anolisComponent<"div", CardProps, CardVariant>("div", ({
   _header,
   header,
   _tag,

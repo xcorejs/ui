@@ -1,5 +1,5 @@
 {
-  "name": "@xcorejs/ui",
+  "name": "anolis-ui",
   "version": "0.7.3",
   "description": "Flexible, themeable React component library for applications with advanced UI design requirements which is suitable for creating tailored design systems.",
   "main": "lib/index.js",

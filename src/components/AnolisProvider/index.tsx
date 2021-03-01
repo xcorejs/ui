@@ -2,30 +2,29 @@ import { defaultTheme, Preflight, ThemeProvider } from "@xstyled/emotion";
 import ModalProvider from "components/Modal/ModalProvider";
 import { Typography } from "components/Typography";
 import { FC, useMemo } from "react";
-import { emptyTheme, XcoreTheme } from "theme";
+import { emptyTheme, AnolisTheme } from "theme";
 
-// import ModalProvider from 'components/Modal/ModalProvider';
-export type XcoreProviderProps = {
-  theme?: XcoreTheme | null;
+export type AnolisProviderProps = {
+  theme?: AnolisTheme | null;
   xstyledTheme?: {};
 
   noPreflight?: boolean;
 };
 
-const XcoreProvider: FC<XcoreProviderProps> = ({ children, theme, xstyledTheme, noPreflight }) => {
+const AnolisProvider: FC<AnolisProviderProps> = ({ children, theme, xstyledTheme, noPreflight }) => {
   const mergedTheme = useMemo<any>(() => ({
     ...defaultTheme,
     ...xstyledTheme,
     colors: {
       ...defaultTheme.colors,
-      "xcore-blue": "#0171b6"
+      "anolis-blue": "#0171b6"
     },
     fonts: {
       ...defaultTheme.fonts,
       // eslint-disable-next-line @typescript-eslint/quotes
       sans: `"rubik", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`
     },
-    xcore: theme ?? emptyTheme
+    anolis: theme ?? emptyTheme
   }), [theme, xstyledTheme]);
 
   return theme !== null
@@ -40,4 +39,4 @@ const XcoreProvider: FC<XcoreProviderProps> = ({ children, theme, xstyledTheme, 
     : <ModalProvider>{children}</ModalProvider>;
 };
 
-export default XcoreProvider;
+export default AnolisProvider;

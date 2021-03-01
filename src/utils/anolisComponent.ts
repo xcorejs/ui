@@ -2,24 +2,24 @@ import { SystemProps, x } from "@xstyled/emotion";
 import { StyledComponent } from "@emotion/styled";
 import hoistNonReactStatics from "hoist-non-react-statics";
 import { forwardRef, ForwardRefRenderFunction, RefObject } from "react";
-import { XcoreComponentProps } from "./theme";
+import { AnolisComponentProps } from "./theme";
 
-type XcoreComponent<J extends keyof JSX.IntrinsicElements, P, V extends keyof any = never, S extends keyof any = never> =
+type AnolisComponent<J extends keyof JSX.IntrinsicElements, P, V extends keyof any = never, S extends keyof any = never> =
   StyledComponent<
-  SystemProps<Record<string | number, unknown>> & XcoreComponentProps<V, S> & { as?: React.ElementType } & P,
+  SystemProps<Record<string | number, unknown>> & AnolisComponentProps<V, S> & { as?: React.ElementType } & P,
   {},
   JSX.IntrinsicElements[J]
   >;
 
-export const xcoreComponent = <
+export const anolisComponent = <
   C extends keyof JSX.IntrinsicElements,
   P = {},
   V extends keyof any = never,
   S extends keyof any = never
 >(
   tag: C,
-  Component: ForwardRefRenderFunction<RefOf<C>, P & XcoreComponentProps<V, S>>
-): XcoreComponent<C, P, V, S> => {
+  Component: ForwardRefRenderFunction<RefOf<C>, P & AnolisComponentProps<V, S>>
+): AnolisComponent<C, P, V, S> => {
   const a = forwardRef(hoistNonReactStatics(Component, x[tag]));
 
   return a as any;

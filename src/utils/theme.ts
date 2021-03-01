@@ -16,7 +16,7 @@ export type PartialComponentTheme<T extends ComponentTheme<any, any, any>> = Par
   variants?: Partial<T["variants"]>;
 };
 
-export type XcoreComponentProps<V extends keyof any = never, S extends keyof any = never> = {
+export type AnolisComponentProps<V extends keyof any = never, S extends keyof any = never> = {
   s?: S;
   v?: V;
 };

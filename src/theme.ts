@@ -5,9 +5,7 @@ import { ModalTheme, modalTheme } from "components/Modal/theme";
 import { TagTheme, tagTheme } from "components/Tag/theme";
 import { typographyTheme, TypographyTheme } from "components/Typography/theme";
 
-export const xcoreSymbol = Symbol("xcore theme symbol");
-
-export type XcoreTheme = {
+export type AnolisTheme = {
   card: CardTheme;
   tag: TagTheme;
   typography: TypographyTheme;
@@ -15,7 +13,7 @@ export type XcoreTheme = {
   modal: ModalTheme;
 };
 
-export const createTheme = (theme: Partial<XcoreTheme> = {}): XcoreTheme => ({
+export const createTheme = (theme: Partial<AnolisTheme> = {}): AnolisTheme => ({
   ...cardTheme(),
   ...tagTheme(),
   ...typographyTheme(),

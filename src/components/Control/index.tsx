@@ -2,7 +2,7 @@ import { x } from "@xstyled/emotion";
 import { Icon } from "components/Icon";
 import { useComponentTheme } from "hooks/useComponentTheme";
 import { Renderable } from "utils/renderComponent";
-import { xcoreComponent } from "utils/xcoreComponent";
+import { anolisComponent } from "utils/anolisComponent";
 
 import { ControlSizes, ControlThemeProps } from "./theme";
 
@@ -13,7 +13,7 @@ export interface ControlProps extends ControlThemeProps {
   icon?: Renderable;
 }
 
-export const Control = xcoreComponent<"div", ControlProps, never, ControlSizes>("div", ({ s, _icon, icon, ...props }, ref) => {
+export const Control = anolisComponent<"div", ControlProps, never, ControlSizes>("div", ({ s, _icon, icon, ...props }, ref) => {
   const theme = useComponentTheme("control", undefined, s);
 
   type A = Exclude<typeof _icon, undefined>;

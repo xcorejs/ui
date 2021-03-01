@@ -1,6 +1,6 @@
 import { x } from "@xstyled/emotion";
 import { Typography } from "components/Typography";
-import XcoreProvider from "components/XcoreProvider";
+import AnolisProvider from "components/AnolisProvider";
 import { FC } from "react";
 
 export default {
@@ -9,25 +9,25 @@ export default {
 
 export const Index: FC = () => {
   return (
-    <XcoreProvider>
+    <AnolisProvider>
       <x.h1>Basic usage</x.h1>
       <x.p>Simple typography and <a href="https://nextjs.org">simple links without imports</a>.</x.p>
-    </XcoreProvider>
+    </AnolisProvider>
   );
 };
 
 export const WithRichtext: FC = () => {
   return (
-    <XcoreProvider>
+    <AnolisProvider>
       <x.h1>With richtext</x.h1>
       <Richtext />
-    </XcoreProvider>
+    </AnolisProvider>
   );
 };
 
 export const WithCustomTypography: FC = () => {
   return (
-    <XcoreProvider>
+    <AnolisProvider>
       <x.h1>With custom typography</x.h1>
       <x.p>This story demonstrates different sets of typography</x.p>
 
@@ -37,7 +37,7 @@ export const WithCustomTypography: FC = () => {
           <x.p>This article has different set of typography.</x.p>
         </x.section>
       </Typography>
-    </XcoreProvider>
+    </AnolisProvider>
   );
 };
 

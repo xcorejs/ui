@@ -1,13 +1,13 @@
 import useTheme from "./useTheme";
-import { XcoreTheme } from "../theme";
+import { AnolisTheme } from "../theme";
 import { useMemo } from "react";
 import { merge } from "utils/merge";
 
 export const useComponentTheme = <
-  K extends keyof XcoreTheme,
-  V extends keyof XcoreTheme[K]["variants"],
-  S extends keyof XcoreTheme[K]["sizes"]
->(key: K, v?: V, s?: S): XcoreTheme[K]["baseStyle"] => {
+  K extends keyof AnolisTheme,
+  V extends keyof AnolisTheme[K]["variants"],
+  S extends keyof AnolisTheme[K]["sizes"]
+>(key: K, v?: V, s?: S): AnolisTheme[K]["baseStyle"] => {
   const root = useTheme();
 
   const theme = root[key];

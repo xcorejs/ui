@@ -1,6 +1,6 @@
-<img src="https://raw.githubusercontent.com/xcorejs/ui/develop/logo/logo-primary.svg?sanitize=true" alt="Xcore UI"/>
+<img src="https://raw.githubusercontent.com/xcorejs/ui/develop/logo/logo-primary.svg?sanitize=true" alt="Anolis UI logo"/>
 
-Xcore UI
+Anolis UI
 =======
 
 Flexible, themeable React component library for applications with advanced UI design requirements which is suitable for creating tailored design systems.

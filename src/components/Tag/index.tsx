@@ -1,7 +1,7 @@
 import { x } from "@xstyled/emotion";
 import Complement, { comp, ComplementProps } from "components/Complement";
 import { useComponentTheme } from "hooks/useComponentTheme";
-import { xcoreComponent } from "utils/xcoreComponent";
+import { anolisComponent } from "utils/anolisComponent";
 
 import { TagVariant } from "./theme";
 
@@ -9,7 +9,7 @@ export * from "./theme";
 
 export type TagProps = ComplementProps;
 
-export const Tag = xcoreComponent<"div", TagProps, TagVariant>("div", ({ children, v, ...p }, ref) => {
+export const Tag = anolisComponent<"div", TagProps, TagVariant>("div", ({ children, v, ...p }, ref) => {
   const theme = useComponentTheme("tag", v);
 
   const [left, right, props] = comp(p);

@@ -5,7 +5,7 @@ import { Txt } from "components/Typography/Txt";
 import { useComponentTheme } from "hooks/useComponentTheme";
 import { useContext, useEffect, useRef } from "react";
 import renderComponent, { Renderable } from "utils/renderComponent";
-import { xcoreComponent } from "utils/xcoreComponent";
+import { anolisComponent } from "utils/anolisComponent";
 
 import { ModalContext, ModalInstanceContext } from "./data";
 import { ModalThemeProps } from "./theme";
@@ -21,7 +21,7 @@ export interface ModalProps extends Omit<ModalThemeProps, "title"> {
   onClose?: () => unknown;
 }
 
-export const Modal = xcoreComponent<"div", ModalProps>("div", ({
+export const Modal = anolisComponent<"div", ModalProps>("div", ({
   children,
   onClose,
   persistent,

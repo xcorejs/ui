@@ -7,10 +7,10 @@ export * from "./components/Tag";
 export * from "./components/Icon";
 
 // Helper components
-export { default as XcoreProvider, XcoreProviderProps } from "./components/XcoreProvider";
+export { default as AnolisProvider, AnolisProviderProps } from "./components/AnolisProvider";
 
 // Theme
-export { XcoreTheme, createTheme } from "./theme";
+export { AnolisTheme, createTheme } from "./theme";
 
 // Hooks
 export { default as useTheme } from "./hooks/useTheme";

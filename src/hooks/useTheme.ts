@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { ThemeContext } from "@xstyled/emotion";
 
-import { XcoreTheme, emptyTheme } from "../theme";
+import { AnolisTheme, emptyTheme } from "../theme";
 
-export const useTheme = (): XcoreTheme => {
-  const theme: { xcore: XcoreTheme } | undefined = useContext<any>(ThemeContext);
+export const useTheme = (): AnolisTheme => {
+  const theme: { anolis: AnolisTheme } | undefined = useContext<any>(ThemeContext);
 
-  return theme ? theme.xcore ?? emptyTheme : emptyTheme;
+  return theme ? theme.anolis ?? emptyTheme : emptyTheme;
 };
 
 export default useTheme;
