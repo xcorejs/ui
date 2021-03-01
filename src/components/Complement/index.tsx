@@ -1,4 +1,4 @@
-import Icon, { IconProps } from "components/Icon";
+import { Icon, IconProps } from "components/Icon";
 import { FC } from "react";
 import renderComponent, { Renderable } from "utils/renderComponent";
 

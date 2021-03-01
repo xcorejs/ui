@@ -1,11 +1,12 @@
 // @ts-check
-import { DEFAULT_EXTENSIONS } from "@babel/core";
-import babel from "@rollup/plugin-babel";
-import { nodeResolve } from "@rollup/plugin-node-resolve";
-import tsPlugin from "rollup-plugin-typescript2";
-import typescript from "ttypescript";
+import { DEFAULT_EXTENSIONS } from '@babel/core';
+import babel from '@rollup/plugin-babel';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import reactSvg from 'rollup-plugin-react-svg';
+import tsPlugin from 'rollup-plugin-typescript2';
+import typescript from 'ttypescript';
 
-import pkg, { dependencies, peerDependencies } from "./package.json";
+import pkg, { dependencies, peerDependencies } from './package.json';
 
 const deps = Object.keys({
   ...dependencies,
@@ -19,19 +20,10 @@ const config = (input, outputCjs, outputEsm) => ({
     nodeResolve({
       moduleDirectories: ["node_modules", "src"]
     }),
+    reactSvg({}),
     tsPlugin({ typescript }),
     babel({
       babelHelpers: "runtime",
-      presets: [
-        "@babel/preset-env",
-        ["@babel/preset-react", {
-          runtime: "automatic"
-        }]
-      ],
-      plugins: [
-        "@babel/plugin-transform-runtime"
-
-      ],
       extensions: [
         ...DEFAULT_EXTENSIONS,
         ".ts",

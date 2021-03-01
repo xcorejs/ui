@@ -1,13 +1,12 @@
 import { x } from "@xstyled/styled-components";
-import { ReactNode } from "react";
-import renderComponent from "utils/renderComponent";
+import renderComponent, { Renderable } from "utils/renderComponent";
 import { xcoreComponent } from "utils/xcoreComponent";
 
 export type IconProps = {
-  svg?: ReactNode;
+  svg?: Renderable;
 };
 
-const Icon = xcoreComponent<"span", IconProps>(({ svg, children, ...props }, ref) => {
+export const Icon = xcoreComponent<"span", IconProps>(({ svg, children, ...props }, ref) => {
   return (
     <x.span
       ref={ref as any}
@@ -21,5 +20,3 @@ const Icon = xcoreComponent<"span", IconProps>(({ svg, children, ...props }, ref
     </x.span>
   );
 });
-
-export default Icon;

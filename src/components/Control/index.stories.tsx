@@ -1,18 +1,17 @@
 import { x } from "@xstyled/styled-components";
 import { FC } from "react";
 import StoryLayout from "stories/StoryLayout";
-import CloseSvg from "../icons/close.svg";
-import { Icon } from ".";
+import { Control } from ".";
 
 export default {
-  title: "Unthemed/Icon"
+  title: "Themed/Control"
 };
 
 export const Normal: FC = () => {
   return (
-    <StoryLayout>
+    <StoryLayout title="Card">
       <x.div display="flex" justifyContent="space-around" spaceX="2" flexWrap="wrap">
-        <Icon><CloseSvg /></Icon>
+        <Control />
       </x.div>
     </StoryLayout>
   );
