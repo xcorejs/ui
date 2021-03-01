@@ -4,7 +4,7 @@ import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme"
 export type TypographyVariant = "normal";
 export type TypographySize = never;
 
-export interface TypographyThemeProps {
+export interface TypographyThemeProps extends PseudoProp {
   _h1?: PseudoProp;
   _h2?: PseudoProp;
   _h3?: PseudoProp;

@@ -3,7 +3,7 @@ import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme"
 
 export type ControlSizes = "xs" | "sm" | "md" | "lg";
 
-export interface ControlThemeProps {
+export interface ControlThemeProps extends PseudoProp {
   _icon?: PseudoProp;
 }
 

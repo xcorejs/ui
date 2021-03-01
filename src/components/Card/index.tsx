@@ -9,7 +9,7 @@ import { useComponentTheme } from "hooks/useComponentTheme";
 
 export * from "./theme";
 
-export interface CardProps extends CardThemeProps {
+export interface CardProps extends Omit<CardThemeProps, "title"> {
   header?: Renderable;
   title?: Renderable;
   tag?: Renderable;

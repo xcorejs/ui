@@ -5,10 +5,10 @@ import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme"
 
 export type ModalSize = "sm" | "md" | "lg" | "full";
 
-export interface ModalThemeProps {
-  _title?: TypographyThemeProps & PseudoProp;
+export interface ModalThemeProps extends PseudoProp {
+  _title?: PseudoProp;
   _header?: PseudoProp;
-  _close?: ControlThemeProps & PseudoProp;
+  _close?: ControlThemeProps;
   _overlay?: PseudoProp;
 }
 

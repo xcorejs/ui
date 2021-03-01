@@ -3,7 +3,7 @@ import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme"
 
 export type CardVariant = "normal" | "elevated" | "outline";
 
-export interface CardThemeProps {
+export interface CardThemeProps extends PseudoProp {
   _header?: PseudoProp;
   _title?: PseudoProp;
   _tag?: PseudoProp;

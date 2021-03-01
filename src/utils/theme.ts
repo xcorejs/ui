@@ -1,10 +1,10 @@
 import { merge } from "./merge";
 import { PseudoProp } from "./PseudoProp";
 
-export interface ComponentTheme<P = {}, V extends keyof any = never, S extends keyof any = never> {
-  baseStyle: P & PseudoProp;
-  sizes: Record<S, P & PseudoProp>;
-  variants: Record<V, P & PseudoProp>;
+export interface ComponentTheme<P extends PseudoProp = PseudoProp, V extends keyof any = never, S extends keyof any = never> {
+  baseStyle: P;
+  sizes: Record<S, P>;
+  variants: Record<V, P>;
   defaultProps: {
     s?: S;
     v?: V;

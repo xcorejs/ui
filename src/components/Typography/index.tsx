@@ -43,43 +43,43 @@ export const Typography = xcoreComponent<"div", TypographyProps, TypographyVaria
   );
 });
 
-const TypographyStyle = styled.divBox<Required<TypographyThemeProps>>`
+const TypographyStyle = styled.divBox<TypographyThemeProps>`
   h1, ._xcore-as-h1 {
-    ${p => css(system(p._h1))}
+    ${p => css(system(p._h1!))}
   }
 
   h2, ._xcore-as-h2 {
     ${p => {
-      const a = css(system(p._h2));
+      const a = css(system(p._h2!));
       return a;
     }}
   }
 
   h3, ._xcore-as-h3 {
-    ${p => css(system(p._h3))}
+    ${p => css(system(p._h3!))}
   }
 
   h4, ._xcore-as-h4 {
-    ${p => css(system(p._h4))}
+    ${p => css(system(p._h4!))}
   }
 
   h5, ._xcore-as-h5 {
-    ${p => css(system(p._h5))}
+    ${p => css(system(p._h5!))}
   }
 
   h6, ._xcore-as-h6 {
-    ${p => css(system(p._h6))}
+    ${p => css(system(p._h6!))}
   }
 
   p, ._xcore-as-p {
-    ${p => css(system(p._p))}
+    ${p => css(system(p._p!))}
   }
 
   ._xcore-as-lead {
-    ${p => css(system(p._lead))}
+    ${p => css(system(p._lead!))}
   }
 
   a, ._xcore-as-a  {
-    ${p => css(system(p._a))}
+    ${p => css(system(p._a!))}
   }
 `;

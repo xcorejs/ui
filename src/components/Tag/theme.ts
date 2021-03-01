@@ -1,9 +1,10 @@
 import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
 import { ComplementThemeProps } from "components/Complement";
+import { PseudoProp } from "utils/PseudoProp";
 
 export type TagVariant = "solid" | "outline" | "clear";
 
-export interface TagThemeProps extends ComplementThemeProps {
+export interface TagThemeProps extends ComplementThemeProps, PseudoProp {
 
 }
 

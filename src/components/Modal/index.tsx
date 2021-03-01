@@ -13,7 +13,7 @@ import { ModalThemeProps } from "./theme";
 export * from "./theme";
 export * from "./data";
 
-export interface ModalProps extends ModalThemeProps {
+export interface ModalProps extends Omit<ModalThemeProps, "title"> {
   title?: Renderable;
   header?: Renderable;
 
