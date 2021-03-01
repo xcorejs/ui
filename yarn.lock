@@ -1108,6 +1108,22 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@emotion-icons/emotion-icon@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@emotion-icons/emotion-icon/-/emotion-icon-4.0.0.tgz#d0eb1331c01461b309e58dbcec735ff4d8bd5408"
+  integrity sha512-Kxu6WgspOrGzBObPMp0xy+V4HaCNDTUAurxPM26Twnj+Tal4luktV2dQBJX9ElEfV59zVFsUs1DiuOdsxUNtPw==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    "@emotion/is-prop-valid" "^1.0.0"
+
+"@emotion-icons/feather@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@emotion-icons/feather/-/feather-3.0.0.tgz#b8d3651cba1cce16fede86e15b0e4d7d5353198f"
+  integrity sha512-ZRr+VQDe0cgvUhw/VwenBMtn1g80BJp4gj2fIUGPLqirc/B75ICgqUWG6fVp5d4bnq/Ve1606Qf9S7X33ng7Rw==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    "@emotion-icons/emotion-icon" "4.0.0"
+
 "@emotion/babel-plugin-jsx-pragmatic@^0.1.4":
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/@emotion/babel-plugin-jsx-pragmatic/-/babel-plugin-jsx-pragmatic-0.1.5.tgz#27debfe9c27c4d83574d509787ae553bf8a34d7e"
@@ -1166,11 +1182,6 @@
     "@emotion/sheet" "0.9.4"
     "@emotion/utils" "0.11.3"
 
-"@emotion/core@^11.0.0":
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/@emotion/core/-/core-11.0.0.tgz#d075867e07864119de7cfd5268c15012bd2d6290"
-  integrity sha512-w4sE3AmHmyG6RDKf6mIbtHpgJUSJ2uGvPQb8VXFL7hFjMPibE8IiehG8cMX3Ztm4svfCQV6KqusQbeIOkurBcA==
-
 "@emotion/css@^10.0.27":
   version "10.0.27"
   resolved "https://registry.yarnpkg.com/@emotion/css/-/css-10.0.27.tgz#3a7458198fbbebb53b01b2b87f64e5e21241e14c"
@@ -1192,7 +1203,7 @@
   dependencies:
     "@emotion/memoize" "0.7.4"
 
-"@emotion/is-prop-valid@^1.1.0":
+"@emotion/is-prop-valid@^1.0.0", "@emotion/is-prop-valid@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-1.1.0.tgz#29ef6be1e946fb4739f9707def860f316f668cde"
   integrity sha512-9RkilvXAufQHsSsjQ3PIzSns+pxuX4EW8EbGeSPjZMHuMx6z/MOzb9LpqNieQX4F3mre3NWS2+X3JNRHTQztUQ==
