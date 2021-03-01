@@ -14,7 +14,7 @@ const theme = {
 
 export const Normal: FC = () => {
   return (
-    <StoryLayout>
+    <StoryLayout title="Tag">
       <x.div display="flex" spaceX="2">
         <Tag>Tag</Tag>
         <Tag>Tag</Tag>
