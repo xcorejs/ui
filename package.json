@@ -1,82 +1,17 @@
 {
-  "name": "anolis-ui",
-  "version": "0.7.3",
-  "description": "Flexible, themeable React component library for applications with advanced UI design requirements which is suitable for creating tailored design systems.",
-  "main": "lib/index.js",
-  "module": "lib/index.es.js",
-  "jsnext:main": "lib/index.es.js",
-  "types": "lib/index.d.ts",
-  "repository": "https://github.com/xcorejs/ui",
-  "license": "MIT",
-  "contributors": [
-    {
-      "name": "Denis Homolik",
-      "email": "denis@homolik.cz",
-      "url": "http://homolik.cz"
-    },
-    {
-      "name": "Pavel Vondrasek",
-      "email": "pavel@appio.cz"
-    },
-    {
-      "name": "Tomas Nyvlt",
-      "email": "tomas@nyvlt.xyz"
-    },
-    {
-      "name": "Martin Skara",
-      "email": "jsem@skaramart.in"
-    }
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "website"
   ],
   "scripts": {
-    "build": "yarn rollup -c",
-    "dev": "yarn rollup -c -w",
-    "prepare": "yarn rollup -c",
-    "storybook": "start-storybook -p 6006",
-    "storybook-ci": "start-storybook --ci --smoke-test",
-    "ts-check": "yarn tsc --noEmit",
-    "lint": "eslint \"{src,stories}/**/*.{ts,tsx}\"",
-    "ci": "yarn lint && yarn build && yarn test && yarn storybook-ci",
-    "test": "jest",
-    "build-storybook": "build-storybook"
-  },
-  "dependencies": {
-    "@babel/runtime": "^7.13.7",
-    "@emotion-icons/feather": "^3.0.0",
-    "@emotion/react": "^11.1.5",
-    "@emotion/styled": "^11.1.5",
-    "@reach/portal": "^0.13.2",
-    "@xstyled/emotion": "^2.2.3",
-    "hoist-non-react-statics": "^3.3.2",
-    "lorem-ipsum": "^2.0.3",
-    "polished": "^3.4.4",
-    "react-animate-height": "^2.0.23",
-    "tslib": "^2.1.0",
-    "use-debounce": "^3.3.0"
-  },
-  "peerDependencies": {
-    "@emotion/react": "^11.0.0",
-    "@emotion/styled": "^11.0.0",
-    "react": ">= 16.8.0"
+    "build": "lerna run build --ignore @anolis/website"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.1",
-    "@babel/plugin-transform-runtime": "^7.13.7",
-    "@babel/preset-env": "^7.13.5",
-    "@babel/preset-react": "^7.12.13",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-node-resolve": "^11.2.0",
-    "@storybook/addon-essentials": "^6.1.20",
-    "@storybook/addon-storysource": "^6.1.20",
-    "@storybook/react": "^6.1.20",
-    "@types/hoist-non-react-statics": "^3.3.1",
-    "@types/jest": "^26.0.20",
-    "@types/react": "^17.0.2",
-    "@types/react-is": "^17.0.0",
-    "@types/react-test-renderer": "^17.0.1",
+    "lerna": "^3.22.1",
     "@typescript-eslint/eslint-plugin": "^4.15.2",
     "@typescript-eslint/parser": "^4.15.2",
-    "@xstyled/babel-preset-emotion-css-prop": "^2.2.2",
-    "babel-loader": "^8.2.2",
     "eslint": "^7.20.0",
     "eslint-config-alfonz": "^0.3.0",
     "eslint-config-standard": "^16.0.2",
@@ -86,25 +21,6 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-standard": "^5.0.0",
-    "jest": "^26.6.3",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-is": "^17.0.1",
-    "react-test-renderer": "^17.0.1",
-    "rollup": "^2.40.0",
-    "rollup-plugin-react-svg": "^3.0.3",
-    "rollup-plugin-typescript2": "^0.30.0",
-    "ts-loader": "^8.0.17",
-    "ts-node": "^9.1.1",
-    "ttypescript": "^1.5.12",
-    "typescript": "^4.2.2",
-    "typescript-transform-paths": "^2.2.3"
-  },
-  "keywords": [
-    "react",
-    "typescript",
-    "design-system",
-    "css-in-js",
-    "emotion"
-  ]
+    "typescript": "^4.2.2"
+  }
 }

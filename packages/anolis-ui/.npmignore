@@ -1,23 +1,16 @@
 .storybook
-coverage
 # lib
 logo
 # node_modules
-src
+# src
 stories
 tests
 
-.babelrc
-.editorconfig
-.eslintrc.json
-.gitignore
-.travis.yml
+babelrc.config.js
 jest.config.json
 # LICENSE
 # package.json
 # README.md
 rollup.config.json
-tsconfig.build.json
-tsconfig.eslint.json
 tsconfig.json
-yarn.lock
+# yarn.lock

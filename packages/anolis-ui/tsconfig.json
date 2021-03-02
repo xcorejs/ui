@@ -3,6 +3,7 @@
     "baseUrl": "./src",
     "module": "esnext",
     "target": "esnext",
+    "jsx": "preserve",
     "moduleResolution": "node",
     "lib": [
       "dom",
@@ -15,15 +16,30 @@
     "isolatedModules": false,
     "esModuleInterop": true,
     "resolveJsonModule": true,
+    "sourceMap": true,
+    "importHelpers": true,
+    "declaration": true,
+    "rootDir": "./src",
+    "noEmit": false,
+    "paths": {
+      "*": [
+        "*"
+      ]
+    },
+    "plugins": [
+      {
+        "transform": "typescript-transform-paths",
+        "afterDeclarations": true
+      }
+    ],
     "noImplicitReturns": false,
-    "allowJs": true
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist"
   ],
   "include": [
-    "packages",
-    "website",
-    "**/*.js"
+    "src",
+    "**/*.d.ts",
   ]
 }
