@@ -18,7 +18,7 @@ export const Tag = anolisComponent<"div", TagProps, TagVariant>("div", ({ childr
     <x.div ref={ref as any} {...theme} {...props}>
       <Complement {...theme._leftIcon} {...left} />
       {children}
-      <Complement {...theme._leftIcon} {...right} />
+      <Complement {...theme._rightIcon} {...right} />
     </x.div>
   );
 });

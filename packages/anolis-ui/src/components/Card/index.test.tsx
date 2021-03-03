@@ -1,6 +1,6 @@
 import { Card } from ".";
 import { x } from "@xstyled/emotion";
-import { FC } from "react";
+import React, { FC } from "react";
 import renderer from "react-test-renderer";
 
 test("Card component", () => {

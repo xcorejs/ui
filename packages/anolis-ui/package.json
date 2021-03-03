@@ -36,7 +36,6 @@
     "ts-check": "yarn tsc --noEmit",
     "lint": "eslint \"{src,stories}/**/*.{ts,tsx}\"",
     "ci": "yarn lint && yarn build && yarn test && yarn storybook-ci",
-    "test": "jest",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
@@ -69,14 +68,11 @@
     "@storybook/addon-storysource": "^6.1.20",
     "@storybook/react": "^6.1.20",
     "@types/hoist-non-react-statics": "^3.3.1",
-    "@types/jest": "^26.0.20",
     "@types/react": "^17.0.2",
     "@types/react-is": "^17.0.0",
     "@types/react-test-renderer": "^17.0.1",
-
     "@xstyled/babel-preset-emotion-css-prop": "^2.2.2",
     "babel-loader": "^8.2.2",
-    "jest": "^26.6.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-is": "^17.0.1",
