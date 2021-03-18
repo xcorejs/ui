@@ -39,8 +39,6 @@ export type CardProps =
 export type ExtendedCardProps = {
   v?: CardVariant;
   variant?: CardVariant;
-
-  children?: ReactNode;
 } & CardProps;
 
 const Card = forwardRef<HTMLDivElement, ExtendedCardProps>(({
@@ -112,7 +110,7 @@ const Card = forwardRef<HTMLDivElement, ExtendedCardProps>(({
       )}
 
       {tag && (
-        <Tag position="absolute" top="0" right="0" alignSelf="center" m={_header.p ?? _header.padding} {..._tag}>
+        <Tag position="absolute" top="0" right="0" alignSelf="center" m={_header?.p ?? _header?.padding} {..._tag}>
           {renderComponent(tag)}
         </Tag>
       )}
@@ -136,7 +134,7 @@ const Card = forwardRef<HTMLDivElement, ExtendedCardProps>(({
       )}
 
       {footer && (
-        <Flex order={4} {..._footer} padding={_footer.p ?? _footer.padding ?? innerPadding}>
+        <Flex order={4} {..._footer} padding={_footer?.p ?? _footer?.padding ?? innerPadding}>
           {renderComponent(footer)}
         </Flex>
       )}

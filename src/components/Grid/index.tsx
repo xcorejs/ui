@@ -2,7 +2,7 @@ import { ResponsiveValue, system } from '@styled-system/core';
 import { BoxBaseProps, composedBoxBase } from 'bases';
 import { gridConfig } from 'bases/config/grid';
 import CSS from 'csstype';
-import React, { createContext, FC } from 'react';
+import React, { createContext, FC, forwardRef, ReactNode } from 'react';
 import { Breakpoints } from 'scales/breakpoints';
 import styled, { css } from 'styled-components';
 import useTheme from 'useTheme';
@@ -41,7 +41,7 @@ export const GridContext = createContext<{ gap?: ResponsiveValue<CSS.GapProperty
 
 export type ExtendedGridProps = GridProps;
 
-const Grid: FC<ExtendedGridProps> = ({ columns, rows, gap, ...props }) => {
+const Grid = forwardRef<HTMLDivElement, ExtendedGridProps>(({ columns, rows, gap, ...props }, ref) => {
   const { breakpoints } = useTheme();
   const t = transform(breakpoints);
 
@@ -52,11 +52,12 @@ const Grid: FC<ExtendedGridProps> = ({ columns, rows, gap, ...props }) => {
         rows={t(rows)}
         gap={t(gap)}
         breakpoints={breakpoints}
+        ref={ref}
         {...props}
       />
     </GridContext.Provider>
   );
-};
+});
 
 Grid.displayName = 'Grid';
 

@@ -1,6 +1,6 @@
 import { flexBase, FlexBaseProps, textBase, TextBaseProps } from 'bases';
 import Complement, { comp, ComplementProps } from 'components/Complement';
-import React, { FC } from 'react';
+import React, { FC, forwardRef, ReactNode } from 'react';
 import styled from 'styled-components';
 import useTheme from 'useTheme';
 import { compose } from 'utils/baseStyle';
@@ -20,7 +20,7 @@ export type ExtendedTagProps = {
   v?: TagVariant;
 } & TagProps;
 
-const Tag: FC<ExtendedTagProps> = ({ children, ...p }) => {
+const Tag = forwardRef<HTMLDivElement, ExtendedTagProps>(({ children, ...p }, ref) => {
   const { tag } = useTheme();
 
   const m = useMerge(
@@ -28,9 +28,7 @@ const Tag: FC<ExtendedTagProps> = ({ children, ...p }) => {
     typeVariant(tag, 'solid', p),
     tag.default
   );
-  const [left, right, props] = comp(
-    m
-  );
+  const [left, right, props] = comp(m);
 
   return (
     <TagStyle
@@ -39,13 +37,14 @@ const Tag: FC<ExtendedTagProps> = ({ children, ...p }) => {
       userSelect='none'
       transition='color 300ms, background 300ms, border-color 300ms'
       {...props}
+      ref={ref}
     >
       <Complement {...left} />
       {children}
       <Complement {...right} />
     </TagStyle>
   );
-};
+});
 
 export default Tag;
 

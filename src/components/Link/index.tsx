@@ -16,8 +16,6 @@ export type ExtendedLinkProps = {
   as?: LinkAs;
   variant?: LinkVariant;
   v?: LinkVariant;
-
-  children?: ReactNode;
 } & LinkProps;
 
 const Link = forwardRef<HTMLAnchorElement, ExtendedLinkProps>((p, ref) => {

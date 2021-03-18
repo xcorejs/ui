@@ -8,22 +8,20 @@ import { shouldForwardProp } from 'utils/withConfig';
 
 export type ImgProps =
   {
-    src: string;
-    alt: string;
     objectFit?: ResponsiveValue<CSS.ObjectFitProperty>;
   }
-  & ImgHTMLAttributes<HTMLImageElement>
+  & Omit<ImgHTMLAttributes<HTMLImageElement>, 'width' | 'height'>
   & BoxProps;
 
 const Img: FC<ImgProps> = ({ ...props }) =>
-  <ImgStyle {...props} />
+  <ImgStyle as={'img' as any} {...props} />
 ;
 
 export default Img;
 
 const imgSystem = system({ objectFit: true });
 
-const ImgStyle = styled.img.withConfig<ImgProps>({ shouldForwardProp })`
+const ImgStyle = styled.div.withConfig<ImgProps>({ shouldForwardProp })`
   ${composedBoxBase}
   ${imgSystem}
 `;

@@ -1,7 +1,7 @@
 import { composedTextBase, TextBaseProps } from 'bases';
 import { TLen } from 'components/Box';
 import CSS from 'csstype';
-import React, { FC } from 'react';
+import React, { FC, forwardRef, ReactNode } from 'react';
 import styled from 'styled-components';
 import { system, ResponsiveValue } from '@styled-system/core';
 import useTheme from 'useTheme';
@@ -41,7 +41,7 @@ export type ExtendedListProps = {
   as?: 'ul' | 'ol';
 } & ListProps;
 
-const List: FC<ExtendedListProps> = p => {
+const List = forwardRef<HTMLUListElement, ExtendedListProps>((p, ref) => {
   const { list } = useTheme();
 
   const type = p.v ?? p.variant ?? 'unordered';
@@ -49,9 +49,9 @@ const List: FC<ExtendedListProps> = p => {
   const props = useMerge(p, typeVariant(list, 'unordered', p), list.default);
 
   return (
-    <ListStyle as={type === 'unordered' ? 'ul' : 'ol'} {...props} />
+    <ListStyle as={type === 'unordered' ? 'ul' : 'ol'} {...props} ref={ref} />
   );
-};
+});
 
 List.displayName = 'List';
 
