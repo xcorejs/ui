@@ -1,0 +1,41 @@
+import Header from "../components/Header";
+import PropsTable from "../components/PropsTable";
+import { Button, Stack, Icon } from "@xcorejs/ui";
+import XcoreIcon from "../components/icons/16/xcore.svg";
+
+<Header
+  title="Icon"
+/>
+
+This is an icon.
+
+<Icon svg={<XcoreIcon/>} />
+
+```jsx
+import { Icon } from "@xcorejs/ui";
+
+<Icon svg={<XcoreIcon/>} />
+```
+
+
+<Icon svg={<XcoreIcon/>} fill="red" fillHover="blue" />
+
+```jsx
+import { Icon } from "@xcorejs/ui";
+
+<Icon svg={<XcoreIcon/>} fill="red" fillHover="blue" />
+```
+
+## Props
+
+### IconProps
+
+Extends: Flex
+
+<PropsTable
+  props={[
+    ["svg", "ReactNode", null, "Node"],
+    ["fill", "string", null, "The fill color of icon"],
+    ["fillHover", "string", null, "The hover fill color of icon"],
+  ]}
+/>

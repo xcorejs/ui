@@ -1,0 +1,225 @@
+import Header from "../components/Header";
+import PropsTable from "../components/PropsTable";
+import Extends from "../components/Extends";
+import { Button, Stack } from "@xcorejs/ui";
+
+<Header
+  title="Button"
+  themable
+/>
+
+This is a button
+
+<Button>Button</Button>
+
+```jsx
+import { Button } from "@xcorejs/ui";
+
+<Button>Button</Button>
+```
+
+## Variants
+
+Default: *solid*
+
+<Stack gap="1rem" alignItems="center">
+  <Button variant="solid">Solid</Button>
+  <Button variant="clear">Clear</Button>
+  <Button variant="outline">Outline</Button>
+  <Button variant="link">Link</Button>
+</Stack>
+
+```jsx
+<Stack gap="1rem" alignItems="center">
+  <Button variant="solid">Solid</Button>
+  <Button variant="clear">Clear</Button>
+  <Button variant="outline">Outline</Button>
+  <Button variant="link">Link</Button>
+</Stack>
+```
+
+## Sizes
+
+Default: *md*
+
+<Stack gap="1rem" alignItems="center">
+  <Button size="xs">Extra small</Button>
+  <Button size="sm">Small</Button>
+  <Button size="md">Medium</Button>
+  <Button size="lg">Large</Button>
+</Stack>
+
+```jsx
+<Stack gap="1rem" alignItems="center">
+  <Button size="xs">Extra small</Button>
+  <Button size="sm">Small</Button>
+  <Button size="md">Medium</Button>
+  <Button size="lg">Large</Button>
+</Stack>
+```
+
+## Props
+
+### ButtonProps
+
+<Extends props={["ComplementProps", "FlexProps", "TextProps"]} />
+
+<PropsTable
+  props={[
+    ["_spinner", "SpinnerProps", null, "Props for loading spinner."]
+  ]}
+/>
+
+### ExtendedButtonProps
+
+<PropsTable
+  props={[
+    ["loading", "boolean", null, "Toggles loading state"],
+    ["disabled", "boolean", null, "Toggles disabled state"],
+    ["loading", "boolean", null, "Props for loading spinner."],
+    ["size", ["'xs'", "'sm'", "'md'", "'lg'"], "md", "Size"],
+    ["s", ["'xs'", "'sm'", "'md'", "'lg'"], null, "Size alias"],
+    ["variant", ["'solid'", "'clear'", "'outline'", "'link'"], "solid", "Variant"],
+    ["v", ["'solid'", "'clear'", "'outline'", "'link'"], null, "Variant alias"]
+  ]}
+/>
+
+## Theme
+
+```tsx
+export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg';
+export type ButtonVariant = 'solid' | 'clear' | 'outline' | 'link';
+
+export type ButtonAs = 'button' | 'div' | 'a';
+
+interface ButtonValue {
+  default: ButtonProps;
+  sizes: Record<ButtonSize, ButtonProps>;
+  variants: Record<ButtonVariant, ButtonProps>;
+}
+```
+
+## Default theme
+
+```tsx
+const emptyButton: ButtonValue = {
+  default: {
+    fontWeight: 500,
+    fontFamily: 'text',
+    fontSize: '1.4rem',
+    lineHeight: '2.4rem',
+    borderRadius: '0.3rem',
+
+    display: 'inline-flex',
+    bg: 'transparent',
+    border: '0.1rem solid transparent',
+    transition: 'background 300ms, color 300ms, border 300ms, box-shadow 300ms',
+    cursor: 'pointer',
+    textDecoration: 'none',
+    alignItems: 'center',
+    _disabled: {
+      cursor: 'not-allowed'
+    }
+  },
+  sizes: {
+    xs: {
+      py: 0,
+      px: '0.8rem',
+      fontSize: '1.2rem',
+      lineHeight: '1.8rem'
+    },
+    sm: {
+      px: '1.2rem',
+      py: '0.3rem',
+      fontSize: '1.3rem'
+    },
+    md: {
+      px: '2rem',
+      py: '0.7rem',
+      fontSize: '1.4rem'
+    },
+    lg: {
+      px: '3rem',
+      py: '1.2rem',
+      fontSize: '1.6rem'
+    }
+  },
+  variants: {
+    solid: {
+      bg: 'primary',
+      color: 'background',
+      _hover: {
+        bg: darken('primary', 0.025)
+      },
+      _active: {
+        bg: darken('primary', 0.05)
+      },
+      _focus: {
+        bg: darken('primary', 0.05),
+        outline: '2px solid rgba(15, 31, 40, 0.2)',
+        outlineOffset: '-2px'
+      },
+      _disabled: {
+        opacity: 0.5
+      }
+    },
+    clear: {
+      color: 'primary',
+      _hover: {
+        bg: opacify('primary', 0.1)
+      },
+      _active: {
+        bg: opacify('primary', 0.2)
+      },
+      _focus: {
+        bg: opacify('primary', 0.2),
+        outline: '2px solid rgba(15, 31, 40, 0.2)',
+        outlineOffset: '-2px'
+      },
+      _disabled: {
+        opacity: 0.5
+      }
+    },
+    outline: {
+      border: '1px solid',
+      borderColor: 'primary',
+      color: 'primary',
+      _hover: {
+        bg: opacify('primary', 0.1)
+      },
+      _active: {
+        bg: opacify('primary', 0.2)
+      },
+      _focus: {
+        bg: opacify('primary', 0.2),
+        outline: '2px solid rgba(15, 31, 40, 0.2)',
+        outlineOffset: '-2px'
+      },
+      _disabled: {
+        opacity: 0.5
+      }
+    },
+    link: {
+      padding: 0,
+      color: 'primary',
+      borderRadius: 0,
+      border: 0,
+      borderBottom: '1px solid transparent',
+      _hover: {
+        borderBottom: '1px solid',
+        borderColor: 'primary'
+      },
+      _active: {
+        color: '#036199'
+      },
+      _focus: {
+        outline: '2px solid rgba(15, 31, 40, 0.2)',
+        outlineOffset: '-2px'
+      },
+      _disabled: {
+        opacity: 0.5
+      }
+    }
+  }
+};
+```

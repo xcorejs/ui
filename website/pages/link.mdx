@@ -1,0 +1,52 @@
+import Header from "../components/Header";
+import PropsTable from "../components/PropsTable";
+import { Button, Stack, Link } from "@xcorejs/ui";
+
+<Header
+  title="Link"
+  themable
+/>
+
+This is a link.
+
+<Link>
+  Link
+</Link>
+
+```jsx
+import { Link } from "@xcorejs/ui";
+
+<Link>Link</Link>
+```
+
+## Variants
+
+Default: *simple*
+
+<Stack gap="1rem" alignItems="center">
+  <Link>Simple</Link>
+  <Link variant="underline">Underline</Link>
+</Stack>
+
+```jsx
+<Stack gap="1rem" alignItems="center">
+  <Link>Simple</Link>
+  <Link variant="underline">Underline</Link>
+</Stack>
+```
+
+## Props
+
+### LinkProps
+
+Extends: TextBase
+
+### ExtendedLinkProps
+
+<PropsTable
+  props={[
+    ["as", ["a", "span"], "a", "Rendered component"],
+    ["variant", ["simple", "underline"], "simple", "Variants"],
+    ["v", ["simple", "underline"], "simple", "Variants alias"],
+  ]}
+/>

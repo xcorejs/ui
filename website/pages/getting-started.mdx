@@ -1,0 +1,53 @@
+import Header from "../components/Header";
+
+<Header
+  title="Getting started"
+/>
+
+Install Xcore UI...
+
+```
+yarn add @xcorejs/ui
+
+npm install @xcorejs/ui
+```
+
+and its peer dependencies.
+
+```
+yarn add styled-components
+
+
+npm install styled-components
+```
+
+## Theme
+
+You can start using Xcore UI right out of box, but to take full advantage of theme and functionalities like modals you need to add an `XcoreProvider`. `XcoreProvider` injects base styles and adds Xcore context.
+
+```tsx
+import { XcoreProvider, createTheme } from "@xcorejs/ui";
+
+const customTheme = createTheme();
+
+const App: FC = () => {
+  return (
+    <XcoreProvider
+      theme={customTheme} // Optionaly, you can set your theme
+      disableGlobalStyles // Optionaly, you can disable global styles injected by Xcore UI
+    >
+      {/* Your app */}
+    </XcoreProvider>
+  )
+};
+```
+
+## Usage
+
+Simply import components you need from `@xcorejs/ui`.
+
+```tsx
+import { Button } from "@xcorejs/ui";
+
+<Button>Button</Button>
+```
