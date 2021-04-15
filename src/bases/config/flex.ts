@@ -14,5 +14,18 @@ export const flexConfig: Config = {
   flexBasis: true,
   justifySelf: true,
   alignSelf: true,
-  order: true
+  order: true,
+  // aliases
+  direction: {
+    property: 'flexDirection'
+  },
+  align: {
+    property: 'alignItems'
+  },
+  justify: {
+    property: 'justifyContent'
+  },
+  wrap: {
+    property: 'flexWrap'
+  }
 };

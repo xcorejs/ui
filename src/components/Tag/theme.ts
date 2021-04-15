@@ -21,7 +21,8 @@ export const tag = (t?: {
 const emptyTag: TagValue = {
   default: {
     borderRadius: '0.3rem',
-    border: '1px solid #455663',
+    border: '1px solid',
+    borderColor: 'gray.700',
     px: '0.8rem',
     fontFamily: 'text',
     fontSize: '1.2rem',

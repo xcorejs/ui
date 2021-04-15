@@ -20,9 +20,9 @@ export type ExtendedTypographyProps =
 
 const Typography = forwardRef<HTMLDivElement, ExtendedTypographyProps>(({ as: _as, ...p }, ref) => {
   const { typography } = useTheme();
-  const type = p.variant ?? p.v ?? 'p';
+  const type = p.variant ?? p.v;
 
-  const as: TypographyAs = _as ?? (type === 'lead' ? 'p' : type);
+  const as: TypographyAs | undefined = _as ?? (type === 'lead' ? 'p' : type);
 
   const props = useMerge(
     p,
@@ -37,6 +37,6 @@ const Typography = forwardRef<HTMLDivElement, ExtendedTypographyProps>(({ as: _a
 
 export default Typography;
 
-const TypographyStyle = styled.p.withConfig<TypographyProps>({ shouldForwardProp })`
+const TypographyStyle = styled.div.withConfig<TypographyProps>({ shouldForwardProp })`
   ${composedTextBase}
 `;

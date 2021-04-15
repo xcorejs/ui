@@ -1,5 +1,6 @@
 import { CloseControlProps } from '.';
 import { mergeThemes } from 'utils/mergeThemes';
+import { darken } from 'scales/colors';
 
 export type CloseControlSizes = 'xs' | 'sm' | 'md' | 'lg';
 

@@ -1,5 +1,6 @@
 import { CardProps } from '.';
 import { mergeThemes } from 'utils/mergeThemes';
+import { transparentize } from '../../scales/colors';
 
 export type CardVariant = 'normal' | 'elevated' | 'outline';
 
@@ -37,7 +38,8 @@ const emptyCard: CardValue = {
       boxShadow: '0 0.3rem 0.8rem 0 rgba(36, 49, 70, 0.25)'
     },
     outline: {
-      border: '1px solid rgba(69, 86, 99, 0.5)'
+      border: '1px solid',
+      borderColor: transparentize('gray.700', 0.5)
     }
   }
 };

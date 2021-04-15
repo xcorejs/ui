@@ -61,8 +61,16 @@ export type BoxBaseProps =
     WebkitTapHighlightColor?: system.ResponsiveValue<CSS.WebkitTapHighlightColorProperty>;
 
     // Aliases
-    column?: ResponsiveValue<CSS.GridColumnProperty>;
-    row?: ResponsiveValue<CSS.GridRowProperty>;
+    column?: system.GridColumnProps['gridColumn'];
+    row?: system.GridRowProps['gridRow'];
+
+    w: system.LayoutProps['width'];
+    maxW: system.LayoutProps['maxWidth'];
+    minW: system.LayoutProps['minWidth'];
+
+    h: system.LayoutProps['height'];
+    maxH: system.LayoutProps['maxHeight'];
+    minH: system.LayoutProps['minHeight'];
 
     theme?: XcoreTheme;
   }
@@ -92,6 +100,12 @@ export type GlobalBaseProps = {
 } & BoxBaseProps;
 
 export type FlexBaseProps =
+  {
+    direction?: system.FlexboxProps['flexDirection'];
+    align?: system.FlexboxProps['alignItems'];
+    justify?: system.FlexboxProps['justifyContent'];
+    wrap?: system.FlexboxProps['flexWrap'];
+  }
   & system.FlexboxProps
   & BoxBaseProps;
 
